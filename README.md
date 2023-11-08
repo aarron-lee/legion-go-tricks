@@ -54,11 +54,16 @@ followed by
 ### [Where to find ChimeraOS for your Legion Go](https://chimeraos.org/download/)
 Please see the installation section of the ChimeraOS website, just remember to install the unstable branch as mentioned earlier in this guide.
 
+### [Device immediately waking up from suspend](guides/suspend_workaround.md)
+
+Some users are reporting that suspend/resume is not working, try the workaround [here](guides/suspend_workaround.md)
+
 ### [How to install Handycon - Controller Workaround w/ Steam/QAM (OLD)](https://github.com/bactaholic/chimeraos-legion-go-tricks/blob/main/guides/controller_workaround_handycon.md)
 THIS SHOULD ALREADY COME PREINSTALLED WITH CHIMERAOS IF YOU INSTALLED THE UNSTABLE BRANCH. Handycon has been updated to support the Legion Go and brings controller functionality in addition to Steam/QAM menus using the Legion Buttons and how to change combos.
 
 ### [How to remap Steam/QAM Buttons to Scrollwheel (OLD)](https://github.com/bactaholic/chimeraos-legion-go-tricks/blob/main/guides/controller_workaround_input_mapper.md)
 If for whatever reason other guides to guide the Steam/QAM Buttons working don't work for you, you can use this workaround. Please note, this is not a permanent solution, as the guide explains.
+
 
 ### [Using EasyEffects to Improve Speaker Audio Quality](https://github.com/bactaholic/chimeraos-legion-go-tricks/tree/main)
 WIP!! AWAITING GUIDE

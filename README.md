@@ -54,6 +54,9 @@ followed by
 ### [Where to find ChimeraOS for your Legion Go](https://chimeraos.org/download/)
 Please see the installation section of the ChimeraOS website, just remember to install the unstable branch as mentioned earlier in this guide.
 
+### [How to install 6.6.0-bacta kernel](guides/6.6.0-bacta_kernel_upgrade.md)
+This guide will show you how to install the 6.6.0-bacta kernel, a port of the 6.6.0 ROG Ally specific kernel made by NeroReflex. In my testing I saw up to a 19% improvement in performance.
+
 ### [Device immediately waking up from suspend](guides/suspend_workaround.md)
 
 Some users are reporting that suspend/resume is not working, try the workaround [here](guides/suspend_workaround.md)

@@ -1,72 +1,87 @@
-## ChimeraOS Legion Go Tricks
+## Legion Go Tricks
 
 ### Introduction
-This guide serves to provide workarounds and tricks to improving day-to-day use of ChimeraOS on the Legion Go. The good news is, most things work out-of-the-box on this device. There are a few other things that require some workarounds but then are functional, and there are a few things that are currently broken and being worked on.
+This document serves to provide information, workarounds, and tricks to improving day-to-day use of Linux on the Legion Go.
 
-Some of the things you find in this guide may be unofficial changes to original software, THESE PROJECTS ARE NOT SUPPORTED BY THE DEVELOPERS OF THOSE ORIGINAL PROJECTS.
+Note that while a lot of things are working, Linux support for this device is very much a work in progress, developers are working on improving the experience.
+
+Some of the things you find in this guide may be unofficial changes to original software
 
 ### What Works?
+
 At the moment, the following functions work just fine
 
--Screen orientation (fixed in latest ChimeraOS unstable branch)
+- Screen orientation (fixed in NobaraOS Deck Edition, ChimeraOS 45, Bazzite OS)
+- Wifi and Bluetooth
+- Sound
+- FPS/Mouse mode
+- Detached controllers
 
--Wifi and Bluetooth
+### What Has Workarounds?
 
--Sound
+These functions are not working out of the box, but have workarounds
 
--FPS/Mouse mode
+- Steam/QAM Buttons/Rear back buttons ^ - everything can be almost fully used with additional software
+- Gyro^ - uses the same fix as buttons fix 
+- TDP^ - requires using either steam-patch or decky plugins
+- Controller RGB^ - requires decky plugin
 
-### What Doesn't Work
-These functions are not working at all out of the box (items marked with '^' have workarounds)
+## What has issues
 
--Steam/QAM Buttons^
+- Battery indicator - it doesn't always work, but has a usable workaround
+- Refresh Rate - only refresh rates that work are 60Hz and 144Hz, everything else is not usable/has issues.
 
--Rear extra buttons (any assignments you make in windows will persist to ChimeraOS, they just cannot be changed without re-entering Windows)
+### Resources
 
--Gyro (gyro is recognized out-of-the-box but drivers still need to be made for ChimeraOS which interpret those gyro movements into controls)
+PS5 Dualsense Edge Emulator - https://github.com/corando98/ROGueENEMY/
 
--TDP (This is currently being worked on)
+RGB Decky Plugin - https://github.com/aarron-lee/LegionGoRemapper/
 
-### How do I install ChimeraOS?
-The process is pretty simple as most of the workarounds required to actually use the device, like screen orientation, were added to the ChimeraOS Unstable branch shortly after the device became available to the public.
+Simple Decky TDP Plugin - https://github.com/aarron-lee/SimpleDeckyTDP
 
--Burn ChimeraOS to a flash drive using Etcher
+steam-patch (for TDP control, some steam glyphs, etc) - https://github.com/corando98/steam-patch
 
--Plug USB into Legion Go and enter BIOS
+powerbutton fix when not using handycon - https://github.com/aarron-lee/steam-powerbuttond
 
--Disable SecureBoot
+Pipewire sound fix files - https://github.com/matte-schwartz/device-quirks/tree/legion-go/rog-ally-audio-fixes/usr/share/device-quirks/scripts/lenovo/legion-go
 
--Boot into install USB and proceed with its instructions, ***just be sure to check the box to install the 'unstable' branch***
+gyro increase sampling rate fix - https://github.com/antheas/llg_sfh
 
--Apply workarounds/improvements as you wish
+alternative PS5 Dualsense Edge Emulator (work in progress) - https://github.com/antheas/hhd
 
-### Disclaimer: 
-If for whatever reason you accidentally install ChimeraOS without selecting the unstable branch, fear not. You can simply enter desktop mode, open a console, and type in the following...
+reverse engineering docs - https://github.com/antheas/hwinfo/tree/master/devices
 
-```sudo frzr-deploy chimeraos/chimeraos:unstable```
+## Guides + small fixes
 
-followed by
+### Fix orange colored hue to game mode UI
 
-```sudo systemctl reboot```
+Sometimes Steam game mode will have a bug where the color of the screen is slightly orange in tone.
 
-### Guides
+disabling steam color management will fix this, but this will also remove night mode functionality.
 
-### [Where to find ChimeraOS for your Legion Go](https://chimeraos.org/download/)
-Please see the installation section of the ChimeraOS website, just remember to install the unstable branch as mentioned earlier in this guide.
+Add the following:
 
-### [How to install 6.6.0-bacta kernel](guides/6.6.0-bacta_kernel_upgrade.md)
-This guide will show you how to install the 6.6.0-bacta kernel, a port of the 6.6.0 ROG Ally specific kernel made by NeroReflex. In my testing I saw up to a 19% improvement in performance.
+```
+export STEAM_GAMESCOPE_COLOR_MANAGED=0
+```
 
-### [Device immediately waking up from suspend](guides/suspend_workaround.md)
+to a `disable-steam-color-management.conf` file in `$HOME/.config/environment.d`. To remove this fix later, simply delete the file
 
-Some users are reporting that suspend/resume is not working, try the workaround [here](guides/suspend_workaround.md)
+### (NobaraOS only) additional script for to fix the Pipewire sound, fix issue where volume gets stuck on max volume
 
-### [How to install Handycon - Controller Workaround w/ Steam/QAM (OLD)](https://github.com/bactaholic/chimeraos-legion-go-tricks/blob/main/guides/controller_workaround_handycon.md)
-THIS SHOULD ALREADY COME PREINSTALLED WITH CHIMERAOS IF YOU INSTALLED THE UNSTABLE BRANCH. Handycon has been updated to support the Legion Go and brings controller functionality in addition to Steam/QAM menus using the Legion Buttons and how to change combos.
+after installing the pipewire sound fix files, replace the `/usr/bin/headphone-connection-monitor.sh` file with the same file downloadable from this git repo. Note that you'll have to make the script executable too with `chmod +x`.
 
-### [How to remap Steam/QAM Buttons to Scrollwheel (OLD)](https://github.com/bactaholic/chimeraos-legion-go-tricks/blob/main/guides/controller_workaround_input_mapper.md)
-If for whatever reason other guides to guide the Steam/QAM Buttons working don't work for you, you can use this workaround. Please note, this is not a permanent solution, as the guide explains.
+### Use MangoHud for battery indicator
 
+Battery indicator is inconsistent on the Legion go. As a workaround, you can change mangohud to show just the battery on one of the presets.
 
-### [Using EasyEffects to Improve Speaker Audio Quality](https://github.com/bactaholic/chimeraos-legion-go-tricks/tree/main)
-WIP!! AWAITING GUIDE
+example preset, file should be in the `$HOME/.config/MangoHud/presets.conf`
+
+```
+[preset 1]
+battery=1
+fps=0
+cpu_stats=0
+gpu_stats=0
+frame_timing=0
+```

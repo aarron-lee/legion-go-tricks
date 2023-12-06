@@ -3,7 +3,6 @@
 # does the following:
 # - headphone connection-monitor script fix
 # - install steamos-nested-desktop
-# - install steam-powerbuttond for to replicate power button behavior from handycon
 # - basic TDP control via SimpleDeckyTDP plugin
 # - RGB control via LegionGoRemapper Decky Plugin
 # - Pipewire EQ fixes from matt_schartz
@@ -35,14 +34,6 @@ cp ./steamos-nested-desktop /usr/local/bin/steamos-nested-desktop
 
 mkdir -p $BUILD_DIR
 cd $BUILD_DIR
-
-echo "fixing powerbutton suspend behavior"
-# download + install powerbuttond
-git clone https://github.com/aarron-lee/steam-powerbuttond.git
-cd steam-powerbuttond
-
-chmod +x install.sh
-./install.sh
 
 echo "installing SimpleDeckyTDP plugin"
 # download + install Simple TDP Decky Plugin

@@ -37,6 +37,7 @@ These functions are not working out of the box, but have workarounds
 
 - Due to an update for the Steam Deck OLED, sometimes FPS gets artificially capped by Steam. Usually it's around 72fps
 - FPS slider isn't always accurate
+- (Dec 6th) Nobara bug where you can't go from Desktop Mode to Game Mode directly, you must reboot. Nested Desktop works fine.
 
 ### Resources
 

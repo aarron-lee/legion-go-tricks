@@ -9,19 +9,21 @@ Some of the things you find in this guide may be unofficial changes to original 
 
 ### What Works?
 
-At the moment, the following functions work just fine
+At the moment, the following functions work out of the box
 
-- Screen orientation (fixed in NobaraOS Deck Edition, ChimeraOS 45, Bazzite OS)
+- Screen orientation (fixed in NobaraOS Deck Edition, ChimeraOS 45 unstable, Bazzite OS)
+- suspend-resume functionality
 - Wifi and Bluetooth
 - Sound
+- Controllers, both attached and detached
+  - note, controllers work best in X-input mode. see [official Legion Go Userguide PDF](./lenovo_go_user_guide_en.pdf) to read more about controller modes
 - FPS/Mouse mode
-- Detached controllers
 
 ### What Has Workarounds?
 
 These functions are not working out of the box, but have workarounds
 
-- Steam/QAM Buttons/Rear back buttons ^ - everything can be almost fully used with additional software
+- Steam/QAM Buttons/Rear back buttons^ - everything can be almost fully used with additional software
 - Gyro^ - uses the same fix as buttons fix 
 - TDP^ - requires using either steam-patch or decky plugins
 - Controller RGB^ - requires decky plugin

@@ -16,7 +16,7 @@ At the moment, the following functions work out of the box
 - Wifi and Bluetooth
 - Sound
 - Controllers, both attached and detached
-  - note, controllers work best in X-input mode. see [official Legion Go Userguide PDF](./lenovo_go_user_guide_en.pdf) to read more about controller modes
+  - note, controllers work best in X-input mode. see [official Legion Go Userguide PDF](./legion_go_user_guide_en.pdf) to read more about controller modes
 - FPS/Mouse mode
 
 ### What Has Workarounds?

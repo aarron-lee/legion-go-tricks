@@ -30,8 +30,13 @@ These functions are not working out of the box, but have workarounds
 
 ## What has issues
 
-- Battery indicator - it doesn't always work, but has a usable workaround
-- Refresh Rate - only refresh rates that work are 60Hz and 144Hz, everything else is not usable/has issues.
+- Battery indicator - it doesn't consistently work, but has a usable workaround
+- Screen Refresh Rate - only refresh rates that work are 60Hz and 144Hz, everything else is not usable/has issues.
+
+## Known Bugs
+
+- Due to an update for the Steam Deck OLED, sometimes FPS gets artificially capped by Steam. Usually it's around 72fps
+- FPS slider isn't always accurate
 
 ### Resources
 

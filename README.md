@@ -23,7 +23,7 @@ At the moment, the following functions work out of the box
 
 These functions are not working out of the box, but have workarounds
 
-- Steam/QAM Buttons/Rear back buttons^ - everything can be almost fully used with additional software
+- Steam/QAM Buttons/Rear back buttons^ - all buttons can be used in Steam via Dualsense Edge Virtual/Emulated Controller [Video demo here](https://www.youtube.com/watch?v=uMiXNKES2LM)
 - Gyro^ - uses the same fix as buttons fix 
 - TDP^ - requires using either steam-patch or decky plugins
 - Controller RGB^ - requires decky plugin

@@ -39,6 +39,7 @@ These functions are not working out of the box, but have workarounds
 - FPS slider isn't always accurate
 - (Dec 6th) Nobara bug where you can't go from Desktop Mode directly to Game Mode directly, you must reboot. Nested Desktop works fine.
 - Bug for Pipewire EQ improvements - Pipewire EQ improvements are an optional sound fix for the LGO, right now it's volume can only be changed via modifying the main volume slider for your default device.
+  - This is most likely due to a recent Steam Deck OLED related update.
 
 ### Resources
 
@@ -61,6 +62,14 @@ alternative PS5 Dualsense Edge Emulator (work in progress) - https://github.com/
 reverse engineering docs - https://github.com/antheas/hwinfo/tree/master/devices
 
 ## Guides + small fixes
+
+### Fix dark colored screen tone shift when moving mouse/trackpad
+
+In Game mode, enable `Developer mode` under the `System` settings.
+
+Then, in the `Developer` settings option that shows up in the Steam settings, make sure to Enable `Steam Color Management`.
+
+Enabling Steam Color management should fix the issue.
 
 ### Fix orange colored hue to game mode UI
 

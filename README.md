@@ -38,6 +38,7 @@ These functions are not working out of the box, but have workarounds
 
 - Due to an update for the Steam Deck OLED, sometimes FPS gets artificially capped by Steam. Usually it's around 72fps
 - FPS slider isn't always accurate
+- Fuzzy screen issue - this happens when an invalid refresh rate is used for your game. As a workaround, run the [disable_refresh_rates.sh](./disable_refresh_rates.sh) script to disable problematic refresh rates above 60Hz
 - (Dec 6th) Nobara bug where you can't go from Desktop Mode directly to Game Mode directly, you must reboot. Nested Desktop works fine.
 - Bug for Pipewire EQ improvements - Pipewire EQ improvements are an optional sound fix for the LGO, right now it's volume can only be changed via modifying the main volume slider for your default device.
   - This is most likely due to a recent Steam Deck OLED related update.
@@ -105,4 +106,16 @@ fps=0
 cpu_stats=0
 gpu_stats=0
 frame_timing=0
+```
+
+### Fuzzy screen issue
+
+If you're seeeing a fuzzy screen, it means that the you're somehow using an invalid refresh rate. The only valid refresh rates for a game are 60 and 144Hz.
+
+You can work around this somewhat by disabling the 144hz refresh rate. You can either run the script in this repo, or do the following:
+
+create an `disable-refresh-rate.conf` file in `$HOME/config/environment.d`, and add the following to the file:
+
+```
+export STEAM_DISPLAY_REFRESH_LIMITS=""
 ```

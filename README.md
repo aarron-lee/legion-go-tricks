@@ -13,6 +13,7 @@ At the moment, the following functions work out of the box
 
 - Screen orientation (fixed in NobaraOS Deck Edition, ChimeraOS 45 unstable, Bazzite OS)
 - suspend-resume functionality
+  - small suspend quirk: sometimes sound is fuzzy on resume, usually clears up after 30 seconds or so.
 - Wifi and Bluetooth
 - Sound
 - Controllers, both attached and detached

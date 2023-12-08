@@ -24,6 +24,8 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 echo "Installing Headphone Conenction fix for Pipewire EQ..."
+# backup old version
+cp /usr/bin/headphone-connection-monitor.sh /usr/bin/headphone-connection-monitor.sh.bak
 # add fixed up headphone connection monitor for Pipewire EQ sound fix
 cp ./headphone-connection-monitor.sh /usr/bin/headphone-connection-monitor.sh
 

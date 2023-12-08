@@ -39,7 +39,8 @@ These functions are not working out of the box, but have workarounds
 
 - related to v28 bios - STAMP might be bugged on both Windows and Linux - user on discord reported that they were getting hard crashes at 30W TDP.
   - crash was replicated on Nobara Linux 30W TDP STAMP
-  - STT seems to still work fine without issues, so continue to use it for high TDP usage.
+  - bug is still being investigated
+  - if you encounter crashing, STT seems to still work fine without issues, so continue to use it for high TDP usage.
     - lower TDPs, below 20-22W, seem stable on STAMP
 - Due to an update for the Steam Deck OLED, sometimes FPS gets artificially capped by Steam. Usually it's around 72fps
 - FPS slider isn't always accurate

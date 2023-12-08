@@ -3,6 +3,7 @@
 # does the following:
 # - basic TDP control via SimpleDeckyTDP plugin
 # - RGB control via LegionGoRemapper Decky Plugin
+# - Pipewire EQ fixes from matt_schartz
 
 BUILD_DIR="/tmp/LGO_bazzite_setup"
 
@@ -32,6 +33,12 @@ echo "installing LegionGoRemapper plugin for RGB control"
 # download + install Legion go remapper
 curl -L $(curl -s https://api.github.com/repos/aarron-lee/LegionGoRemapper/releases/latest | grep "browser_download_url" | cut -d '"' -f 4) -o $BUILD_DIR/LegionGoRemapper.tar.gz
 tar -xzf LegionGoRemapper.tar.gz -C $HOME_DIR/homebrew/plugins
+
+echo "installing pipewire EQ sound improvements"
+# download + setup pipewire EQ sound improvements
+git clone https://github.com/matte-schwartz/device-quirks.git
+cd device-quirks/usr/share/device-quirks/scripts/lenovo/legion-go
+mv pipewire /etc
 
 cd $BUILD_DIR
 

@@ -40,6 +40,13 @@ These functions are not working out of the box, but have workarounds
 
 ## Known Bugs
 
+- Dec 9th 2023 - desktop mode shortcut is broken after fresh install + update, dev is working on a fix. This doc will be updated once the issue is resolved.
+  - Temporary workaround:
+    - `ctrl + alt + f3` to open terminal
+    - login with username + pass
+    - run `startplasma-wayland` for to manual swap to desktop session
+    - setup nested desktop
+    - use nested desktop until the issue is fixed, ideally this will be fixed within 24 hours
 - related to v28 bios - STAMP might be bugged on both Windows and Linux - user on discord reported that they were getting hard crashes at 30W TDP.
   - crash was replicated on Nobara Linux 30W TDP STAMP
   - bug is still being investigated

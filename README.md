@@ -41,12 +41,7 @@ These functions are not working out of the box, but have workarounds
 ## Known Bugs
 
 - Dec 9th 2023 - desktop mode shortcut is broken after fresh install + update, dev is working on a fix. This doc will be updated once the issue is resolved.
-  - Temporary workaround:
-    - `ctrl + alt + f3` to open terminal
-    - login with username + pass
-    - run `startplasma-wayland` for to manual swap to desktop session
-    - setup nested desktop
-    - use nested desktop until the issue is fixed, ideally this will be fixed within 24 hours
+  - Temporary workaround [here](#nobara-desktop-mode-switch-temporary-fix)
 - related to v28 bios - STAMP might be bugged on both Windows and Linux - user on discord reported that they were getting hard crashes at 30W TDP.
   - crash was replicated on Nobara Linux 30W TDP STAMP
   - bug is still being investigated
@@ -139,3 +134,12 @@ create an `disable-refresh-rate.conf` file in `$HOME/config/environment.d`, and 
 ```
 export STEAM_DISPLAY_REFRESH_LIMITS=""
 ```
+
+### Nobara desktop mode switch temporary fix
+
+a quick step-by-step for how you fix game mode/desktop switching if you updated `gamescope-session` on Dec 9th 2023, **for KDE/SD Edition only atm** (thanks matt_schwartz on the Nobara Discord):
+
+- open up a terminal console with Ctrl + Alt + F2
+- login with your user name and password
+- run the command `sudo mv /etc/sddm.conf /etc/sddm.conf.d/kde_settings.conf`
+- reboot

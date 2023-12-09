@@ -22,6 +22,7 @@ At the moment, the following functions work out of the box
 - FPS/Mouse mode
 - scroll wheel on controller works fine, scroll wheel press doesn't do anything. However, holding the scroll wheel for 5s will toggle the scroll wheel on/off
 - trackpad works, but cannot tap-to-click in game mode. Can tap to click on desktop mode, but must be enabled in the touchpad settings.
+  - trackpad also cannot currently be used in steam input without workarounds
 
 ### What Has Workarounds?
 

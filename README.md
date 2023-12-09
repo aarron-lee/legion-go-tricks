@@ -40,9 +40,9 @@ These functions are not working out of the box, but have workarounds
 - related to v28 bios - STAMP might be bugged on both Windows and Linux - user on discord reported that they were getting hard crashes at 30W TDP.
   - crash was replicated on Nobara Linux 30W TDP STAMP
   - bug is still being investigated
-  - if you encounter crashing, STT seems to still work fine without issues, so continue to use it for high TDP usage.
+  - if you encounter crashing at high TDPs, STT seems to still work fine without issues, so continue to use it for high TDP usage.
     - lower TDPs, below 20-22W, seem stable on STAMP
-- Due to an update for the Steam Deck OLED, sometimes FPS gets artificially capped by Steam. Usually it's around 72fps
+- Due to an update for the Steam Deck OLED, FPS often gets artificially capped by Steam. Usually it's around 72fps
 - FPS slider isn't always accurate
 - (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game. As a workaround, run the [disable_refresh_rates.sh](./disable_refresh_rates.sh) script to disable problematic refresh rates above 60Hz
 - Bug for Pipewire EQ improvements - Pipewire EQ improvements are an optional sound fix for the LGO

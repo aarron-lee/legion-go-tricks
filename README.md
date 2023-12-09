@@ -144,3 +144,20 @@ a quick step-by-step for how you fix game mode/desktop switching if you updated 
 - run the command `sudo mv /etc/sddm.conf /etc/sddm.conf.d/kde_settings.conf`
 - after moving `/etc/sddm.conf` to `/etc/sddm.conf.d/kde_settings.conf`, go to your `/etc/sddm.conf.d/kde_settings.conf` file and add in `Relogin=true` under `[Autologin]`
 - reboot
+
+### Manual full reinstall of RogueEnemy PS5 Dualsense emulator
+
+if you want to try a manual clean install of rogue, you can do the following:
+
+```
+sudo systemctl disable --now rogue-enemy.service
+sudo rm /usr/bin/rogue-enemy
+sudo rm /usr/lib/udev/rules.d/99-rogue.rules
+sudo rm /usr/lib/udev/rules.d/99-disable-sonypad.rules
+sudo rm /etc/systemd/system/rogue-enemy.service
+sudo systemctl enable --now handycon.service
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
+reboot, then download the latest `install.sh` from the rogue github repo, and run the `install.sh` + reboot again.

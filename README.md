@@ -40,7 +40,7 @@ These functions are not working out of the box, but have workarounds
 
 ## Known Bugs
 
-- Dec 9th 2023 - desktop mode shortcut is broken after fresh install + update, dev is working on a fix. This doc will be updated once the issue is resolved.
+- Dec 9th 2023 - Nobara desktop mode shortcut is broken after fresh install + update, dev is working on a fix. This doc will be updated once the issue is resolved.
   - Temporary workaround at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
 - related to v28 bios - STAMP might be bugged on both Windows and Linux - user on discord reported that they were getting hard crashes at 30W TDP.
   - crash was replicated on Nobara Linux 30W TDP STAMP
@@ -145,7 +145,7 @@ a quick step-by-step for how you fix game mode/desktop switching if you updated 
 - after moving `/etc/sddm.conf` to `/etc/sddm.conf.d/kde_settings.conf`, go to your `/etc/sddm.conf.d/kde_settings.conf` file and add in `Relogin=true` under `[Autologin]`
 - reboot
 
-### Manual full reinstall of RogueEnemy PS5 Dualsense emulator
+### Manual full reinstall of RogueEnemy PS5 Dualsense emulator (nobaraOS)
 
 if you want to try a manual clean install of rogue, you can do the following:
 

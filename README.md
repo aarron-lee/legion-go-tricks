@@ -20,6 +20,8 @@ At the moment, the following functions work out of the box
 - Controllers, both attached and detached
   - note, controllers work best in X-input mode. see [official Legion Go Userguide PDF](./legion_go_user_guide_en.pdf) to read more about controller modes
 - FPS/Mouse mode
+- scroll wheel on controller works fine, scroll wheel press doesn't do anything. However, holding the scroll wheel for 5s will toggle the scroll wheel on/off
+- trackpad works, but cannot tap-to-click in game mode. Can tap to click on desktop mode, but must be enabled in the touchpad settings.
 
 ### What Has Workarounds?
 

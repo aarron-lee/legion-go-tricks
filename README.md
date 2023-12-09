@@ -142,4 +142,5 @@ a quick step-by-step for how you fix game mode/desktop switching if you updated 
 - open up a terminal console with Ctrl + Alt + F2
 - login with your user name and password
 - run the command `sudo mv /etc/sddm.conf /etc/sddm.conf.d/kde_settings.conf`
+- after moving `/etc/sddm.conf` to `/etc/sddm.conf.d/kde_settings.conf`, go to your `/etc/sddm.conf.d/kde_settings.conf` file and add in `Relogin=true` under `[Autologin]`
 - reboot

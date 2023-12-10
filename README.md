@@ -72,9 +72,9 @@ steam-patch (for TDP control, some steam glyphs, etc) - https://github.com/coran
 
 powerbutton fix when not using handycon - https://github.com/aarron-lee/steam-powerbuttond
 
-Pipewire sound fix files - https://github.com/matte-schwartz/device-quirks/tree/legion-go/rog-ally-audio-fixes/usr/share/device-quirks/scripts/lenovo/legion-go
+Pipewire sound EQ improvement files - https://github.com/matte-schwartz/device-quirks/tree/legion-go/rog-ally-audio-fixes/usr/share/device-quirks/scripts/lenovo/legion-go
 
-gyro increase sampling rate fix - https://github.com/antheas/llg_sfh
+gyro increase sampling rate fix (advanced users only) - https://github.com/antheas/llg_sfh
 
 alternative PS5 Dualsense Edge Emulator (work in progress) - https://github.com/antheas/hhd
 

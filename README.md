@@ -59,7 +59,7 @@ These functions are not working out of the box, but have workarounds
 ## Resolved bugs on NobaraOS (update OS with the `Update System` app on Desktop):
 - Nobara bug where you can't go from Desktop Mode directly to Game Mode directly, you must reboot. Nested Desktop works fine.
 
-### Resources
+## Resources
 
 PS5 Dualsense Edge Emulator - https://github.com/corando98/ROGueENEMY/
 

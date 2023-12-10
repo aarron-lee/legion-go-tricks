@@ -54,6 +54,7 @@ These functions are not working out of the box, but have workarounds
   - the `surround-effect.neutral` option still seems to be working as-expected
   - the `surround-effect.game` option has a bug where volume cannot be controlled
   - This is most likely due to a recent Steam Deck OLED related update.
+- power button stops suspending - bug in the software that manages the power button, fixed by updating to the latest version. reinstall the latest version of [steam-powerbuttond](https://github.com/aarron-lee/steam-powerbuttond)
 
 ## Resolved bugs on NobaraOS (update OS with the `Update System` app on Desktop):
 - Nobara bug where you can't go from Desktop Mode directly to Game Mode directly, you must reboot. Nested Desktop works fine.

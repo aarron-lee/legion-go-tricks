@@ -22,7 +22,7 @@ At the moment, the following functions work out of the box
 - FPS/Mouse mode
 - scroll wheel on controller works fine, scroll wheel press doesn't do anything. However, holding the scroll wheel for 5s will toggle the scroll wheel on/off
 - trackpad works, but cannot tap-to-click in game mode. Can tap to click on desktop mode, but must be enabled in the touchpad settings.
-  - trackpad also cannot currently be used in steam input without workarounds
+  - trackpad cannot currently be used in steam input without a workaround
 
 ### What Has Workarounds?
 
@@ -30,6 +30,7 @@ These functions are not working out of the box, but have workarounds
 
 - Steam/QAM Buttons/Rear back buttons^ - all buttons can be used in Steam via Dualsense Edge Virtual/Emulated Controller [Video demo here](https://www.youtube.com/watch?v=uMiXNKES2LM).
 - Gyro^ - uses the same fix as buttons fix 
+- Trackpad^ - this previously already worked, but was not usable in steam input. With the latest version of rogue-enemy, it is now usable in steam input
 - TDP^ - requires using either steam-patch or decky plugins
 - Controller RGB^ - requires decky plugin
 

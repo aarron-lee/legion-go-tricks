@@ -79,11 +79,17 @@ alternative PS5 Dualsense Edge Emulator (work in progress) - https://github.com/
 
 reverse engineering docs - https://github.com/antheas/hwinfo/tree/master/devices
 
-CSS Loader Theme for changing controller glyphs - https://github.com/frazse/PS5-to-Xbox-glyphs
-  - note, requires `CSS Loader` Decky Plugin
-  - manually install by placing in `$HOME/homebrew/themes/`
-  - if you'd like to manually edit mappings, you can find glyphs at `$HOME/.local/share/Steam/controller_base/images/api/dark/`
-    - manual mapping can be done by editing the css file with the svg/png paths you want
+### CSS Loader Plugin - Themes
+
+- note, requires `CSS Loader` Decky Plugin
+- manually install by placing in `$HOME/homebrew/themes/`
+
+Legion Go Theme - https://github.com/frazse/SBP-Legion-Go-Theme
+
+Theme changing controller glyphs - https://github.com/frazse/PS5-to-Xbox-glyphs
+- If you'd like to manually edit mappings, you can find glyphs at `$HOME/.local/share/Steam/controller_base/images/api/dark/`
+  - manual mapping can be done by editing the css file with the svg/png paths you want
+
 
 ## Guides + small fixes
 

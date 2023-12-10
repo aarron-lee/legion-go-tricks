@@ -152,7 +152,7 @@ export STEAM_DISPLAY_REFRESH_LIMITS=""
 
 a quick step-by-step for how you fix game mode/desktop switching if you updated `gamescope-session` on Dec 9th 2023, **for KDE/SD Edition only atm** (thanks matt_schwartz on the Nobara Discord):
 
-- open up a terminal console with Ctrl + Alt + F2
+- open up a terminal console with Ctrl + Alt + F2 (Ctrl + Alt + F3 may also work)
 - login with your user name and password
 - run the command `sudo mv /etc/sddm.conf /etc/sddm.conf.d/kde_settings.conf`
 - after moving `/etc/sddm.conf` to `/etc/sddm.conf.d/kde_settings.conf`, go to your `/etc/sddm.conf.d/kde_settings.conf` file and add in `Relogin=true` under `[Autologin]`

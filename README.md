@@ -155,9 +155,10 @@ a quick step-by-step for how you fix game mode/desktop switching if you updated 
 
 - open up a terminal console with Ctrl + Alt + F2 (Ctrl + Alt + F3 may also work)
 - login with your user name and password
-- run the command `sudo mv /etc/sddm.conf /etc/sddm.conf.d/kde_settings.conf`
-- after moving `/etc/sddm.conf` to `/etc/sddm.conf.d/kde_settings.conf`, go to your `/etc/sddm.conf.d/kde_settings.conf` file and add in `Relogin=true` under `[Autologin]`
-- reboot
+- run the command `sudo mv /etc/sddm.conf /etc/sddm.conf.d/kde_settings.conf` to move the `sddm.conf` file to `kde_settings.conf`
+- reboot, then go to Desktop mode
+- (to fix Desktop mode => Game Mode switch) go to your `/etc/sddm.conf.d/kde_settings.conf` file and add in `Relogin=true` under `[Autologin]`.
+- Save changes, then reboot
 
 ### Manual full reinstall of RogueEnemy PS5 Dualsense emulator (nobaraOS)
 

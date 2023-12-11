@@ -30,7 +30,7 @@ These functions are not working out of the box, but have workarounds
 
 - Steam/QAM Buttons/Rear back buttons - all buttons can be used in Steam via Dualsense Edge Virtual/Emulated Controller [Video demo here](https://www.youtube.com/watch?v=uMiXNKES2LM).
 - Gyro - uses the same fix as buttons fix
-- Trackpad - this previously already worked, but was not usable in steam input. With the latest version of rogue-enemy, it is now usable in steam input
+- Trackpad - this previously already worked, but was not usable in steam input. With the latest version of rogue-enemy, it is now usable in steam input. [Video Demo here](https://www.youtube.com/watch?v=RuSboPkZob4)
 - TDP - requires using either steam-patch or decky plugins
 - Controller RGB - requires decky plugin
 

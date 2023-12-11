@@ -42,9 +42,10 @@ These functions are not working out of the box, but have workarounds
 ## Known Bugs
 
 - Dec 9th 2023 - Nobara desktop mode shortcut is broken after fresh install + update, dev is working on a fix. This doc will be updated once the issue is resolved.
-  - Temporary workaround at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
-- related to v28 bios - STAMP might be bugged on both Windows and Linux - user on discord reported that they were getting hard crashes at 30W TDP.
+  - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
+- related to v28 bios - STAMP might be bugged on both Windows and Linux - user on discord reported that they were getting hard crashes at 30W TDP on both Windows and Linux
   - crash was replicated on Nobara Linux 30W TDP STAMP
+  - different user on Windows replicated at 30W TDP, suspects it's due to faster charging speed in bios
   - bug is still being investigated
   - if you encounter crashing at high TDPs, STT seems to still work fine without issues, so continue to use it for high TDP usage.
     - lower TDPs, below 20-22W, seem stable on STAMP

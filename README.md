@@ -132,6 +132,23 @@ export STEAM_GAMESCOPE_COLOR_MANAGED=0
 
 to a `disable-steam-color-management.conf` file in `$HOME/.config/environment.d`. To remove this fix later, simply delete the file
 
+### Set resolution of Steam in SteamDeck mode
+
+To do this create a file in ~/.config/environment.d call gamescope-session-plus.conf.
+
+Add two lines in there (change values to your preference):
+
+```
+SCREEN_HEIGHT=800
+SCREEN_WIDTH=1280
+```
+
+Reboot
+
+Note, this may also fix bug where the color tint changes on mouse movement
+
+credit for this tip goes to [this comment on YT](https://www.youtube.com/watch?v=aODkGjjiD6U&lc=UgxEj1WVp5kGtP_QsG54AaABAg.9y-lDA39g_49yAf35P2VdS)
+
 ### (NobaraOS only) additional script for to fix the Pipewire sound, fix issue where volume gets stuck on max volume
 
 after installing the pipewire sound fix files, replace the `/usr/bin/headphone-connection-monitor.sh` file with the same file downloadable from this git repo. Note that you'll have to make the script executable too with `chmod +x`.

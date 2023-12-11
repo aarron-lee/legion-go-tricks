@@ -84,14 +84,23 @@ reverse engineering docs - https://github.com/antheas/hwinfo/tree/master/devices
 ### CSS Loader Plugin - Themes
 
 - note, requires `CSS Loader` Decky Plugin
-- manually install by placing in `$HOME/homebrew/themes/`
+- manually install by downloading the theme + placing in `$HOME/homebrew/themes/` folder
 
 Legion Go Theme - https://github.com/frazse/SBP-Legion-Go-Theme
 
-Theme changing controller glyphs - https://github.com/frazse/PS5-to-Xbox-glyphs
+PS5 to Xbox Controller Glyph Theme - https://github.com/frazse/PS5-to-Xbox-glyphs
 - If you'd like to manually edit mappings, you can find glyphs at `$HOME/.local/share/Steam/controller_base/images/api/dark/`
   - manual mapping can be done by editing the css file with the svg/png paths you want
 
+```
+# quick install, CSS Loader Decky Plugin must already be installed and enabled
+
+# Legion Go Theme Install
+cd $HOME/homebrew/themes && git clone https://github.com/frazse/SBP-Legion-Go-Theme.git
+
+# PS5 to Xbox Controller Glyph Theme
+cd $HOME/homebrew/themes && git clone https://github.com/frazse/PS5-to-Xbox-glyphs
+```
 
 ## Guides + small fixes
 

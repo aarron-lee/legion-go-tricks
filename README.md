@@ -190,3 +190,19 @@ sudo udevadm trigger
 ```
 
 reboot, then download the latest `install.sh` from the rogue github repo, and run the `install.sh` + reboot again.
+
+<!--
+### Updated Nested Desktop with Nobara 39 (thanks matt_schwartz for the update):
+
+`sudo dnf install plasma-lookandfeel-nobara-steamdeck-additions`
+
+includes:
+
+- should support Legion Go at native resolution
+  - It works for both Steam Deck and ROG Ally.
+  - Make sure to set the game entry to “Native” in the Steam game settings menu first.
+- you’ll have to set scaling once in the KDE settings when the nested desktop session loads for the first time but it should save it for future nested desktop sessions
+or else the screen will be for ants at 1600p
+- also adds back the right-click “add to steam” shortcut you get with the steamdeck-KDE-presets package (which conflicts with the new theming)
+
+-->

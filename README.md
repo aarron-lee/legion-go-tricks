@@ -106,6 +106,10 @@ cd $HOME/homebrew/themes && git clone https://github.com/frazse/SBP-Legion-Go-Th
 cd $HOME/homebrew/themes && git clone https://github.com/frazse/PS5-to-Xbox-glyphs
 ```
 
+## Videos
+
+Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=aODkGjjiD6U&
+
 ## Guides + small fixes
 
 ### Fix dark colored screen tone shift when moving mouse/trackpad

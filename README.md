@@ -1,6 +1,7 @@
 ## Legion Go Tricks
 
 ### Introduction
+
 This document serves to provide information, workarounds, and tricks to improving day-to-day use of Linux on the Legion Go.
 
 Note that while a lot of things are working, Linux support for this device is very much a work in progress, developers are working on improving the experience.
@@ -63,6 +64,7 @@ These functions are not working out of the box, but have workarounds
 - power button stops suspending - bug in the software that manages the power button, fixed by updating to the latest version. reinstall the latest version of [steam-powerbuttond](https://github.com/aarron-lee/steam-powerbuttond)
 
 ## Resolved bugs on NobaraOS (update OS with the `Update System` app on Desktop):
+
 - Nobara bug where you can't go from Desktop Mode directly to Game Mode directly, you must reboot. Nested Desktop works fine.
 
 ## Resources
@@ -95,6 +97,7 @@ reverse engineering docs - https://github.com/antheas/hwinfo/tree/master/devices
 Legion Go Theme - https://github.com/frazse/SBP-Legion-Go-Theme
 
 PS5 to Xbox Controller Glyph Theme - https://github.com/frazse/PS5-to-Xbox-glyphs
+
 - If you'd like to manually edit mappings, you can find glyphs at `$HOME/.local/share/Steam/controller_base/images/api/dark/`
   - manual mapping can be done by editing the css file with the svg/png paths you want
 
@@ -182,6 +185,15 @@ a quick step-by-step for how you fix game mode/desktop switching if you updated 
 - run the command `sudo mv /etc/sddm.conf /etc/sddm.conf.d/kde_settings.conf` to move the `sddm.conf` file to `kde_settings.conf`
 - reboot, then go to Desktop mode
 - (to fix Desktop mode => Game Mode switch) go to your `/etc/sddm.conf.d/kde_settings.conf` file and add in `Relogin=true` under `[Autologin]`.
+  - The file should look something like this under the `[Autologin]` secion after you save your changes
+
+```
+[Autologin]
+Relogin=true
+User=deck(or whatever your username is)
+Session=gamescope-session
+```
+
 - Save changes, then reboot
 
 ### Manual full reinstall of RogueEnemy PS5 Dualsense emulator (nobaraOS)

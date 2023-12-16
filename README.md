@@ -21,8 +21,7 @@ At the moment, the following functions work out of the box
   - note, controllers work best in X-input mode. see [official Legion Go Userguide PDF](./legion_go_user_guide_en.pdf) to read more about controller modes
 - FPS/Mouse mode
 - scroll wheel on controller works fine, scroll wheel press doesn't do anything. However, holding the scroll wheel for 5s will toggle the scroll wheel on/off
-- trackpad works, but cannot tap-to-click in game mode. Can tap to click on desktop mode, but must be enabled in the touchpad settings.
-  - trackpad cannot currently be used in steam input without a workaround
+- trackpad works, but cannot tap-to-click in game mode. Can tap to click on desktop mode, but must be enabled in the touchpad settings. Can be used in steam input with a workaround.
 
 ### What Has Workarounds?
 
@@ -68,6 +67,8 @@ These functions are not working out of the box, but have workarounds
 
 ## Resources
 
+alternative PS5 Dualsense Edge Emulator - https://github.com/antheas/hhd
+
 PS5 Dualsense Edge Emulator - https://github.com/corando98/ROGueENEMY/
 
 RGB Decky Plugin - https://github.com/aarron-lee/LegionGoRemapper/
@@ -82,7 +83,7 @@ Pipewire sound EQ improvement files - https://github.com/matte-schwartz/device-q
 
 gyro increase sampling rate fix (advanced users only) - https://github.com/antheas/llg_sfh
 
-alternative PS5 Dualsense Edge Emulator (work in progress) - https://github.com/antheas/hhd
+(ChimeraOS only) Legion Go installer tool - https://github.com/linuxgamingcentral/legion-go-tools-for-linux
 
 reverse engineering docs - https://github.com/antheas/hwinfo/tree/master/devices
 

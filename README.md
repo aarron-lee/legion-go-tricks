@@ -116,6 +116,8 @@ Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=aOD
 
 ### Fix dark colored screen tone shift when moving mouse/trackpad
 
+Before trying the following fix, first try enabling the `Use Native Color Temperature` toggle in the `Display` settings in game mode.
+
 In Game mode, enable `Developer mode` under the `System` settings.
 
 Then, in the `Developer` settings option that shows up in the Steam settings, make sure to Enable `Steam Color Management`.
@@ -125,6 +127,8 @@ Enabling Steam Color management should fix the issue.
 NOTE, this is **DIFFERENT** from the other method to disable Steam Color management listed below. It's odd that there's two separate options with similar names, but it is what it is.
 
 ### Fix orange colored hue to game mode UI
+
+Before trying the following fix, first try enabling the `Use Native Color Temperature` toggle in the `Display` settings in game mode.
 
 Sometimes Steam game mode will have a bug where the color of the screen is slightly orange in tone.
 

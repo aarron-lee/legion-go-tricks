@@ -117,6 +117,14 @@ Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=aOD
 
 ## Guides + small fixes
 
+### Setup lock screen for desktop mode only (NobaraOS)
+
+Currently, Desktop mode does not have a lock screen during suspend-resume cycles on NobaraOS.
+
+To fix this, go into Desktop mode, then configure `Screen Locking` in KDE desktop settings. You can optionally configure it for `after waking from sleep`.
+
+This should show a login screen for suspend/resume in desktop mode only. In game mode, you should still get the expected regular behavior.
+
 ### Fix dark colored screen tone shift when moving mouse/trackpad
 
 Before trying the following fix, first try enabling the `Use Native Color Temperature` toggle in the `Display` settings in game mode.

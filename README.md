@@ -236,3 +236,7 @@ or else the screen will be for ants at 1600p
 - also adds back the right-click “add to steam” shortcut you get with the steamdeck-KDE-presets package (which conflicts with the new theming)
 
 -->
+
+### 3D prints
+
+https://makerworld.com/en/models/88724#profileId-94984

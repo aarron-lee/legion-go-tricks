@@ -1,20 +1,33 @@
-## Legion Go Tricks
-
-### Introduction
+# Legion Go Tricks
 
 This document serves to provide information, workarounds, and tricks to improving day-to-day use of Linux on the Legion Go.
 
 Note that while a lot of things are working, Linux support for this device is very much a work in progress, developers are working on improving the experience.
 
-Some of the things you find in this guide may be unofficial changes to original software
+# Current Status of Linux on the Lenovo Legion Go
 
-### What Works?
+ChimeraOS unstable, Nobara Deck Edition, and Bazzite Deck Edition, all have a bunch of fixes for the LGO. It's mostly working, but still has bugs that need to be addressed.
+
+However, that being said, Linux is good enough to be a daily driver on the Legion Go.
+
+- Using a PS5 Dualsense Edge Controller Emulator, you get access to the entire LGO controller (including gyro) via steam input
+  - controller works detached too
+- TDP control can be done either via Decky Plugin or steam-patch
+- RGB control works via Decky Plugin
+- suspend-resume works
+- all standard hardawre (wifi, bluetooth, sound, etc) works
+
+Some of the things you find in this document may be unofficial changes to original software
+
+Read further below for more details
+
+## What Works?
 
 At the moment, the following functions work out of the box
 
 - Screen orientation (fixed in NobaraOS Deck Edition, ChimeraOS 45 unstable, Bazzite OS)
 - suspend-resume functionality
-  - small suspend quirk: sometimes sound is fuzzy on resume, usually clears up after 30 seconds or so.
+  - suspend quirk: sound often is fuzzy on resume, usually clears up after 30 seconds or so.
     - use [Pause Games plugin](https://github.com/popsUlfr/SDH-PauseGames) with `Pause on Suspend` enabled to help with this issue
 - Wifi and Bluetooth
 - Sound
@@ -24,7 +37,7 @@ At the moment, the following functions work out of the box
 - scroll wheel on controller works fine, scroll wheel press doesn't do anything. However, holding the scroll wheel for 5s will toggle the scroll wheel on/off
 - trackpad works, but cannot tap-to-click in game mode. Can tap to click on desktop mode, but must be enabled in the touchpad settings. Can be used in steam input with a workaround.
 
-### What Has Workarounds?
+## What Has Workarounds?
 
 These functions are not working out of the box, but have workarounds
 
@@ -63,11 +76,7 @@ These functions are not working out of the box, but have workarounds
   - This is most likely due to a recent Steam Deck OLED related update.
 - power button stops suspending - bug in the software that manages the power button, fixed by updating to the latest version. reinstall the latest version of [steam-powerbuttond](https://github.com/aarron-lee/steam-powerbuttond)
 
-## Resolved bugs on NobaraOS (update OS with the `Update System` app on Desktop):
-
-- Nobara bug where you can't go from Desktop Mode directly to Game Mode directly, you must reboot. Nested Desktop works fine.
-
-## Resources
+# Resources
 
 alternative PS5 Dualsense Edge Emulator - https://github.com/antheas/hhd
 
@@ -89,7 +98,7 @@ gyro increase sampling rate fix (advanced users only) - https://github.com/anthe
 
 reverse engineering docs - https://github.com/antheas/hwinfo/tree/master/devices
 
-### CSS Loader Plugin - Themes
+## CSS Loader Plugin - Themes
 
 - note, requires `CSS Loader` Decky Plugin
 - manually install by downloading the theme + placing in `$HOME/homebrew/themes/` folder
@@ -111,11 +120,11 @@ cd $HOME/homebrew/themes && git clone https://github.com/frazse/SBP-Legion-Go-Th
 cd $HOME/homebrew/themes && git clone https://github.com/frazse/PS5-to-Xbox-glyphs
 ```
 
-## Videos
+# Videos
 
 Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=aODkGjjiD6U&
 
-## Guides + small fixes
+# Guides + small fixes
 
 ### Setup lock screen for desktop mode only (NobaraOS)
 
@@ -237,7 +246,116 @@ or else the screen will be for ants at 1600p
 
 -->
 
+# TDP Control:
+
+Note that the Legion Go (LGO) has an issue in STT mode (vs STAMP mode in the bios), where custom TDP values will eventually get changed by the bios while in STT mode. STAMP mode fixes this, but there are users reporting crashing while in STAMP mode. STT does not have this stability issue.
+
+There's a few options for TDP Control on the Legion Go.
+
+## `Legion_L + Y` combo 
+
+source: https://linuxgamingcentral.com/posts/chimeraos-on-legion-go/
+
+> You can switch colors (of the power LED) by holding Legion L + Y. Each time you press this combination, you change the performance mode:
+
+>    quiet: blue LED; uses about 8 W
+>    balanced: white LED; uses about 15 W
+>    performance: red LED; uses about 20 W
+>    custom: purple LED; uses anywhere from 5-30 W; although at default it seems to be around 20 W
+
+For `custom` on the new bios (bios v28) Custom is 30W TDP with everything maxed out
+And it resets every time you switch modes
+
+## Steam Patch
+
+Steam Patch enables Steam's TDP slider + GPU sliders to work. Note that this works by patching the Steam client, which means that any Steam updates from Valve can potentially break this fix.
+
+https://github.com/corando98/steam-patch
+
+## SimpleDeckyTDP
+
+Decky Plugin that provides a very simple TDP bar. Note that there's similarly a risk that Decky Plugins can stop working from any Steam updates from Valve
+
+https://github.com/aarron-lee/SimpleDeckyTDP
+
+## Simple Ryzen TDP
+
+Basic Desktop app for TDP control, but can also be added to game mode as a backup option
+
+https://github.com/aarron-lee/simple-ryzen-tdp/
+
+
+# Controller support
+
+## HandyGCCS (aka handycon)
+
+Default installed OOTB on ChimeraOS, Nobara Deck Edition, and Bazzite. It supports all the standard Xbox controls, `Legion_L + X` for Steam/Home, `Legion_L + A` for QAM. Back buttons are not supported.
+
+Note that you can get back buttons to work with the LegionGoRemapper plugin, but it has the same limitations as the LegionSpace app on Windows; you can only remap back buttons to other controller buttons, and they cannot be managed individually in Steam Input.
+
+## hhd
+
+Link: https://github.com/antheas/hhd
+
+PS5 Dualsense Edge controller emulator, currently supports all buttons on the LGO controller except the back scrollwheel (scrollwheel already worked previously). Has improvements vs rogue, such as more consistently working rumble, config file for configuring different options, etc. It also supports managing the power button, so no extra program is necessary.
+
+Install instructions are available on the github.
+
+
+## rogue-enemy
+
+Link: https://github.com/corando98/ROGueENEMY
+
+PS5 Dualsense Edge controller emulator, currently manages all hardware buttons except the back scrollwheel (scrollwheel already works). Back buttons are usable in Steam Input, same for the trackpad.
+
+Note that rogue-enemy has conflicts with handygccs, so it must be disabled. Also, since handygccs handles for the power button, you'll need a separate solution for power button suspend. You can use this, which was extracted from handygccs: https://github.com/aarron-lee/steam-powerbuttond
+
+# Quality Of Life Fixes + Extras:
+
+## LegionGORemapper Decky Plugin - RGB control + backbutton remapping
+
+Link: https://github.com/aarron-lee/LegionGoRemapper/
+
+Allows for managing back button remaps, controller RGB lights, toggle touchpad on/off, etc
+
+- note that this uses the exact same functionality as LegionSpace on Windows, so it has the same limitations
+- back button remapping should not be used w/ PS5 controller emulation
+
+## CSS Loader Plugin - Themes
+
+- note, requires `CSS Loader` Decky Plugin
+- manually install by downloading the theme + placing in `$HOME/homebrew/themes/` folder
+
+Legion Go Theme - https://github.com/frazse/SBP-Legion-Go-Theme
+
+PS5 to Xbox Controller Glyph Theme - https://github.com/frazse/PS5-to-Xbox-glyphs
+
+- If you'd like to manually edit mappings, you can find glyphs at `$HOME/.local/share/Steam/controller_base/images/api/dark/`
+  - manual mapping can be done by editing the css file with the svg/png paths you want
+
+```
+# quick install, CSS Loader Decky Plugin must already be installed and enabled
+
+# Legion Go Theme Install
+cd $HOME/homebrew/themes && git clone https://github.com/frazse/SBP-Legion-Go-Theme.git
+
+# PS5 to Xbox Controller Glyph Theme
+cd $HOME/homebrew/themes && git clone https://github.com/frazse/PS5-to-Xbox-glyphs
+```
+
+## Pipewire EQ sound options
+
+Link: https://github.com/matte-schwartz/device-quirks/tree/legion-go/rog-ally-audio-fixes/usr/share/device-quirks/scripts/lenovo/legion-go
+
+Quote from reddit:
+
+> This applies a surround sound convolver profile, similar to Dolby Atmos for Built-In Speakers
+
+> The built-in speakers with a volume slider that acts as master gain, and then the virtual sink sliders that apply surround sound profiles on top of the master gain sink. Basically, this lets you adjust the overall gain separate from the sinks themselves to give a wider level of control. It’s not the most seamless solution but it seems to do the job.
+
+
 ### 3D prints
 
 https://makerworld.com/en/models/88724#profileId-94984
+
 https://www.thingiverse.com/thing:6364915/files

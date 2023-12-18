@@ -252,7 +252,7 @@ Note that the Legion Go (LGO) has an issue in STT mode (vs STAMP mode in the bio
 
 There's a few options for TDP Control on the Legion Go.
 
-## `Legion_L + Y` combo 
+### `Legion_L + Y` combo 
 
 source: https://linuxgamingcentral.com/posts/chimeraos-on-legion-go/
 
@@ -266,19 +266,19 @@ source: https://linuxgamingcentral.com/posts/chimeraos-on-legion-go/
 For `custom` on the new bios (bios v28) Custom is 30W TDP with everything maxed out
 And it resets every time you switch modes
 
-## Steam Patch
+### Steam Patch
 
 Steam Patch enables Steam's TDP slider + GPU sliders to work. Note that this works by patching the Steam client, which means that any Steam updates from Valve can potentially break this fix.
 
 https://github.com/corando98/steam-patch
 
-## SimpleDeckyTDP
+### SimpleDeckyTDP
 
 Decky Plugin that provides a very simple TDP bar. Note that there's similarly a risk that Decky Plugins can stop working from any Steam updates from Valve
 
 https://github.com/aarron-lee/SimpleDeckyTDP
 
-## Simple Ryzen TDP
+### Simple Ryzen TDP
 
 Basic Desktop app for TDP control, but can also be added to game mode as a backup option
 
@@ -287,13 +287,13 @@ https://github.com/aarron-lee/simple-ryzen-tdp/
 
 # Controller support
 
-## HandyGCCS (aka handycon)
+### HandyGCCS (aka handycon)
 
 Default installed OOTB on ChimeraOS, Nobara Deck Edition, and Bazzite. It supports all the standard Xbox controls, `Legion_L + X` for Steam/Home, `Legion_L + A` for QAM. Back buttons are not supported.
 
 Note that you can get back buttons to work with the LegionGoRemapper plugin, but it has the same limitations as the LegionSpace app on Windows; you can only remap back buttons to other controller buttons, and they cannot be managed individually in Steam Input.
 
-## hhd
+### hhd
 
 Link: https://github.com/antheas/hhd
 
@@ -302,7 +302,7 @@ PS5 Dualsense Edge controller emulator, currently supports all buttons on the LG
 Install instructions are available on the github.
 
 
-## rogue-enemy
+### rogue-enemy
 
 Link: https://github.com/corando98/ROGueENEMY
 
@@ -310,9 +310,9 @@ PS5 Dualsense Edge controller emulator, currently manages all hardware buttons e
 
 Note that rogue-enemy has conflicts with handygccs, so it must be disabled. Also, since handygccs handles for the power button, you'll need a separate solution for power button suspend. You can use this, which was extracted from handygccs: https://github.com/aarron-lee/steam-powerbuttond
 
-# Quality Of Life Fixes + Extras:
+# Quality Of Life Fixes
 
-## LegionGORemapper Decky Plugin - RGB control + backbutton remapping
+### LegionGORemapper Decky Plugin - RGB control + backbutton remapping
 
 Link: https://github.com/aarron-lee/LegionGoRemapper/
 
@@ -321,7 +321,7 @@ Allows for managing back button remaps, controller RGB lights, toggle touchpad o
 - note that this uses the exact same functionality as LegionSpace on Windows, so it has the same limitations
 - back button remapping should not be used w/ PS5 controller emulation
 
-## CSS Loader Plugin - Themes
+### CSS Loader Plugin - Themes
 
 - note, requires `CSS Loader` Decky Plugin
 - manually install by downloading the theme + placing in `$HOME/homebrew/themes/` folder
@@ -343,7 +343,7 @@ cd $HOME/homebrew/themes && git clone https://github.com/frazse/SBP-Legion-Go-Th
 cd $HOME/homebrew/themes && git clone https://github.com/frazse/PS5-to-Xbox-glyphs
 ```
 
-## Pipewire EQ sound options
+### Pipewire EQ sound options
 
 Link: https://github.com/matte-schwartz/device-quirks/tree/legion-go/rog-ally-audio-fixes/usr/share/device-quirks/scripts/lenovo/legion-go
 
@@ -354,7 +354,7 @@ Quote from reddit:
 > The built-in speakers with a volume slider that acts as master gain, and then the virtual sink sliders that apply surround sound profiles on top of the master gain sink. Basically, this lets you adjust the overall gain separate from the sinks themselves to give a wider level of control. It’s not the most seamless solution but it seems to do the job.
 
 
-### 3D prints
+# 3D prints
 
 https://makerworld.com/en/models/88724#profileId-94984
 

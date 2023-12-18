@@ -44,7 +44,7 @@ These functions are not working out of the box, but have workarounds
 - Steam/QAM Buttons/Rear back buttons - all buttons can be used in Steam via Dualsense Edge Virtual/Emulated Controller [Video demo here](https://www.youtube.com/watch?v=uMiXNKES2LM).
 - Gyro - uses the same fix as buttons fix
   - Gyro performance is best with hhd
-- Trackpad - this previously already worked, but was not usable in steam input. With the latest version of rogue-enemy, it is now usable in steam input. [Video Demo here](https://www.youtube.com/watch?v=RuSboPkZob4)
+- Trackpad - this previously already worked, but was not usable in steam input. With the latest version of the PS5 Dualsense edge emulators, it is now usable in steam input. [Video Demo here](https://www.youtube.com/watch?v=RuSboPkZob4)
 - TDP - requires using either steam-patch or decky plugins
 - Controller RGB - requires decky plugin
 
@@ -63,22 +63,23 @@ These functions are not working out of the box, but have workarounds
   - bug is still being investigated
   - if you encounter crashing at high TDPs, STT seems to still work fine without issues, so continue to use it for high TDP usage.
     - lower TDPs, below 20-22W, seem stable on STAMP
-- Due to an update for the Steam Deck OLED, FPS often gets artificially capped by Steam. Usually it's around 72fps
+- Due to an update for the Steam Deck OLED, FPS often gets artificially capped by Steam. Usually it's 72fps
   - to get max FPS available, do the following:
     - in game mode settings, go to Display, and turn off `Unified Frame Limit Management`, option should be near the very bottom
     - then in the QAM, turn off the Framerate Limit
       - sometimes you need to turn on/off the framerate limit, it doesn't kick in initially
 - FPS slider isn't always accurate
-- (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game. As a workaround, run the [disable_refresh_rates.sh](./disable_refresh_rates.sh) script to disable problematic refresh rates above 60Hz
+- (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game. As a workaround, run the [disable_refresh_rates.sh](./disable_refresh_rates.sh) script to remove problematic refresh rates from the fps slider (basically removes all values above 60Hz)
 - Bug for Pipewire EQ sound improvements - Pipewire EQ sound improvements are an optional sound fix for the LGO
   - the `surround-effect.neutral` option still seems to be working as-expected
   - the `surround-effect.game` option has a bug where volume cannot be controlled
   - This is most likely due to a recent Steam Deck OLED related update.
 - power button stops suspending - bug in the software that manages the power button, fixed by updating to the latest version. reinstall the latest version of [steam-powerbuttond](https://github.com/aarron-lee/steam-powerbuttond)
+  - note, this does not apply to hhd, only applies to rogue-enemy + steam-powerbuttond
 
 # Resources
 
-alternative PS5 Dualsense Edge Emulator - https://github.com/antheas/hhd
+PS5 Dualsense Edge Emulator - https://github.com/antheas/hhd
 
 PS5 Dualsense Edge Emulator - https://github.com/corando98/ROGueENEMY/
 
@@ -195,7 +196,7 @@ export STEAM_DISPLAY_REFRESH_LIMITS=""
 
 ### Nobara desktop mode switch temporary fix
 
-a quick step-by-step for how you fix game mode/desktop switching if you updated `gamescope-session` on Dec 9th 2023, **for KDE/SD Edition only atm** (thanks matt_schwartz on the Nobara Discord):
+a quick step-by-step for how you fix game mode/desktop switching if you updated `gamescope-session` after Dec 9th 2023, **for KDE/SD Edition only atm** (thanks matt_schwartz on the Nobara Discord):
 
 - open up a terminal console with Ctrl + Alt + F2 (Ctrl + Alt + F3 may also work)
 - login with your user name and password

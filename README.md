@@ -15,7 +15,7 @@ However, that being said, Linux is good enough to be a daily driver on the Legio
 - TDP control can be done either via Decky Plugin or steam-patch
 - RGB control works via Decky Plugin
 - suspend-resume works
-- all standard hardawre (wifi, bluetooth, sound, etc) works
+- all standard hardware (wifi, bluetooth, sound, etc) works
 
 Some of the things you find in this document may be unofficial changes to original software
 

@@ -47,6 +47,7 @@ These functions are not working out of the box, but have workarounds
 - Trackpad - this previously already worked, but was not usable in steam input. With the latest version of the PS5 Dualsense edge emulators, it is now usable in steam input. [Video Demo here](https://www.youtube.com/watch?v=RuSboPkZob4)
 - TDP - requires using either steam-patch or decky plugins
 - Controller RGB - requires decky plugin
+- GPU Frequency control - via SimpleDeckyTDP plugin
 
 ## What has issues
 

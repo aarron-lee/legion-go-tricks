@@ -104,6 +104,7 @@ reverse engineering docs - https://github.com/antheas/hwinfo/tree/master/devices
 
 - note, requires `CSS Loader` Decky Plugin
 - manually install by downloading the theme + placing in `$HOME/homebrew/themes/` folder
+- these themes may require a reboot for them to work
 
 Legion Go Theme - https://github.com/frazse/SBP-Legion-Go-Theme
 
@@ -226,7 +227,7 @@ for those that have rogue already installed on NobaraOS and want to try hhd, do 
 
 note that hhd defaults to Steam/QAM on the Legion buttons. If you want to swap them with start/select, similar to rogue, then you will need to edit the config file and set `swap_legion` to `True`
 
-if you want to disable steam input LED, you can similarly disable it by setting it to `False`. yaml config file is in the `$HOME/.config/hhd/plugins` folder 
+if you want to disable steam input LED, you can similarly disable it by setting it to `False`. yaml config file is in the `$HOME/.config/hhd/plugins` folder
 
 ### Manual full reinstall of RogueEnemy PS5 Dualsense emulator (nobaraOS)
 
@@ -267,16 +268,16 @@ Note that the Legion Go (LGO) has an issue in STT mode (vs STAMP mode in the bio
 
 There's a few options for TDP Control on the Legion Go.
 
-### `Legion_L + Y` combo 
+### `Legion_L + Y` combo
 
 source: https://linuxgamingcentral.com/posts/chimeraos-on-legion-go/
 
 > You can switch colors (of the power LED) by holding Legion L + Y. Each time you press this combination, you change the performance mode:
 
->    quiet: blue LED; uses about 8 W
->    balanced: white LED; uses about 15 W
->    performance: red LED; uses about 20 W
->    custom: purple LED; uses anywhere from 5-30 W; although at default it seems to be around 20 W
+> quiet: blue LED; uses about 8 W
+> balanced: white LED; uses about 15 W
+> performance: red LED; uses about 20 W
+> custom: purple LED; uses anywhere from 5-30 W; although at default it seems to be around 20 W
 
 For `custom` on the new bios (bios v28) Custom is 30W TDP with everything maxed out
 And it resets every time you switch modes
@@ -299,7 +300,6 @@ Basic Desktop app for TDP control, but can also be added to game mode as a backu
 
 https://github.com/aarron-lee/simple-ryzen-tdp/
 
-
 # Controller support
 
 ### HandyGCCS (aka handycon)
@@ -315,7 +315,6 @@ Link: https://github.com/antheas/hhd
 PS5 Dualsense Edge controller emulator, currently supports all buttons on the LGO controller except the back scrollwheel (scrollwheel already worked previously). Has improvements vs rogue, such as more consistently working rumble, config file for configuring different options, etc. It also supports managing the power button, so no extra program is necessary.
 
 Install instructions are available on the github.
-
 
 ### rogue-enemy
 
@@ -367,7 +366,6 @@ Quote from reddit:
 > This applies a surround sound convolver profile, similar to Dolby Atmos for Built-In Speakers
 
 > The built-in speakers with a volume slider that acts as master gain, and then the virtual sink sliders that apply surround sound profiles on top of the master gain sink. Basically, this lets you adjust the overall gain separate from the sinks themselves to give a wider level of control. It’s not the most seamless solution but it seems to do the job.
-
 
 # 3D prints
 

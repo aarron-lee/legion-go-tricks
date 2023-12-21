@@ -4,6 +4,20 @@ This document serves to provide information, workarounds, and tricks to improvin
 
 Note that while a lot of things are working, Linux support for this device is very much a work in progress, developers are working on improving the experience.
 
+- [Current Status of Linux on the LGO](#current-status-of-linux-on-the-lenovo-legion-go)
+- [What Works?](#what-works)
+- [What has Workarounds?](#what-has-workarounds)
+- [What has issues?](#what-has-issues)
+- [Known Bugs](#known-bugs)
+- [Resources](#resources)
+- [CSS Loader Themes](#css-loader-plugin---themes)
+- [Videos](#videos)
+- [Guides + Small Fixes](#guides--small-fixes)
+- [TDP Control overview](#tdp-control)
+- [Controller Support overview](#controller-support)
+- [Quality of Life Fixes overview](#quality-of-life-fixes)
+- [3D prints](#3d-prints)
+
 # Current Status of Linux on the Lenovo Legion Go
 
 ChimeraOS unstable, Nobara Deck Edition, and Bazzite Deck Edition, all have a bunch of fixes for the LGO. It's mostly working, but still has bugs that need to be addressed.
@@ -312,7 +326,7 @@ Note that you can get back buttons to work with the LegionGoRemapper plugin, but
 
 Link: https://github.com/antheas/hhd
 
-PS5 Dualsense Edge controller emulator, currently supports all buttons on the LGO controller except the back scrollwheel (scrollwheel already worked previously). Has improvements vs rogue, such as more consistently working rumble, config file for configuring different options, etc. It also supports managing the power button, so no extra program is necessary.
+PS5 Dualsense Edge controller emulator, currently supports all buttons on the LGO controller except the back scrollwheel (scrollwheel already worked previously). Has improvements vs rogue, such as more consistently working rumble, config file for configuring different options, RGB LED control via steam input, etc. It also supports managing the power button, so no extra program is necessary.
 
 Install instructions are available on the github.
 

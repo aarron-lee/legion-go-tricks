@@ -65,7 +65,7 @@ These functions are not working out of the box, but have workarounds
   - if you encounter crashing at high TDPs, STT seems to still work fine without issues, so continue to use it for high TDP usage.
     - lower TDPs, below 20-22W, seem stable on STAMP
 - Due to an update for the Steam Deck OLED, FPS often gets artificially capped by Steam. Usually it's 72fps
-  - to get max FPS available, do the following:
+  - to get max FPS available (usually 72fps), do the following:
     - in game mode settings, go to Display, and turn off `Unified Frame Limit Management`, option should be near the very bottom
     - then in the QAM, turn off the Framerate Limit
       - sometimes you need to turn on/off the framerate limit, it doesn't kick in initially

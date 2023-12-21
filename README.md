@@ -13,7 +13,7 @@ However, that being said, Linux is good enough to be a daily driver on the Legio
 - Using a PS5 Dualsense Edge Controller Emulator, you get access to the entire LGO controller (including gyro) via steam input
   - controller works detached too
 - TDP control can be done either via Decky Plugin or steam-patch
-- RGB control works via Decky Plugin
+- RGB control works via Decky Plugin or Steam Input + Dualsense emulation
 - suspend-resume works
 - all standard hardware (wifi, bluetooth, sound, etc) works
 

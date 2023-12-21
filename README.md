@@ -215,6 +215,19 @@ Session=gamescope-session
 
 - Save changes, then reboot
 
+### Uninstall Rogue + Install HHD (NobaraOS)
+
+for those that have rogue already installed on NobaraOS and want to try hhd, do the following:
+
+- download + run the uninstall script for rogue: https://github.com/corando98/ROGueENEMY/blob/main/uninstall.sh
+- disable handycon: `sudo systemctl disable --now handycon.service`
+- disable steam-powerbutton: `sudo systemctl disable --now steam-powerbuttond.service`
+- follow the pypi install instructions to install hhd: https://github.com/antheas/hhd#pypi-based-installation-nobararead-only-fs
+
+note that hhd defaults to Steam/QAM on the Legion buttons. If you want to swap them with start/select, similar to rogue, then you will need to edit the config file and set `swap_legion` to `True`
+
+if you want to disable steam input LED, you can similarly disable it by setting it to `False`. yaml config file is in the `$HOME/.config/hhd/plugins` folder 
+
 ### Manual full reinstall of RogueEnemy PS5 Dualsense emulator (nobaraOS)
 
 if you want to try a manual clean install of rogue, you can do the following:

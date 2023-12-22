@@ -62,6 +62,7 @@ These functions are not working out of the box, but have workarounds
 - TDP - requires using either steam-patch or decky plugins
 - Controller RGB - requires decky plugin or HHD (HHD enables steam input RGB support)
 - GPU Frequency control - via SimpleDeckyTDP plugin
+- Games often default to 800p, you will need to manually change the resolution per game in the `Steam Settings > Properties > Game Resolution` to either `Native` or other higher resolutions.
 
 ## What has issues
 
@@ -71,8 +72,6 @@ These functions are not working out of the box, but have workarounds
 
 ## Known Bugs
 
-- Dec 22nd 2023 - (NobaraOS) there are some reports of a new bug on the latest Nobara OS, where game resolutions are stuck on 800p.
-  - Currently investigating this bug + any possible workarounds
 - Dec 9th 2023 - Nobara desktop mode shortcut is broken after fresh install + update, dev is working on a fix. This doc will be updated once the issue is resolved.
   - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
 - related to v28 bios - STAMP might be bugged on both Windows and Linux - user on discord reported that they were getting hard crashes at 30W TDP on both Windows and Linux

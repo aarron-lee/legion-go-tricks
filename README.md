@@ -60,13 +60,14 @@ These functions are not working out of the box, but have workarounds
   - Gyro performance is best with hhd
 - Trackpad - this previously already worked, but was not usable in steam input. With the latest version of the PS5 Dualsense edge emulators, it is now usable in steam input. [Video Demo here](https://www.youtube.com/watch?v=RuSboPkZob4)
 - TDP - requires using either steam-patch or decky plugins
-- Controller RGB - requires decky plugin
+- Controller RGB - requires decky plugin or HHD (HHD enables steam input RGB support)
 - GPU Frequency control - via SimpleDeckyTDP plugin
 
 ## What has issues
 
 - Battery indicator - it doesn't consistently work, but has a usable workaround
 - Screen Refresh Rate - only refresh rates that work are 60Hz and 144Hz, everything else is not usable/has issues.
+  - anything related to screen refresh rate, such as FPS limiters, etc, are wonky right now.
 
 ## Known Bugs
 
@@ -106,15 +107,15 @@ Simple Decky TDP Plugin - https://github.com/aarron-lee/SimpleDeckyTDP
 
 steam-patch (for TDP control, some steam glyphs, etc) - https://github.com/corando98/steam-patch
 
-powerbutton fix when not using handycon - https://github.com/aarron-lee/steam-powerbuttond
+powerbutton fix when using rogue-enemy - https://github.com/aarron-lee/steam-powerbuttond
 
 Pipewire sound EQ improvement files - https://github.com/matte-schwartz/device-quirks/tree/legion-go/rog-ally-audio-fixes/usr/share/device-quirks/scripts/lenovo/legion-go
-
-gyro increase sampling rate fix (advanced users only) - https://github.com/antheas/llg_sfh
 
 (ChimeraOS only) Legion Go installer tool - https://github.com/linuxgamingcentral/legion-go-tools-for-linux
 
 reverse engineering docs - https://github.com/antheas/hwinfo/tree/master/devices
+
+gyro increase sampling rate fix (advanced users only) - https://github.com/antheas/llg_sfh
 
 ## CSS Loader Plugin - Themes
 

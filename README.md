@@ -69,18 +69,17 @@ These functions are not working out of the box, but have workarounds
 - Battery indicator - it doesn't consistently work, but has a usable workaround
 - Screen Refresh Rate - only refresh rates that work are 60Hz and 144Hz, everything else is not usable/has issues.
   - anything related to screen refresh rate, such as FPS limiters, etc, are wonky right now.
+- v28 bios - STAMP mode is bugged on both Windows and Linux when setting high TDPs with 3rd party tools like ryzenadj
+  - users reported that they were getting hard crashes at 30W TDP on both Windows and Linux
+  - Solution: on STAMP mode, TDP must be set with a fan curve that will prevent thermal shutdown.
+    - The best way to do so, currently, is via SimpleDeckyTDP with the [custom LGO TDP enabled](https://github.com/aarron-lee/SimpleDeckyTDP/tree/main/py_modules/devices#experimental-custom-tdp-method-for-the-legion-go).
+    - Setting TDP this way will also set fan curves appropriately.
 
 ## Known Bugs
 
 - Dec 9th 2023 - Nobara desktop mode shortcut is broken after fresh install + update, dev is working on a fix. This doc will be updated once the issue is resolved.
   - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
   - this issue has been fixed on NobaraOS 39, but version 39 hasn't been released yet
-- related to v28 bios - STAMP might be bugged on both Windows and Linux - user on discord reported that they were getting hard crashes at 30W TDP on both Windows and Linux
-  - crash was replicated on Nobara Linux 30W TDP STAMP
-  - different user on Windows replicated at 30W TDP, suspects it's due to faster charging speed in bios
-  - bug is still being investigated
-  - if you encounter crashing at high TDPs, STT seems to still work fine without issues, so continue to use it for high TDP usage.
-    - lower TDPs, below 20-22W, seem stable on STAMP
 - Due to an update for the Steam Deck OLED, FPS often gets artificially capped by Steam. Usually it's 72fps
   - to get max FPS available (usually 72fps), do the following:
     - in game mode settings, go to Display, and turn off `Unified Frame Limit Management`, option should be near the very bottom

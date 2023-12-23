@@ -292,12 +292,12 @@ source: https://linuxgamingcentral.com/posts/chimeraos-on-legion-go/
 
 > You can switch colors (of the power LED) by holding Legion L + Y. Each time you press this combination, you change the performance mode:
 
-> quiet: blue LED; uses about 8 W
-> balanced: white LED; uses about 15 W
-> performance: red LED; uses about 20 W
-> custom: purple LED; uses anywhere from 5-30 W; although at default it seems to be around 20 W
+- quiet: blue LED; uses about 8 W
+- balanced: white LED; uses about 15 W
+- performance: red LED; uses about 20 W
+- custom: purple LED; uses anywhere from 5-30 W; although at default it seems to be around 20 W
 
-For `custom` on the new bios (bios v28) Custom is 30W TDP with everything maxed out
+For `custom` on the new bios (bios v28) Custom by default is 30W TDP with everything maxed out
 And it resets every time you switch modes
 
 ### Steam Patch

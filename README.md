@@ -69,7 +69,7 @@ These functions are not working out of the box, but have workarounds
 - Battery indicator - it doesn't consistently work, but has a usable workaround
 - Screen Refresh Rate - only refresh rates that work are 60Hz and 144Hz, everything else is not usable/has issues.
   - anything related to screen refresh rate, such as FPS limiters, etc, are wonky right now.
-- v28 bios - STAMP mode is bugged on both Windows and Linux when setting high TDPs with 3rd party tools like ryzenadj
+- v28 bios - STAMP mode is bugged on both Windows and Linux when setting high TDPs with 3rd party tools like ryzenadj and handheld companion
   - users reported that they were getting hard crashes at 30W TDP on both Windows and Linux
   - Solution: on STAMP mode, TDP must be set with a fan curve that will prevent thermal shutdown.
     - The best way to do so, currently, is via SimpleDeckyTDP with the [custom LGO TDP enabled](https://github.com/aarron-lee/SimpleDeckyTDP/tree/main/py_modules/devices#experimental-custom-tdp-method-for-the-legion-go).

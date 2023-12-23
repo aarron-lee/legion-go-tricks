@@ -74,6 +74,7 @@ These functions are not working out of the box, but have workarounds
 
 - Dec 9th 2023 - Nobara desktop mode shortcut is broken after fresh install + update, dev is working on a fix. This doc will be updated once the issue is resolved.
   - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
+  - this issue has been fixed on NobaraOS 39, but version 39 hasn't been released yet
 - related to v28 bios - STAMP might be bugged on both Windows and Linux - user on discord reported that they were getting hard crashes at 30W TDP on both Windows and Linux
   - crash was replicated on Nobara Linux 30W TDP STAMP
   - different user on Windows replicated at 30W TDP, suspects it's due to faster charging speed in bios

@@ -9,3 +9,5 @@ cat <<EOF > "$HOME/.config/environment.d/override-gamescopecmd.conf"
 export GAMESCOPECMD="\$GAMESCOPECMD -r 60 "
 export STEAM_DISPLAY_REFRESH_LIMITS=""
 EOF
+
+echo "Done. Please restart Steam Game Mode to see changes"

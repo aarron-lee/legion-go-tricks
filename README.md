@@ -73,13 +73,13 @@ These functions are not working out of the box, but have workarounds
   - workaround: don't press anything for a few seconds, let the device register itself
   - dev is investigating, this will probably be fixed in a later update to HHD
 - Due to a bug in gamescope, FPS often gets artificially capped by Steam. Usually it's 72fps
-  - fix: [run script to set 60Hz or 144Hz](#fix-72fps-artificial-fps-cap-issue)
+  - workaround: [run script to set 60Hz or 144Hz](#fix-72fps-artificial-fps-cap-issue)
 
 ## What has issues
 
 - Battery indicator - it doesn't consistently work, but has a usable workaround
 - Screen Refresh Rate - only refresh rates that work are 60Hz and 144Hz, everything else is not usable/has issues.
-  - anything related to screen refresh rate, such as FPS limiters, etc, are wonky right now.
+  - you can manually set 60Hz or 144Hz, see [here](#fix-72fps-artificial-fps-cap-issue)
 
 ## Known Bugs
 
@@ -88,7 +88,7 @@ These functions are not working out of the box, but have workarounds
   - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
   - this issue has been fixed on NobaraOS 39, but version 39 hasn't been released yet
 - (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game.
-   - You can work around this by force enabling 144Hz or 60Hz, see the [enable_60hz.sh](./enable_60hz.sh) and [enable_144hz.sh](./enable_144hz.sh) scripts
+   - You can workaround this issue via setting 60Hz or 144Hz, instructions [here](#fix-72fps-artificial-fps-cap-issue)
 - Bug for Pipewire EQ sound improvements - Pipewire EQ sound improvements are an optional sound fix for the LGO
   - the `surround-effect.neutral` option still seems to be working as-expected
   - the `surround-effect.game` option has a bug where volume cannot be controlled

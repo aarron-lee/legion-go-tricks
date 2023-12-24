@@ -60,7 +60,7 @@ These functions are not working out of the box, but have workarounds
   - Gyro performance is best with hhd
 - Trackpad - this previously already worked, but was not usable in steam input. With the latest version of the PS5 Dualsense edge emulators, it is now usable in steam input. [Video Demo here](https://www.youtube.com/watch?v=RuSboPkZob4)
 - TDP - requires using either steam-patch or decky plugins
-- Controller RGB - requires decky plugin or HHD (HHD enables steam input RGB support)
+- Controller RGB - requires decky plugin or HHD (HHD enables steam input RGB support) See [Video Demo here](https://youtu.be/HHubJ8AnkUk?si=oWLVultDKBMVOxlo&t=35)
 - GPU Frequency control - via SimpleDeckyTDP plugin
 - Games often default to 800p, you will need to manually change the resolution per game in the `Steam Settings > Properties > Game Resolution` to either `Native` or other higher resolutions.
 - v28 bios - STAMP mode is bugged on both Windows and Linux when setting high TDPs with 3rd party tools like ryzenadj and handheld companion

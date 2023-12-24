@@ -81,7 +81,8 @@ These functions are not working out of the box, but have workarounds
 
 ## Known Bugs
 
-- Dec 9th 2023 - Nobara desktop mode shortcut is broken after fresh install + update, dev is working on a fix. This doc will be updated once the issue is resolved.
+- Dec 9th 2023 - Nobara desktop mode shortcut might break for users that update their Nobara installation. This should not apply to brand new, clean installations. This doc will be updated once the issue is fully resolved.
+  - recent installations by users indicate that this bug has been resolved on Nobara 38
   - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
   - this issue has been fixed on NobaraOS 39, but version 39 hasn't been released yet
 - Due to an update for the Steam Deck OLED, FPS often gets artificially capped by Steam. Usually it's 72fps

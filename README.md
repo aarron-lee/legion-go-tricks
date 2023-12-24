@@ -92,7 +92,8 @@ These functions are not working out of the box, but have workarounds
   - recent installations by users indicate that this bug has been resolved on Nobara 38
   - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
   - this issue has been fixed on NobaraOS 39, but version 39 hasn't been released yet
-- (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game. As a workaround, run the [disable_refresh_rates.sh](./disable_refresh_rates.sh) script to remove problematic refresh rates from the fps slider (basically removes all values above 60Hz)
+- (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game.
+   - You can work around this by force enabling 144Hz or 60Hz, see the [enable_60hz.sh](./enable_60hz.sh) and [enable_144hz.sh](./enable_144hz.sh) scripts
 - Bug for Pipewire EQ sound improvements - Pipewire EQ sound improvements are an optional sound fix for the LGO
   - the `surround-effect.neutral` option still seems to be working as-expected
   - the `surround-effect.game` option has a bug where volume cannot be controlled
@@ -212,13 +213,7 @@ frame_timing=0
 
 If you're seeeing a fuzzy screen, it means that the you're somehow using an invalid refresh rate. The only valid refresh rates for a game are 60 and 144Hz.
 
-You can work around this somewhat by disabling the 144hz refresh rate. You can either run the script in this repo, or do the following:
-
-create an `disable-refresh-rate.conf` file in `$HOME/config/environment.d`, and add the following to the file:
-
-```
-export STEAM_DISPLAY_REFRESH_LIMITS=""
-```
+You can work around this by force enabling 144Hz or 60Hz, see the [enable_60hz.sh](./enable_60hz.sh) and [enable_144hz.sh](./enable_144hz.sh) scripts
 
 ### Nobara desktop mode switch temporary fix
 

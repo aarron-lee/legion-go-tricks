@@ -1,8 +1,6 @@
 #!/usr/bin/bash
 
-echo "disabling 144Hz refresh rate, reboot required"
+echo "this is no longer necessary, see updated instructions on the legion-go-tricks website"
 
 mkdir -p $HOME/.config/environment.d
-cat <<EOF > "$HOME/.config/environment.d/disable-refresh-rates.conf"
-export STEAM_DISPLAY_REFRESH_LIMITS=""
-EOF
+rm $HOME/.config/environment.d/disable-refresh-rates.conf

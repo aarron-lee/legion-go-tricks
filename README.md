@@ -72,6 +72,13 @@ These functions are not working out of the box, but have workarounds
   - If you hold an LGO joystick input while booting or resuming from suspend, the input may get stuck in whatever direction you were pointing
   - workaround: don't press anything for a few seconds, let the device register itself
   - dev is investigating, this will probably be fixed in a later update to HHD
+- Due to an update for the Steam Deck OLED, FPS often gets artificially capped by Steam. Usually it's 72fps
+  - to force 144Hz with proper working fps limiter
+    - in game mode settings, go to Display, and turn off `Unified Frame Limit Management`, option should be near the very bottom
+    - then run the [enable_144hz.sh script](./enable_144hz.sh)
+  - to force 60Hz with proper working fps limiter
+    - in game mode settings, go to Display, and turn off `Unified Frame Limit Management`, option should be near the very bottom
+    - then run the [enable_60hz.sh script](./enable_60hz.sh)
 
 ## What has issues
 
@@ -85,12 +92,6 @@ These functions are not working out of the box, but have workarounds
   - recent installations by users indicate that this bug has been resolved on Nobara 38
   - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
   - this issue has been fixed on NobaraOS 39, but version 39 hasn't been released yet
-- Due to an update for the Steam Deck OLED, FPS often gets artificially capped by Steam. Usually it's 72fps
-  - to get max FPS available (usually 72fps), do the following:
-    - in game mode settings, go to Display, and turn off `Unified Frame Limit Management`, option should be near the very bottom
-    - then in the QAM, turn off the Framerate Limit
-      - sometimes you need to turn on/off the framerate limit, it doesn't kick in initially
-- FPS slider isn't always accurate
 - (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game. As a workaround, run the [disable_refresh_rates.sh](./disable_refresh_rates.sh) script to remove problematic refresh rates from the fps slider (basically removes all values above 60Hz)
 - Bug for Pipewire EQ sound improvements - Pipewire EQ sound improvements are an optional sound fix for the LGO
   - the `surround-effect.neutral` option still seems to be working as-expected

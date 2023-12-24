@@ -72,7 +72,7 @@ These functions are not working out of the box, but have workarounds
   - If you hold an LGO joystick input while booting or resuming from suspend, the input may get stuck in whatever direction you were pointing
   - workaround: don't press anything for a few seconds, let the device register itself
   - dev is investigating, this will probably be fixed in a later update to HHD
-- Due to an update for the Steam Deck OLED, FPS often gets artificially capped by Steam. Usually it's 72fps
+- Due to a bug in gamescope, FPS often gets artificially capped by Steam. Usually it's 72fps
   - to force 144Hz with proper working fps limiter
     - in game mode settings, go to Display, and turn off `Unified Frame Limit Management`, option should be near the very bottom
     - then run the [enable_144hz.sh script](./enable_144hz.sh)
@@ -154,6 +154,17 @@ Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=aOD
 
 # Guides + small fixes
 
+### Fix 72fps artificial fps cap issue
+
+Due to a bug in gamescope, FPS often gets artificially capped by Steam at 72fps
+
+- to force 144Hz with proper working fps limiter
+  - in game mode settings, go to Display, and turn off `Unified Frame Limit Management`, option should be near the very bottom
+  - then run the [enable_144hz.sh script](./enable_144hz.sh)
+- to force 60Hz with proper working fps limiter
+  - in game mode settings, go to Display, and turn off `Unified Frame Limit Management`, option should be near the very bottom
+  - then run the [enable_60hz.sh script](./enable_60hz.sh)
+
 ### Setup lock screen for desktop mode only (NobaraOS)
 
 Currently, Desktop mode does not have a lock screen during suspend-resume cycles on NobaraOS.
@@ -213,7 +224,7 @@ frame_timing=0
 
 If you're seeeing a fuzzy screen, it means that the you're somehow using an invalid refresh rate. The only valid refresh rates for a game are 60 and 144Hz.
 
-You can work around this by force enabling 144Hz or 60Hz, see the [enable_60hz.sh](./enable_60hz.sh) and [enable_144hz.sh](./enable_144hz.sh) scripts
+You can work around this by force enabling 144Hz or 60Hz, see [fps fix](#fix-72fps-artificial-fps-cap-issue)
 
 ### Nobara desktop mode switch temporary fix
 

@@ -229,19 +229,23 @@ a quick step-by-step for how you fix game mode/desktop switching if you updated 
 
 - open up a terminal console with Ctrl + Alt + F2 (Ctrl + Alt + F3 may also work)
 - login with your user name and password
-- run the command `sudo mv /etc/sddm.conf /etc/sddm.conf.d/kde_settings.conf` to move the `sddm.conf` file to `kde_settings.conf`
-- reboot, then go to Desktop mode
-- (to fix Desktop mode => Game Mode switch) go to your `/etc/sddm.conf.d/kde_settings.conf` file and add in `Relogin=true` under `[Autologin]`.
-  - The file should look something like this under the `[Autologin]` section after you save your changes
-
+- type in `startplasma-wayland` to start desktop mode
+- once in desktop mode, type in `cat /etc/sddm.conf` and confirm whether it looks like the following:
 ```
 [Autologin]
 Relogin=true
 User=deck(or whatever your username is)
 Session=gamescope-session
 ```
+- if it doesn't look like the following, edit the file so that it looks correct
+  - you'll probably need to delete some `#` characters, as well as maybe change `Session` to `gamescope-session`
+  - save changes
+- reboot, and see if the issue is fixed.
 
-- Save changes, then reboot
+If the issue is not fixed, then try the following.
+
+- run the command `sudo mv /etc/sddm.conf /etc/sddm.conf.d/kde_settings.conf` to move the `sddm.conf` file to `kde_settings.conf`
+- reboot
 
 ### Uninstall Rogue + Install HHD (NobaraOS)
 

@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-echo "Enabling 60Hz in Game Mode"
+echo "Enabling 144Hz in Game Mode"
 
 mkdir -p $HOME/.config/environment.d
 rm -f $HOME/.config/environment.d/disable-refresh-rates.conf

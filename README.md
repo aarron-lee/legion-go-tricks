@@ -42,7 +42,7 @@ At the moment, the following functions work out of the box
 - Screen orientation (fixed in NobaraOS Deck Edition, ChimeraOS 45 unstable, Bazzite OS)
 - suspend-resume functionality
   - suspend quirk: sound often is fuzzy on resume, usually clears up after 30 seconds or so.
-    - use [Pause Games plugin](https://github.com/popsUlfr/SDH-PauseGames) with `Pause on Suspend` enabled to help with this issue
+    - sometimes using the [Pause Games plugin](https://github.com/popsUlfr/SDH-PauseGames) with `Pause on Suspend` enabled can help with this issue
 - Wifi and Bluetooth
 - Sound
 - Controllers, both attached and detached

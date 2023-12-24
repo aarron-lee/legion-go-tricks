@@ -99,7 +99,7 @@ These functions are not working out of the box, but have workarounds
   - the `surround-effect.game` option has a bug where volume cannot be controlled
   - This is most likely due to a recent Steam Deck OLED related update.
 - power button stops suspending - bug in the software that manages the power button, fixed by updating to the latest version. reinstall the latest version of [steam-powerbuttond](https://github.com/aarron-lee/steam-powerbuttond)
-  - note, this does not apply to hhd, only applies to rogue-enemy + steam-powerbuttond
+  - note, this **does not apply to hhd**, only applies to rogue-enemy + steam-powerbuttond
 - retroarch does not support the PS5 Dualsense Edge yet
   - for now, better to use emudeck + standalone emulators for all your emulation
 

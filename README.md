@@ -88,7 +88,8 @@ These functions are not working out of the box, but have workarounds
   - this issue has been fixed on NobaraOS 39, but version 39 hasn't been released yet
 - Due to a bug in gamescope, FPS often gets artificially capped by Steam at 144Hz. Usually it's 72fps
   - FPS limiter is also buggy on 144Hz
-  - workaround: [run script to set 60Hz](#force-enable-60hz), this will also fix the fps limiter
+  - workaround: [run script to set 60Hz](#force-enable-60hz), this will also fix the fps limiter at 60Hz
+  - you can still [force enable 144Hz](#force-enable-144hz-note-144hz-has-bugs), but note that it'll be buggy
 - (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game.
    - You can workaround this issue via setting 60Hz, instructions [here](#force-enable-60hz)
 - Bug for Pipewire EQ sound improvements - Pipewire EQ sound improvements are an optional sound fix for the LGO
@@ -160,6 +161,12 @@ This fix was tested on NobaraOS 38 with the latest updates, untested on ChimeraO
 - to force 60Hz with proper working fps limiter
   - in game mode settings, go to Display, and turn off `Unified Frame Limit Management`, option should be near the very bottom
   - then run the [enable_60hz.sh script](./enable_60hz.sh)
+
+### Force enable 144Hz (Note, 144Hz has bugs)
+
+- to force 144Hz (fps limiter will be buggy)
+  - in game mode settings, go to Display, and turn off `Unified Frame Limit Management`, option should be near the very bottom
+  - then run the [enable_144hz.sh script](./enable_144hz.sh)
 
 ### Setup lock screen for desktop mode only (NobaraOS)
 

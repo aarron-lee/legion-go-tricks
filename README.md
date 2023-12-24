@@ -151,7 +151,9 @@ Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=aOD
 
 ### Fix 72fps artificial fps cap issue
 
-Due to a bug in gamescope, FPS often gets artificially capped by Steam at 72fps. This fix was tested on NobaraOS, untested on ChimeraOS and Bazzite
+Due to a bug in gamescope, FPS often gets artificially capped by Steam at 72fps.
+
+This fix was tested on NobaraOS 38 with the latest updates, untested on ChimeraOS and Bazzite
 
 - to force 144Hz with proper working fps limiter
   - in game mode settings, go to Display, and turn off `Unified Frame Limit Management`, option should be near the very bottom

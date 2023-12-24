@@ -73,12 +73,7 @@ These functions are not working out of the box, but have workarounds
   - workaround: don't press anything for a few seconds, let the device register itself
   - dev is investigating, this will probably be fixed in a later update to HHD
 - Due to a bug in gamescope, FPS often gets artificially capped by Steam. Usually it's 72fps
-  - to force 144Hz with proper working fps limiter
-    - in game mode settings, go to Display, and turn off `Unified Frame Limit Management`, option should be near the very bottom
-    - then run the [enable_144hz.sh script](./enable_144hz.sh)
-  - to force 60Hz with proper working fps limiter
-    - in game mode settings, go to Display, and turn off `Unified Frame Limit Management`, option should be near the very bottom
-    - then run the [enable_60hz.sh script](./enable_60hz.sh)
+  - fix: [run script to set 60Hz or 144Hz](#fix-72fps-artificial-fps-cap-issue)
 
 ## What has issues
 
@@ -154,7 +149,7 @@ Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=aOD
 
 # Guides + small fixes
 
-### Fix 72fps artificial fps cap issue (Tested on NobaraOS)
+### Fix 72fps artificial fps cap issue
 
 Due to a bug in gamescope, FPS often gets artificially capped by Steam at 72fps. This fix was tested on NobaraOS, untested on ChimeraOS and Bazzite
 

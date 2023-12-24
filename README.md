@@ -237,7 +237,7 @@ Relogin=true
 User=deck(or whatever your username is)
 Session=gamescope-session
 ```
-- if it doesn't look like the following, edit the file so that it looks correct
+- if it doesn't look correct, edit the file so that it looks correct
   - you'll probably need to delete some `#` characters, as well as maybe change `Session` to `gamescope-session`
   - save changes
 - reboot, and see if the issue is fixed.

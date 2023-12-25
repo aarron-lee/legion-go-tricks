@@ -62,6 +62,7 @@ These functions are not working out of the box, but have workarounds
 - TDP - requires using either steam-patch or decky plugins
 - Controller RGB - requires decky plugin or HHD (HHD enables steam input RGB support) See [Video Demo here](https://youtu.be/HHubJ8AnkUk?si=oWLVultDKBMVOxlo&t=35)
 - GPU Frequency control - via SimpleDeckyTDP plugin
+- Custom Fan curves - via LegionGoRemapper plugin with [experimental feature enabled](https://github.com/aarron-lee/LegionGoRemapper/#custom-fan-curves)
 - Games often default to 800p, you will need to manually change the resolution per game in the `Steam Settings > Properties > Game Resolution` to either `Native` or other higher resolutions.
 - v28 bios - STAMP mode is bugged on both Windows and Linux when setting high TDPs with 3rd party tools like ryzenadj and handheld companion
   - users reported that they were getting hard crashes at 30W TDP on both Windows and Linux
@@ -321,17 +322,17 @@ source: https://linuxgamingcentral.com/posts/chimeraos-on-legion-go/
 For `custom` on the new bios (bios v28) Custom by default is 30W TDP with everything maxed out
 And it resets every time you switch modes
 
-### Steam Patch
-
-Steam Patch enables Steam's TDP slider + GPU sliders to work. Note that this works by patching the Steam client, which means that any Steam updates from Valve can potentially break this fix.
-
-https://github.com/corando98/steam-patch
-
 ### SimpleDeckyTDP
 
 Decky Plugin that provides a very simple TDP bar. Note that there's similarly a risk that Decky Plugins can stop working from any Steam updates from Valve
 
 https://github.com/aarron-lee/SimpleDeckyTDP
+
+### Steam Patch
+
+Steam Patch enables Steam's TDP slider + GPU sliders to work. Note that this works by patching the Steam client, which means that any Steam updates from Valve can potentially break this fix.
+
+https://github.com/corando98/steam-patch
 
 ### Simple Ryzen TDP
 
@@ -370,6 +371,8 @@ Note that rogue-enemy has conflicts with handygccs, so it must be disabled. Also
 Link: https://github.com/aarron-lee/LegionGoRemapper/
 
 Allows for managing back button remaps, controller RGB lights, toggle touchpad on/off, etc
+
+You can also enable custom fan curves, but this is an experimental feature that [requires manual setup](https://github.com/aarron-lee/LegionGoRemapper/#custom-fan-curves)
 
 - note that this uses the exact same functionality as LegionSpace on Windows, so it has the same limitations
 - back button remapping should not be used w/ PS5 controller emulation

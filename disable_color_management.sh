@@ -3,6 +3,7 @@
 # does the following:
 # - disable steam color management
 
+echo "Before trying this fix, did you try enabling the 'Use Native Color Temperature' toggle in the 'Display' settings in game mode?"
 
 echo "disabling steam color management"
 # disable steam color management

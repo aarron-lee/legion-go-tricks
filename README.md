@@ -158,13 +158,13 @@ Due to a bug in gamescope, FPS often gets artificially capped by Steam at 72fps 
 
 This fix was tested on NobaraOS 38 with the latest updates, untested on ChimeraOS and Bazzite
 
-- to force 60Hz with proper working fps limiter
+- force 60Hz with proper working fps limiter
   - in game mode settings, go to Display, and turn off `Unified Frame Limit Management`, option should be near the very bottom
   - then run the [enable_60hz.sh script](./enable_60hz.sh)
 
 ### Force enable 144Hz (Note, 144Hz has bugs)
 
-- to force 144Hz (fps limiter will be buggy)
+- force 144Hz (fps limiter will be buggy)
   - in game mode settings, go to Display, and turn off `Unified Frame Limit Management`, option should be near the very bottom
   - then run the [enable_144hz.sh script](./enable_144hz.sh)
 

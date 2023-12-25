@@ -154,7 +154,7 @@ Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=aOD
 
 ### Force enable 60Hz
 
-Due to a bug in gamescope, FPS often gets artificially capped by Steam at 72fps.
+Due to a bug in gamescope, FPS often gets artificially capped by Steam at 72fps while running at 144Hz. FPS Limiter is also broken.
 
 This fix was tested on NobaraOS 38 with the latest updates, untested on ChimeraOS and Bazzite
 

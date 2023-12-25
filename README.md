@@ -63,6 +63,7 @@ These functions are not working out of the box, but have workarounds
 - Controller RGB - requires decky plugin or HHD (HHD enables steam input RGB support) See [Video Demo here](https://youtu.be/HHubJ8AnkUk?si=oWLVultDKBMVOxlo&t=35)
 - GPU Frequency control - via SimpleDeckyTDP plugin
 - Custom Fan curves - via LegionGoRemapper plugin with [experimental feature enabled](https://github.com/aarron-lee/LegionGoRemapper/#custom-fan-curves)
+  - Note, custom fan curves might need additional bios updates from Lenovo to be fully functional
 - Games often default to 800p, you will need to manually change the resolution per game in the `Steam Settings > Properties > Game Resolution` to either `Native` or other higher resolutions.
 - v28 bios - STAMP mode is bugged on both Windows and Linux when setting high TDPs with 3rd party tools like ryzenadj and handheld companion
   - users reported that they were getting hard crashes at 30W TDP on both Windows and Linux
@@ -375,6 +376,7 @@ Allows for managing back button remaps, controller RGB lights, toggle touchpad o
 You can also enable custom fan curves, but this is an experimental feature that [requires manual setup](https://github.com/aarron-lee/LegionGoRemapper/#custom-fan-curves)
 
 - note that this uses the exact same functionality as LegionSpace on Windows, so it has the same limitations
+- custom fan curves might need additional bios updates from Lenovo to be fully functional
 - back button remapping should not be used w/ PS5 controller emulation
 
 ### CSS Loader Plugin - Themes

@@ -70,10 +70,6 @@ These functions are not working out of the box, but have workarounds
   - **Solution**: on STAMP mode, TDP must be set with a fan curve that will prevent thermal shutdown.
     - The best way to do so, currently, is via SimpleDeckyTDP with the [custom LGO TDP enabled](https://github.com/aarron-lee/SimpleDeckyTDP/tree/main/py_modules/devices#experimental-custom-tdp-method-for-the-legion-go).
     - Setting TDP this way will also set fan curves appropriately.
-- HHD PS5 Controller Emulator bug
-  - If you hold an LGO joystick input while booting or resuming from suspend, the input may get stuck in whatever direction you were pointing
-  - workaround: don't press anything for a few seconds, let the device register itself
-  - dev is investigating, this will probably be fixed in a later update to HHD
 
 ## What has issues
 
@@ -102,6 +98,10 @@ These functions are not working out of the box, but have workarounds
   - note, this **does not apply to hhd**, only applies to rogue-enemy + steam-powerbuttond
 - retroarch does not support the PS5 Dualsense Edge yet
   - for now, better to use emudeck + standalone emulators for all your emulation
+- HHD PS5 Controller Emulator bug
+  - If you hold an LGO joystick input while booting or resuming from suspend, the input may get stuck in whatever direction you were pointing
+  - workaround: don't press anything for a few seconds, let the device register itself
+  - dev is investigating, this will probably be fixed in a later update to HHD
 
 # Resources
 

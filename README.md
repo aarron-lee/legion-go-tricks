@@ -78,7 +78,7 @@ These functions are not working out of the box, but have workarounds
 
 - Battery indicator - it doesn't consistently work, but has a usable workaround
 - Screen Refresh Rate - only refresh rates that work are 60Hz and 144Hz, everything else is not usable/has issues.
-  - you can manually set 60Hz, see [here](#force-enable-60hz)
+  - you can manually set 60Hz, see [here](#force-enable-60hz). 60Hz seems to be bugfree and fully functional.
   - 144Hz has additional bugs, 60Hz is fully functional right now
 
 ## Known Bugs

@@ -303,6 +303,8 @@ or else the screen will be for ants at 1600p
 
 Note that the Legion Go (LGO) has an issue in STT mode (vs STAMP mode in the bios), where custom TDP values will eventually get changed by the bios while in STT mode. STAMP mode fixes this, but there are users reporting crashing while in STAMP mode. STT does not have this stability issue.
 
+If you use the SimpleDeckyTDP plugin with the [LGO custom TDP method](https://github.com/aarron-lee/SimpleDeckyTDP/blob/main/py_modules/devices/README.md#experimental-custom-tdp-method-for-the-legion-go), it seems to fix stability issues on STAMP. Note that this requires bios v28 or newer
+
 There's a few options for TDP Control on the Legion Go.
 
 ### `Legion_L + Y` combo

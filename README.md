@@ -84,7 +84,7 @@ These functions are not working out of the box, but have workarounds
   - recent installations by users indicate that this bug has been resolved on Nobara 38
   - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
   - this issue has been fixed on NobaraOS 39, but version 39 hasn't been released yet
-- Due to a bug in gamescope, FPS often gets artificially capped by Steam at 144Hz. Usually it's 72fps
+- Due to a bug in gamescope, FPS often gets artificially capped by Steam while the display is running at 144Hz. Usually it's 72fps
   - FPS limiter is also buggy on 144Hz
   - workaround: [run script to set 60Hz](#force-enable-60hz), this will also fix the fps limiter at 60Hz
   - you can still [force enable 144Hz](#force-enable-144hz-note-144hz-has-bugs), but note that it'll be buggy

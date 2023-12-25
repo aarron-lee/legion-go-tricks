@@ -227,7 +227,7 @@ frame_timing=0
 
 If you're seeeing a fuzzy screen, it means that the you're somehow using an invalid refresh rate. The only valid refresh rates for a game are 60 and 144Hz.
 
-You can work around this by force enabling 60Hz, see [fps fix](#fix-72fps-artificial-fps-cap-issue)
+You can work around this by force enabling 60Hz, see [fps fix](#force-enable-60hz)
 
 ### Nobara desktop mode switch temporary fix
 

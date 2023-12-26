@@ -13,6 +13,7 @@ Note that while a lot of things are working, Linux support for this device is ve
 - [CSS Loader Themes](#css-loader-plugin---themes)
 - [Videos](#videos)
 - [Guides + Small Fixes](#guides--small-fixes)
+- [Emulator Info](#emulator-info)
 - [TDP Control overview](#tdp-control)
 - [Controller Support overview](#controller-support)
 - [Quality of Life Fixes overview](#quality-of-life-fixes)
@@ -300,6 +301,28 @@ or else the screen will be for ants at 1600p
 - also adds back the right-click “add to steam” shortcut you get with the steamdeck-KDE-presets package (which conflicts with the new theming)
 
 -->
+
+# Emulator Info
+
+Emulator related documentation, including recommended settings, etc.
+
+## Emudeck
+
+For to install, go to https://www.emudeck.com, and scroll down to the section that shows installer options.
+
+If the `Linux` install option doesn't work for you, the `ChimeraOS` install instructions should also work fine on other Linux distros.
+
+## Dolphin (Gamecube)
+
+For to improve stability, make sure you disable V-sync in the Dolphin settings (open Dolphin on desktop mode, select `Graphics`, and disable V-sync).
+
+## Retroarch
+
+There's currently an issue where Retroarch fails to recognize the emulated Dualsense Edge controller. The developer for HHD is aware of this, and already has a fix that is a work in progress. This post will be updated once the fix is pushed and available for download.
+
+## Retrodeck
+
+Retrodeck uses Retroarch for some systems, which will have an issue with the Emulated Dualsense Edge. See [Retroarch](#retroarch) to see the status on a fix for this.
 
 # TDP Control:
 

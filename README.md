@@ -82,7 +82,7 @@ These functions are not working out of the box, but have workarounds
 ## Known Bugs
 
 - Nobara 39 - bug where controller doesn't work after a clean install.
-  - fix - run [this script](./add-lgo-xpad-rule.sh) on Desktop mode
+  - fix - run [this script](./add-lgo-xpad-rule.sh) on Desktop mode, then reboot
 - Dec 9th 2023 - Nobara desktop mode shortcut might break for users that update their Nobara installation. This should not apply to brand new, clean installations. This doc will be updated once the issue is fully resolved.
   - recent installations by users indicate that this bug has been resolved on Nobara 38
   - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)

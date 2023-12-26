@@ -81,7 +81,7 @@ These functions are not working out of the box, but have workarounds
 
 ## Known Bugs
 
-- Nobara 39 - bug where controller doesn't work after a clean install.
+- Nobara 39 - bug where controller doesn't work after a clean install or upgrade from Nobara 38.
   - fix - run [this script](./add-lgo-xpad-rule.sh) on Desktop mode, then reboot
 - Due to a bug in gamescope, FPS often gets artificially capped by Steam while the display is running at 144Hz. Usually it's 72fps
   - FPS limiter is also buggy on 144Hz

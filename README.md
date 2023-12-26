@@ -105,9 +105,9 @@ These functions are not working out of the box, but have workarounds
 
 # Resources
 
-PS5 Dualsense Edge Emulator - https://github.com/antheas/hhd
+HHD - PS5 Dualsense Edge Emulator - https://github.com/antheas/hhd
 
-PS5 Dualsense Edge Emulator - https://github.com/corando98/ROGueENEMY/
+rogue-enemy - PS5 Dualsense Edge Emulator - https://github.com/corando98/ROGueENEMY/
 
 RGB Decky Plugin - https://github.com/aarron-lee/LegionGoRemapper/
 

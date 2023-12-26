@@ -446,3 +446,11 @@ https://www.thingiverse.com/thing:6364915/files
 https://makerworld.com/en/models/57312#profileId-94578
 
 https://www.thingiverse.com/thing:4675734
+
+# Misc
+
+install AppImage manager
+
+```
+flatpak install flathub it.mijorus.gearlever -y --user
+```

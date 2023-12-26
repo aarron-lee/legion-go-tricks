@@ -2,7 +2,6 @@
 # Lenovo Legion Go setup script
 # does the following:
 # - headphone connection-monitor script fix
-# - install steamos-nested-desktop
 # - basic TDP control via SimpleDeckyTDP plugin
 # - RGB control via LegionGoRemapper Decky Plugin
 # - Pipewire EQ fixes from matt_schartz
@@ -23,16 +22,11 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
-echo "Installing Headphone Conenction fix for Pipewire EQ..."
+echo "Installing Headphone Connection fix for Pipewire EQ..."
 # backup old version
 cp /usr/bin/headphone-connection-monitor.sh /usr/bin/headphone-connection-monitor.sh.bak
 # add fixed up headphone connection monitor for Pipewire EQ sound fix
 cp ./headphone-connection-monitor.sh /usr/bin/headphone-connection-monitor.sh
-
-echo "Installing SteamOS Nested Desktop File"
-# install steamos-nested-desktop
-chmod +x steamos-nested-desktop
-cp ./steamos-nested-desktop /usr/local/bin/steamos-nested-desktop
 
 mkdir -p $BUILD_DIR
 cd $BUILD_DIR

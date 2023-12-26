@@ -314,7 +314,11 @@ If the `Linux` install option doesn't work for you, the `ChimeraOS` install inst
 
 ## Dolphin (Gamecube)
 
-For to improve stability, make sure you disable V-sync in the Dolphin settings (open Dolphin on desktop mode, select `Graphics`, and disable V-sync).
+For to improve stability, make sure you disable V-sync in the Dolphin settings
+
+- open Dolphin on desktop mode
+- select `Graphics`
+- disable V-sync, save changes
 
 ## Retroarch
 

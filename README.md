@@ -83,10 +83,6 @@ These functions are not working out of the box, but have workarounds
 
 - Nobara 39 - bug where controller doesn't work after a clean install.
   - fix - run [this script](./add-lgo-xpad-rule.sh) on Desktop mode, then reboot
-- Dec 9th 2023 - Nobara desktop mode shortcut might break for users that update their Nobara installation. This should not apply to brand new, clean installations. This doc will be updated once the issue is fully resolved.
-  - recent installations by users indicate that this bug has been resolved on Nobara 38
-  - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
-  - this issue has been fixed on NobaraOS 39, but version 39 hasn't been released yet
 - Due to a bug in gamescope, FPS often gets artificially capped by Steam while the display is running at 144Hz. Usually it's 72fps
   - FPS limiter is also buggy on 144Hz
   - workaround: [run script to set 60Hz](#force-enable-60hz), this will also fix the fps limiter at 60Hz
@@ -105,6 +101,10 @@ These functions are not working out of the box, but have workarounds
   - If you hold an LGO joystick input while booting or resuming from suspend, the input may get stuck in whatever direction you were pointing
   - workaround: don't press anything for a few seconds, let the device register itself
   - dev is investigating, this will probably be fixed in a later update to HHD
+- Dec 9th 2023 - Nobara desktop mode shortcut might break for users that update their Nobara installation. This should not apply to brand new, clean installations. This doc will be updated once the issue is fully resolved.
+  - recent installations by users indicate that this bug has been resolved on Nobara 38
+  - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
+  - this issue has been fixed on NobaraOS 39, but version 39 hasn't been released yet
 
 # Resources
 
@@ -288,7 +288,6 @@ sudo udevadm trigger
 
 reboot, then download the latest `install.sh` from the rogue github repo, and run the `install.sh` + reboot again.
 
-<!--
 ### Updated Nested Desktop with Nobara 39 (thanks matt_schwartz for the update):
 
 `sudo dnf install plasma-lookandfeel-nobara-steamdeck-additions`
@@ -301,8 +300,6 @@ includes:
 - you’ll have to set scaling once in the KDE settings when the nested desktop session loads for the first time but it should save it for future nested desktop sessions
 or else the screen will be for ants at 1600p
 - also adds back the right-click “add to steam” shortcut you get with the steamdeck-KDE-presets package (which conflicts with the new theming)
-
--->
 
 # Emulator Info
 

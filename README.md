@@ -82,13 +82,17 @@ These functions are not working out of the box, but have workarounds
 ## Known Bugs
 
 - Nobara 39 - bug where controller doesn't work after a clean install or upgrade from Nobara 38.
-  - fix - run [this script](./add-lgo-xpad-rule.sh) on Desktop mode, then reboot
+  - fix:
+    - run [this script](./add-lgo-xpad-rule.sh) on Desktop mode
+    - if running a dualsense emulator (hhd or rogue), disable handycon too.
+      - `sudo systemctl disable --now handycon.service`
+    - then reboot
 - Due to a bug in gamescope, FPS often gets artificially capped by Steam while the display is running at 144Hz. Usually it's 72fps
   - FPS limiter is also buggy on 144Hz
   - workaround: [run script to set 60Hz](#force-enable-60hz), this will also fix the fps limiter at 60Hz
   - you can still [force enable 144Hz](#force-enable-144hz-note-144hz-has-bugs), but note that it'll be buggy
 - (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game.
-   - You can workaround this issue via setting 60Hz, instructions [here](#force-enable-60hz)
+  - You can workaround this issue via setting 60Hz, instructions [here](#force-enable-60hz)
 - Bug for Pipewire EQ sound improvements - Pipewire EQ sound improvements are an optional sound fix for the LGO
   - the `surround-effect.neutral` option still seems to be working as-expected
   - the `surround-effect.game` option has a bug where volume cannot be controlled
@@ -242,12 +246,14 @@ a quick step-by-step for how you fix game mode/desktop switching if you updated 
 - login with your user name and password
 - type in `startplasma-wayland` to start desktop mode
 - once in desktop mode, type in `cat /etc/sddm.conf` and confirm whether it looks like the following:
+
 ```
 [Autologin]
 Relogin=true
 User=deck(or whatever your username is)
 Session=gamescope-session
 ```
+
 - if it doesn't look correct, edit the file so that it looks correct
   - you'll probably need to delete some `#` characters, as well as maybe change `Session` to `gamescope-session`
   - save changes
@@ -298,7 +304,7 @@ includes:
   - It works for both Steam Deck and ROG Ally.
   - Make sure to set the game entry to “Native” in the Steam game settings menu first.
 - you’ll have to set scaling once in the KDE settings when the nested desktop session loads for the first time but it should save it for future nested desktop sessions
-or else the screen will be for ants at 1600p
+  or else the screen will be for ants at 1600p
 - also adds back the right-click “add to steam” shortcut you get with the steamdeck-KDE-presets package (which conflicts with the new theming)
 
 # Emulator Info

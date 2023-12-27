@@ -84,6 +84,10 @@ These functions are not working out of the box, but have workarounds
 - Nobara 39 - bug where controller doesn't work after a clean install or upgrade from Nobara 38.
   - fix:
     - run [this script](./add-lgo-xpad-rule.sh) on Desktop mode
+```
+# copy-paste this into terminal
+curl -L https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/main/add-lgo-xpad-rule.sh | sudo sh
+```
     - if running a dualsense emulator (hhd or rogue), disable handycon too.
       - `sudo systemctl disable --now handycon.service`
     - then reboot

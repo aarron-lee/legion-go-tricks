@@ -101,9 +101,9 @@ These functions are not working out of the box, but have workarounds
   - workaround: don't press anything for a few seconds, let the device register itself
   - dev is investigating, this will probably be fixed in a later update to HHD
 - Dec 9th 2023 - Nobara desktop mode shortcut might break for users that update their Nobara installation. This should not apply to brand new, clean installations. This doc will be updated once the issue is fully resolved.
+  - this issue has been fixed on NobaraOS 39
   - recent installations by users indicate that this bug has been resolved on Nobara 38
   - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
-  - this issue has been fixed on NobaraOS 39, but version 39 hasn't been released yet
 - Bug for Pipewire EQ sound improvements - Pipewire EQ sound improvements are an optional sound fix for the LGO
   - the `surround-effect.neutral` option still seems to be working as-expected
   - the `surround-effect.game` option has a bug where volume cannot be controlled

@@ -104,9 +104,7 @@ These functions are not working out of the box, but have workarounds
   - this issue has been fixed on NobaraOS 39
   - recent installations by users indicate that this bug has been resolved on Nobara 38
   - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
-- Bug for Pipewire EQ sound improvements - Pipewire EQ sound improvements are an optional sound fix for the LGO
-  - the `surround-effect.neutral` option still seems to be working as-expected
-  - the `surround-effect.game` option has a bug where volume cannot be controlled
+- Bugs for Pipewire EQ sound improvements - Pipewire EQ sound improvements are an optional sound fix for the LGO, currently is buggy and not recommended
   - This is most likely due to a Steam Deck OLED related update.
 
 # Resources

@@ -326,14 +326,6 @@ For to improve stability, make sure you disable V-sync in the Dolphin settings
 - select `Graphics`
 - disable V-sync, save changes
 
-## Retroarch
-
-There's currently an issue where Retroarch fails to recognize the emulated Dualsense Edge controller. The developer for HHD is aware of this, and already has a fix that is a work in progress. This post will be updated once the fix is pushed and available for download.
-
-## Retrodeck
-
-Retrodeck uses Retroarch for some systems, which will have an issue with the Emulated Dualsense Edge. See [Retroarch](#retroarch) to see the status on a fix for this.
-
 # TDP Control:
 
 Note that the Legion Go (LGO) has an issue in STT mode (vs STAMP mode in the bios), where custom TDP values will eventually get changed by the bios while in STT mode. STAMP mode fixes this, but there are users reporting crashing while in STAMP mode. STT does not have this stability issue.

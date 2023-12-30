@@ -445,6 +445,8 @@ https://www.thingiverse.com/thing:4675734
 
 https://www.reddit.com/r/LegionGo/comments/17s8rv8/3d_printed_steamclip_kickstand_released/
 
+https://www.thingiverse.com/thing:6311208/
+
 # Misc
 
 install AppImage manager

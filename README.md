@@ -346,7 +346,7 @@ And it resets every time you switch modes
 
 ### SimpleDeckyTDP
 
-Decky Plugin that provides a very simple TDP bar. Note that there's similarly a risk that Decky Plugins can stop working from any Steam updates from Valve
+Decky Plugin that provides a simple TDP and GPU controls. Note that there's similarly a risk that Decky Plugins can stop working from any Steam updates from Valve
 
 https://github.com/aarron-lee/SimpleDeckyTDP
 
@@ -388,7 +388,7 @@ Note that rogue-enemy has conflicts with handygccs, so it must be disabled. Also
 
 # Quality Of Life Fixes
 
-### LegionGORemapper Decky Plugin - RGB control + backbutton remapping
+### LegionGoRemapper Decky Plugin - RGB control + backbutton remapping
 
 Link: https://github.com/aarron-lee/LegionGoRemapper/
 
@@ -404,6 +404,7 @@ You can also enable custom fan curves, but this is an experimental feature that 
 
 - note, requires `CSS Loader` Decky Plugin
 - manually install by downloading the theme + placing in `$HOME/homebrew/themes/` folder
+- sometimes themes require a reboot before they start working.
 
 Legion Go Theme - https://github.com/frazse/SBP-Legion-Go-Theme
 

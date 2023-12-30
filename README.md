@@ -154,7 +154,7 @@ cd $HOME/homebrew/themes && git clone https://github.com/frazse/PS5-to-Xbox-glyp
 
 # Videos
 
-Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=aODkGjjiD6U&
+Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=anc7hyPU6Lk
 
 # Guides + small fixes
 

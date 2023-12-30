@@ -94,14 +94,6 @@ These functions are not working out of the box, but have workarounds
   - you can still [force enable 144Hz](#force-enable-144hz-note-144hz-has-bugs), but note that it'll be buggy
 - (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game.
   - You can workaround this issue via setting 60Hz, instructions [here](#force-enable-60hz)
-- Bug for Pipewire EQ sound improvements - Pipewire EQ sound improvements are an optional sound fix for the LGO
-  - the `surround-effect.neutral` option still seems to be working as-expected
-  - the `surround-effect.game` option has a bug where volume cannot be controlled
-  - This is most likely due to a recent Steam Deck OLED related update.
-- power button stops suspending - bug in the software that manages the power button, fixed by updating to the latest version. reinstall the latest version of [steam-powerbuttond](https://github.com/aarron-lee/steam-powerbuttond)
-  - note, this **does not apply to hhd**, only applies to rogue-enemy + steam-powerbuttond
-- retroarch does not support the PS5 Dualsense Edge yet
-  - for now, better to use emudeck + standalone emulators for all your emulation
 - HHD PS5 Controller Emulator bug
   - If you hold an LGO joystick input while booting or resuming from suspend, the input may get stuck in whatever direction you were pointing
   - workaround: don't press anything for a few seconds, let the device register itself
@@ -110,6 +102,10 @@ These functions are not working out of the box, but have workarounds
   - recent installations by users indicate that this bug has been resolved on Nobara 38
   - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
   - this issue has been fixed on NobaraOS 39, but version 39 hasn't been released yet
+- Bug for Pipewire EQ sound improvements - Pipewire EQ sound improvements are an optional sound fix for the LGO
+  - the `surround-effect.neutral` option still seems to be working as-expected
+  - the `surround-effect.game` option has a bug where volume cannot be controlled
+  - This is most likely due to a Steam Deck OLED related update.
 
 # Resources
 

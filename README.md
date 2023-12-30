@@ -88,8 +88,8 @@ These functions are not working out of the box, but have workarounds
 
 ## Known Bugs
 
-- HHD (Dualsense Emulator) - It should now hide the Xbox controller and only show the Dualsense Edge.
-  - If you see the Xbox controller, you can flip the fps-mode switch on and off for to make it disappear. You can leave the controllers attached when you do this.
+- HHD (Dualsense Emulator) - It should now hide the Xbox controller in steam input, and only show the Dualsense Edge.
+  - If you see the Xbox controller in steam input, you can flip the fps-mode switch on and off for to make it disappear. You can leave the controllers attached when you do this.
   - This should also fix any issues where emulators don't recognize the controller, since the emulator was latching onto the Xbox controller
 - Nobara 39 - bug where controller doesn't work after a clean install or upgrade from Nobara 38.
   - fix:

@@ -26,7 +26,8 @@ ChimeraOS unstable, Nobara Deck Edition, and Bazzite Deck Edition, all have a bu
 However, that being said, Linux is good enough to be a daily driver on the Legion Go.
 
 - Using a PS5 Dualsense Edge Controller Emulator, you get access to the entire LGO controller (including gyro) via steam input
-  - controller works detached too
+  - the entire controller works detached too
+    - however gyro hardware is in the main body with the screen, so it won't really work detached
 - TDP control can be done either via Decky Plugin or steam-patch
 - RGB control works via Decky Plugin or Steam Input + Dualsense emulation
 - suspend-resume works
@@ -52,7 +53,9 @@ At the moment, the following functions work out of the box
   - some non-gaming distros don't include the udev rule for the controller, you can manually add it with [this script](./add-lgo-xpad-rule.sh)
 - FPS/Mouse mode
 - scroll wheel on controller works fine, scroll wheel press doesn't do anything. However, holding the scroll wheel for 5s will toggle the scroll wheel on/off
-- trackpad works, but cannot tap-to-click in game mode. Can tap to click on desktop mode, but must be enabled in the touchpad settings. Can be used in steam input with a workaround.
+- trackpad works, but cannot tap-to-click in game mode.
+  - Can tap to click on desktop mode, but must be enabled in the touchpad settings.
+  - Can be used in steam input with a workaround.
 
 ## What Has Workarounds?
 
@@ -60,19 +63,21 @@ These functions are not working out of the box, but have workarounds
 
 - Steam/QAM Buttons/Rear back buttons - all buttons can be used in Steam via Dualsense Edge Virtual/Emulated Controller [Video demo here](https://www.youtube.com/watch?v=uMiXNKES2LM).
 - Gyro - uses the same fix as buttons fix
-  - Gyro performance is best with hhd
-- Trackpad - this previously already worked, but was not usable in steam input. With the latest version of the PS5 Dualsense edge emulators, it is now usable in steam input. [Video Demo here](https://www.youtube.com/watch?v=RuSboPkZob4)
+  - Gyro performance is best with hhd Dualsense Edge Emulator
+- Trackpad - this hardware previously already worked, but was not usable in steam input.
+  - With the latest version of the PS5 Dualsense edge emulators, it is now usable in steam input. [Video Demo here](https://www.youtube.com/watch?v=RuSboPkZob4)
 - TDP - requires using either steam-patch or decky plugins
 - Controller RGB Lights - requires decky plugin or HHD (HHD enables steam input RGB support) See [Video Demo here](https://youtu.be/HHubJ8AnkUk?si=oWLVultDKBMVOxlo&t=35)
 - GPU Frequency control - via SimpleDeckyTDP plugin or steam-patch
-- Custom Fan curves - via LegionGoRemapper plugin with [experimental feature enabled](https://github.com/aarron-lee/LegionGoRemapper/#custom-fan-curves)
-  - Note, custom fan curves might need additional bios updates from Lenovo to be fully functional
-- Games can default to 800p, you will need to manually change the resolution per game in the `Steam Settings > Properties > Game Resolution` to either `Native` or other higher resolutions.
+- Custom Fan Curves - via LegionGoRemapper plugin with [experimental feature enabled](https://github.com/aarron-lee/LegionGoRemapper/#custom-fan-curves)
+  - Note, custom fan curves will need additional bios updates from Lenovo to be fully functional
+- Games can sometimes default to 800p, you will need to manually change the resolution per game in the `Steam Settings > Properties > Game Resolution` to either `Native` or other higher resolutions.
 - v28 bios - STAMP mode is bugged on both Windows and Linux when setting high TDPs with 3rd party tools like ryzenadj and handheld companion
   - users reported that they were getting hard crashes at 30W TDP on both Windows and Linux
   - **Solution**: on STAMP mode, TDP must be set with a fan curve that will prevent thermal shutdown.
     - The best way to do so, currently, is via SimpleDeckyTDP with the [custom LGO TDP enabled](https://github.com/aarron-lee/SimpleDeckyTDP/tree/main/py_modules/devices#experimental-custom-tdp-method-for-the-legion-go).
     - Setting TDP this way will also set fan curves appropriately.
+    - steam-patch should similarly work on the LGO
 
 ## What has issues
 

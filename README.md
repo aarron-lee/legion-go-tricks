@@ -48,6 +48,8 @@ At the moment, the following functions work out of the box
 - Sound
 - Controllers, both attached and detached
   - note, controllers work best in X-input mode. see [official Legion Go Userguide PDF](./legion_go_user_guide_en.pdf) to read more about controller modes
+  - ChimeraOS, NobaraOS, BazziteOS all ship OOTB with basic controller support
+  - some non-gaming distros don't include the udev rule for the controller, you can manually add it with [this script](./add-lgo-xpad-rule.sh)
 - FPS/Mouse mode
 - scroll wheel on controller works fine, scroll wheel press doesn't do anything. However, holding the scroll wheel for 5s will toggle the scroll wheel on/off
 - trackpad works, but cannot tap-to-click in game mode. Can tap to click on desktop mode, but must be enabled in the touchpad settings. Can be used in steam input with a workaround.
@@ -61,11 +63,11 @@ These functions are not working out of the box, but have workarounds
   - Gyro performance is best with hhd
 - Trackpad - this previously already worked, but was not usable in steam input. With the latest version of the PS5 Dualsense edge emulators, it is now usable in steam input. [Video Demo here](https://www.youtube.com/watch?v=RuSboPkZob4)
 - TDP - requires using either steam-patch or decky plugins
-- Controller RGB - requires decky plugin or HHD (HHD enables steam input RGB support) See [Video Demo here](https://youtu.be/HHubJ8AnkUk?si=oWLVultDKBMVOxlo&t=35)
-- GPU Frequency control - via SimpleDeckyTDP plugin
+- Controller RGB Lights - requires decky plugin or HHD (HHD enables steam input RGB support) See [Video Demo here](https://youtu.be/HHubJ8AnkUk?si=oWLVultDKBMVOxlo&t=35)
+- GPU Frequency control - via SimpleDeckyTDP plugin or steam-patch
 - Custom Fan curves - via LegionGoRemapper plugin with [experimental feature enabled](https://github.com/aarron-lee/LegionGoRemapper/#custom-fan-curves)
   - Note, custom fan curves might need additional bios updates from Lenovo to be fully functional
-- Games often default to 800p, you will need to manually change the resolution per game in the `Steam Settings > Properties > Game Resolution` to either `Native` or other higher resolutions.
+- Games can default to 800p, you will need to manually change the resolution per game in the `Steam Settings > Properties > Game Resolution` to either `Native` or other higher resolutions.
 - v28 bios - STAMP mode is bugged on both Windows and Linux when setting high TDPs with 3rd party tools like ryzenadj and handheld companion
   - users reported that they were getting hard crashes at 30W TDP on both Windows and Linux
   - **Solution**: on STAMP mode, TDP must be set with a fan curve that will prevent thermal shutdown.
@@ -85,7 +87,7 @@ These functions are not working out of the box, but have workarounds
   - fix:
     - run this script on Desktop mode
       - `curl -L https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/main/add-lgo-xpad-rule.sh | sudo sh`
-    - if running a dualsense emulator (hhd or rogue), disable handycon too.
+    - if planning on running a dualsense emulator (hhd or rogue), disable handycon too.
       - `sudo systemctl disable --now handycon.service`
     - then reboot
 - Due to a bug in gamescope, FPS often gets artificially capped by Steam while the display is running at 144Hz. Usually it's 72fps

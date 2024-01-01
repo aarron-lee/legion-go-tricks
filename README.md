@@ -9,6 +9,7 @@ Note that while a lot of things are working, Linux support for this device is ve
 - [What has Workarounds?](#what-has-workarounds)
 - [What has issues?](#what-has-issues)
 - [Known Bugs](#known-bugs)
+- [User Reported Bugs (needs verification)](#user-reported-bugs-needs-verification)
 - [Resources](#resources)
 - [CSS Loader Themes](#css-loader-plugin---themes)
 - [Videos](#videos)
@@ -115,6 +116,15 @@ These functions are not working out of the box, but have workarounds
   - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
 - Bugs for Pipewire EQ sound improvements - Pipewire EQ sound improvements are an optional sound fix for the LGO, currently is buggy and not recommended
   - This is most likely due to a Steam Deck OLED related update.
+
+# User-reported bugs (needs verification)
+
+- nobaraOS v39
+  - controller is more buggy in desktop mode for desktop-related usage, should still work fine for gaming
+    - nested desktop still seems fine
+  - game mode global FSR is not working
+  - ryzenadj may not be working for TDP control
+    - use custom Lenovo TDP mode via Decky plugin instead: [see here](https://github.com/aarron-lee/SimpleDeckyTDP/tree/main/py_modules/devices#experimental-custom-tdp-method-for-the-legion-go)
 
 # Resources
 

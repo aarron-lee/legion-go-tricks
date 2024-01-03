@@ -128,7 +128,8 @@ These functions are not working out of the box, but have workarounds
 
 # Resources
 
-HHD - PS5 Dualsense Edge Emulator - https://github.com/antheas/hhd
+HHD - PS5 Dualsense Edge Emulator - https://github.com/hhd-dev/hhd
+  - has a Decky plugin available for changing hhd settings: https://github.com/hhd-dev/hhd-decky
 
 rogue-enemy - PS5 Dualsense Edge Emulator - https://github.com/corando98/ROGueENEMY/
 

@@ -212,22 +212,28 @@ To mitgate this issue, you can setup a monitoring script that will blast the fan
 
 Install Instructions:
 
-1. Download the files required
+1. run `sudo modprobe acpi_call`, and see if this command errors out for you; if it does, you need to install `acpi_call` on your linux distro
+
+If it didn't error out for you, we need to enable acpi_call by default so that you don't need to manually run `sudo modprobe acpi_call` on every boot.
+
+You can do so via running the following script: [enable-acpi-call.sh](./enable-acpi-call.sh)
+
+2. Download the files required
 
 ```
 cd $HOME && git clone https://github.com/corando98/LLG_Dev_scripts.git
 ```
 
-2. before installing, you can edit the `$HOME/LLG_Dev_scripts/fan-helper_install.sh` script if you'd like to change what temperature will trigger the fan
+3. before installing, you can edit the `$HOME/LLG_Dev_scripts/fan-helper_install.sh` script if you'd like to change what temperature will trigger the fan
   - in the file, you can replace the `85` in the line with `--temp_high 85 --temp_low 80`
 
-3. run the install script, it will ask for your sudo password
+4. run the install script, it will ask for your sudo password
 
 ```
 cd $HOME/LLG_Dev_scripts && chmod +x ./fan-helper_install.sh && sudo ./fan-helper_install.sh
 ```
 
-4. To verify that it's working, you can type in the following: `sudo systemctl status legion_fan_helper.service`
+5. To verify that it's working, you can type in the following: `sudo systemctl status legion_fan_helper.service`
 
 The result should look something like this:
 
@@ -237,7 +243,9 @@ Jan 03 21:03:19 nobaraLGO python3[10905]: 2024-01-03 21:03:19,473 - INFO - CPU T
 Jan 03 21:03:19 nobaraLGO python3[10905]: 2024-01-03 21:03:19,473 - INFO - AC Status: Plugged In
 ```
 
-5. If you ever want to uninstall this temperature monitoring script, run the following one line at a time:
+6. You can now quit/close the terminal, and reboot
+
+7. If you ever want to uninstall this temperature monitoring script, run the following one line at a time:
 
 ```
 sudo systemctl disable --now legion_fan_helper.service

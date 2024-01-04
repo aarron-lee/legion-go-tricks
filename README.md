@@ -212,9 +212,9 @@ To mitgate this issue, you can setup a monitoring script that will blast the fan
 
 Install Instructions:
 
-1. run `sudo modprobe acpi_call`, and see if this command errors out for you; if it does, you need to install `acpi_call` on your linux distro
+1. run `sudo modprobe acpi_call`, and see if this command errors out for you; if it does display an error, you need to install `acpi_call` on your linux distro
 
-If it didn't error out for you, we need to enable acpi_call by default so that you don't need to manually run `sudo modprobe acpi_call` on every boot.
+If it did not error out for you, we need to enable acpi_call by default so that you don't need to manually run `sudo modprobe acpi_call` on every boot.
 
 You can do so via running the following script: [enable-acpi-call.sh](./enable-acpi-call.sh)
 

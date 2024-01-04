@@ -131,21 +131,23 @@ These functions are not working out of the box, but have workarounds
 HHD - PS5 Dualsense Edge Emulator - https://github.com/hhd-dev/hhd
   - has a Decky plugin available for changing hhd settings: https://github.com/hhd-dev/hhd-decky
 
-rogue-enemy - PS5 Dualsense Edge Emulator - https://github.com/corando98/ROGueENEMY/
-
 RGB Decky Plugin - https://github.com/aarron-lee/LegionGoRemapper/
 
 Simple Decky TDP Plugin - https://github.com/aarron-lee/SimpleDeckyTDP
 
+Script that monitors CPU temps and blasts fans when temps are too high - see guide [here] 
+
 steam-patch (for TDP control, some steam glyphs, etc) - https://github.com/corando98/steam-patch
+
+reverse engineering docs - https://github.com/antheas/hwinfo/tree/master/devices
+
+rogue-enemy - PS5 Dualsense Edge Emulator - https://github.com/corando98/ROGueENEMY/
 
 powerbutton fix when using rogue-enemy - https://github.com/aarron-lee/steam-powerbuttond
 
 Pipewire sound EQ improvement files - https://github.com/matte-schwartz/device-quirks/tree/legion-go/rog-ally-audio-fixes/usr/share/device-quirks/scripts/lenovo/legion-go
 
 (ChimeraOS only) Legion Go installer tool - https://github.com/linuxgamingcentral/legion-go-tools-for-linux
-
-reverse engineering docs - https://github.com/antheas/hwinfo/tree/master/devices
 
 gyro increase sampling rate fix (advanced users only) - https://github.com/antheas/llg_sfh
 
@@ -201,6 +203,47 @@ Currently, Desktop mode does not have a lock screen during suspend-resume cycles
 To fix this, go into Desktop mode, then configure `Screen Locking` in KDE desktop settings. You can optionally configure it for `after waking from sleep`.
 
 This should show a login screen for suspend/resume in desktop mode only. In game mode, you should still get the expected regular behavior.
+
+### Setup Monitor script that blasts fans when CPU temps climb too high (tested on NobaraOS only)
+
+The Legion Go bios currently has behavior where if temps get too high, it manually forces TDP values to lower values until temps cool off
+
+To mitgate this issue, you can setup a monitoring script that will blast the fans at full speed whenever it sees temps that are too high.
+
+Install Instructions:
+
+1. Download the files required
+
+```
+cd $HOME && git clone https://github.com/corando98/LLG_Dev_scripts.git
+```
+
+2. before installing, you can edit the `$HOME/LLG_Dev_scripts/fan-helper_install.sh` script if you'd like to change what temperature will trigger the fan
+  - in the file, you can replace the `85` in the line with `--temp_high 85 --temp_low 80`
+
+3. run the install script, it will ask for your sudo password
+
+```
+cd $HOME/LLG_Dev_scripts && chmod +x ./fan-helper_install.sh && sudo ./fan-helper_install.sh
+```
+
+4. To verify that it's working, you can type in the following: `sudo systemctl status legion_fan_helper.service`
+
+The result should look something like this:
+
+```
+Jan 03 21:03:19 nobaraLGO systemd[1]: Started legion_fan_helper.service - Legion Go Fan helper method.
+Jan 03 21:03:19 nobaraLGO python3[10905]: 2024-01-03 21:03:19,473 - INFO - CPU Temperature: 46°C
+Jan 03 21:03:19 nobaraLGO python3[10905]: 2024-01-03 21:03:19,473 - INFO - AC Status: Plugged In
+```
+
+5. If you ever want to uninstall this temperature monitoring script, run the following one line at a time:
+
+```
+sudo systemctl disable --now legion_fan_helper.service
+sudo rm /etc/systemd/system/legion_fan_helper.service
+sudo rm -rf $HOME/LLG_Dev_scripts
+```
 
 ### Fix dark colored screen tone shift when moving mouse/trackpad
 

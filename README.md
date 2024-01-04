@@ -135,7 +135,7 @@ RGB Decky Plugin - https://github.com/aarron-lee/LegionGoRemapper/
 
 Simple Decky TDP Plugin - https://github.com/aarron-lee/SimpleDeckyTDP
 
-Script that monitors CPU temps and blasts fans when temps are too high - see guide [here] 
+Script that monitors CPU temps and blasts fans when temps are too high - see guide [here](#setup-monitor-script-that-blasts-fans-when-cpu-temps-climb-too-high-tested-on-nobaraos-only)
 
 steam-patch (for TDP control, some steam glyphs, etc) - https://github.com/corando98/steam-patch
 

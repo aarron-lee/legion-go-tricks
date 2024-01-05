@@ -86,6 +86,7 @@ These functions are not working out of the box, but have workarounds
 - Screen Refresh Rate - only refresh rates that work are 60Hz and 144Hz, everything else is not usable/has issues.
   - you can manually set 60Hz, see [here](#force-enable-60hz). 60Hz seems to be bugfree and fully functional.
   - 144Hz has additional bugs, 60Hz is fully functional right now
+    - you can read more details about the 144Hz bugs in the [Known Bugs](#known-bugs) section
 
 ## Known Bugs
 

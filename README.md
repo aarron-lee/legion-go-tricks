@@ -113,7 +113,6 @@ These functions are not working out of the box, but have workarounds
   - workaround: don't press anything for a few seconds, let the device register itself
   - dev is investigating, this will probably be fixed in a later update to HHD
 
-
 # User-reported bugs (needs verification)
 
 - nobaraOS v39
@@ -126,7 +125,8 @@ These functions are not working out of the box, but have workarounds
 # Resources
 
 HHD - PS5 Dualsense Edge Emulator - https://github.com/hhd-dev/hhd
-  - has a Decky plugin available for changing hhd settings: https://github.com/hhd-dev/hhd-decky
+
+- has a Decky plugin available for changing hhd settings: https://github.com/hhd-dev/hhd-decky
 
 RGB Decky Plugin - https://github.com/aarron-lee/LegionGoRemapper/
 
@@ -222,7 +222,8 @@ cd $HOME && git clone https://github.com/corando98/LLG_Dev_scripts.git
 ```
 
 3. before installing, you can edit the `$HOME/LLG_Dev_scripts/fan-helper_install.sh` script if you'd like to change what temperature will trigger the fan
-  - in the file, you can replace the `85` in the line with `--temp_high 85 --temp_low 80`
+
+- in the file, you can replace the `85` in the line with `--temp_high 85 --temp_low 80`
 
 4. run the install script, it will ask for your sudo password
 
@@ -249,6 +250,14 @@ sudo systemctl disable --now legion_fan_helper.service
 sudo rm /etc/systemd/system/legion_fan_helper.service
 sudo rm -rf $HOME/LLG_Dev_scripts
 ```
+
+### NobaraOS Desktop Mode - automatically set desktop resolution scale
+
+1. Save [this script](./desktopmode-autoscale.sh) somewhere and mark it as executable
+
+- `chmod +x ./desktopmode-autoscale.sh``
+
+2. Add it to your KDE Autostart config (Menu > search for Autostart > Add)
 
 ### Fix dark colored screen tone shift when moving mouse/trackpad
 

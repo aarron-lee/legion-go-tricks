@@ -16,7 +16,7 @@ then
 # - Save this script somewhere and mark it as executabe (chmod +x ./desktopmode-autoscale.sh)
 # - Add it to your KDE Autostart config (Menu > search for Autostart > Add)
 
-sleep 5
+sleep 8
 echo $(date '+%Y-%m-%d %H:%M:%S') Starting Autoscale Fix script...| tee -a /tmp/desktop-mode-scale.log
 
 # This bit is needed to allow enough time for the desktop to load, otherwise the fix won't work

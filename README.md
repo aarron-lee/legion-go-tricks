@@ -257,7 +257,9 @@ sudo rm -rf $HOME/LLG_Dev_scripts
 
 - `chmod +x ./desktopmode-autoscale.sh`
 
-2. Add it to your KDE Autostart config (Menu > search for Autostart > Add)
+2. (optional) edit script's `SCALE=1.5` value to whatever scale you want
+
+3. Add it to your KDE Autostart config (Menu > search for Autostart > Add)
 
 ### Fix dark colored screen tone shift when moving mouse/trackpad
 

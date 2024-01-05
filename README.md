@@ -255,7 +255,7 @@ sudo rm -rf $HOME/LLG_Dev_scripts
 
 1. Save [this script](./desktopmode-autoscale.sh) somewhere and mark it as executable
 
-- `chmod +x ./desktopmode-autoscale.sh``
+- `chmod +x ./desktopmode-autoscale.sh`
 
 2. Add it to your KDE Autostart config (Menu > search for Autostart > Add)
 

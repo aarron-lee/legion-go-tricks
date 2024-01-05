@@ -18,6 +18,7 @@ Note that while a lot of things are working, Linux support for this device is ve
 - [TDP Control overview](#tdp-control)
 - [Controller Support overview](#controller-support)
 - [Quality of Life Fixes overview](#quality-of-life-fixes)
+- [Resolved/won't fix bugs](#resolved-or-wont-fix-bugs-changelog-for-documentation-purposes)
 - [3D prints](#3d-prints)
 
 # Current Status of Linux on the Lenovo Legion Go
@@ -111,12 +112,7 @@ These functions are not working out of the box, but have workarounds
   - If you hold an LGO joystick input while booting or resuming from suspend, the input may get stuck in whatever direction you were pointing
   - workaround: don't press anything for a few seconds, let the device register itself
   - dev is investigating, this will probably be fixed in a later update to HHD
-- Dec 9th 2023 - Nobara desktop mode shortcut might break for users that update their Nobara installation. This should not apply to brand new, clean installations. This doc will be updated once the issue is fully resolved.
-  - this issue has been fixed on NobaraOS 39
-  - recent installations by users indicate that this bug has been resolved on Nobara 38
-  - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
-- Bugs for Pipewire EQ sound improvements - Pipewire EQ sound improvements are an optional sound fix for the LGO, currently is buggy and not recommended
-  - This is most likely due to a Steam Deck OLED related update.
+
 
 # User-reported bugs (needs verification)
 
@@ -504,6 +500,15 @@ Quote from reddit:
 > This applies a surround sound convolver profile, similar to Dolby Atmos for Built-In Speakers
 
 > The built-in speakers with a volume slider that acts as master gain, and then the virtual sink sliders that apply surround sound profiles on top of the master gain sink. Basically, this lets you adjust the overall gain separate from the sinks themselves to give a wider level of control. It’s not the most seamless solution but it seems to do the job.
+
+# Resolved or won't-fix bugs (changelog for documentation purposes)
+
+- Dec 9th 2023 - Nobara desktop mode shortcut might break for users that update their Nobara installation. This should not apply to brand new, clean installations.
+  - this issue has been fixed on NobaraOS 39
+  - recent installations by users indicate that this bug has been resolved on Nobara 38
+  - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
+- (won't fix) Bugs for Pipewire EQ sound improvements - Pipewire EQ sound improvements are an optional sound fix for the LGO, currently is buggy and not recommended
+  - This is most likely due to a Steam Deck OLED related update.
 
 # 3D prints
 

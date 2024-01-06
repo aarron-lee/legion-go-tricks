@@ -340,6 +340,33 @@ If the issue is not fixed, then try the following.
 - run the command `sudo mv /etc/sddm.conf /etc/sddm.conf.d/kde_settings.conf` to move the `sddm.conf` file to `kde_settings.conf`
 - reboot
 
+### Disable nobaraOS grub boot menu during boot
+
+[Source](https://www.reddit.com/r/linux4noobs/comments/wzoiu4/comment/im5cfx7/?context=3)
+
+Note, you should never change the content of `/boot/grub/grub.cfg`
+
+What you probably want to do is to hide grub’s boot menu, you can do it two ways:
+
+- By hiding the boot menu
+  - for non-technical users:
+    - go to your `/etc/default` folder, then open the `grub` file with kate.
+    - Edit the file and add `GRUB_TIMEOUT_STYLE=hidden`, then save. It'll prompt for your password.
+    - Afterwards, in terminal run `sudo update-grub`
+  - for technical users: `sudo vim /etc/default/grub` and set `GRUB_TIMEOUT_STYLE=hidden`. save changes, then run `sudo update-grub`
+- Or by making the boot menu timeout 0, to do that:
+  - for non-technical users:
+    - go to your `/etc/default` folder, then open the `grub` file with kate.
+    - Edit the file and set `GRUB_TIMEOUT=0`, then save. It'll prompt for your password.
+    - Afterwards, in terminal run `sudo grub-mkconfig`
+  - for technical users:`sudo vim /etc/default/grub` and set `GRUB_TIMEOUT=0`. save changes, then run `sudo grub-mkconfig` to generate `/boot/grub/grub.cfg`
+
+Tip: even if your boot menu is hidden, you can access it when your pc is starting:
+
+If you have BIOS: press and hold SHIFT key right after you see you Motherboard/PC splash screen
+
+If you have UEFI: start pressing ESC the moment you see your motherboard/pc splash screen.
+
 ### Uninstall Rogue + Install HHD (NobaraOS)
 
 for those that have rogue already installed on NobaraOS and want to try hhd, do the following:

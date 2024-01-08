@@ -116,8 +116,6 @@ These functions are not working out of the box, but have workarounds
 # User-reported bugs (needs verification)
 
 - nobaraOS v39
-  - Jan 7 2024 - user reporting PS5 dualsense emulation gyro and back buttons are misbehaving, it may be due to a Nobara OS
-    - source of this bug has not been confirmed, but if you see odd behavior after updating on Jan 7 2024, please report it to confirm
   - controller is more buggy in desktop mode for desktop-related usage, should still work fine for gaming
     - nested desktop still seems fine
   - game mode global FSR is not working

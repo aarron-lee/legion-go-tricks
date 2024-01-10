@@ -12,7 +12,7 @@ Note that while a lot of things are working, Linux support for this device is ve
 - [User Reported Bugs (needs verification)](#user-reported-bugs-needs-verification)
 - [Resources](#resources)
 - [CSS Loader Themes](#css-loader-plugin---themes)
-- [Videos](#videos)
+- [Tutorial Videos](#tutorial-videos)
 - [Guides + Small Fixes](#guides--small-fixes)
 - [Emulator Info](#emulator-info)
 - [TDP Control overview](#tdp-control)
@@ -171,7 +171,7 @@ cd $HOME/homebrew/themes && git clone https://github.com/frazse/SBP-Legion-Go-Th
 cd $HOME/homebrew/themes && git clone https://github.com/frazse/PS5-to-Xbox-glyphs
 ```
 
-# Videos
+# Tutorial Videos
 
 Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=anc7hyPU6Lk
 

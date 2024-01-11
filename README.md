@@ -88,7 +88,8 @@ These functions are not working out of the box, but have workarounds
   - you can manually set 60Hz, see [here](#force-enable-60hz). 60Hz seems to be bugfree and fully functional.
   - 144Hz has additional bugs, 60Hz is fully functional right now
     - you can read more details about the 144Hz bugs in the [Known Bugs](#known-bugs) section
-
+    - (update) usable workaround here: https://github.com/aarron-lee/LegionGoRefreshRate/
+      - the workaround does have some caveats, read the README in the repo for details
 ## Known Bugs
 
 - HHD (Dualsense Emulator) - It should now hide the Xbox controller in steam input, and only show the Dualsense Edge.
@@ -103,7 +104,7 @@ These functions are not working out of the box, but have workarounds
       - `sudo systemctl disable --now handycon.service`
     - then reboot
 - Due to a bug in gamescope, FPS often gets artificially capped by Steam while the display is running at 144Hz. Usually it's 72fps
-  - (update) experimental workaround for 144hz 72fps cap bug: https://github.com/aarron-lee/LegionGoRefreshRate
+  - (update) workaround for 144hz 72fps cap bug: https://github.com/aarron-lee/LegionGoRefreshRate
     - read the README for the limitations of this workaround.
   - FPS limiter is also buggy on 144Hz
   - workaround: [run script to set 60Hz](#force-enable-60hz), this will also fix the fps limiter at 60Hz
@@ -195,8 +196,8 @@ This fix was tested on NobaraOS 38 with the latest updates, untested on ChimeraO
 ### Force enable 144Hz (Note, 144Hz has bugs)
 
 - force 144Hz (fps limiter will be buggy)
-  - in game mode settings, go to Display, and turn off `Unified Frame Limit Management`, option should be near the very bottom
-  - then run the [enable_144hz.sh script](./enable_144hz.sh)
+  - (update) usable workaround here: https://github.com/aarron-lee/LegionGoRefreshRate/
+    - the workaround does have some caveats, read the README in the repo for details
 
 ### Setup lock screen for desktop mode only (NobaraOS)
 

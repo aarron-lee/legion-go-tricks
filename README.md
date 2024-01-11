@@ -116,6 +116,9 @@ These functions are not working out of the box, but have workarounds
 # User-reported bugs (needs verification)
 
 - nobaraOS v39
+  - reports of handycon reactivating by itself, which interferes with hhd
+    - you can disable it again with `sudo systemctl disable --now handycon.service`
+      - you can also opt to remove it, the command should be `sudo dnf remove handygccs` (untested)
   - controller is more buggy in desktop mode for desktop-related usage, should still work fine for gaming
     - nested desktop still seems fine
   - game mode global FSR is not working

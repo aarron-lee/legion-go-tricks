@@ -103,6 +103,8 @@ These functions are not working out of the box, but have workarounds
       - `sudo systemctl disable --now handycon.service`
     - then reboot
 - Due to a bug in gamescope, FPS often gets artificially capped by Steam while the display is running at 144Hz. Usually it's 72fps
+  - (update) experimental workaround for 144hz 72fps cap bug: https://github.com/aarron-lee/LegionGoRefreshRate
+    - read the README for the limitations of this workaround.
   - FPS limiter is also buggy on 144Hz
   - workaround: [run script to set 60Hz](#force-enable-60hz), this will also fix the fps limiter at 60Hz
   - you can still [force enable 144Hz](#force-enable-144hz-note-144hz-has-bugs), but note that it'll be buggy

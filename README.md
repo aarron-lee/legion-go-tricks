@@ -121,6 +121,7 @@ These functions are not working out of the box, but have workarounds
 # User-reported bugs (needs verification)
 
 - nobaraOS v39
+  - Jan 12 2024 - user reporting that recent nobara gamescope update may have messed up the 60hz fix
   - reports of handycon reactivating by itself, which interferes with hhd
     - you can disable it again with `sudo systemctl disable --now handycon.service`
       - you can also opt to remove it, the command should be `sudo dnf remove handygccs` (untested)

@@ -201,13 +201,13 @@ This fix was tested on NobaraOS 38 with the latest updates, untested on ChimeraO
   - (update) usable workaround here: https://github.com/aarron-lee/LegionGoRefreshRate/
     - the workaround does have some caveats, read the README in the repo for details
 
-### Fix 60Hz and 144Hz (NobaraOS)
+### Fix 60Hz and 144Hz (tested on NobaraOS v39)
 
 This fix requires technical knowledge, devs are looking into how to make this easier to install. But for anybody who is more technically capable and wants to try it, see instructions below:
 
 1. manually compile + install Valve's neptune Linux 6.1 kernel for the Steam Deck.
   - If you do this, you should consider including `acpi_call` for to enable usage of wmi calls for tdp control, custom fan curve control, etc.
-    - alternatively, you can install acpi_call via rpm, [this rpm](https://github.com/MiMillieuh/acpi_call-fedora) has been tested and works
+    - alternatively, you can install acpi_call via rpm, [this rpm](https://github.com/MiMillieuh/acpi_call-fedora) has been tested and works on Nobara v39
 2. add `export ENABLE_GAMESCOPE_WSI=1` and `export STEAM_DISPLAY_REFRESH_LIMITS="60,144"` to a conf file under `$HOME/.config/environment.d`
 
 **WARNING FOR THE REFRESH SLIDER:** any values other than 60hz and 144hz is dangerous, make sure to disable the Unified frame limit manager under the `Display` settings

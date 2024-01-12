@@ -90,6 +90,8 @@ These functions are not working out of the box, but have workarounds
     - you can read more details about the 144Hz bugs in the [Known Bugs](#known-bugs) section
     - (update) usable workaround here: https://github.com/aarron-lee/LegionGoRefreshRate/
       - the workaround does have some caveats, read the README in the repo for details
+  - there is also a permanent fix, but it currently is complicated to setup for non-technical users
+    - for technical users that would want to attempt the permanent fix, see [here](#fix-60hz-and-144hz-nobaraos)
 ## Known Bugs
 
 - HHD (Dualsense Emulator) - It should now hide the Xbox controller in steam input, and only show the Dualsense Edge.
@@ -198,6 +200,17 @@ This fix was tested on NobaraOS 38 with the latest updates, untested on ChimeraO
 - force 144Hz (fps limiter will be buggy)
   - (update) usable workaround here: https://github.com/aarron-lee/LegionGoRefreshRate/
     - the workaround does have some caveats, read the README in the repo for details
+
+### Fix 60Hz and 144Hz (NobaraOS)
+
+This fix requires technical knowledge, devs are looking into how to make this easier to install. But for anybody who is more technically capable and wants to try it, see instructions below:
+
+1. manually compile + install Valve's neptune Linux 6.1 kernel for the Steam Deck.
+  - If you do this, you should consider including `acpi_call` for to enable usage of wmi calls for tdp control, custom fan curve control, etc.
+    - alternatively, you can install acpi_call via rpm, [this rpm](https://github.com/MiMillieuh/acpi_call-fedora) has been tested and works
+2. add `export ENABLE_GAMESCOPE_WSI=1` and `export STEAM_DISPLAY_REFRESH_LIMITS="60,144"` to a conf file under `$HOME/.config/environment.d`
+
+**WARNING FOR THE REFRESH SLIDER:** any values other than 60hz and 144hz is dangerous, make sure to disable the Unified frame limit manager under the `Display` settings
 
 ### Setup lock screen for desktop mode only (NobaraOS)
 

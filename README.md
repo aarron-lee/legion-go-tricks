@@ -80,24 +80,24 @@ These functions are not working out of the box, but have workarounds
     - The best way to do so, currently, is via SimpleDeckyTDP with the [custom LGO TDP enabled](https://github.com/aarron-lee/SimpleDeckyTDP/tree/main/py_modules/devices#experimental-custom-tdp-method-for-the-legion-go).
     - Setting TDP this way will also set fan curves appropriately.
     - steam-patch should similarly work on the LGO
+- Screen Refresh Rate - only refresh rates that work are 60Hz and 144Hz, everything else is not usable/has issues.
+  - 144Hz additionally has bugs, but can be resolved via installing Valve's Neptune kernel.
+    - Instructions to do so for NobaraOS v39 can be found [here](#fix-60hz-and-144hz-only-for-nobaraos-v39)
 
 ## What has issues
 
 - Battery indicator - it doesn't consistently work, but has a usable workaround
-- Screen Refresh Rate - only refresh rates that work are 60Hz and 144Hz, everything else is not usable/has issues.
-  - you can manually set 60Hz, see [here](#force-enable-60hz). 60Hz seems to be bugfree and fully functional.
-  - 144Hz has additional bugs, 60Hz is fully functional right now
-    - you can read more details about the 144Hz bugs in the [Known Bugs](#known-bugs) section
-    - (update) usable workaround here: https://github.com/aarron-lee/LegionGoRefreshRate/
-      - the workaround does have some caveats, read the README in the repo for details
-  - there is also a permanent fix, but it currently is complicated to setup for non-technical users
-    - for technical users that would want to attempt the permanent fix, see [here](#fix-60hz-and-144hz-tested-on-nobaraos-v39)
+
 ## Known Bugs
 
 - HHD (Dualsense Emulator) - It should now hide the Xbox controller in steam input, and only show the Dualsense Edge.
   - If you see the Xbox controller in steam input, you can flip the fps-mode switch on and off for to make it disappear. You can leave the controllers attached when you do this.
   - This should also fix any issues where emulators don't recognize the controller, since the emulator was latching onto the Xbox controller
     - if you still have a controller issue, reorder the controller from player 2 to player 1 in the QAM. sometimes it registers as player 2 even when no other controller is attached
+- HHD PS5 Controller Emulator bug
+  - If you hold an LGO joystick input while booting or resuming from suspend, the input may get stuck in whatever direction you were pointing
+  - workaround: don't press anything for a few seconds, let the device register itself
+  - dev is investigating, this will probably be fixed in a later update to HHD
 - Nobara 39 - bug where controller doesn't work after a clean install or upgrade from Nobara 38.
   - fix:
     - run this script on Desktop mode
@@ -105,18 +105,7 @@ These functions are not working out of the box, but have workarounds
     - if planning on running a dualsense emulator (hhd or rogue), disable handycon too.
       - `sudo systemctl disable --now handycon.service`
     - then reboot
-- Due to a bug in gamescope, FPS often gets artificially capped by Steam while the display is running at 144Hz. Usually it's 72fps
-  - (update) workaround for 144hz 72fps cap bug: https://github.com/aarron-lee/LegionGoRefreshRate
-    - read the README for the limitations of this workaround.
-  - FPS limiter is also buggy on 144Hz
-  - workaround: [run script to set 60Hz](#force-enable-60hz), this will also fix the fps limiter at 60Hz
-  - you can still [force enable 144Hz](#force-enable-144hz-note-144hz-has-bugs), but note that it'll be buggy
-- (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game.
-  - You can workaround this issue via setting 60Hz, instructions [here](#force-enable-60hz)
-- HHD PS5 Controller Emulator bug
-  - If you hold an LGO joystick input while booting or resuming from suspend, the input may get stuck in whatever direction you were pointing
-  - workaround: don't press anything for a few seconds, let the device register itself
-  - dev is investigating, this will probably be fixed in a later update to HHD
+- (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game. You can use the refresh rate slider in steam UI to revert back to either 60Hz or 144Hz
 
 # User-reported bugs (needs verification)
 
@@ -186,33 +175,42 @@ Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=anc
 
 # Guides + small fixes
 
-### Force enable 60Hz
+### Fix 60Hz and 144Hz (Only for NobaraOS v39)
 
-Due to a bug in gamescope, FPS often gets artificially capped by Steam at 72fps while running at 144Hz. FPS Limiter is also broken.
+This fix will install Valve's Neptune 6.1 Linux kernel. It turns out that, for the Legion Go, Valve's kernel basically eliminates the fps limiter and refresh rate issues on the LGO.
 
-This fix was tested on NobaraOS 38 with the latest updates, untested on ChimeraOS and Bazzite
+Install Instructions:
 
-- force 60Hz with proper working fps limiter
-  - in game mode settings, go to Display, and turn off `Unified Frame Limit Management`, option should be near the very bottom
-  - then run the [enable_60hz.sh script](./enable_60hz.sh)
+1. Download Valve's Neptune Kernel with acpi_call precompiled (thanks @corando98 for compiling the rpm!) [download link, should be 1.51GB filesize](https://drive.filen.io/d/e8f67d66-d353-4fe7-9943-ec7129640492#fMLJW0tgvA4fKdWRjzn5tswi2mkxVYl8)
 
-### Force enable 144Hz (Note, 144Hz has bugs)
+```
+# (optional) for those that want to verify the file integrity of the download, here's the md5sum
+$ md5sum kernel-6.1.52_valve14_1_neptune_acpi_call.x86_64.rpm
+bd51cbb23972171026b6219b705f2127  kernel-6.1.52_valve14_1_neptune_acpi_call.x86_64.rpm
+```
 
-- force 144Hz (fps limiter will be buggy)
-  - (update) usable workaround here: https://github.com/aarron-lee/LegionGoRefreshRate/
-    - the workaround does have some caveats, read the README in the repo for details
+2. Open the folder where your download is in terminal, and run:
 
-### Fix 60Hz and 144Hz (tested on NobaraOS v39)
+```
+sudo dnf install kernel-6.1.52_valve14_1_neptune_acpi_call.x86_64.rpm
+```
 
-This fix requires technical knowledge, devs are looking into how to make this easier to install. But for anybody who is more technically capable and wants to try it, see instructions below:
+After install is complete, reboot and go back to desktop mode
 
-1. manually compile + install Valve's neptune Linux 6.1 kernel for the Steam Deck.
-  - If you do this, you should consider including `acpi_call` for to enable usage of wmi calls for tdp control, custom fan curve control, etc.
-    - alternatively, you can install acpi_call via rpm, [this rpm](https://github.com/MiMillieuh/acpi_call-fedora) has been tested and works on Nobara v39
-2. add `export ENABLE_GAMESCOPE_WSI=1` and `export STEAM_DISPLAY_REFRESH_LIMITS="60,144"` to a conf file under `$HOME/.config/environment.d`
-  - if you used any prior refresh rate workaround scripts or plugins from this repo, make sure to delete the `$HOME/.config/environment.d/override-gamescopecmd.conf` file 
+3. Run `uname -r` in terminal, and verify that you are running the valve kernel. You should see:
 
-**WARNING FOR THE REFRESH SLIDER:** any values other than 60hz and 144hz is dangerous, make sure to disable the Unified frame limit manager under the `Display` settings
+```
+6.1.52-valve14-1-neptune-61
+```
+
+Also run `sudo modprobe acpi_call` in terminal, you should see no errors
+
+4. run the [enable_60_144hz.sh script](./enable_60_144hz.sh) in terminal. This script will cleanup old files and setup some extra environment variables you need to enable 144hz
+
+5. Go back to game mode, and in `Display` settings, and turn off `Unified Frame Limit Management`
+
+6. **WARNING FOR THE REFRESH SLIDER: any values other than 60hz and 144hz is dangerous**, make sure to be careful when changing the screen refresh rate
+
 
 ### Setup lock screen for desktop mode only (NobaraOS)
 

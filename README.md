@@ -179,9 +179,11 @@ Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=anc
 
 This fix will install Valve's Neptune 6.1 Linux kernel. It turns out that, for the Legion Go, Valve's kernel basically eliminates the fps limiter and refresh rate issues on the LGO.
 
+Massive thanks to all the devs who helped diagnose, troubleshoot, and and investigate this issue.
+
 Install Instructions:
 
-1. Download Valve's Neptune Kernel with acpi_call precompiled (thanks @corando98 for compiling the rpm!) [download link, should be 1.51GB filesize](https://drive.filen.io/d/e8f67d66-d353-4fe7-9943-ec7129640492#fMLJW0tgvA4fKdWRjzn5tswi2mkxVYl8)
+1. Download Valve's Neptune Kernel with acpi_call precompiled (thanks [@corando98](https://github.com/corando98/) for compiling the rpm!) [download link, should be 1.51GB filesize](https://drive.filen.io/d/e8f67d66-d353-4fe7-9943-ec7129640492#fMLJW0tgvA4fKdWRjzn5tswi2mkxVYl8)
 
 ```
 # (optional) for those that want to verify the file integrity of the download, here's the md5sum

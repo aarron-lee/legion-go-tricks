@@ -91,7 +91,7 @@ These functions are not working out of the box, but have workarounds
 ## Known Bugs
 
 - SimpleDeckyTDP Plugin - bug where GPU slider is broken, and breaks setting TDP.
-  - temporary workaround: delete the `$HOME/homebrew/settings/SimpleDeckyTDP/settings.json`, and then update to the latest SimpleDeckyTDP plugin
+  - temporary workaround: delete the `$HOME/homebrew/settings/SimpleDeckyTDP/settings.json` file, and then update to the latest SimpleDeckyTDP plugin
     - this bug is being actively investigated
 - HHD (Dualsense Emulator) - It should now hide the Xbox controller in steam input, and only show the Dualsense Edge.
   - If you see the Xbox controller in steam input, you can flip the fps-mode switch on and off for to make it disappear. You can leave the controllers attached when you do this.

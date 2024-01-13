@@ -91,7 +91,7 @@ These functions are not working out of the box, but have workarounds
     - (update) usable workaround here: https://github.com/aarron-lee/LegionGoRefreshRate/
       - the workaround does have some caveats, read the README in the repo for details
   - there is also a permanent fix, but it currently is complicated to setup for non-technical users
-    - for technical users that would want to attempt the permanent fix, see [here](#fix-60hz-and-144hz-nobaraos)
+    - for technical users that would want to attempt the permanent fix, see [here](#fix-60hz-and-144hz-tested-on-nobaraos-v39)
 ## Known Bugs
 
 - HHD (Dualsense Emulator) - It should now hide the Xbox controller in steam input, and only show the Dualsense Edge.

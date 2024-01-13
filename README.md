@@ -183,7 +183,7 @@ Massive thanks to all the devs who helped diagnose, troubleshoot, and and invest
 
 Install Instructions:
 
-1. Download Valve's Neptune Kernel with acpi_call precompiled (thanks [@corando98](https://github.com/corando98/) for compiling the rpm!) [download link, should be 1.51GB filesize](https://drive.filen.io/d/e8f67d66-d353-4fe7-9943-ec7129640492#fMLJW0tgvA4fKdWRjzn5tswi2mkxVYl8)
+1. Download Valve's Neptune Kernel with acpi_call precompiled (thanks [@corando98](https://github.com/corando98/) for compiling the rpm!) [download link, should be 1.51GB filesize](https://drive.filen.io/f/9271e6eb-95e7-4deb-bc80-a90a620ebf53#175zrewF3URWgsnNfQMzETlJA4Auy5xo)
 
 ```
 # (optional) for those that want to verify the file integrity of the download, here's the md5sum

@@ -177,7 +177,7 @@ Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=anc
 
 ### Fix 60Hz and 144Hz (Only for NobaraOS v39)
 
-This fix will install Valve's Neptune 6.1 Linux kernel. It turns out that, for the Legion Go, Valve's kernel basically eliminates the fps limiter and refresh rate issues on the LGO.
+This fix will install Valve's Neptune 6.1 Linux kernel (built for the Steam Deck). It turns out that, for the Legion Go, Valve's kernel basically eliminates the fps limiter and refresh rate issues on the LGO.
 
 Massive thanks to all the devs who helped diagnose, troubleshoot, and and investigate this issue.
 

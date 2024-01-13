@@ -122,6 +122,8 @@ These functions are not working out of the box, but have workarounds
   - game mode global FSR is not working
   - ryzenadj may not be working for TDP control
     - use custom Lenovo TDP mode via Decky plugin instead: [see here](https://github.com/aarron-lee/SimpleDeckyTDP/tree/main/py_modules/devices#experimental-custom-tdp-method-for-the-legion-go)
+  - user reports say wifi has lower download speeds on Linux vs Windows
+
 
 # Resources
 

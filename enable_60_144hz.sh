@@ -1,10 +1,5 @@
 #!/usr/bin/bash
 
-if [ "$(id -u)" -e 0 ]; then
-    echo "This script must be not be run as root, don't use sudo" >&2
-    exit 1
-fi
-
 echo "Enabling 60hz + 144hz. Note, this assumes Valve's 6.1 Neptune Kernel is already installed"
 
 mkdir -p $HOME/.config/environment.d

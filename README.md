@@ -88,13 +88,10 @@ These functions are not working out of the box, but have workarounds
 
 - Battery indicator - it doesn't consistently work, but has a usable workaround
 
-## Known Bugs
+### Known bugs
 
-- SimpleDeckyTDP Plugin - bug where GPU slider is broken, and breaks setting TDP.
-  - temporary workaround: delete the `$HOME/homebrew/settings/SimpleDeckyTDP/settings.json` file, and then update to the latest SimpleDeckyTDP plugin
-    - this bug is being actively investigated
 - HHD (Dualsense Emulator) - It should now hide the Xbox controller in steam input, and only show the Dualsense Edge.
-  - If you see the Xbox controller in steam input, you can flip the fps-mode switch on and off for to make it disappear. You can leave the controllers attached when you do this.
+  - If you see an extra Xbox controller in steam input, you can flip the fps-mode switch on and off for to make it disappear. You can leave the controllers attached when you do this.
   - This should also fix any issues where emulators don't recognize the controller, since the emulator was latching onto the Xbox controller
     - if you still have a controller issue, reorder the controller from player 2 to player 1 in the QAM. sometimes it registers as player 2 even when no other controller is attached
 - HHD PS5 Controller Emulator bug
@@ -110,10 +107,20 @@ These functions are not working out of the box, but have workarounds
     - then reboot
 - (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game. You can use the refresh rate slider in steam UI to revert back to either 60Hz or 144Hz
 
-# User-reported bugs (needs verification)
+### User-reported bugs (needs verification)
 
 - nobaraOS v39
-  - Jan 12 2024 - user reporting that recent nobara gamescope update may have messed up the 60hz fix
+  - Jan 13, 2024 - User report that 60Hz on Neptune kernel occasionally forces a 30fps cap on 60Hz. 144Hz is completely functional
+    - if anybody can replicate, please report it
+      - Games tested by the user with the 60hz problem: 
+        - "Fallout: New Vegas"
+        - xemu emulator.
+        - Portal 2 (Native Linux game)
+      - Games that exhibited the issue for a short time, then never again:
+        - Tony Hawk Pro Skater 1+2
+      - Games that did not have the issue:
+        - Diablo II: Resurrected
+        - Bomb Rush Cyberfunk (Heroic Launcher)
   - reports of handycon reactivating by itself, which interferes with hhd
     - you can disable it again with `sudo systemctl disable --now handycon.service`
       - you can also opt to remove it, the command should be `sudo dnf remove handygccs` (untested)
@@ -439,6 +446,15 @@ includes:
 # Emulator Info
 
 Emulator related documentation, including recommended settings, etc.
+
+## HHD (Dualsense Controller emulation)
+
+Game emulators sometimes don't recognize the emulated dualsense controller via HHD.
+
+This is usually because the emulator may have temporarily latched onto the original xbox controller instead of the emulated dualsense
+  - you can usually resolve this by flipping the fps-mode switch on and off.
+  - if you still have a controller issue afterwards, reorder the controller from player 2 to player 1 in the QAM.
+    - sometimes steam registers the emulated controller as player 2 even when no other controller is attached
 
 ## Emudeck
 

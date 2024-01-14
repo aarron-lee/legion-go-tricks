@@ -220,7 +220,7 @@ Also run `sudo modprobe acpi_call` in terminal, you should see no errors
 
 4. run the [enable_60_144hz.sh script](./enable_60_144hz.sh) in terminal. This script will cleanup old files and setup some extra environment variables you need to enable 144hz
 
-5. Go back to game mode, and in `Display` settings, and turn off `Unified Frame Limit Management`
+5. Go back to game mode, and in `Display` settings, and turn off `Unified Frame Limit Management`, also make sure you enable/turn on `Use Native Color Temperature` as well.
 
 6. **WARNING FOR THE REFRESH SLIDER: any values other than 60hz and 144hz is dangerous**, make sure to be careful when changing the screen refresh rate
 
@@ -293,38 +293,6 @@ sudo rm -rf $HOME/LLG_Dev_scripts
 
 3. Add it to your KDE Autostart config (Menu > search for Autostart > Add)
 
-### Fix dark colored screen tone shift when moving mouse/trackpad
-
-Before trying the following fix, first try enabling the `Use Native Color Temperature` toggle in the `Display` settings in game mode.
-
-In Game mode, enable `Developer mode` under the `System` settings.
-
-Then, in the `Developer` settings option that shows up in the Steam settings, make sure to Enable `Steam Color Management`.
-
-Enabling Steam Color management should fix the issue.
-
-NOTE, this is **DIFFERENT** from the other method to disable Steam Color management listed below. It's odd that there's two separate options with similar names, but it is what it is.
-
-### Fix orange colored hue to game mode UI
-
-Before trying the following fix, first try enabling the `Use Native Color Temperature` toggle in the `Display` settings in game mode.
-
-Sometimes Steam game mode will have a bug where the color of the screen is slightly orange in tone.
-
-disabling steam color management will fix this, but this will also remove night mode functionality.
-
-Add the following:
-
-```
-export STEAM_GAMESCOPE_COLOR_MANAGED=0
-```
-
-to a `disable-steam-color-management.conf` file in `$HOME/.config/environment.d`. To remove this fix later, simply delete the file
-
-### (NobaraOS only) additional script for to fix the Pipewire sound, fix issue where volume gets stuck on max volume
-
-after installing the pipewire sound fix files, replace the `/usr/bin/headphone-connection-monitor.sh` file with the same file downloadable from this git repo. Note that you'll have to make the script executable too with `chmod +x`.
-
 ### Use MangoHud for battery indicator
 
 Battery indicator is inconsistent on the Legion go. As a workaround, you can change mangohud to show just the battery on one of the presets.
@@ -344,33 +312,7 @@ frame_timing=0
 
 If you're seeeing a fuzzy screen, it means that the you're somehow using an invalid refresh rate. The only valid refresh rates for a game are 60 and 144Hz.
 
-You can work around this by force enabling 60Hz, see [fps fix](#force-enable-60hz)
-
-### Nobara desktop mode switch temporary fix
-
-a quick step-by-step for how you fix game mode/desktop switching if you updated `gamescope-session` after Dec 9th 2023, **for KDE/SD Edition only atm** (thanks matt_schwartz on the Nobara Discord):
-
-- open up a terminal console with Ctrl + Alt + F2 (Ctrl + Alt + F3 may also work)
-- login with your user name and password
-- type in `startplasma-wayland` to start desktop mode
-- once in desktop mode, type in `cat /etc/sddm.conf` and confirm whether it looks like the following:
-
-```
-[Autologin]
-Relogin=true
-User=deck(or whatever your username is)
-Session=gamescope-session
-```
-
-- if it doesn't look correct, edit the file so that it looks correct
-  - you'll probably need to delete some `#` characters, as well as maybe change `Session` to `gamescope-session`
-  - save changes
-- reboot, and see if the issue is fixed.
-
-If the issue is not fixed, then try the following.
-
-- run the command `sudo mv /etc/sddm.conf /etc/sddm.conf.d/kde_settings.conf` to move the `sddm.conf` file to `kde_settings.conf`
-- reboot
+You can work around this by force enabling 60Hz, see [fps fix](#fix-60hz-and-144hz-only-for-nobaraos-v39)
 
 ### Disable nobaraOS grub boot menu during boot
 
@@ -398,36 +340,6 @@ Tip: even if your boot menu is hidden, you can access it when your pc is startin
 If you have BIOS: press and hold SHIFT key right after you see you Motherboard/PC splash screen
 
 If you have UEFI: start pressing ESC the moment you see your motherboard/pc splash screen.
-
-### Uninstall Rogue + Install HHD (NobaraOS)
-
-for those that have rogue already installed on NobaraOS and want to try hhd, do the following:
-
-- download + run the uninstall script for rogue: https://github.com/corando98/ROGueENEMY/blob/main/uninstall.sh
-- disable handycon: `sudo systemctl disable --now handycon.service`
-- disable steam-powerbutton: `sudo systemctl disable --now steam-powerbuttond.service`
-- follow the pypi install instructions to install hhd: https://github.com/antheas/hhd#pypi-based-installation-nobararead-only-fs
-
-note that hhd defaults to Steam/QAM on the Legion buttons. If you want to swap them with start/select, similar to rogue, then you will need to edit the config file and set `swap_legion` to `True`
-
-if you want to disable steam input LED, you can similarly disable it by setting it to `False`. yaml config file is in the `$HOME/.config/hhd/plugins` folder
-
-### Manual full reinstall of RogueEnemy PS5 Dualsense emulator (nobaraOS)
-
-if you want to try a manual clean install of rogue, you can do the following:
-
-```
-sudo systemctl disable --now rogue-enemy.service
-sudo rm /usr/bin/rogue-enemy
-sudo rm /usr/lib/udev/rules.d/99-rogue.rules
-sudo rm /usr/lib/udev/rules.d/99-disable-sonypad.rules
-sudo rm /etc/systemd/system/rogue-enemy.service
-sudo systemctl enable --now handycon.service
-sudo udevadm control --reload-rules
-sudo udevadm trigger
-```
-
-reboot, then download the latest `install.sh` from the rogue github repo, and run the `install.sh` + reboot again.
 
 ### Updated Nested Desktop with Nobara 39 (thanks matt_schwartz for the update):
 
@@ -473,7 +385,7 @@ For to improve stability, make sure you disable V-sync in the Dolphin settings
 
 Note that the Legion Go (LGO) has an issue in STT mode (vs STAMP mode in the bios), where custom TDP values will eventually get changed by the bios while in STT mode. STAMP mode fixes this, but there are users reporting crashing while in STAMP mode. STT does not have this stability issue.
 
-If you use the SimpleDeckyTDP plugin with the [LGO custom TDP method](https://github.com/aarron-lee/SimpleDeckyTDP/blob/main/py_modules/devices/README.md#experimental-custom-tdp-method-for-the-legion-go), it seems to fix stability issues on STAMP. Note that this requires bios v28 or newer
+If you use the SimpleDeckyTDP plugin with the [LGO custom TDP method](https://github.com/aarron-lee/SimpleDeckyTDP/blob/main/py_modules/devices/README.md#experimental-custom-tdp-method-for-the-legion-go), fixes stability issues on STAMP. Note that this requires bios v28 or newer
 
 There's a few options for TDP Control on the Legion Go.
 
@@ -569,17 +481,6 @@ cd $HOME/homebrew/themes && git clone https://github.com/frazse/SBP-Legion-Go-Th
 # PS5 to Xbox Controller Glyph Theme
 cd $HOME/homebrew/themes && git clone https://github.com/frazse/PS5-to-Xbox-glyphs
 ```
-
-### Pipewire EQ sound options
-
-Link: https://github.com/matte-schwartz/device-quirks/tree/legion-go/rog-ally-audio-fixes/usr/share/device-quirks/scripts/lenovo/legion-go
-
-Quote from reddit:
-
-> This applies a surround sound convolver profile, similar to Dolby Atmos for Built-In Speakers
-
-> The built-in speakers with a volume slider that acts as master gain, and then the virtual sink sliders that apply surround sound profiles on top of the master gain sink. Basically, this lets you adjust the overall gain separate from the sinks themselves to give a wider level of control. It’s not the most seamless solution but it seems to do the job.
-
 # Resolved or won't-fix bugs (changelog for documentation purposes)
 
 - Dec 9th 2023 - Nobara desktop mode shortcut might break for users that update their Nobara installation. This should not apply to brand new, clean installations.

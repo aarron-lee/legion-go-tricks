@@ -354,6 +354,29 @@ includes:
   or else the screen will be for ants at 1600p
 - also adds back the right-click “add to steam” shortcut you get with the steamdeck-KDE-presets package (which conflicts with the new theming)
 
+
+<!-- Here's a run down on how to get running
+```git clone https://github.com/AdnanHodzic/auto-cpufreq.git```
+```cd auto-cpufreq && sudo ./auto-cpufreq-installer```
+Create this in /etc/auto-cpufreq.conf
+```[charger]
+
+governor = shedutil
+energy_performance_preference = performance
+scaling_min_freq = 1600000
+scaling_max_freq = 5100000
+turbo = auto
+
+[battery]
+
+governor = powersave
+energy_performance_preference = performance
+scaling_min_freq = 1600000
+scaling_max_freq = 3300000
+turbo = auto ```
+then ```auto-cpufreq --install``` or if you want to see what's it doing ```auto-cpufreq --live``` -->
+
+
 # Emulator Info
 
 Emulator related documentation, including recommended settings, etc.

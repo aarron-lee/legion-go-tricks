@@ -219,6 +219,7 @@ After install is complete, reboot and go back to desktop mode
 Also run `sudo modprobe acpi_call` in terminal, you should see no errors
 
 4. run the [enable_60_144hz.sh script](./enable_60_144hz.sh) in terminal. This script will cleanup old files and setup some extra environment variables you need to enable 144hz
+  - for anybody that would like to force only 60Hz to be an option, with no 144hz, you can edit the script and remove the `,144` from `export STEAM_DISPLAY_REFRESH_LIMITS="60,144"`
 
 5. Go back to game mode, and in `Display` settings, and turn off `Unified Frame Limit Management`, also make sure you enable/turn on `Use Native Color Temperature` as well.
 

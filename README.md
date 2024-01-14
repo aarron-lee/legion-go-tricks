@@ -97,7 +97,6 @@ These functions are not working out of the box, but have workarounds
 - HHD PS5 Controller Emulator bug
   - If you hold an LGO joystick input while booting or resuming from suspend, the input may get stuck in whatever direction you were pointing
   - workaround: don't press anything for a few seconds, let the device register itself
-  - dev is investigating, this will probably be fixed in a later update to HHD
 - Nobara 39 - bug where controller doesn't work after a clean install or upgrade from Nobara 38.
   - fix:
     - run this script on Desktop mode
@@ -106,6 +105,14 @@ These functions are not working out of the box, but have workarounds
       - `sudo systemctl disable --now handycon.service`
     - then reboot
 - (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game. You can use the refresh rate slider in steam UI to revert back to either 60Hz or 144Hz
+- controller is more buggy in desktop mode for desktop-related usage, should still work fine for gaming
+  - nested desktop still seems fine
+- ryzenadj may not be working for TDP control
+  - use custom Lenovo TDP mode via Decky plugin instead: [see here](https://github.com/aarron-lee/SimpleDeckyTDP/tree/main/py_modules/devices#experimental-custom-tdp-method-for-the-legion-go)
+- user reports say wifi has lower download speeds on Linux vs Windows
+- reports of handycon reactivating by itself, which interferes with hhd
+  - you can disable it again with `sudo systemctl disable --now handycon.service`
+    - you can also opt to remove it, the command should be `sudo dnf remove handygccs` (untested)
 
 ### User-reported bugs (needs verification)
 
@@ -121,15 +128,7 @@ These functions are not working out of the box, but have workarounds
       - Games that did not have the issue:
         - Diablo II: Resurrected
         - Bomb Rush Cyberfunk (Heroic Launcher)
-  - reports of handycon reactivating by itself, which interferes with hhd
-    - you can disable it again with `sudo systemctl disable --now handycon.service`
-      - you can also opt to remove it, the command should be `sudo dnf remove handygccs` (untested)
-  - controller is more buggy in desktop mode for desktop-related usage, should still work fine for gaming
-    - nested desktop still seems fine
   - game mode global FSR is not working
-  - ryzenadj may not be working for TDP control
-    - use custom Lenovo TDP mode via Decky plugin instead: [see here](https://github.com/aarron-lee/SimpleDeckyTDP/tree/main/py_modules/devices#experimental-custom-tdp-method-for-the-legion-go)
-  - user reports say wifi has lower download speeds on Linux vs Windows
 
 
 # Resources

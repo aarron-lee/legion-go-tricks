@@ -90,6 +90,23 @@ These functions are not working out of the box, but have workarounds
 
 ### Known bugs
 
+- User report that 60Hz on Neptune kernel occasionally forces a 30fps cap on 60Hz
+  - 144Hz is completely functional
+  - if anybody can replicate, please report it
+    - user reports:
+      - Games that did not have the issue:
+        - Diablo II: Resurrected
+        - Bomb Rush Cyberfunk (Heroic Launcher)
+        - Cyberpunk 2077
+        - No Man Sky
+        - Tales of Arise
+        - Spiderman Remastered
+      - Games tested with the 60hz problem: 
+        - "Fallout: New Vegas"
+        - xemu emulator.
+        - Portal 2 (Native Linux game)
+      - Games that exhibited the issue for a short time, then never again:
+        - Tony Hawk Pro Skater 1+2
 - HHD (Dualsense Emulator) - It should now hide the Xbox controller in steam input, and only show the Dualsense Edge.
   - If you see an extra Xbox controller in steam input, you can flip the fps-mode switch on and off for to make it disappear. You can leave the controllers attached when you do this.
   - This should also fix any issues where emulators don't recognize the controller, since the emulator was latching onto the Xbox controller
@@ -117,17 +134,6 @@ These functions are not working out of the box, but have workarounds
 ### User-reported bugs (needs verification)
 
 - nobaraOS v39
-  - Jan 13, 2024 - User report that 60Hz on Neptune kernel occasionally forces a 30fps cap on 60Hz. 144Hz is completely functional
-    - if anybody can replicate, please report it
-      - Games tested by the user with the 60hz problem: 
-        - "Fallout: New Vegas"
-        - xemu emulator.
-        - Portal 2 (Native Linux game)
-      - Games that exhibited the issue for a short time, then never again:
-        - Tony Hawk Pro Skater 1+2
-      - Games that did not have the issue:
-        - Diablo II: Resurrected
-        - Bomb Rush Cyberfunk (Heroic Launcher)
   - game mode global FSR is not working
 
 

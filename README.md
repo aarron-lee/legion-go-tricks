@@ -200,7 +200,17 @@ Massive thanks to all the devs who helped diagnose, troubleshoot, and and invest
 
 Install Instructions:
 
-1. Download Valve's Neptune Kernel with acpi_call precompiled (thanks [@corando98](https://github.com/corando98/) for compiling the rpm!) [download link, should be the 1.51GB file](https://drive.filen.io/f/9271e6eb-95e7-4deb-bc80-a90a620ebf53#175zrewF3URWgsnNfQMzETlJA4Auy5xo)
+1. run the [enable_60_144hz.sh script](./enable_60_144hz.sh) in terminal. This script will cleanup old files and setup some extra environment variables you need to enable 144hz
+
+2. Go back to game mode, and in `Display` settings, and turn off `Unified Frame Limit Management`, also make sure you enable/turn on `Use Native Color Temperature` as well.
+
+3. If this fixes your 144Hz, you can stop here
+  - you should see no artificial 72fps cap in games, and fps limiter should work
+  - swapping to 60hz should work, and fps limiter should similarly work here
+    - note that steamUI forces 144hz, you won't see 60hz in steam UI
+  - **WARNING FOR THE REFRESH SLIDER: any values other than 60hz and 144hz is dangerous**, make sure to be careful when changing the screen refresh rate
+
+4. Download Valve's Neptune Kernel with acpi_call precompiled (thanks [@corando98](https://github.com/corando98/) for compiling the rpm!) [download link, should be the 1.51GB file](https://drive.filen.io/f/9271e6eb-95e7-4deb-bc80-a90a620ebf53#175zrewF3URWgsnNfQMzETlJA4Auy5xo)
 
 ```
 # (optional) for those that want to verify the file integrity of the download, here's the md5sum
@@ -208,7 +218,7 @@ $ md5sum kernel-6.1.52_valve14_1_neptune_acpi_call.x86_64.rpm
 bd51cbb23972171026b6219b705f2127  kernel-6.1.52_valve14_1_neptune_acpi_call.x86_64.rpm
 ```
 
-2. Open the folder where your download is in terminal, and run:
+5. Open the folder where your download is in terminal, and run:
 
 ```
 sudo dnf install kernel-6.1.52_valve14_1_neptune_acpi_call.x86_64.rpm
@@ -216,7 +226,7 @@ sudo dnf install kernel-6.1.52_valve14_1_neptune_acpi_call.x86_64.rpm
 
 After install is complete, reboot and go back to desktop mode
 
-3. Run `uname -r` in terminal, and verify that you are running the valve kernel. You should see:
+6. Run `uname -r` in terminal, and verify that you are running the valve kernel. You should see:
 
 ```
 6.1.52-valve14-1-neptune-61
@@ -224,11 +234,7 @@ After install is complete, reboot and go back to desktop mode
 
 Also run `sudo modprobe acpi_call` in terminal, you should see no errors
 
-4. run the [enable_60_144hz.sh script](./enable_60_144hz.sh) in terminal. This script will cleanup old files and setup some extra environment variables you need to enable 144hz
-
-5. Go back to game mode, and in `Display` settings, and turn off `Unified Frame Limit Management`, also make sure you enable/turn on `Use Native Color Temperature` as well.
-
-6. **WARNING FOR THE REFRESH SLIDER: any values other than 60hz and 144hz is dangerous**, make sure to be careful when changing the screen refresh rate
+7. Retest and see if you're seeing any issues on 144Hz
 
 
 ### Setup lock screen for desktop mode only (NobaraOS)

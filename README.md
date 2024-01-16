@@ -101,7 +101,7 @@ These functions are not working out of the box, but have workarounds
         - No Man Sky
         - Tales of Arise
         - Spiderman Remastered
-      - Games tested with the 60hz problem: 
+      - Games tested with the 60hz problem:
         - "Fallout: New Vegas"
         - xemu emulator.
         - Portal 2 (Native Linux game)
@@ -136,7 +136,6 @@ These functions are not working out of the box, but have workarounds
 
 - nobaraOS v39
   - game mode global FSR is not working
-
 
 # Resources
 
@@ -202,15 +201,17 @@ Massive thanks to all the devs who helped diagnose, troubleshoot, and and invest
 Install Instructions:
 
 1. update NobaraOS from the desktop mode via the `update system` app. then, after rebooting, run the [enable_60_144hz.sh script](./enable_60_144hz.sh) in terminal.
-  - This script will cleanup old files and setup some extra environment variables you need to enable 144hz
+
+- This script will cleanup old files and setup some extra environment variables you need to enable 144hz
 
 2. Go back to game mode, and in `Display` settings, and turn off `Unified Frame Limit Management`, also make sure you enable/turn on `Use Native Color Temperature` as well.
 
 3. If this fixes your 144Hz, you can stop here
-  - you should see no artificial 72fps cap in games, and fps limiter should work
-  - swapping to 60hz should work, and fps limiter should similarly work here
-    - note that steamUI forces 144hz, you won't see 60hz in steam UI
-  - **WARNING FOR THE REFRESH SLIDER: any values other than 60hz and 144hz is dangerous**, make sure to be careful when changing the screen refresh rate
+
+- you should see no artificial 72fps cap in games, and fps limiter should work
+- swapping to 60hz should work, and fps limiter should similarly work here
+  - note that steamUI forces 144hz, you won't see 60hz in steam UI
+- **WARNING FOR THE REFRESH SLIDER: any values other than 60hz and 144hz is dangerous**, make sure to be careful when changing the screen refresh rate
 
 4. If steps 1-3 didn't fix your 144hz, continue on to the following:
 
@@ -315,7 +316,15 @@ and then after having INDEX of this kernel
 sudo grubby --set-default THIS_INDEX_NUMBER
 ```
 
-or something similar to it
+or something similar to it. Thanks @cox on discord
+
+### Fix display-out not working for a display/monitor that previously worked
+
+`~/.config/gamescope/modes.cfg` contains resolutions for monitors that have been configured.
+
+Sometimes monitor settings in the file are set to erroneous values that the display could not handle.
+
+To fix this, removing the display from the file allows it to be reconfigured. thanks @braymur on discord
 
 ### NobaraOS Desktop Mode - automatically set desktop resolution scale
 
@@ -388,7 +397,6 @@ includes:
   or else the screen will be for ants at 1600p
 - also adds back the right-click “add to steam” shortcut you get with the steamdeck-KDE-presets package (which conflicts with the new theming)
 
-
 <!-- Here's a run down on how to get running
 ```git clone https://github.com/AdnanHodzic/auto-cpufreq.git```
 ```cd auto-cpufreq && sudo ./auto-cpufreq-installer```
@@ -410,7 +418,6 @@ scaling_max_freq = 3300000
 turbo = auto ```
 then ```auto-cpufreq --install``` or if you want to see what's it doing ```auto-cpufreq --live``` -->
 
-
 # Emulator Info
 
 Emulator related documentation, including recommended settings, etc.
@@ -420,9 +427,10 @@ Emulator related documentation, including recommended settings, etc.
 Game emulators sometimes don't recognize the emulated dualsense controller via HHD.
 
 This is usually because the emulator may have temporarily latched onto the original xbox controller instead of the emulated dualsense
-  - you can usually resolve this by flipping the fps-mode switch on and off.
-  - if you still have a controller issue afterwards, reorder the controller from player 2 to player 1 in the QAM.
-    - sometimes steam registers the emulated controller as player 2 even when no other controller is attached
+
+- you can usually resolve this by flipping the fps-mode switch on and off.
+- if you still have a controller issue afterwards, reorder the controller from player 2 to player 1 in the QAM.
+  - sometimes steam registers the emulated controller as player 2 even when no other controller is attached
 
 ## Emudeck
 
@@ -538,6 +546,7 @@ cd $HOME/homebrew/themes && git clone https://github.com/frazse/SBP-Legion-Go-Th
 # PS5 to Xbox Controller Glyph Theme
 cd $HOME/homebrew/themes && git clone https://github.com/frazse/PS5-to-Xbox-glyphs
 ```
+
 # Resolved or won't-fix bugs (changelog for documentation purposes)
 
 - Dec 9th 2023 - Nobara desktop mode shortcut might break for users that update their Nobara installation. This should not apply to brand new, clean installations.

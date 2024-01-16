@@ -105,6 +105,7 @@ These functions are not working out of the box, but have workarounds
         - "Fallout: New Vegas"
         - xemu emulator.
         - Portal 2 (Native Linux game)
+        - Pizza Tower
       - Games that exhibited the issue for a short time, then never again:
         - Tony Hawk Pro Skater 1+2
 - HHD (Dualsense Emulator) - It should now hide the Xbox controller in steam input, and only show the Dualsense Edge.

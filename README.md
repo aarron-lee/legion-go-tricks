@@ -83,6 +83,9 @@ These functions are not working out of the box, but have workarounds
 - Screen Refresh Rate - only refresh rates that work are 60Hz and 144Hz, everything else is not usable/has issues.
   - 144Hz additionally has bugs, but can be resolved via installing Valve's Neptune kernel.
     - Instructions to do so for NobaraOS v39 can be found [here](#fix-60hz-and-144hz-only-for-nobaraos-v39)
+- adaptive/auto display brightness doesn't work yet
+  - manual brightness slider in steam UI works without issues
+  - there's work in progress from devs for to get this fully working
 
 ## What has issues
 

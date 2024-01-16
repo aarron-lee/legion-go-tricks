@@ -240,7 +240,6 @@ Also run `sudo modprobe acpi_call` in terminal, you should see no errors
 
 7. Retest and see if you're seeing any issues on 144Hz
 
-
 ### Setup lock screen for desktop mode only (NobaraOS)
 
 Currently, Desktop mode does not have a lock screen during suspend-resume cycles on NobaraOS.
@@ -298,6 +297,25 @@ sudo systemctl disable --now legion_fan_helper.service
 sudo rm /etc/systemd/system/legion_fan_helper.service
 sudo rm -rf $HOME/LLG_Dev_scripts
 ```
+
+### Change default boot kernel on Nobara v39
+
+nobara always is using default /newest kernel, so you might want to add `grubby` commands for it:
+
+```bash
+sudo grubby --info=ALL | grep -i REPLACE_THIS_WITH_KERNEL_NAME -B 1 | grep index
+
+# e.g.
+sudo grubby --info=ALL | grep -i neptune -B 1 | grep index
+```
+
+and then after having INDEX of this kernel
+
+```bash
+sudo grubby --set-default THIS_INDEX_NUMBER
+```
+
+or something similar to it
 
 ### NobaraOS Desktop Mode - automatically set desktop resolution scale
 

@@ -200,7 +200,8 @@ Massive thanks to all the devs who helped diagnose, troubleshoot, and and invest
 
 Install Instructions:
 
-1. run the [enable_60_144hz.sh script](./enable_60_144hz.sh) in terminal. This script will cleanup old files and setup some extra environment variables you need to enable 144hz
+1. update NobaraOS from the desktop mode via the `update system` app. then, after rebooting, run the [enable_60_144hz.sh script](./enable_60_144hz.sh) in terminal.
+  - This script will cleanup old files and setup some extra environment variables you need to enable 144hz
 
 2. Go back to game mode, and in `Display` settings, and turn off `Unified Frame Limit Management`, also make sure you enable/turn on `Use Native Color Temperature` as well.
 
@@ -210,7 +211,9 @@ Install Instructions:
     - note that steamUI forces 144hz, you won't see 60hz in steam UI
   - **WARNING FOR THE REFRESH SLIDER: any values other than 60hz and 144hz is dangerous**, make sure to be careful when changing the screen refresh rate
 
-4. Download Valve's Neptune Kernel with acpi_call precompiled (thanks [@corando98](https://github.com/corando98/) for compiling the rpm!) [download link, should be the 1.51GB file](https://drive.filen.io/f/9271e6eb-95e7-4deb-bc80-a90a620ebf53#175zrewF3URWgsnNfQMzETlJA4Auy5xo)
+4. If steps 1-3 didn't fix your 144hz, continue on to the following:
+
+Download Valve's Neptune Kernel with acpi_call precompiled (thanks [@corando98](https://github.com/corando98/) for compiling the rpm!) [download link, should be the 1.51GB file](https://drive.filen.io/f/9271e6eb-95e7-4deb-bc80-a90a620ebf53#175zrewF3URWgsnNfQMzETlJA4Auy5xo)
 
 ```
 # (optional) for those that want to verify the file integrity of the download, here's the md5sum

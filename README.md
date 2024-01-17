@@ -81,20 +81,23 @@ These functions are not working out of the box, but have workarounds
     - Setting TDP this way will also set fan curves appropriately.
     - steam-patch should similarly work on the LGO
 - Screen Refresh Rate - only refresh rates that work are 60Hz and 144Hz, everything else is not usable/has issues.
-  - 144Hz additionally has bugs, but can be resolved via installing Valve's Neptune kernel.
+  - 144Hz additionally has bugs, but can be resolved
     - Instructions to do so for NobaraOS v39 can be found [here](#fix-60hz-and-144hz-only-for-nobaraos-v39)
+    - Bazzite (testing branch) should be working with minimal changes
+      - Bazzite will move their LGO fixes to their main branch very soon, probably around Jan 19th 2024
 - adaptive/auto display brightness doesn't work yet
   - manual brightness slider in steam UI works without issues
   - there's work in progress from devs for to get this fully working
 
 ## What has issues
 
-- Battery indicator - it doesn't consistently work, but has a usable workaround
+- Battery Indicator - It doesn't consistently work, but has a usable workaround
+- Battery Estimated Time Remaining - It's often incorrect
 
 ### Known bugs
 
-- User report that 60Hz on Neptune kernel occasionally forces a 30fps cap on 60Hz
-  - 144Hz is completely functional
+- User bug reports that 60Hz occasionally forces a 30fps cap on 60Hz
+  - 144Hz is completely functional, you can use it to set a 72 or 36 fps cap if you want something lower than 144hz
   - if anybody can replicate, please report it
     - user reports:
       - Games that did not have the issue:
@@ -139,6 +142,8 @@ These functions are not working out of the box, but have workarounds
 
 - nobaraOS v39
   - game mode global FSR is not working
+- Bazzite testing branch
+  - Nested Desktop orientation might be wonky
 
 # Resources
 
@@ -164,7 +169,7 @@ Pipewire sound EQ improvement files - https://github.com/matte-schwartz/device-q
 
 (ChimeraOS only) Legion Go installer tool - https://github.com/linuxgamingcentral/legion-go-tools-for-linux
 
-gyro increase sampling rate fix (advanced users only) - https://github.com/antheas/llg_sfh
+gyro increase sampling rate fix (advanced users only, not maintained) - https://github.com/antheas/llg_sfh
 
 ## CSS Loader Plugin - Themes
 
@@ -196,8 +201,6 @@ Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=anc
 # Guides + small fixes
 
 ### Fix 60Hz and 144Hz (Only for NobaraOS v39)
-
-This fix will install Valve's Neptune 6.1 Linux kernel (same kernel as the Steam Deck). It turns out that, for the Legion Go, Valve's kernel basically eliminates the fps limiter and refresh rate issues on the LGO.
 
 Massive thanks to all the devs who helped diagnose, troubleshoot, and and investigate this issue.
 
@@ -394,7 +397,7 @@ If you have UEFI: start pressing ESC the moment you see your motherboard/pc spla
 includes:
 
 - should support Legion Go at native resolution
-  - It works for both Steam Deck and ROG Ally.
+  - It should work for both Steam Deck and ROG Ally.
   - Make sure to set the game entry to “Native” in the Steam game settings menu first.
 - you’ll have to set scaling once in the KDE settings when the nested desktop session loads for the first time but it should save it for future nested desktop sessions
   or else the screen will be for ants at 1600p

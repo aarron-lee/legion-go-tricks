@@ -307,22 +307,40 @@ sudo rm -rf $HOME/LLG_Dev_scripts
 
 ### Change default boot kernel on Nobara v39
 
-nobara always is using default /newest kernel, so you might want to add `grubby` commands for it:
+This will let you change your default kernel.
+
+using this command to figure out the kernels you have installed:
+
+```bash
+sudo grubby --info=ALL | grep kernel
+```
+
+Then run the following
 
 ```bash
 sudo grubby --info=ALL | grep -i REPLACE_THIS_WITH_KERNEL_NAME -B 1 | grep index
 
-# e.g.
+# e.g. if you're looking for neptune
 sudo grubby --info=ALL | grep -i neptune -B 1 | grep index
+
+# e.g.2 if you're looking for 6.6.9
+sudo grubby --info=ALL | grep -i 6.6.9 -B 1 | grep index
 ```
 
-and then after having INDEX of this kernel
+and then after having INDEX of this kernel you want as the default, run:
 
 ```bash
 sudo grubby --set-default THIS_INDEX_NUMBER
 ```
 
-or something similar to it. Thanks @cox on discord
+Then reboot, and verify it's working:
+
+```bash
+# this should print out your kernel version
+uname -r
+```
+
+Thanks @cox on discord for the info, and @megabadd for recommending some improvements to the instructions
 
 ### Fix display-out not working for a display/monitor that previously worked
 

@@ -625,3 +625,6 @@ install AppImage manager
 ```
 flatpak install flathub it.mijorus.gearlever -y --user
 ```
+
+
+<!-- https://steamcommunity.com/groups/SteamClientBeta/discussions/3/3775742015037677494/ -->

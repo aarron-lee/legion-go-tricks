@@ -14,6 +14,8 @@ Note that while a lot of things are working, Linux support for this device is ve
 - [CSS Loader Themes](#css-loader-plugin---themes)
 - [Tutorial Videos](#tutorial-videos)
 - [Guides + Small Fixes](#guides--small-fixes)
+  - [NobaraOS](#nobaraos-guides)
+  - [Bazzite Deck Edition](#bazzite-deck-edition-guides)
 - [Emulator Info](#emulator-info)
 - [TDP Control overview](#tdp-control)
 - [Controller Support overview](#controller-support)
@@ -199,6 +201,8 @@ cd $HOME/homebrew/themes && git clone https://github.com/frazse/PS5-to-Xbox-glyp
 Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=anc7hyPU6Lk
 
 # Guides + small fixes
+
+## NobaraOS Guides
 
 ### Fix 60Hz and 144Hz (Only for NobaraOS v39)
 
@@ -441,6 +445,26 @@ scaling_min_freq = 1600000
 scaling_max_freq = 3300000
 turbo = auto ```
 then ```auto-cpufreq --install``` or if you want to see what's it doing ```auto-cpufreq --live``` -->
+
+## Bazzite Deck Edition Guides
+
+### Nested Desktop Screen is rotated incorrectly
+
+Open terminal in Nested Desktop (NOT Desktop mode), and run the following:
+
+```bash
+kscreen-doctor output.1.rotation.normal
+```
+
+then restart nested desktop
+
+### Change Nested Desktop Resolution
+
+run the [bazzite-nested-desktop-resolution.sh](./bazzite-nested-desktop-resolution.sh) script.
+
+You can edit the script with your preferred nested desktop resolution before running it.
+
+After running the script, restart Game mode. Then change steam's resolution to match the resolution you set. 
 
 # Emulator Info
 

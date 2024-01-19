@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-echo "Enabling 60hz + 144hz. Note, this assumes Valve's 6.1 Neptune Kernel is already installed"
+echo "Enabling 60hz + 144hz."
 
 mkdir -p $HOME/.config/environment.d
 rm -f $HOME/.config/environment.d/disable-refresh-rates.conf

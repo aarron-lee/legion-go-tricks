@@ -1,5 +1,7 @@
 #/bin/bash
 
+echo "Nobara OS v39 repair"
+
 echo 'adding return to desktop icon'
 
 if [ "$(id -u)" -e 0 ]; then

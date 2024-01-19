@@ -98,6 +98,8 @@ These functions are not working out of the box, but have workarounds
 
 ### Known bugs
 
+- Occasionally the steam menus and mangohud performance overlay will flash white
+  - mostly likely related to display refresh rate, but currently there's no known fix
 - User bug reports that 60Hz occasionally forces a 30fps cap on 60Hz
   - 144Hz is completely functional, you can use it to set a 72 or 36 fps cap if you want something lower than 144hz
   - if anybody can replicate, please report it
@@ -123,17 +125,10 @@ These functions are not working out of the box, but have workarounds
 - HHD PS5 Controller Emulator bug
   - If you hold an LGO joystick input while booting or resuming from suspend, the input may get stuck in whatever direction you were pointing
   - workaround: don't press anything for a few seconds, let the device register itself
-- Nobara 39 - bug where controller doesn't work after a clean install or upgrade from Nobara 38.
-  - fix:
-    - run this script on Desktop mode
-      - `curl -L https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/main/add-lgo-xpad-rule.sh | sudo sh`
-    - if planning on running a dualsense emulator (hhd or rogue), disable handycon too.
-      - `sudo systemctl disable --now handycon.service`
-    - then reboot
 - (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game. You can use the refresh rate slider in steam UI to revert back to either 60Hz or 144Hz
 - controller is more buggy in desktop mode for desktop-related usage, should still work fine for gaming
   - nested desktop still seems fine
-- ryzenadj may not be working for TDP control
+- nobara v39 - ryzenadj may not be working for TDP control
   - use custom Lenovo TDP mode via Decky plugin instead: [see here](https://github.com/aarron-lee/SimpleDeckyTDP/tree/main/py_modules/devices#experimental-custom-tdp-method-for-the-legion-go)
 - user reports say wifi has lower download speeds on Linux vs Windows
 - reports of handycon reactivating by itself, which interferes with hhd
@@ -144,8 +139,6 @@ These functions are not working out of the box, but have workarounds
 
 - nobaraOS v39
   - game mode global FSR is not working
-- Bazzite testing branch
-  - Nested Desktop orientation might be wonky
 
 # Resources
 

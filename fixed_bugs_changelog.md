@@ -1,10 +1,17 @@
 # Bugs changelog
 
-Fixed on Jan 13 2023
 - SimpleDeckyTDP Plugin - bug where GPU slider is broken, and breaks setting TDP.
   - temporary workaround: delete the `$HOME/homebrew/settings/SimpleDeckyTDP/settings.json` file, and then update to the latest SimpleDeckyTDP plugin
     - this bug is being actively investigated
-
+- Nobara 39 - bug where controller doesn't work after a clean install or upgrade from Nobara 38.
+  - fix:
+    - run this script on Desktop mode
+      - `curl -L https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/main/add-lgo-xpad-rule.sh | sudo sh`
+    - if planning on running a dualsense emulator (hhd or rogue), disable handycon too.
+      - `sudo systemctl disable --now handycon.service`
+    - then reboot
+- Bazzite
+  - Nested Desktop orientation might be wonky
 
 # outdated guides
 

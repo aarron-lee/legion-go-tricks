@@ -94,10 +94,11 @@ These functions are not working out of the box, but have workarounds
 
 ## What has issues
 
+- **v29 bios - Update** seems to work so far on nobara v39, and also tested latest Bazzite. Fan curves, Auto VRAM, and battery indicator seems to be working or fixed. But more testing required.
+
 - Battery Indicator - It doesn't consistently work, but has a usable workaround
 - Battery Estimated Time Remaining - It's often incorrect
 
-- **v29 bios - Update** seems to work so far on nobara v39, and am testing bazzite in a bit
 
 ### Known bugs
 

@@ -10,6 +10,7 @@ Note that while a lot of things are working, Linux support for this device is ve
 - [What has issues?](#what-has-issues)
 - [Known Bugs](#known-bugs)
 - [User Reported Bugs (needs verification)](#user-reported-bugs-needs-verification)
+- [Which Linux Distro Should I install?](#which-linux-distro-should-i-install)
 - [Resources](#resources)
 - [CSS Loader Themes](#css-loader-plugin---themes)
 - [Tutorial Videos](#tutorial-videos)
@@ -141,6 +142,79 @@ These functions are not working out of the box, but have workarounds
   - deck username fixes Animation changer plugin and mangopeel plugins
 - nobaraOS v39
   - game mode global FSR is not working
+
+
+# Which Linux Distro should I Install?
+
+If you want a SteamOS-like experience, there are 3 distros I would recommend
+
+1. BazziteOS Deck Edition
+2. ChimeraOS Deck Edition
+3. Nobara Deck Edition
+
+As for which one you should install, here's a breakdown of the benefits and drawbacks of each.
+
+## BazziteOS Deck Edition
+
+**Pros**
+
+- Highly recommended for more casual users who don't want to tinker much
+- Has the best out-of-box experience on the Legion Go
+  - Tools such as Decky, Emudeck, HHD (for Controller Emulation), etc, are either pre-installed, or have an easy install process
+  - Excellent support from the Bazzite Devs and community
+    - Bazzite Discord is the place to go to for support and discussion
+  - Very quick to fix issues and provide OS updates
+- Read-only root filesystem helps with providing better security, more stability, and overall a very good stable console-like experience
+- Can configure Secure Boot, which allows for disk encryption and other security benefits
+  - Secure boot requires some additional configuration steps
+- Has both a Gnome and KDE Desktop mode option
+- supports distrobox for more flexibility in software install options
+
+**Cons**
+
+- Due to it's read-only root OS, it's harder to do more comprehensive tinkering
+  - e.g. running a custom Linux kernel, etc
+
+## ChimeraOS
+
+**Pros**
+
+- Aims to be a very streamlined console-like experience, doesn't include lots of extra software, etc
+  - very minimalist, very stable
+- Very easy to pin your device to a stable OS version
+  - so once you get a good working setup, you can lock your OS version and then opt to manually update whenever you want
+  - great if you want a console like experience where you can "set-it-up-and-forget-it"
+- Has a read-only root filesystem, but can also be fully unlocked if necessary
+  - note: filesystem unlock does not survive OS updates
+- Excellent support for a variety of handhelds besides the Legion Go
+- Good Dev and community support on their Discord
+- Has it's own implementation of Emulator support, etc
+- supports distrobox for more flexibility in software install options
+
+**Cons**
+- Legion Go Fixes will require v45 stable to release. Right now v45 stable is still being tested
+- Installing some recommended tools, such as HHD for Dualsense Controller Emulation, requires unlocking the root filesystem
+  - this means any changes you make will be wiped every OS update, and reinstalled after updating
+- ChimeraOS's emulation implementation interferes with Emudeck, you'll need to manually disable the ChimeraOS implementation
+- Only desktop option is Gnome, so anyone that prefers KDE will have to look elsewhere
+
+## Nobara Deck Edition
+
+**Pros**
+
+- Recommended for those more familiar with Linux, and don't mind troubleshooting a lot or tinkering
+- Nobara is the most similar to a standard Linux distro, and does not have a read-only root filesystem
+- This provides the most flexibility for running custom kernels, modifying system files, etc
+- Can setup most workarounds and tools for a good experience on the Legion Go
+
+**Cons**
+
+- Nobara tends to run cutting edge brand new kernels, and makes other frequent changes to the OS
+  - This often leads to updates introducing bugs or breaking features on the Legion Go
+- Due to no read-only root FS, easier to accidentally mess up your device and put it into a borked state
+- Nobara is run by one dev, GloriousEggroll (same guy behind GE-Proton)
+  - While GloriousEggroll does excellent work, Nobara is understaffed and it will sometimes be difficult to get help or support if you run into problems
+- Only Desktop is KDE, so if you prefer Gnome, you'll have to look elsewhere or manually install + manage it.
 
 # Resources
 

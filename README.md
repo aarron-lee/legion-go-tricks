@@ -594,7 +594,7 @@ And it resets every time you switch modes
 
 ### SimpleDeckyTDP
 
-Decky Plugin that provides a simple TDP and GPU controls. Note that there's similarly a risk that Decky Plugins can stop working from any Steam updates from Valve
+Decky Plugin that provides TDP and GPU controls. Also has an option to fix Steam's TDP + GPU Sliders. Note that there's a risk that Decky Plugins can stop working from any Steam updates from Valve
 
 https://github.com/aarron-lee/SimpleDeckyTDP
 
@@ -612,21 +612,23 @@ https://github.com/aarron-lee/simple-ryzen-tdp/
 
 # Controller support
 
-### HandyGCCS (aka handycon)
-
-Default installed OOTB on ChimeraOS, Nobara Deck Edition, and Bazzite. It supports all the standard Xbox controls, `Legion_L + X` for Steam/Home, `Legion_L + A` for QAM. Back buttons are not supported.
-
-Note that you can get back buttons to work with the LegionGoRemapper plugin, but it has the same limitations as the LegionSpace app on Windows; you can only remap back buttons to other controller buttons, and they cannot be managed individually in Steam Input.
-
 ### hhd
 
 Link: https://github.com/antheas/hhd
 
 PS5 Dualsense Edge controller emulator, currently supports all buttons on the LGO controller except the back scrollwheel (scrollwheel already worked previously). Has improvements vs rogue, such as more consistently working rumble, config file for configuring different options, RGB LED control via steam input, etc. It also supports managing the power button, so no extra program is necessary.
 
+It is preinstalled on Bazzite for the Legion Go.
+
 Install instructions are available on the github.
 
-### rogue-enemy
+### HandyGCCS (aka handycon)
+
+Default installed OOTB on ChimeraOS, Nobara Deck Edition. It supports all the standard Xbox controls, `Legion_L + X` for Steam/Home, `Legion_L + A` for QAM. Back buttons are not supported.
+
+Note that you can get back buttons to work with the LegionGoRemapper plugin, but it has the same limitations as the LegionSpace app on Windows; you can only remap back buttons to other controller buttons, and they cannot be managed individually in Steam Input.
+
+### rogue-enemy (deprecated/no longer maintained)
 
 Link: https://github.com/corando98/ROGueENEMY
 
@@ -636,7 +638,7 @@ Note that rogue-enemy has conflicts with handygccs, so it must be disabled. Also
 
 # Quality Of Life Fixes
 
-### LegionGoRemapper Decky Plugin - RGB control + backbutton remapping
+### LegionGoRemapper Decky Plugin - Fan Control + RGB control + backbutton remapping
 
 Link: https://github.com/aarron-lee/LegionGoRemapper/
 

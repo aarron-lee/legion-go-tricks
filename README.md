@@ -94,9 +94,10 @@ These functions are not working out of the box, but have workarounds
 
 ## What has issues
 
-- **v29 bios - WARNING!** The new Bios v29 is different from the earlier beta v29 bios. The new updated v29 may be causing issues on Linux. Don't upgrade the bios yet until it's verified
 - Battery Indicator - It doesn't consistently work, but has a usable workaround
 - Battery Estimated Time Remaining - It's often incorrect
+
+- **v29 bios - Update** seems to work so far on nobara v39, and am testing bazzite in a bit
 
 ### Known bugs
 

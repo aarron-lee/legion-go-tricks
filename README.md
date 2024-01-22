@@ -193,7 +193,7 @@ cd $HOME/homebrew/themes && git clone https://github.com/frazse/PS5-to-Xbox-glyp
 
 # Tutorial Videos
 
-Dual Boot Tutorial Video (Bazzite + Windows) : Coming soon
+Dual Boot Tutorial Video (Bazzite + Windows) : https://www.youtube.com/watch?v=3jFnkcVBI_A
 - Partition guide for Dual boot with Bazzite: [see here](/bazzite-dualboot-partition-guide.md)
 
 Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=anc7hyPU6Lk

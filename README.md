@@ -188,7 +188,7 @@ As for which one you should install, here's a breakdown of the benefits and draw
   - so once you get a good working setup, you can lock your OS version and then opt to manually update whenever you want
   - great if you want a console like experience where you can "set-it-up-and-forget-it"
 - Has a read-only root filesystem, but can also be fully unlocked if necessary
-  - note: filesystem unlock does not survive OS updates
+  - note: filesystem unlock does not survive OS updates because it re-locks after an OS update.
 - Excellent support for a variety of handhelds besides the Legion Go
 - Good Dev and community support on their Discord
 - Has it's own implementation of Emulator support, etc
@@ -197,7 +197,7 @@ As for which one you should install, here's a breakdown of the benefits and draw
 **Cons**
 - Legion Go Fixes will require v45 stable to release. Right now v45 stable is still being tested
 - Installing some recommended tools, such as HHD for Dualsense Controller Emulation, requires unlocking the root filesystem
-  - this means any changes you make will be wiped every OS update, and reinstalled after updating
+  - this means any changes you make will be wiped every OS update (OS update re-locks the system), and must be reinstalled after updating
 - ChimeraOS's emulation implementation interferes with Emudeck, you'll need to manually disable the ChimeraOS implementation
 - Only desktop option is Gnome, so anyone that prefers KDE will have to look elsewhere
 

@@ -26,7 +26,7 @@ Note that while a lot of things are working, Linux support for this device is ve
 
 # Current Status of Linux on the Lenovo Legion Go
 
-ChimeraOS unstable, Nobara Deck Edition, and Bazzite Deck Edition, all have a bunch of fixes for the LGO. It's mostly working, but still has bugs that need to be addressed.
+ChimeraOS testing branch, Nobara Deck Edition, and Bazzite Deck Edition, all have a bunch of fixes for the LGO. It's mostly working, but still has bugs that need to be addressed.
 
 However, that being said, Linux is good enough to be a daily driver on the Legion Go.
 
@@ -95,11 +95,11 @@ These functions are not working out of the box, but have workarounds
 ## What has issues
 
 - **v29 bios - Update** seems to work so far on nobara v39, and also tested latest Bazzite. Fan curves, Auto VRAM, and battery indicator seems to be working or fixed. But more testing required.
+
   - Warning: there's user reports that there's lots of screen flashing on bios v29. I'd recommend waiting until this issue is investigated more.
 
 - Battery Indicator - It doesn't consistently work, but has a usable workaround
 - Battery Estimated Time Remaining - It's often incorrect
-
 
 ### Known bugs
 
@@ -149,13 +149,12 @@ These functions are not working out of the box, but have workarounds
 - nobaraOS v39
   - game mode global FSR is not working
 
-
 # Which Linux Distro should I Install?
 
 If you want a SteamOS-like experience, there are 3 distros I would recommend
 
 1. BazziteOS Deck Edition
-2. ChimeraOS Deck Edition
+2. ChimeraOS
 3. Nobara Deck Edition
 
 As for which one you should install, here's a breakdown of the benefits and drawbacks of each.
@@ -198,7 +197,8 @@ As for which one you should install, here's a breakdown of the benefits and draw
 - supports distrobox for more flexibility in software install options
 
 **Cons**
-- Legion Go Fixes will require v45 stable to release. Right now v45 stable is still being tested
+
+- Legion Go Fixes will require v45 stable to release. Right now v45 stable is still being tested on their testing branch
 - Installing some recommended tools, such as HHD for Dualsense Controller Emulation, requires unlocking the root filesystem
   - this means any changes you make will be wiped every OS update (OS update re-locks the system), and must be reinstalled after updating
 - ChimeraOS's emulation implementation interferes with Emudeck, you'll need to manually disable the ChimeraOS implementation
@@ -274,6 +274,7 @@ cd $HOME/homebrew/themes && git clone https://github.com/frazse/PS5-to-Xbox-glyp
 # Tutorial Videos
 
 Dual Boot Tutorial Video (Bazzite + Windows) : https://www.youtube.com/watch?v=3jFnkcVBI_A
+
 - Partition guide for Dual boot with Bazzite: [see here](/bazzite-dualboot-partition-guide.md)
 
 Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=anc7hyPU6Lk
@@ -558,7 +559,7 @@ run the [bazzite-nested-desktop-resolution.sh](./bazzite-nested-desktop-resoluti
 
 You can edit the script with your preferred nested desktop resolution before running it.
 
-After running the script, restart Game mode. Then change steam's resolution to match the resolution you set. 
+After running the script, restart Game mode. Then change steam's resolution to match the resolution you set.
 
 # Emulator Info
 
@@ -721,6 +722,5 @@ install AppImage manager
 ```
 flatpak install flathub it.mijorus.gearlever -y --user
 ```
-
 
 <!-- https://steamcommunity.com/groups/SteamClientBeta/discussions/3/3775742015037677494/ -->

@@ -105,6 +105,8 @@ These functions are not working out of the box, but have workarounds
 
 - Occasionally the steam menus and mangohud performance overlay will flash white
   - mostly likely related to display refresh rate, but currently there's no known fix
+- BazziteOS - after fresh install, sometimes you encounter a blank screen on reboot
+  - permanent fix found [here](#blank-screen-on-first-reboot)
 - User bug reports that 60Hz occasionally forces a 30fps cap on 60Hz
   - 144Hz is completely functional, you can use it to set a 72 or 36 fps cap if you want something lower than 144hz
   - if anybody can replicate, please report it
@@ -527,6 +529,18 @@ turbo = auto ```
 then ```auto-cpufreq --install``` or if you want to see what's it doing ```auto-cpufreq --live``` -->
 
 ## Bazzite Deck Edition Guides
+
+## Blank Screen on First Reboot
+
+If you see a frozen or blank screen on first reboot after a fresh installation of Bazzite, you can permanently fix the issue via the following:
+
+1. press `Ctrl + Alt + F2` to open a terminal
+2. login via your username and password
+3. once logged in, type `steamos-session-select plasma`
+  - if you are on deck-gnome, try swapping `plasma` with `gnome` if it doesn't work
+4. the terminal command should switch you to desktop mode
+5. from desktop mode, just press the `Return to Game Mode` shortcut on the Desktop
+  - for deck-gnome, the `return to game mode` shortcut will be in the menu that you see after you click the top-left corner of the screen
 
 ### Nested Desktop Screen is rotated incorrectly
 

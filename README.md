@@ -95,9 +95,10 @@ These functions are not working out of the box, but have workarounds
 ## What has issues
 
 - **v29 bios - Update** seems to work so far on nobara v39, and also tested latest Bazzite. Fan curves, Auto VRAM, and battery indicator seems to be working or fixed. But more testing required.
-
-  - Warning: there's user reports that there's screen flashing on bios v29.
-  - There's also been multiple confirmation that fan curves and battery indicator seem to be resolved and working
+- **IMPORTANT BUG:** This still requires confirmation, but it looks like you cannot set custom fan curves and use Lenovo's custom TDP mode for TDP control simultaneously
+  - if you enable a custom fan curve, **make sure to disable Lenovo Custom TDP** if you are using the SimpleDeckyTDP plugin for TDP control
+- Warning: there's user reports that there's screen flashing on bios v29.
+- There's also been multiple confirmation that fan curves and battery indicator seem to be resolved and working
 
 - Battery Indicator - It doesn't consistently work, but has a usable workaround
 - Battery Estimated Time Remaining - It's often incorrect

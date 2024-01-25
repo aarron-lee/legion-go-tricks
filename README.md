@@ -75,7 +75,7 @@ These functions are not working out of the box, but have workarounds
 - Controller RGB Lights - requires decky plugin or HHD (HHD enables steam input RGB support) See [Video Demo here](https://youtu.be/HHubJ8AnkUk?si=oWLVultDKBMVOxlo&t=35)
 - GPU Frequency control - via SimpleDeckyTDP plugin or steam-patch
 - Custom Fan Curves - via LegionGoRemapper plugin with [experimental feature enabled](https://github.com/aarron-lee/LegionGoRemapper/#custom-fan-curves)
-  - Note, custom fan curves will need additional bios updates from Lenovo to be fully functional
+  - fan curves confirmed to work with bios v29
 - Games can sometimes default to 800p, you will need to manually change the resolution per game in the `Steam Settings > Properties > Game Resolution` to either `Native` or other higher resolutions.
 - v28 bios - STAMP mode is bugged on both Windows and Linux when setting high TDPs with 3rd party tools like ryzenadj and handheld companion
   - users reported that they were getting hard crashes at 30W TDP on both Windows and Linux
@@ -96,10 +96,13 @@ These functions are not working out of the box, but have workarounds
 
 - **v29 bios - Update** seems to work so far on nobara v39, and also tested latest Bazzite. Fan curves, Auto VRAM, and battery indicator seems to be working or fixed. But more testing required.
 
-  - Warning: there's user reports that there's lots of screen flashing on bios v29. I'd recommend waiting until this issue is investigated more.
+  - Warning: there's user reports that there's screen flashing on bios v29.
+  - There's also been multiple confirmation that fan curves and battery indicator seem to be resolved and working
 
 - Battery Indicator - It doesn't consistently work, but has a usable workaround
 - Battery Estimated Time Remaining - It's often incorrect
+- Adaptive Brightness sensor - hardware is detectedby the OS, but not used for auto-brightness yet
+  - there's dev work in progress for auto-brightness
 
 ### Known bugs
 
@@ -125,6 +128,8 @@ These functions are not working out of the box, but have workarounds
         - Pizza Tower
       - Games that exhibited the issue for a short time, then never again:
         - Tony Hawk Pro Skater 1+2
+- suspend-resume quirk: sound often is fuzzy on resume, usually clears up after 30 seconds or so, but not all the time.
+  - sometimes using the [Pause Games plugin](https://github.com/popsUlfr/SDH-PauseGames) with `Pause on Suspend` enabled can help with this issue
 - HHD (Dualsense Emulator) - It should now hide the Xbox controller in steam input, and only show the Dualsense Edge.
   - If you see an extra Xbox controller in steam input, you can flip the fps-mode switch on and off for to make it disappear. You can leave the controllers attached when you do this.
   - This should also fix any issues where emulators don't recognize the controller, since the emulator was latching onto the Xbox controller
@@ -531,17 +536,20 @@ then ```auto-cpufreq --install``` or if you want to see what's it doing ```auto-
 
 ## Bazzite Deck Edition Guides
 
-## Blank Screen on First Reboot
+### Blank Screen on First Reboot
 
 If you see a frozen or blank screen on first reboot after a fresh installation of Bazzite, you can permanently fix the issue via the following:
 
 1. press `Ctrl + Alt + F2` to open a terminal
 2. login via your username and password
 3. once logged in, type `steamos-session-select plasma`
-  - if you are on deck-gnome, try swapping `plasma` with `gnome` if it doesn't work
+
+- if you are on deck-gnome, try swapping `plasma` with `gnome` if it doesn't work
+
 4. the terminal command should switch you to desktop mode
 5. from desktop mode, just press the `Return to Game Mode` shortcut on the Desktop
-  - for deck-gnome, the `return to game mode` shortcut will be in the menu that you see after you click the top-left corner of the screen
+
+- for deck-gnome, the `return to game mode` shortcut will be in the menu that you see after you click the top-left corner of the screen
 
 ### Nested Desktop Screen is rotated incorrectly
 
@@ -663,10 +671,9 @@ Link: https://github.com/aarron-lee/LegionGoRemapper/
 
 Allows for managing back button remaps, controller RGB lights, toggle touchpad on/off, etc
 
-You can also enable custom fan curves, but this is an experimental feature that [requires manual setup](https://github.com/aarron-lee/LegionGoRemapper/#custom-fan-curves)
+You can also enable custom fan curves, confirmed functional on bios v29
 
 - note that this uses the exact same functionality as LegionSpace on Windows, so it has the same limitations
-- custom fan curves might need additional bios updates from Lenovo to be fully functional
 - back button remapping should not be used w/ PS5 controller emulation
 
 ### CSS Loader Plugin - Themes

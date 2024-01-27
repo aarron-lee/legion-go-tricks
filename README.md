@@ -84,10 +84,10 @@ These functions are not working out of the box, but have workarounds
     - Setting TDP this way will also set fan curves appropriately.
     - steam-patch should similarly work on the LGO
 - Screen Refresh Rate - only refresh rates that work are 60Hz and 144Hz, everything else is not usable/has issues.
+  - **WARNING!!** only usable refresh rates are 60hz and 144hz. be careful when changing the slider value in steam UI! 
   - 144Hz additionally has bugs, but can be resolved
     - Instructions to do so for NobaraOS v39 can be found [here](#fix-60hz-and-144hz-only-for-nobaraos-v39)
-    - Bazzite (testing branch) should be working with minimal changes
-      - Bazzite will move their LGO fixes to their main branch very soon, probably around Jan 19th 2024
+    - Bazzite should be working with minimal changes
 - adaptive/auto display brightness doesn't work yet
   - manual brightness slider in steam UI works without issues
   - there's work in progress from devs for to get this fully working
@@ -699,15 +699,6 @@ cd $HOME/homebrew/themes && git clone https://github.com/frazse/SBP-Legion-Go-Th
 # PS5 to Xbox Controller Glyph Theme
 cd $HOME/homebrew/themes && git clone https://github.com/frazse/PS5-to-Xbox-glyphs
 ```
-
-# Resolved or won't-fix bugs (changelog for documentation purposes)
-
-- Dec 9th 2023 - Nobara desktop mode shortcut might break for users that update their Nobara installation. This should not apply to brand new, clean installations.
-  - this issue has been fixed on NobaraOS 39
-  - recent installations by users indicate that this bug has been resolved on Nobara 38
-  - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
-- (won't fix) Bugs for Pipewire EQ sound improvements - Pipewire EQ sound improvements are an optional sound fix for the LGO, currently is buggy and not recommended
-  - This is most likely due to a Steam Deck OLED related update.
 
 # 3D prints
 

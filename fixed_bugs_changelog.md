@@ -13,6 +13,14 @@
 - Bazzite
   - Nested Desktop orientation might be wonky
 
+- Dec 9th 2023 - Nobara desktop mode shortcut might break for users that update their Nobara installation. This should not apply to brand new, clean installations.
+  - this issue has been fixed on NobaraOS 39
+  - recent installations by users indicate that this bug has been resolved on Nobara 38
+  - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
+- (won't fix) Bugs for Pipewire EQ sound improvements - Pipewire EQ sound improvements are an optional sound fix for the LGO, currently is buggy and not recommended
+  - This is most likely due to a Steam Deck OLED related update.
+
+
 # outdated guides
 
 ### Nobara desktop mode switch temporary fix

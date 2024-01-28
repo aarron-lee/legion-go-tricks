@@ -26,7 +26,7 @@ Note that while a lot of things are working, Linux support for this device is ve
 
 # Current Status of Linux on the Lenovo Legion Go
 
-ChimeraOS testing branch, Nobara Deck Edition, and Bazzite Deck Edition, all have a bunch of fixes for the LGO. It's mostly working, but still has bugs that need to be addressed.
+ChimeraOS 45 stable, Nobara Deck Edition, and Bazzite Deck Edition, all have a bunch of fixes for the LGO. It's mostly working, but still has bugs that need to be addressed.
 
 However, that being said, Linux is good enough to be a daily driver on the Legion Go.
 
@@ -46,7 +46,7 @@ Read further below for more details
 
 At the moment, the following functions work out of the box
 
-- Screen orientation (fixed in NobaraOS Deck Edition, ChimeraOS 45 unstable, Bazzite OS)
+- Screen orientation (fixed in NobaraOS Deck Edition, ChimeraOS 45 stable, Bazzite OS)
 - suspend-resume functionality
   - suspend quirk: sound often is fuzzy on resume, usually clears up after 30 seconds or so.
     - sometimes using the [Pause Games plugin](https://github.com/popsUlfr/SDH-PauseGames) with `Pause on Suspend` enabled can help with this issue
@@ -204,8 +204,7 @@ As for which one you should install, here's a breakdown of the benefits and draw
 
 **Cons**
 
-- Legion Go Fixes will require v45 stable to release. Right now v45 stable is still being tested on their testing branch
-- Installing some recommended tools, such as HHD for Dualsense Controller Emulation, requires unlocking the root filesystem
+- Installing some recommended tools, such as acpi_call for custom fan curves, requires unlocking the root filesystem
   - this means any changes you make will be wiped every OS update (OS update re-locks the system), and must be reinstalled after updating
 - ChimeraOS's emulation implementation interferes with Emudeck, you'll need to manually disable the ChimeraOS implementation
 - Only desktop option is Gnome, so anyone that prefers KDE will have to look elsewhere

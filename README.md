@@ -185,6 +185,7 @@ As for which one you should install, here's a breakdown of the benefits and draw
 
 - Due to it's read-only root OS, it's harder to do more comprehensive tinkering
   - e.g. running a custom Linux kernel, etc
+- slow OS install + OS updates, they take a long time
 
 ## ChimeraOS
 

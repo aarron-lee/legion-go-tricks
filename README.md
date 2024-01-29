@@ -537,6 +537,10 @@ then ```auto-cpufreq --install``` or if you want to see what's it doing ```auto-
 
 ## Bazzite Deck Edition Guides
 
+### FAQ on bazzite site for rollback, pinning OS version, etc
+
+See official site at: https://universal-blue.discourse.group/docs?topic=36
+
 ### Blank Screen on First Reboot
 
 If you see a frozen or blank screen on first reboot after a fresh installation of Bazzite, you can permanently fix the issue via the following:

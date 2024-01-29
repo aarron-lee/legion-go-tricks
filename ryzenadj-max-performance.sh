@@ -10,6 +10,7 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 #  LGO battery info: sudo udevadm info --attribute-walk --path=/sys/class/power_supply/ACAD
+# udevadm info --attribute-walk --path=/sys/class/power_supply/AC0
 
 RYZENADJ_PATH="/usr/bin/ryzenadj"
 

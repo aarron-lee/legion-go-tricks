@@ -61,6 +61,7 @@ At the moment, the following functions work out of the box
 - trackpad works, but cannot tap-to-click in game mode.
   - Can tap to click on desktop mode, but must be enabled in the touchpad settings.
   - Can be used in steam input with a workaround.
+- Battery Indicator in Game Mode - requires bios v29
 
 ## What Has Workarounds?
 
@@ -94,23 +95,22 @@ These functions are not working out of the box, but have workarounds
 
 ## What has issues
 
-- **v29 bios - Update** seems to work so far on nobara v39, and also tested latest Bazzite. Fan curves, Auto VRAM, and battery indicator seems to be working or fixed. But more testing required.
-- **IMPORTANT BUG:** This still requires confirmation, but it looks like you cannot set custom fan curves and use Lenovo's custom TDP mode for TDP control simultaneously
-  - if you enable a custom fan curve, **make sure to disable Lenovo Custom TDP** if you are using the SimpleDeckyTDP plugin for TDP control
-- Warning: there's user reports that there's screen flashing on bios v29.
-- There's also been multiple confirmation that fan curves and battery indicator seem to be resolved and working
-
-- Battery Indicator - It doesn't consistently work, but has a usable workaround
-- Battery Estimated Time Remaining - It's often incorrect
+- **v29 bios - IMPORTANT BUG:** You cannot set custom fan curves and use Lenovo's custom TDP mode for TDP control simultaneously
+  - if you enable a custom fan curve, if you are using SimpleDeckyTDP, make sure to update to the latest version.
+- Warning: there's some user reports that there's screen flashing on bios v29 with Nobara.
+  - this bug may not be present on Bazzite, unconfirmed on ChimeraOS
 - Adaptive Brightness sensor - hardware is detectedby the OS, but not used for auto-brightness yet
   - there's dev work in progress for auto-brightness
+    - if you wish to test it out, see [here](https://github.com/corando98/LLG_Dev_scripts?tab=readme-ov-file#ltchipotles-adaptive-brightness-algorithm)
 
 ### Known bugs
 
 - Occasionally the steam menus and mangohud performance overlay will flash white
-  - mostly likely related to display refresh rate, but currently there's no known fix
+  - mostly likely related to display refresh rate or v29 bios update, but currently there's no known fix
+  - this bug may only be present on NobaraOS
+    - unconfirmed on Bazzite or ChimeraOS
 - BazziteOS - after fresh install, sometimes you encounter a blank screen on reboot
-  - permanent fix found [here](#blank-screen-on-first-reboot)
+  - fix found [here](#blank-screen-on-first-reboot)
 - User bug reports that 60Hz occasionally forces a 30fps cap on 60Hz
   - 144Hz is completely functional, you can use it to set a 72 or 36 fps cap if you want something lower than 144hz
   - if anybody can replicate, please report it
@@ -138,15 +138,16 @@ These functions are not working out of the box, but have workarounds
 - HHD PS5 Controller Emulator bug
   - If you hold an LGO joystick input while booting or resuming from suspend, the input may get stuck in whatever direction you were pointing
   - workaround: don't press anything for a few seconds, let the device register itself
-- (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game. You can use the refresh rate slider in steam UI to revert back to either 60Hz or 144Hz
+- user reports say wifi has lower download speeds on Linux vs Windows
+
+
+### Nobara bugs
 - controller is more buggy in desktop mode for desktop-related usage, should still work fine for gaming
   - nested desktop still seems fine
-- nobara v39 - ryzenadj may not be working for TDP control
-  - use custom Lenovo TDP mode via Decky plugin instead: [see here](https://github.com/aarron-lee/SimpleDeckyTDP/tree/main/py_modules/devices#experimental-custom-tdp-method-for-the-legion-go)
-- user reports say wifi has lower download speeds on Linux vs Windows
 - reports of handycon reactivating by itself, which interferes with hhd
   - you can disable it again with `sudo systemctl disable --now handycon.service`
     - you can also opt to remove it, the command should be `sudo dnf remove handygccs` (untested)
+- (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game. You can use the refresh rate slider in steam UI to revert back to either 60Hz or 144Hz
 
 ### User-reported bugs (needs verification)
 
@@ -173,7 +174,7 @@ As for which one you should install, here's a breakdown of the benefits and draw
 - Has the best out-of-box experience on the Legion Go
   - Tools such as Decky, Emudeck, HHD (for Controller Emulation), etc, are either pre-installed, or have an easy install process
   - Excellent support from the Bazzite Devs and community
-    - Bazzite Discord is the place to go to for support and discussion
+    - Bazzite Discord is the place to go to for support and discussion, see [here](https://github.com/ublue-os/bazzite?tab=readme-ov-file#join-the-community)
   - Very quick to fix issues and provide OS updates
 - Read-only root filesystem helps with providing better security, more stability, and overall a very good stable console-like experience
 - Can configure Secure Boot, which allows for disk encryption and other security benefits
@@ -207,6 +208,8 @@ As for which one you should install, here's a breakdown of the benefits and draw
 
 - Installing some recommended tools, such as acpi_call for custom fan curves, requires unlocking the root filesystem
   - ChimeraOS 45-1 will include `acpi_call`
+- hhd needs to be manually installed
+  - handycon will also need to be manually disabled after every major OS update
 - ChimeraOS's emulation implementation interferes with Emudeck, you'll need to manually disable the ChimeraOS implementation
 - Only desktop option is Gnome, so anyone that prefers KDE will have to look elsewhere
 
@@ -248,7 +251,7 @@ rogue-enemy - PS5 Dualsense Edge Emulator - https://github.com/corando98/ROGueEN
 
 powerbutton fix when using rogue-enemy - https://github.com/aarron-lee/steam-powerbuttond
 
-Pipewire sound EQ improvement files - https://github.com/matte-schwartz/device-quirks/tree/legion-go/rog-ally-audio-fixes/usr/share/device-quirks/scripts/lenovo/legion-go
+Pipewire sound EQ improvement files (not maintained) - https://github.com/matte-schwartz/device-quirks/tree/legion-go/rog-ally-audio-fixes/usr/share/device-quirks/scripts/lenovo/legion-go
 
 (ChimeraOS only) Legion Go installer tool - https://github.com/linuxgamingcentral/legion-go-tools-for-linux
 
@@ -650,7 +653,7 @@ Link: https://github.com/antheas/hhd
 
 PS5 Dualsense Edge controller emulator, currently supports all buttons on the LGO controller except the back scrollwheel (scrollwheel already worked previously). Has improvements vs rogue, such as more consistently working rumble, config file for configuring different options, RGB LED control via steam input, etc. It also supports managing the power button, so no extra program is necessary.
 
-It is preinstalled on Bazzite for the Legion Go.
+It is preinstalled on Bazzite for the Legion Go, ROG Ally, and several GPD Win devices.
 
 Install instructions are available on the github.
 

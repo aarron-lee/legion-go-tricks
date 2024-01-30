@@ -206,7 +206,7 @@ As for which one you should install, here's a breakdown of the benefits and draw
 **Cons**
 
 - Installing some recommended tools, such as acpi_call for custom fan curves, requires unlocking the root filesystem
-  - this means any changes you make will be wiped every OS update (OS update re-locks the system), and must be reinstalled after updating
+  - ChimeraOS 45-1 will include `acpi_call`
 - ChimeraOS's emulation implementation interferes with Emudeck, you'll need to manually disable the ChimeraOS implementation
 - Only desktop option is Gnome, so anyone that prefers KDE will have to look elsewhere
 

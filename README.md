@@ -577,6 +577,54 @@ You can edit the script with your preferred nested desktop resolution before run
 
 After running the script, restart Game mode. Then change steam's resolution to match the resolution you set.
 
+<!-- 
+
+hhd localdev on bazzite
+
+hhd_dev.service
+
+```
+[Unit]
+Description=hhd service
+
+[Service]
+Type=simple
+Nice = -15
+Restart=always
+RestartSec=5
+WorkingDirectory=/var/home/deck/.local/bin/hhd/venv/bin
+ExecStart=/var/home/deck/.local/bin/hhd/hhd/venv/bin/hhd --user deck
+
+[Install]
+WantedBy=default.target
+```
+
+for SE Linux
+
+```
+chcon -u system_u -r object_r --type=bin_t /var/home/deck/.local/bin/hhd/hhd/venv/bin/hhd
+```
+
+reload.sh
+
+```
+#!/bin/bash
+
+git pull
+
+sudo systemctl disable --now hhd_dev.service
+sudo cp ./hhd_dev.service /etc/systemd/system/
+
+source ./venv/bin/activate
+
+./venv/bin/pip install -e .
+
+sudo systemctl daemon-reload
+sudo systemctl enable --now hhd_dev.service
+```
+ -->
+
+
 # Emulator Info
 
 Emulator related documentation, including recommended settings, etc.

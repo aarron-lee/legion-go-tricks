@@ -177,6 +177,7 @@ As for which one you should install, here's a breakdown of the benefits and draw
     - Bazzite Discord is the place to go to for support and discussion, see [here](https://github.com/ublue-os/bazzite?tab=readme-ov-file#join-the-community)
   - Very quick to fix issues and provide OS updates
 - Read-only root filesystem helps with providing better security, more stability, and overall a very good stable console-like experience
+  - also has SE Linux configured out of the box
 - Can configure Secure Boot, which allows for disk encryption and other security benefits
   - Secure boot requires some additional configuration steps
 - Has both a Gnome and KDE Desktop mode option

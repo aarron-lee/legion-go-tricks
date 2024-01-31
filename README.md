@@ -253,7 +253,7 @@ powerbutton fix when using rogue-enemy - https://github.com/aarron-lee/steam-pow
 
 Pipewire sound EQ improvement files (not maintained) - https://github.com/matte-schwartz/device-quirks/tree/legion-go/rog-ally-audio-fixes/usr/share/device-quirks/scripts/lenovo/legion-go
 
-(ChimeraOS only) Legion Go installer tool - https://github.com/linuxgamingcentral/legion-go-tools-for-linux
+<!-- (ChimeraOS only) Legion Go installer tool - https://github.com/linuxgamingcentral/legion-go-tools-for-linux -->
 
 gyro increase sampling rate fix (advanced users only, not maintained) - https://github.com/antheas/llg_sfh
 

@@ -580,7 +580,13 @@ After running the script, restart Game mode. Then change steam's resolution to m
 
 <!-- 
 
-hhd localdev on bazzite
+scale steam desktop mode
+
+%U -forcedesktopscaling 2 as in steam.desktop launch arguments
+
+and add steam to autostart
+
+# hhd localdev on bazzite
 
 hhd_dev.service
 

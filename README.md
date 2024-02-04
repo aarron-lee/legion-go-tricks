@@ -151,6 +151,8 @@ These functions are not working out of the box, but have workarounds
 
 ### User-reported bugs (needs verification)
 
+- microphone might not work on bazzite
+  - requires verification
 - certain Decky plugins require `deck` as your username
   - deck username fixes Animation changer plugin and mangopeel plugins
 - nobaraOS v39

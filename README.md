@@ -111,7 +111,27 @@ These functions are not working out of the box, but have workarounds
     - unconfirmed on Bazzite or ChimeraOS
 - BazziteOS - after fresh install, sometimes you encounter a blank screen on reboot
   - fix found [here](#blank-screen-on-first-reboot)
-- User bug reports that 60Hz occasionally forces a 30fps cap on 60Hz
+- suspend-resume quirk: sound often is fuzzy on resume, usually clears up after 30 seconds or so, but not all the time.
+  - sometimes using the [Pause Games plugin](https://github.com/popsUlfr/SDH-PauseGames) with `Pause on Suspend` enabled can help with this issue
+- HHD (Dualsense Emulator) - It should now hide the Xbox controller in steam input, and only show the Dualsense Edge.
+  - If you see an extra Xbox controller in steam input, you can flip the fps-mode switch on and off for to make it disappear. You can leave the controllers attached when you do this.
+  - This should also fix any issues where emulators don't recognize the controller, since the emulator was latching onto the Xbox controller
+    - if you still have a controller issue, reorder the controller from player 2 to player 1 in the QAM. sometimes it registers as player 2 even when no other controller is attached
+- HHD PS5 Controller Emulator bug
+  - If you hold an LGO joystick input while booting or resuming from suspend, the input may get stuck in whatever direction you were pointing
+  - workaround: don't press anything for a few seconds, let the device register itself
+- user reports say wifi has lower download speeds on Linux vs Windows
+- alternative resolutions while in desktop mode are buggy/broken
+  - instead of changing resolution, change scaling for to enlarge/shrink UI elements
+
+### Nobara bugs
+- controller is more buggy in desktop mode for desktop-related usage, should still work fine for gaming
+  - nested desktop still seems fine
+- reports of handycon reactivating by itself, which interferes with hhd
+  - you can disable it again with `sudo systemctl disable --now handycon.service`
+    - you can also opt to remove it, the command should be `sudo dnf remove handygccs` (untested)
+- (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game. You can use the refresh rate slider in steam UI to revert back to either 60Hz or 144Hz
+- User bug reports that 60Hz occasionally forces a 30fps cap on 60Hz, NobaraOS
   - 144Hz is completely functional, you can use it to set a 72 or 36 fps cap if you want something lower than 144hz
   - if anybody can replicate, please report it
     - user reports:
@@ -129,25 +149,6 @@ These functions are not working out of the box, but have workarounds
         - Pizza Tower
       - Games that exhibited the issue for a short time, then never again:
         - Tony Hawk Pro Skater 1+2
-- suspend-resume quirk: sound often is fuzzy on resume, usually clears up after 30 seconds or so, but not all the time.
-  - sometimes using the [Pause Games plugin](https://github.com/popsUlfr/SDH-PauseGames) with `Pause on Suspend` enabled can help with this issue
-- HHD (Dualsense Emulator) - It should now hide the Xbox controller in steam input, and only show the Dualsense Edge.
-  - If you see an extra Xbox controller in steam input, you can flip the fps-mode switch on and off for to make it disappear. You can leave the controllers attached when you do this.
-  - This should also fix any issues where emulators don't recognize the controller, since the emulator was latching onto the Xbox controller
-    - if you still have a controller issue, reorder the controller from player 2 to player 1 in the QAM. sometimes it registers as player 2 even when no other controller is attached
-- HHD PS5 Controller Emulator bug
-  - If you hold an LGO joystick input while booting or resuming from suspend, the input may get stuck in whatever direction you were pointing
-  - workaround: don't press anything for a few seconds, let the device register itself
-- user reports say wifi has lower download speeds on Linux vs Windows
-
-
-### Nobara bugs
-- controller is more buggy in desktop mode for desktop-related usage, should still work fine for gaming
-  - nested desktop still seems fine
-- reports of handycon reactivating by itself, which interferes with hhd
-  - you can disable it again with `sudo systemctl disable --now handycon.service`
-    - you can also opt to remove it, the command should be `sudo dnf remove handygccs` (untested)
-- (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game. You can use the refresh rate slider in steam UI to revert back to either 60Hz or 144Hz
 
 ### User-reported bugs (needs verification)
 

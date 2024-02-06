@@ -787,4 +787,20 @@ install AppImage manager
 flatpak install flathub it.mijorus.gearlever -y --user
 ```
 
-<!-- https://steamcommunity.com/groups/SteamClientBeta/discussions/3/3775742015037677494/ -->
+<!-- 
+https://steamcommunity.com/groups/SteamClientBeta/discussions/3/3775742015037677494/
+
+misc:
+change between s2idle and s3, if s3 is available
+
+to change it temporarily, run:
+
+echo s2idle | sudo tee /sys/power/mem_sleep
+ 
+but it'll reset on reboot
+so you'll probably need a startup systemd service to enable it on boot
+
+add a kernel arg 
+
+rpm-ostree kargs --append=mem_sleep_default=s2idle
+ -->

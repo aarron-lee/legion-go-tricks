@@ -781,6 +781,10 @@ https://www.reddit.com/r/LegionGo/comments/17s8rv8/3d_printed_steamclip_kickstan
 
 https://www.thingiverse.com/thing:6311208/
 
+https://www.thingiverse.com/thing:6444531
+
+https://makerworld.com/en/models/157429#profileId-172767
+
 # Misc
 
 install AppImage manager

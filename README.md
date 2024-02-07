@@ -75,14 +75,14 @@ These functions are not working out of the box, but have workarounds
 - TDP - requires using either steam-patch or decky plugins
 - Controller RGB Lights - requires decky plugin or HHD (HHD enables steam input RGB support) See [Video Demo here](https://youtu.be/HHubJ8AnkUk?si=oWLVultDKBMVOxlo&t=35)
 - GPU Frequency control - via SimpleDeckyTDP plugin or steam-patch
-- Custom Fan Curves - via LegionGoRemapper plugin with [experimental feature enabled](https://github.com/aarron-lee/LegionGoRemapper/#custom-fan-curves)
+- Custom Fan Curves - via LegionGoRemapper plugin
   - fan curves confirmed to work with bios v29
 - Games can sometimes default to 800p, you will need to manually change the resolution per game in the `Steam Settings > Properties > Game Resolution` to either `Native` or other higher resolutions.
 - v28 bios - STAMP mode is bugged on both Windows and Linux when setting high TDPs with 3rd party tools like ryzenadj and handheld companion
   - users reported that they were getting hard crashes at 30W TDP on both Windows and Linux
-  - **Solution**: on STAMP mode, TDP must be set with a fan curve that will prevent thermal shutdown.
-    - The best way to do so, currently, is via SimpleDeckyTDP with the [custom LGO TDP enabled](https://github.com/aarron-lee/SimpleDeckyTDP/tree/main/py_modules/devices#experimental-custom-tdp-method-for-the-legion-go).
-    - Setting TDP this way will also set fan curves appropriately.
+  - **Solution**: on STAMP mode, TDP must be set with a custom fan curve that will prevent thermal shutdown.
+    - You can set custom fan curves on bios v29 with the LegionGoRemapper plugin
+    - alternatively, if you don't want to use a custom fan curve, you can enable the `Lenovo Custom TDP` toggle in SimpleDeckyTDP
     - steam-patch should similarly work on the LGO
 - Screen Refresh Rate - only refresh rates that work are 60Hz and 144Hz, everything else is not usable/has issues.
   - **WARNING!!** only usable refresh rates are 60hz and 144hz. be careful when changing the slider value in steam UI! 
@@ -231,7 +231,7 @@ As for which one you should install, here's a breakdown of the benefits and draw
 - Nobara tends to run cutting edge brand new kernels, and makes other frequent changes to the OS
   - This often leads to updates introducing bugs or breaking features on the Legion Go
 - Due to no read-only root FS, easier to accidentally mess up your device and put it into a borked state
-- Nobara is run by one dev, GloriousEggroll (same guy behind GE-Proton)
+- Nobara is basically run by one dev, GloriousEggroll (same guy behind GE-Proton), along with a few helpers
   - While GloriousEggroll does excellent work, Nobara is understaffed and it will sometimes be difficult to get help or support if you run into problems
 - Only Desktop is KDE, so if you prefer Gnome, you'll have to look elsewhere or manually install + manage it.
 
@@ -668,6 +668,8 @@ For to improve stability, make sure you disable V-sync in the Dolphin settings
 Note that the Legion Go (LGO) has an issue in STT mode (vs STAMP mode in the bios), where custom TDP values will eventually get changed by the bios while in STT mode. STAMP mode fixes this, but there are users reporting crashing while in STAMP mode. STT does not have this stability issue.
 
 If you use the SimpleDeckyTDP plugin with the [LGO custom TDP method](https://github.com/aarron-lee/SimpleDeckyTDP/blob/main/py_modules/devices/README.md#experimental-custom-tdp-method-for-the-legion-go), fixes stability issues on STAMP. Note that this requires bios v28 or newer
+
+Alternatively, you can set a custom fan curve, which should also help fix the issue.
 
 There's a few options for TDP Control on the Legion Go.
 

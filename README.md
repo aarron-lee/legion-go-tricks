@@ -85,7 +85,7 @@ These functions are not working out of the box, but have workarounds
     - alternatively, if you don't want to use a custom fan curve, you can enable the `Lenovo Custom TDP` toggle in SimpleDeckyTDP
     - steam-patch should similarly work on the LGO
 - Screen Refresh Rate - only refresh rates that work are 60Hz and 144Hz, everything else is not usable/has issues.
-  - **WARNING!!** only usable refresh rates are 60hz and 144hz. be careful when changing the slider value in steam UI! 
+  - **WARNING!!** only usable refresh rates are 60hz and 144hz. be careful when changing the slider value in steam UI!
   - 144Hz additionally has bugs, but can be resolved
     - Instructions to do so for NobaraOS v39 can be found [here](#fix-60hz-and-144hz-only-for-nobaraos-v39)
     - Bazzite should be working with minimal changes
@@ -125,6 +125,7 @@ These functions are not working out of the box, but have workarounds
   - instead of changing resolution, change scaling for to enlarge/shrink UI elements
 
 ### Nobara bugs
+
 - controller is more buggy in desktop mode for desktop-related usage, should still work fine for gaming
   - nested desktop still seems fine
 - reports of handycon reactivating by itself, which interferes with hhd
@@ -581,7 +582,27 @@ You can edit the script with your preferred nested desktop resolution before run
 
 After running the script, restart Game mode. Then change steam's resolution to match the resolution you set.
 
-<!-- 
+### Roll back to Bazzite image with specific Linux Kernel
+
+let's say you want to revert Bazzite to an image with kernel 6.6
+
+First, you can find the list of bazzite-deck images here: https://github.com/ublue-os/bazzite/pkgs/container/bazzite-deck/versions?filters%5Bversion_type%5D=tagged
+
+Look for the version for specific dates, it'll look like `39-YYYYMMDD`
+
+e.g. `39-20240205`
+
+This will let you find the kernel version on that given image
+
+`skopeo inspect docker://ghcr.io/ublue-os/bazzite:39-20240205 | grep ostree.linux`
+
+if the number matches with the kernel version that you want to deploy, you can then deploy the image:
+
+```
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:39-20240205
+```
+
+<!--
 
 scale steam desktop mode
 
@@ -633,7 +654,6 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now hhd_dev.service
 ```
  -->
-
 
 # Emulator Info
 
@@ -793,7 +813,7 @@ install AppImage manager
 flatpak install flathub it.mijorus.gearlever -y --user
 ```
 
-<!-- 
+<!--
 https://steamcommunity.com/groups/SteamClientBeta/discussions/3/3775742015037677494/
 
 misc:
@@ -802,11 +822,11 @@ change between s2idle and s3, if s3 is available
 to change it temporarily, run:
 
 echo s2idle | sudo tee /sys/power/mem_sleep
- 
+
 but it'll reset on reboot
 so you'll probably need a startup systemd service to enable it on boot
 
-add a kernel arg 
+add a kernel arg
 
 rpm-ostree kargs --append=mem_sleep_default=s2idle
  -->

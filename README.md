@@ -84,11 +84,7 @@ These functions are not working out of the box, but have workarounds
     - You can set custom fan curves on bios v29 with the LegionGoRemapper plugin
     - alternatively, if you don't want to use a custom fan curve, you can enable the `Lenovo Custom TDP` toggle in SimpleDeckyTDP
     - steam-patch should similarly work on the LGO
-- Screen Refresh Rate - only refresh rates that work are 60Hz and 144Hz, everything else is not usable/has issues.
-  - **WARNING!!** only usable refresh rates are 60hz and 144hz. be careful when changing the slider value in steam UI!
-  - 144Hz additionally has bugs, but can be resolved
-    - Instructions to do so for NobaraOS v39 can be found [here](#fix-60hz-and-144hz-only-for-nobaraos-v39)
-    - Bazzite should be working with minimal changes
+- Screen Refresh Rate and FPS control - unified refresh rate + FPS slider now works perfectly on latest bazzite stable, changes will eventually be included in Nobara Deck Edition and ChimeraOS
 - adaptive/auto display brightness doesn't work yet
   - manual brightness slider in steam UI works without issues
   - there's work in progress from devs for to get this fully working
@@ -314,7 +310,8 @@ Install Instructions:
 - you should see no artificial 72fps cap in games, and fps limiter should work
 - swapping to 60hz should work, and fps limiter should similarly work here
   - note that steamUI forces 144hz, you won't see 60hz in steam UI
-- **WARNING FOR THE REFRESH SLIDER: any values other than 60hz and 144hz is dangerous**, make sure to be careful when changing the screen refresh rate
+- WARNING FOR THE REFRESH SLIDER: any values other than 60hz and 144hz is dangerous, make sure to be careful when changing the screen refresh rate
+  - Update: there's now a fix for the refresh rate slider in BazziteOS, the fixes should eventually be available on NobaraOS and ChimeraOS
 
 4. If steps 1-3 didn't fix your 144hz, continue on to the following:
 
@@ -479,6 +476,8 @@ frame_timing=0
 ### Fuzzy screen issue
 
 If you're seeeing a fuzzy screen, it means that the you're somehow using an invalid refresh rate. The only valid refresh rates for a game are 60 and 144Hz.
+
+Update: There's a refresh rate permanent fix available on BazziteOS, but the fixes should eventually become part of NobaraOS and ChimeraOS too.
 
 You can work around this by force enabling 60Hz, see [fps fix](#fix-60hz-and-144hz-only-for-nobaraos-v39)
 

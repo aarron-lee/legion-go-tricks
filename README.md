@@ -607,6 +607,10 @@ if the number matches with the kernel version that you want to deploy, you can t
 rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:39-20240205
 ```
 
+### How to figure out your current Bazzite Image
+
+run `rpm-ostree status` in terminal, you'll see info on your current image.
+
 <!--
 
 scale steam desktop mode

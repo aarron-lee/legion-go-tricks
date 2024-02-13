@@ -573,6 +573,12 @@ kscreen-doctor output.1.rotation.normal
 
 then restart nested desktop
 
+### Nested Desktop fails to start, or freezes very frequently
+
+User reported issue where Nested Desktop frequently fails. As a fix, set a `per game profile` for Nested Desktop with 60hz as the screen resolution.
+
+If you still run into frequent freezes, please report the bug on the Bazzite Discord.
+
 ### Change Nested Desktop Resolution
 
 run the [bazzite-nested-desktop-resolution.sh](./bazzite-nested-desktop-resolution.sh) script.

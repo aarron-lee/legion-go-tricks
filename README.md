@@ -291,6 +291,21 @@ Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=anc
 
 # Guides + small fixes
 
+### Trick to rotate Legion Go screen for REFIND
+
+Thanks @ariobeth on discord for this guide
+
+not offical instructions, but seems to work fine
+
+setup refind in linux, then run the following via Terminal:
+
+- sudo nano /boot/efi/EFI/refind/refind.conf  (requires root to edit. else, sudo -i first to enter root, then issue the sudo nano)
+- scroll down and find the "#resolution 1024 768" section.
+- add "resolution 2560 1600". (notice it is 2560 wide and 1600 height, it is not 1600 wide and 2560 height. This simple trick rotate the refind boot menu screen correctly on the legion go.)
+- also "enable_touch" and "enable_mouse" for Touchscreen and mouse to work.
+- you might also want to increase the icon size. "big_icon_size 256" (your preference)
+- No idea how to increase font size. (you might need to change the theme for refind)
+
 ## NobaraOS Guides
 
 ### Fix 60Hz and 144Hz (Only for NobaraOS v39)

@@ -84,7 +84,8 @@ These functions are not working out of the box, but have workarounds
     - You can set custom fan curves on bios v29 with the LegionGoRemapper plugin
     - alternatively, if you don't want to use a custom fan curve, you can enable the `Lenovo Custom TDP` toggle in SimpleDeckyTDP
     - steam-patch should similarly work on the LGO
-- Screen Refresh Rate and FPS control - unified refresh rate + FPS slider now works perfectly on latest bazzite stable, changes will eventually be included in Nobara Deck Edition and ChimeraOS
+- Screen Refresh Rate and FPS control - unified refresh rate + FPS slider now works perfectly on latest bazzite stable, fixes should now also be on the latest Nobara Deck Edition too. ChimeraOS might not have the fix yet.
+  - Nobara might still have the 60hz 30fps bug
 - adaptive/auto display brightness doesn't work yet
   - manual brightness slider in steam UI works without issues
   - there's work in progress from devs for to get this fully working

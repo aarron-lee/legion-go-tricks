@@ -93,6 +93,7 @@ These functions are not working out of the box, but have workarounds
 
 - **v29 bios - IMPORTANT BUG:** You cannot set custom fan curves and use Lenovo's custom TDP mode for TDP control simultaneously
   - if you enable a custom fan curve, if you are using SimpleDeckyTDP, make sure to update to the latest version.
+  - this bug is fully resolved on bios v29.1
 - Warning: there's some user reports that there's screen flashing on bios v29 with Nobara.
   - this bug may not be present on Bazzite, unconfirmed on ChimeraOS
 - Adaptive Brightness sensor - hardware is detectedby the OS, but not used for auto-brightness yet
@@ -119,6 +120,14 @@ These functions are not working out of the box, but have workarounds
 - user reports say wifi has lower download speeds on Linux vs Windows
 - alternative resolutions while in desktop mode are buggy/broken
   - instead of changing resolution, change scaling for to enlarge/shrink UI elements
+
+### Bazzite bugs
+
+- Flaky suspend on latest bazzite version
+  - this seems to be a kernel issue, it might get resolved with future updates
+  - meanwhile, you can revert to an image with kernel 6.6, revert to image `39-20240205`
+    - note that this image does **not** have the unified refresh rate slider fix
+    - see [rollback guide](#roll-back-to-bazzite-image-with-specific-linux-kernel)
 
 ### Nobara bugs
 

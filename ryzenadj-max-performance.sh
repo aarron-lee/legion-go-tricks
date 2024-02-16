@@ -26,7 +26,7 @@ EOF
 
 udevadm control --reload-rules
 
-echo 'complete. If you wish to remove the changes, delete the /etc/udev/rules.d/99-power-source-change.rules and reboot'
+echo 'installation complete. If you wish to remove the changes later on, delete the /etc/udev/rules.d/99-power-source-change.rules and reboot'
 
 else
   echo "ryzenadj does not exist at $RYZENADJ_PATH. Exiting."

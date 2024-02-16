@@ -839,6 +839,9 @@ https://www.thingiverse.com/thing:6444531
 
 https://makerworld.com/en/models/157429#profileId-172767
 
+travel cover, costs $
+https://cults3d.com/en/3d-model/gadget/legion-go-front-cover
+
 # Misc
 
 install AppImage manager

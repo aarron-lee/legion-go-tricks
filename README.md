@@ -57,7 +57,9 @@ At the moment, the following functions work out of the box
   - ChimeraOS, NobaraOS, BazziteOS all ship OOTB with basic controller support
   - some non-gaming distros don't include the udev rule for the controller, you can manually add it with [this script](./add-lgo-xpad-rule.sh)
 - FPS/Mouse mode
-- scroll wheel on controller works fine, scroll wheel press doesn't do anything. However, holding the scroll wheel for 5s will toggle the scroll wheel on/off
+- scroll wheel on controller works fine for scrolling websites, etc
+  - scroll wheel press doesn't do anything in game mode, registers as a scroll wheel click in desktop mode
+  - holding the scroll wheel for 5s will toggle the scroll wheel on/off
 - trackpad works, but cannot tap-to-click in game mode.
   - Can tap to click on desktop mode, but must be enabled in the touchpad settings.
   - Can be used in steam input with a workaround.

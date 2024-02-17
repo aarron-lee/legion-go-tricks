@@ -136,27 +136,13 @@ These functions are not working out of the box, but have workarounds
 - controller is more buggy in desktop mode for desktop-related usage, should still work fine for gaming
   - nested desktop still seems fine
 - reports of handycon reactivating by itself, which interferes with hhd
+  - note, in the future, nobara will ship with hhd and remove handygccs
   - you can disable it again with `sudo systemctl disable --now handycon.service`
     - you can also opt to remove it, the command should be `sudo dnf remove handygccs` (untested)
 - (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game. You can use the refresh rate slider in steam UI to revert back to either 60Hz or 144Hz
 - User bug reports that 60Hz occasionally forces a 30fps cap on 60Hz, NobaraOS
   - 144Hz is completely functional, you can use it to set a 72 or 36 fps cap if you want something lower than 144hz
-  - if anybody can replicate, please report it
-    - user reports:
-      - Games that did not have the issue:
-        - Diablo II: Resurrected
-        - Bomb Rush Cyberfunk (Heroic Launcher)
-        - Cyberpunk 2077
-        - No Man Sky
-        - Tales of Arise
-        - Spiderman Remastered
-      - Games tested with the 60hz problem:
-        - "Fallout: New Vegas"
-        - xemu emulator.
-        - Portal 2 (Native Linux game)
-        - Pizza Tower
-      - Games that exhibited the issue for a short time, then never again:
-        - Tony Hawk Pro Skater 1+2
+  - bugfix has been found, but not added to Nobara yet
 
 ### User-reported bugs (needs verification)
 
@@ -261,7 +247,7 @@ steam-patch (for TDP control, some steam glyphs, etc) - https://github.com/coran
 
 reverse engineering docs - https://github.com/antheas/hwinfo/tree/master/devices
 
-rogue-enemy - PS5 Dualsense Edge Emulator - https://github.com/corando98/ROGueENEMY/
+rogue-enemy (deprecated, no longer maintained) - PS5 Dualsense Edge Emulator - https://github.com/corando98/ROGueENEMY/
 
 powerbutton fix when using rogue-enemy - https://github.com/aarron-lee/steam-powerbuttond
 

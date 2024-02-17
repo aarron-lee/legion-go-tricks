@@ -252,6 +252,8 @@ RGB Decky Plugin - https://github.com/aarron-lee/LegionGoRemapper/
 
 Simple Decky TDP Plugin - https://github.com/aarron-lee/SimpleDeckyTDP
 
+LegionGoRefreshRates Decky Plugin - experimental plugin for changing default screen resolution in game mode. https://github.com/aarron-lee/LegionGoRefreshRate
+
 Script that monitors CPU temps and blasts fans when temps are too high - see guide [here](#setup-monitor-script-that-blasts-fans-when-cpu-temps-climb-too-high-tested-on-nobaraos-only)
 
 steam-patch (for TDP control, some steam glyphs, etc) - https://github.com/corando98/steam-patch
@@ -636,13 +638,21 @@ rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:39-
 
 run `rpm-ostree status` in terminal, you'll see info on your current image.
 
+### Change Desktop Steam UI scaling
+
+This is for Bazzite-Deck, not Bazzite-Deck-Gnome
+
+thanks @noobeta on discord for this tip!
+
+For technical users:
+
+run `sudoedit /etc/environment`, and add `STEAM_FORCE_DESKTOPUI_SCALING=2` to the end of the file. save changes, and reboot afterwards.
+
+for non-technical users:
+
+run `xdg-open /etc/environment` in terminal, it will open up the file in a text editor. Add `STEAM_FORCE_DESKTOPUI_SCALING=2` to the end of the file, and save. You will be prompted for your password, save and then reboot.
+
 <!--
-
-scale steam desktop mode
-
-%U -forcedesktopscaling 2 as in steam.desktop launch arguments
-
-and add steam to autostart
 
 # hhd localdev on bazzite
 

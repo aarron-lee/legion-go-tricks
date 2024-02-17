@@ -94,11 +94,10 @@ These functions are not working out of the box, but have workarounds
 
 ## What has issues
 
-- **v29 bios - IMPORTANT BUG:** You cannot set custom fan curves and use Lenovo's custom TDP mode for TDP control simultaneously
-  - if you enable a custom fan curve, if you are using SimpleDeckyTDP, make sure to update to the latest version.
+- **v29 bios - IMPORTANT BIOS BUG:** You cannot set custom fan curves and use Lenovo's custom TDP mode for TDP control simultaneously,the LGO bios has a bug
   - this bug is fully resolved on bios v29.1
 - Warning: there's some user reports that there's screen flashing on bios v29 with Nobara.
-  - this bug may not be present on Bazzite, unconfirmed on ChimeraOS
+  - this bug has not been reported on Bazzite, unconfirmed on ChimeraOS
 - Adaptive Brightness sensor - hardware is detectedby the OS, but not used for auto-brightness yet
   - there's dev work in progress for auto-brightness
     - if you wish to test it out, see [here](https://github.com/corando98/LLG_Dev_scripts?tab=readme-ov-file#ltchipotles-adaptive-brightness-algorithm)
@@ -108,7 +107,7 @@ These functions are not working out of the box, but have workarounds
 - Occasionally the steam menus and mangohud performance overlay will flash white
   - mostly likely related to display refresh rate or v29 bios update, but currently there's no known fix
   - this bug may only be present on NobaraOS
-    - unconfirmed on Bazzite or ChimeraOS
+    - has not been reported on Bazzite or ChimeraOS
 - BazziteOS - after fresh install, sometimes you encounter a blank screen on reboot
   - fix found [here](#blank-screen-on-first-reboot)
 - suspend-resume quirk: sound often is fuzzy on resume, usually clears up after 30 seconds or so, but not all the time.

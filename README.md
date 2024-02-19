@@ -126,11 +126,9 @@ These functions are not working out of the box, but have workarounds
 
 ### Bazzite bugs
 
-- Flaky suspend on latest bazzite version
-  - this should be fixed in kernel 6.7.5, currently being tested.
-  - meanwhile, you can revert to an image with kernel 6.6, revert to image `39-20240205`
-    - note that this image does **not** have the unified refresh rate slider fix
-    - see [rollback guide](#roll-back-to-bazzite-image-with-specific-linux-kernel)
+- (resolved) Flaky suspend on latest bazzite version
+  - this should be fixed in kernel 6.7.5, update to the latest release for to get the updated kernel.
+
 
 ### Nobara bugs
 

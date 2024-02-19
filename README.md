@@ -17,6 +17,7 @@ Note that while a lot of things are working, Linux support for this device is ve
 - [Guides + Small Fixes](#guides--small-fixes)
   - [NobaraOS](#nobaraos-guides)
   - [Bazzite Deck Edition](#bazzite-deck-edition-guides)
+  - [Other Guides](#other-guides)
 - [Emulator Info](#emulator-info)
 - [TDP Control overview](#tdp-control)
 - [Controller Support overview](#controller-support)
@@ -627,6 +628,28 @@ run `xdg-open /etc/environment` in terminal, it will open up the file in a text 
 ---
 
 ## Other guides
+
+### Install Refind bootloader for touchscreen option to switch between Windows and Linux
+
+source: [reddit post](https://www.reddit.com/r/LegionGo/comments/1atag1z/comment/kqw3y05/?utm_source=share&utm_medium=web2x&context=3)
+
+Resources:
+
+https://sourceforge.net/projects/refind/
+
+http://www.rodsbooks.com/refind/
+
+Instructions:
+
+1. Enter on Bazzite Desktop mode
+2. Download the RPM on SourceForge and open a terminal (ex : Console on Bazzite)
+3. cd into your Download directory (ex : `cd ~/Downloads/`)
+4. Run `sudo rpm-ostree install refind-*.rpm` (This will install the rEFInd RPM using rpm-ostree)
+5. Run `sudo refind-install` (Read further into the ressources if you want to enable Secure Boot)
+6. OPTIONAL : Download my custom rEFInd theme (credits goes to Yannis Vierkötter and his rEFInd-Minimalist for the original theme)
+7. OPTIONAL : Unzip then run `sudo sh -c 'mkdir /boot/efi/EFI/refind/themes/ ; set -euo pipefail cp -r rEFInd-Minimalist-LGO_Bazzite/ /boot/efi/EFI/refind/themes/ && grep -qFx "include themes/rEFInd-Minimalist-LGO_Bazzite/theme.conf" "/boot/efi/EFI/refind/refind.conf" || echo "include themes/rEFInd-Minimalist-LGO_Bazzite/theme.conf" >> /boot/efi/EFI/refind/refind.conf ' ` (make sure rEFInd-Minimalist-LGO_Bazzite/ is present in the directory you are currently in, type in the command `ls` to see all available files)
+8. Reboot into BIOS and set rEFInd as the first option in the boot order
+9. Bonus step : Set the Bazzite bootsplash in portrait mode, Run `sudo rpm-ostree kargs --append-if-missing=video=eDP-1:panel_orientation=left_side_up`
 
 ### Trick to rotate Legion Go screen for REFIND
 

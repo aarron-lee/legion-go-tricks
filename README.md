@@ -627,6 +627,17 @@ run `xdg-open /etc/environment` in terminal, it will open up the file in a text 
 
 ## Other guides
 
+### How to use steam's scaling features, such as int scaling, FSR, etc
+
+![steam resolutions guide](./steam-resolutions-overview.png)
+
+Full guide here: https://medium.com/@mohammedwasib/a-guide-to-a-good-docked-gaming-experience-on-the-steam-deck-346e393b657a
+
+Reddit discussion [here](https://www.reddit.com/r/SteamDeck/comments/z90ca0/a_guide_to_a_good_docked_gaming_experience_on_the/)
+
+PDF Mirror of guide [here](./steam-resolutions-guide.pdf)
+
+
 ### Install Refind bootloader for touchscreen option to switch between Windows and Linux
 
 source: [reddit post](https://www.reddit.com/r/LegionGo/comments/1atag1z/comment/kqw3y05/?utm_source=share&utm_medium=web2x&context=3)

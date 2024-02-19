@@ -57,6 +57,7 @@ At the moment, the following functions work out of the box
   - note, controllers work best in X-input mode. see [official Legion Go Userguide PDF](./legion_go_user_guide_en.pdf) to read more about controller modes
   - ChimeraOS, NobaraOS, BazziteOS all ship OOTB with basic controller support
   - some non-gaming distros don't include the udev rule for the controller, you can manually add it with [this script](./add-lgo-xpad-rule.sh)
+  - BazziteOS + NobaraOS ships with HHD, which enables full gyro + back button support in steam input 
 - FPS/Mouse mode
 - scroll wheel on controller works fine for scrolling websites, etc
   - scroll wheel press doesn't do anything in game mode, registers as a scroll wheel click in desktop mode
@@ -71,6 +72,7 @@ At the moment, the following functions work out of the box
 These functions are not working out of the box, but have workarounds
 
 - Steam/QAM Buttons/Rear back buttons - all buttons can be used in Steam via Dualsense Edge Virtual/Emulated Controller [Video demo here](https://www.youtube.com/watch?v=uMiXNKES2LM).
+  - note that Bazzite and Nobara now ship with hhd, which enables all buttons + gyro to work ootb.
 - Gyro - uses the same fix as buttons fix
   - Gyro performance is best with hhd Dualsense Edge Emulator
 - Trackpad - this hardware previously already worked, but was not usable in steam input.
@@ -127,13 +129,13 @@ These functions are not working out of the box, but have workarounds
 ### Bazzite bugs
 
 - (resolved) Flaky suspend on latest bazzite version
-  - this should be fixed in kernel 6.7.5, update to the latest release for to get the updated kernel.
+  - this should be fixed in kernel 6.7.5, update to the latest bazzite release for to get the updated kernel.
 
 
 ### Nobara bugs
 
-- controller is more buggy in desktop mode for desktop-related usage, should still work fine for gaming
-  - nested desktop still seems fine
+- controller is more buggy in desktop mode for desktop-related usage, steam input doesn't work. should still work fine for gaming
+  - nested desktop is completely fine
 - reports of handycon reactivating by itself, which interferes with hhd
   - note, in the future, nobara will ship with hhd and remove handygccs
   - you can disable it again with `sudo systemctl disable --now handycon.service`
@@ -217,11 +219,12 @@ As for which one you should install, here's a breakdown of the benefits and draw
 - Recommended for those more familiar with Linux, and don't mind troubleshooting a lot or tinkering
 - Nobara is the most similar to a standard Linux distro, and does not have a read-only root filesystem
 - This provides the most flexibility for running custom kernels, modifying system files, etc
-- Can setup most workarounds and tools for a good experience on the Legion Go
+- Can setup most workarounds and tools for a great experience on the Legion Go
+- will start shipping with HHD by default for full controller support
 
 **Cons**
 
-- Nobara tends to run cutting edge brand new kernels, and makes other frequent changes to the OS
+- Nobara tends to run cutting edge kernels, and makes other frequent changes to the OS
   - This often leads to updates introducing bugs or breaking features on the Legion Go
 - Due to no read-only root FS, easier to accidentally mess up your device and put it into a borked state
 - Nobara is basically run by one dev, GloriousEggroll (same guy behind GE-Proton), along with a few helpers
@@ -233,6 +236,7 @@ As for which one you should install, here's a breakdown of the benefits and draw
 HHD - PS5 Dualsense Edge Emulator - https://github.com/hhd-dev/hhd
 
 - has a Decky plugin available for changing hhd settings: https://github.com/hhd-dev/hhd-decky
+- also has a desktop app https://github.com/hhd-dev/hhd-ui
 
 RGB Decky Plugin - https://github.com/aarron-lee/LegionGoRemapper/
 

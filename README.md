@@ -89,8 +89,8 @@ These functions are not working out of the box, but have workarounds
     - You can set custom fan curves on bios v29 with the LegionGoRemapper plugin
     - alternatively, if you don't want to use a custom fan curve, you can enable the `Lenovo Custom TDP` toggle in SimpleDeckyTDP
     - steam-patch should similarly work on the LGO
-- Screen Refresh Rate and FPS control - unified refresh rate + FPS slider now works perfectly on latest bazzite stable, fixes should now also be on the latest Nobara Deck Edition too. ChimeraOS might not have the fix yet.
-  - Nobara might still have the 60hz 30fps bug
+- Screen Refresh Rate and FPS control - unified refresh rate + FPS slider now works perfectly on latest bazzite stable, fixes should now also be on the latest Nobara Deck Edition too.
+  - ChimeraOS might not have the fix yet.
 - adaptive/auto display brightness doesn't work yet
   - manual brightness slider in steam UI works without issues
   - there's work in progress from devs for to get this fully working
@@ -134,16 +134,11 @@ These functions are not working out of the box, but have workarounds
 
 ### Nobara bugs
 
+- make sure to be on the latest nobara for all the bugfixes
 - controller is more buggy in desktop mode for desktop-related usage, steam input doesn't work. should still work fine for gaming
   - nested desktop is completely fine
-- reports of handycon reactivating by itself, which interferes with hhd
-  - note, in the future, nobara will ship with hhd and remove handygccs
-  - you can disable it again with `sudo systemctl disable --now handycon.service`
-    - you can also opt to remove it, the command should be `sudo dnf remove handygccs` (untested)
-- (Nobara) Fuzzy screen issue - this happens when an invalid refresh rate is used for your game. You can use the refresh rate slider in steam UI to revert back to either 60Hz or 144Hz
-- User bug reports that 60Hz occasionally forces a 30fps cap on 60Hz, NobaraOS
-  - 144Hz is completely functional, you can use it to set a 72 or 36 fps cap if you want something lower than 144hz
-  - bugfix has been found, but not added to Nobara yet
+- Warning: there's some user reports that there's screen flashing on bios v29 with Nobara.
+  - this bug has not been reported on Bazzite, unconfirmed on ChimeraOS
 
 ### User-reported bugs (needs verification)
 
@@ -159,8 +154,8 @@ These functions are not working out of the box, but have workarounds
 If you want a SteamOS-like experience, there are 3 distros I would recommend
 
 1. BazziteOS Deck Edition
-2. ChimeraOS
-3. Nobara Deck Edition
+2. Nobara Deck Edition
+3. ChimeraOS
 
 As for which one you should install, here's a breakdown of the benefits and drawbacks of each.
 
@@ -187,6 +182,26 @@ As for which one you should install, here's a breakdown of the benefits and draw
   - e.g. running a custom Linux kernel, etc
 - slow OS install + OS updates, they take a long time
 
+## Nobara Deck Edition
+
+**Pros**
+
+- Recommended for those more familiar with Linux, and don't mind troubleshooting a lot or tinkering
+- Nobara is the most similar to a standard Linux distro, and does not have a read-only root filesystem
+- This provides the most flexibility for running custom kernels, modifying system files, etc
+- Can setup most workarounds and tools for a great experience on the Legion Go
+- now ships with HHD and gamescope patches by default, so it should be a fairly bug-free experience now
+  - requires latest NobaraOS updates
+
+**Cons**
+
+- Nobara tends to run cutting edge kernels, and makes other frequent changes to the OS
+  - This often leads to updates introducing bugs or breaking features on the Legion Go
+- Due to no read-only root FS, easier to accidentally mess up your device and put it into a borked state
+- Nobara is basically run by one dev, GloriousEggroll (same guy behind GE-Proton), along with a few helpers
+  - While GloriousEggroll does excellent work, Nobara is understaffed and it will sometimes be difficult to get help or support if you run into problems
+- Only Desktop is KDE, so if you prefer Gnome, you'll have to look elsewhere or manually install + manage it.
+
 ## ChimeraOS
 
 **Pros**
@@ -211,25 +226,6 @@ As for which one you should install, here's a breakdown of the benefits and draw
   - handycon will also need to be manually disabled after every major OS update
 - ChimeraOS's emulation implementation interferes with Emudeck, you'll need to manually disable the ChimeraOS implementation
 - Only desktop option is Gnome, so anyone that prefers KDE will have to look elsewhere
-
-## Nobara Deck Edition
-
-**Pros**
-
-- Recommended for those more familiar with Linux, and don't mind troubleshooting a lot or tinkering
-- Nobara is the most similar to a standard Linux distro, and does not have a read-only root filesystem
-- This provides the most flexibility for running custom kernels, modifying system files, etc
-- Can setup most workarounds and tools for a great experience on the Legion Go
-- will start shipping with HHD by default for full controller support
-
-**Cons**
-
-- Nobara tends to run cutting edge kernels, and makes other frequent changes to the OS
-  - This often leads to updates introducing bugs or breaking features on the Legion Go
-- Due to no read-only root FS, easier to accidentally mess up your device and put it into a borked state
-- Nobara is basically run by one dev, GloriousEggroll (same guy behind GE-Proton), along with a few helpers
-  - While GloriousEggroll does excellent work, Nobara is understaffed and it will sometimes be difficult to get help or support if you run into problems
-- Only Desktop is KDE, so if you prefer Gnome, you'll have to look elsewhere or manually install + manage it.
 
 # Resources
 
@@ -295,55 +291,11 @@ Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=anc
 
 ## NobaraOS Guides
 
-### Fix 60Hz and 144Hz (Only for NobaraOS v39)
+### Fix 60Hz and 144Hz
 
-Massive thanks to all the devs who helped diagnose, troubleshoot, and and investigate this issue.
+should now be fixed with the latest NobaraOS updates.
 
-Install Instructions:
-
-1. update NobaraOS from the desktop mode via the `update system` app. then, after rebooting, run the [enable_60_144hz.sh script](./enable_60_144hz.sh) in terminal.
-
-- This script will cleanup old files and setup some extra environment variables you need to enable 144hz
-
-2. Go back to game mode, and in `Display` settings, and turn off `Unified Frame Limit Management`, also make sure you enable/turn on `Use Native Color Temperature` as well.
-
-3. If this fixes your 144Hz, you can stop here
-
-- you should see no artificial 72fps cap in games, and fps limiter should work
-- swapping to 60hz should work, and fps limiter should similarly work here
-  - note that steamUI forces 144hz, you won't see 60hz in steam UI
-- WARNING FOR THE REFRESH SLIDER: any values other than 60hz and 144hz is dangerous, make sure to be careful when changing the screen refresh rate
-  - Update: there's now a fix for the refresh rate slider in BazziteOS, the fixes should eventually be available on NobaraOS and ChimeraOS
-
-4. If steps 1-3 didn't fix your 144hz, continue on to the following:
-
-Download Valve's Neptune Kernel with acpi_call precompiled (thanks [@corando98](https://github.com/corando98/) for compiling the rpm!) [download link, should be the 1.51GB file](https://drive.filen.io/f/9271e6eb-95e7-4deb-bc80-a90a620ebf53#175zrewF3URWgsnNfQMzETlJA4Auy5xo)
-
-```
-# (optional) for those that want to verify the file integrity of the download, here's the md5sum
-$ md5sum kernel-6.1.52_valve14_1_neptune_acpi_call.x86_64.rpm
-bd51cbb23972171026b6219b705f2127  kernel-6.1.52_valve14_1_neptune_acpi_call.x86_64.rpm
-```
-
-5. Open the folder where your download is in terminal, and run:
-
-```
-sudo dnf install kernel-6.1.52_valve14_1_neptune_acpi_call.x86_64.rpm
-```
-
-After install is complete, reboot and go back to desktop mode
-
-6. Run `uname -r` in terminal, and verify that you are running the valve kernel. You should see:
-
-```
-6.1.52-valve14-1-neptune-61
-```
-
-Also run `sudo modprobe acpi_call` in terminal, you should see no errors
-
-7. Retest and see if you're seeing any issues on 144Hz
-
-### Setup lock screen for desktop mode only (NobaraOS)
+### Setup lock screen for desktop mode only (KDE only)
 
 Currently, Desktop mode does not have a lock screen during suspend-resume cycles on NobaraOS.
 
@@ -479,9 +431,7 @@ frame_timing=0
 
 If you're seeeing a fuzzy screen, it means that the you're somehow using an invalid refresh rate. The only valid refresh rates for a game are 60 and 144Hz.
 
-Update: There's a refresh rate permanent fix available on BazziteOS, but the fixes should eventually become part of NobaraOS and ChimeraOS too.
-
-You can work around this by force enabling 60Hz, see [fps fix](#fix-60hz-and-144hz-only-for-nobaraos-v39)
+Update: There's a refresh rate permanent fix available on BazziteOS, the fix should also be on the latest NobaraOS
 
 ### Disable nobaraOS grub boot menu during boot
 

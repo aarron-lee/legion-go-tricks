@@ -1,5 +1,7 @@
 # Bugs changelog
 
+- nobara now ships unified framelimiter fix + 60fps 30hz bugfix
+
 - SimpleDeckyTDP Plugin - bug where GPU slider is broken, and breaks setting TDP.
   - temporary workaround: delete the `$HOME/homebrew/settings/SimpleDeckyTDP/settings.json` file, and then update to the latest SimpleDeckyTDP plugin
     - this bug is being actively investigated
@@ -118,3 +120,52 @@ Quote from reddit:
 > This applies a surround sound convolver profile, similar to Dolby Atmos for Built-In Speakers
 
 > The built-in speakers with a volume slider that acts as master gain, and then the virtual sink sliders that apply surround sound profiles on top of the master gain sink. Basically, this lets you adjust the overall gain separate from the sinks themselves to give a wider level of control. It’s not the most seamless solution but it seems to do the job.
+
+
+### fix 60hz 144hz nobara
+
+Massive thanks to all the devs who helped diagnose, troubleshoot, and and investigate this issue.
+
+Install Instructions:
+
+1. update NobaraOS from the desktop mode via the `update system` app. then, after rebooting, run the [enable_60_144hz.sh script](./enable_60_144hz.sh) in terminal.
+
+- This script will cleanup old files and setup some extra environment variables you need to enable 144hz
+
+2. Go back to game mode, and in `Display` settings, and turn off `Unified Frame Limit Management`, also make sure you enable/turn on `Use Native Color Temperature` as well.
+
+3. If this fixes your 144Hz, you can stop here
+
+- you should see no artificial 72fps cap in games, and fps limiter should work
+- swapping to 60hz should work, and fps limiter should similarly work here
+  - note that steamUI forces 144hz, you won't see 60hz in steam UI
+- WARNING FOR THE REFRESH SLIDER: any values other than 60hz and 144hz is dangerous, make sure to be careful when changing the screen refresh rate
+  - Update: there's now a fix for the refresh rate slider in BazziteOS, the fixes should eventually be available on NobaraOS and ChimeraOS
+
+4. If steps 1-3 didn't fix your 144hz, continue on to the following:
+
+Download Valve's Neptune Kernel with acpi_call precompiled (thanks [@corando98](https://github.com/corando98/) for compiling the rpm!) [download link, should be the 1.51GB file](https://drive.filen.io/f/9271e6eb-95e7-4deb-bc80-a90a620ebf53#175zrewF3URWgsnNfQMzETlJA4Auy5xo)
+
+```
+# (optional) for those that want to verify the file integrity of the download, here's the md5sum
+$ md5sum kernel-6.1.52_valve14_1_neptune_acpi_call.x86_64.rpm
+bd51cbb23972171026b6219b705f2127  kernel-6.1.52_valve14_1_neptune_acpi_call.x86_64.rpm
+```
+
+5. Open the folder where your download is in terminal, and run:
+
+```
+sudo dnf install kernel-6.1.52_valve14_1_neptune_acpi_call.x86_64.rpm
+```
+
+After install is complete, reboot and go back to desktop mode
+
+6. Run `uname -r` in terminal, and verify that you are running the valve kernel. You should see:
+
+```
+6.1.52-valve14-1-neptune-61
+```
+
+Also run `sudo modprobe acpi_call` in terminal, you should see no errors
+
+7. Retest and see if you're seeing any issues on 144Hz

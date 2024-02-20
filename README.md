@@ -615,6 +615,12 @@ run `rpm-ostree status` in terminal, you'll see info on your current image.
 
 ### Change Desktop Steam UI scaling
 
+First, try changing the following (original tip found [here](https://www.reddit.com/r/LegionGo/comments/1as75lf/comment/kqpau3c/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)):
+
+`System Settings > Display and Monitor > Display Configuration > Legacy Applications: Scaled by the system`
+
+If this doesn't work, then proceed to the next steps.
+
 This is for Bazzite-Deck, not Bazzite-Deck-Gnome
 
 thanks @noobeta on discord for this tip!
@@ -626,6 +632,8 @@ run `sudoedit /etc/environment`, and add `STEAM_FORCE_DESKTOPUI_SCALING=2` to th
 for non-technical users:
 
 run `xdg-open /etc/environment` in terminal, it will open up the file in a text editor. Add `STEAM_FORCE_DESKTOPUI_SCALING=2` to the end of the file, and save. You will be prompted for your password, save and then reboot.
+
+Note that if you edit the `/etc/environment` file, it will change the scaling of the on screen keyboard in desktop mode.
 
 ---
 

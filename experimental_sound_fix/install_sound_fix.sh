@@ -3,6 +3,10 @@
 # does the following:
 # - Modified Pipewire EQ fixes
 
+# originally from here:
+# git clone https://github.com/matte-schwartz/device-quirks.git
+# cd device-quirks/usr/share/device-quirks/scripts/lenovo/legion-go
+# mv pipewire /etc
 
 # Notes:
 # pw-cli info all | grep 'node.name = "alsa_output'

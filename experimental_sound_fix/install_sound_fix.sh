@@ -17,6 +17,12 @@ fi
 echo "installing pipewire EQ sound improvements"
 # download + setup pipewire EQ sound improvements
 
+cd /tmp
+
+git clone https://github.com/aarron-lee/legion-go-tricks.git 
+
+cd /tmp/legion-go-tricks/experimental_sound_fix
+
 PIPEWIRE_DIR=$HOME/.config/pipewire
 PIPEWIRE_CONF_DIR=$PIPEWIRE_DIR/pipewire.conf.d
 
@@ -82,8 +88,10 @@ context.modules = [
 ]
 EOF
 
-cp ./pipewire/neutral.wav $PIPEWIRE_DIR/neutral.wav
+cp /tmp/legion-go-tricks/experimental_sound_fix/pipewire/neutral.wav $PIPEWIRE_DIR/neutral.wav
 
 systemctl --user restart --now wireplumber pipewire pipewire-pulse
 
-echo "Installation complete"
+rm -rf /tmp/legion-go-tricks
+
+echo "Installation complete. Change your audio source to Convolver Sink - Neutral"

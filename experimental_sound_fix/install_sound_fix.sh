@@ -96,7 +96,11 @@ rm -rf /tmp/legion-go-tricks
 
 echo "Installation complete. Change your audio source to Convolver Sink - Neutral"
 
+echo "-------------
+READ THE FOLLOWING!
+-------------"
+
 echo "note that this fix itself is a bit odd.
-the volume of your regular speakers affects the max volume of the sound effect neutral sound option.
-so basically install, then max out/adjust audio volume on regular speakers, then swap to other audio source"
+the volume of your regular speakers affects the max volume of the 'sound effect neutral' sound option.
+so basically install this fix, then max out/adjust audio volume on regular speakers, then swap to other audio source"
 

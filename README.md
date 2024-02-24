@@ -107,6 +107,10 @@ These functions are not working out of the box, but have workarounds
 
 ### Known bugs
 
+- Decky Loader has some bugs that are causing issues with menus like the power button menu, exiting games, etc.
+  - bugs are being investigated by the Decky devs
+  - temporary workaround: rollback to Decky v2.10.14
+    - install script for v2.10.14 [here](./decky_v2_10_14_install.sh)
 - Occasionally the steam menus and mangohud performance overlay will flash white
   - mostly likely related to display refresh rate or v29 bios update, but currently there's no known fix
   - this bug may only be present on NobaraOS

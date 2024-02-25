@@ -101,7 +101,30 @@ EOF
 sudo mv ./surround-effect-default.service $HOME/.config/systemd/user
 
 sudo systemctl daemon-reload
-systemctl --user enable --now surround-effect-default
+systemctl --user enable --now surround-effect-default &
 
+cat << EOF > "$HOME/Desktop/ReturnToGameModeModified.desktop"
+[Desktop Entry]
+Comment[en_US]=
+Comment=
+Exec=sh -c "systemctl start return-to-gamemode.service && systemctl --user start surround-effect-default.service"
+GenericName[en_US]=
+GenericName=
+Icon=steamdeck-gaming-return
+MimeType=
+Name[en_US]=Return to Gaming Mode (patched)
+Name=Return to Gaming Mode (patched)
+Path=
+StartupNotify=false
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=deck
+EOF
+
+chmod +x "$HOME/Desktop/ReturnToGameModeModified.desktop"
 
 echo 'complete!'
+
+

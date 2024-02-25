@@ -110,6 +110,8 @@ These functions are not working out of the box, but have workarounds
 - user reports of broken suspend on latest bazzite image
   - bazzite image `39-20240220` still seems fine, you can rollback via the following command in terminal:
   - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:39-20240220`
+    - later on, once the bug is fixed, you can go back to regular updates by going back to `39-stable` via running the following in terminal:
+      - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:39-stable`
 - Decky Loader has some bugs that are causing issues with menus like the power button menu, exiting games, etc. [bug report](https://github.com/SteamDeckHomebrew/decky-loader/issues/586)
   - bugs are being investigated by the Decky devs
   - temporary workaround: rollback to Decky v2.10.14
@@ -138,6 +140,8 @@ These functions are not working out of the box, but have workarounds
 - new suspend bug, where suspend fails and fans stay on
   - bazzite image `39-20240220` still seems fine, you can rollback via the following command in terminal:
   - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:39-20240220`
+    - later on, once the bug is fixed, you can go back to regular updates by going back to `39-stable` via running the following in terminal:
+      - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:39-stable`
 - (resolved) Flaky suspend on latest bazzite version
   - this should be fixed in kernel 6.7.5, update to the latest bazzite release for to get the updated kernel.
 

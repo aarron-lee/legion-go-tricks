@@ -11,6 +11,8 @@
 # Notes:
 # pw-cli info all | grep 'node.name = "alsa_output'
 # wpctl status
+# coppwr app
+# qpwgraph app
 
 # Ensure not running as root
 if [ "$(id -u)" -e 0 ]; then

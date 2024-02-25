@@ -57,7 +57,7 @@ At the moment, the following functions work out of the box
   - note, controllers work best in X-input mode. see [official Legion Go Userguide PDF](./legion_go_user_guide_en.pdf) to read more about controller modes
   - ChimeraOS, NobaraOS, BazziteOS all ship OOTB with basic controller support
   - some non-gaming distros don't include the udev rule for the controller, you can manually add it with [this script](./add-lgo-xpad-rule.sh)
-  - BazziteOS + NobaraOS ships with HHD, which enables full gyro + back button support in steam input 
+  - BazziteOS + NobaraOS ships with HHD, which enables full gyro + back button support in steam input
 - FPS/Mouse mode
 - scroll wheel on controller works fine for scrolling websites, etc
   - scroll wheel press doesn't do anything in game mode, registers as a scroll wheel click in desktop mode
@@ -110,7 +110,7 @@ These functions are not working out of the box, but have workarounds
 - user reports of broken suspend on latest bazzite image
   - bazzite image `39-20240220` still seems fine, you can rollback via the following command in terminal:
   - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:39-20240220`
-- Decky Loader has some bugs that are causing issues with menus like the power button menu, exiting games, etc.
+- Decky Loader has some bugs that are causing issues with menus like the power button menu, exiting games, etc. [bug report](https://github.com/SteamDeckHomebrew/decky-loader/issues/586)
   - bugs are being investigated by the Decky devs
   - temporary workaround: rollback to Decky v2.10.14
     - install script for v2.10.14 [here](./decky_v2_10_14_install.sh)
@@ -140,7 +140,6 @@ These functions are not working out of the box, but have workarounds
   - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:39-20240220`
 - (resolved) Flaky suspend on latest bazzite version
   - this should be fixed in kernel 6.7.5, update to the latest bazzite release for to get the updated kernel.
-
 
 ### Nobara bugs
 
@@ -609,7 +608,6 @@ Reddit discussion [here](https://www.reddit.com/r/SteamDeck/comments/z90ca0/a_gu
 
 PDF Mirror of guide [here](./steam-resolutions-guide.pdf)
 
-
 ### Install Refind bootloader for touchscreen option to switch between Windows and Linux
 
 source: [reddit post](https://www.reddit.com/r/LegionGo/comments/1atag1z/comment/kqw3y05/?utm_source=share&utm_medium=web2x&context=3)
@@ -640,7 +638,7 @@ not offical instructions, but seems to work fine
 
 setup refind in linux, then run the following via Terminal:
 
-- sudo nano /boot/efi/EFI/refind/refind.conf  (requires root to edit. else, sudo -i first to enter root, then issue the sudo nano)
+- sudo nano /boot/efi/EFI/refind/refind.conf (requires root to edit. else, sudo -i first to enter root, then issue the sudo nano)
 - scroll down and find the "#resolution 1024 768" section.
 - add "resolution 2560 1600". (notice it is 2560 wide and 1600 height, it is not 1600 wide and 2560 height. This simple trick rotate the refind boot menu screen correctly on the legion go.)
 - also "enable_touch" and "enable_mouse" for Touchscreen and mouse to work.

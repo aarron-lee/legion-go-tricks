@@ -142,8 +142,6 @@ These functions are not working out of the box, but have workarounds
   - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:39-20240220`
     - later on, once the bug is fixed, you can go back to regular updates by going back to `39-stable` via running the following in terminal:
       - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:39-stable`
-- (resolved) Flaky suspend on latest bazzite version
-  - this should be fixed in kernel 6.7.5, update to the latest bazzite release for to get the updated kernel.
 
 ### Nobara bugs
 

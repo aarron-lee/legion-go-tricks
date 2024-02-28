@@ -101,7 +101,9 @@ EOF
 sudo mv ./surround-effect-default.service $HOME/.config/systemd/user
 
 sudo systemctl daemon-reload
-systemctl --user enable --now surround-effect-default &
+systemctl --user enable surround-effect-default
+
+echo "adding patched Return to Desktop shortcut"
 
 cat << EOF > "$HOME/Desktop/ReturnToGameModeModified.desktop"
 [Desktop Entry]
@@ -112,8 +114,8 @@ GenericName[en_US]=
 GenericName=
 Icon=steamdeck-gaming-return
 MimeType=
-Name[en_US]=Return to Gaming Mode (patched)
-Name=Return to Gaming Mode (patched)
+Name[en_US]=(fixed)Return to Gaming Mode
+Name=(fixed) Return to Gaming Mode
 Path=
 StartupNotify=false
 Terminal=false
@@ -125,6 +127,6 @@ EOF
 
 chmod +x "$HOME/Desktop/ReturnToGameModeModified.desktop"
 
-echo 'complete!'
+echo 'install complete!'
 
 

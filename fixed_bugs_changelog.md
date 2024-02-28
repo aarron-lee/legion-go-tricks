@@ -1,5 +1,10 @@
 # Bugs changelog
 
+- (resolved 2/28/2024) Decky Loader has some bugs that are causing issues with menus like the power button menu, exiting games, etc. [bug report](https://github.com/SteamDeckHomebrew/decky-loader/issues/586)
+  - bugs are being investigated by the Decky devs
+  - temporary workaround: rollback to Decky v2.10.14
+    - install script for v2.10.14 [here](./decky_v2_10_14_install.sh)
+
 - nobara now ships unified framelimiter fix + 60fps 30hz bugfix
 
 - SimpleDeckyTDP Plugin - bug where GPU slider is broken, and breaks setting TDP.

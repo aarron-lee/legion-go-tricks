@@ -116,10 +116,8 @@ These functions are not working out of the box, but have workarounds
   - bugs are being investigated by the Decky devs
   - temporary workaround: rollback to Decky v2.10.14
     - install script for v2.10.14 [here](./decky_v2_10_14_install.sh)
-- Occasionally the steam menus and mangohud performance overlay will flash white
-  - mostly likely related to display refresh rate or v29 bios update, but currently there's no known fix
-  - this bug may only be present on NobaraOS
-    - has not been reported on Bazzite or ChimeraOS
+- Occasionally steam game mode will flash white
+  - seems to be related to autoVRAM, recommend disabling autoVRAM and set 6GB or 8GB VRAM in the bios
 - BazziteOS - after fresh install, sometimes you encounter a blank screen on reboot
   - fix found [here](#blank-screen-on-first-reboot)
 - suspend-resume quirk: sound often is fuzzy on resume, usually clears up after 30 seconds or so, but not all the time.
@@ -149,7 +147,6 @@ These functions are not working out of the box, but have workarounds
 - controller is more buggy in desktop mode for desktop-related usage, steam input doesn't work. should still work fine for gaming
   - nested desktop is completely fine
 - Warning: there's some user reports that there's screen flashing on bios v29 with Nobara.
-  - this bug has not been reported on Bazzite, unconfirmed on ChimeraOS
 
 ### User-reported bugs (needs verification)
 
@@ -180,6 +177,7 @@ As for which one you should install, here's a breakdown of the benefits and draw
   - Excellent support from the Bazzite Devs and community
     - Bazzite Discord is the place to go to for support and discussion, see [here](https://github.com/ublue-os/bazzite?tab=readme-ov-file#join-the-community)
   - Very quick to fix issues and provide OS updates
+    - also extremely easy to rollback to previous OS versions, so if an OS update breaks something, you can easily rollback to the prior OS version 
 - Read-only root filesystem helps with providing better security, more stability, and overall a very good stable console-like experience
   - also has SE Linux configured out of the box
 - Can configure Secure Boot, which allows for disk encryption and other security benefits

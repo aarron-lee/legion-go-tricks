@@ -58,7 +58,7 @@ def is_game_mode():
 # -----------------------------------
 
 while (not is_game_mode()):
-  sleep(5)
+  sleep(10)
 
 # execute_command("pactl set-default-source alsa_output.pci-0000_c2_00.6.analog-stereo.monitor")
 

@@ -1,8 +1,10 @@
 # Experimental Sound Fix
 
-This sound fix applies a surround sound convolver profile, similar to Dolby Atmos for Built-In Speakers
+> This sound fix applies a surround sound convolver profile, similar to Dolby Atmos for Built-In Speakers
 
-The built-in speakers with a volume slider that acts as master gain, and then the virtual sink sliders that apply surround sound profiles on top of the master gain sink. Basically, this lets you adjust the overall gain separate from the sinks themselves to give a wider level of control. It’s not the most seamless solution but it seems to do the job.
+> The built-in speakers with a volume slider that acts as master gain, and then the virtual sink sliders that apply surround sound profiles on top of the master gain sink. Basically, this lets you adjust the overall gain separate from the sinks themselves to give a wider level of control. It’s not the most seamless solution but it seems to do the job.
+
+credit to @matte-schwartz for developing the initial fix, found [here](https://github.com/matte-schwartz/device-quirks/tree/main/usr/share/device-quirks/scripts/lenovo/legion-go)
 
 # Install instructions
 

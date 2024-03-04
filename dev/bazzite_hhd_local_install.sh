@@ -19,10 +19,9 @@ source ./venv/bin/activate
 ./venv/bin/pip install -e .
 
 # cannot directly cat into /etc/systemd/system/ (probably due to se linux)
-cat << EOF >> "./hhd_local.service"
+cat << EOF > "./hhd_local.service"
 [Unit]
 Description=hhd local service
-RequiresMountFor=/var/home/$USER
 
 [Service]
 Type=simple

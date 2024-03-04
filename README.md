@@ -848,7 +848,11 @@ https://www.thingiverse.com/thing:6444531
 
 https://makerworld.com/en/models/157429#profileId-172767
 
-travel cover, costs $
+controller adapter - https://www.printables.com/model/645576-legion-go-controller-adapter-remix
+
+controller caryy case - https://www.thingiverse.com/thing:6499314
+
+travel cover 
 https://cults3d.com/en/3d-model/gadget/legion-go-front-cover
 
 # Misc

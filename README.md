@@ -97,6 +97,10 @@ These functions are not working out of the box, but have workarounds
 
 ## What has issues
 
+- potential bios bug - custom fan curves stop working for unknown reasons
+  - issue on both linux and windows
+  - as temporary workaroud, you can reset fan curves via using `Legion_L + Y` combo to reset the fan curves
+  - alternatively, completely disable custom fan curves in LegionGoRemapper and reboot
 - **v29 bios - IMPORTANT BIOS BUG:** You cannot set custom fan curves and use Lenovo's custom TDP mode for TDP control simultaneously,the LGO bios has a bug
   - this bug is fully resolved on bios v29.1
 - Warning: there's some user reports that there's screen flashing on bios v29 with Nobara.
@@ -173,7 +177,7 @@ As for which one you should install, here's a breakdown of the benefits and draw
   - Excellent support from the Bazzite Devs and community
     - Bazzite Discord is the place to go to for support and discussion, see [here](https://github.com/ublue-os/bazzite?tab=readme-ov-file#join-the-community)
   - Very quick to fix issues and provide OS updates
-    - also extremely easy to rollback to previous OS versions, so if an OS update breaks something, you can easily rollback to the prior OS version 
+    - also extremely easy to rollback to previous OS versions, so if an OS update breaks something, you can easily rollback to the prior OS version
 - Read-only root filesystem helps with providing better security, more stability, and overall a very good stable console-like experience
   - also has SE Linux configured out of the box
 - Can configure Secure Boot, which allows for disk encryption and other security benefits
@@ -510,9 +514,11 @@ See official site at: https://universal-blue.discourse.group/docs?topic=36
 If you notice eGPU not running at full pcie speeds, you might need an additional kernel arg before it works at full speed.
 
 1. Open up your terminal (Ptyxis), run the following command
+
 ```
 rpm-ostree kargs --append=amdgpu.pcie_gen_cap=0x40000
 ```
+
 2. reboot
 
 ### Blank Screen on First Reboot
@@ -852,7 +858,7 @@ controller adapter - https://www.printables.com/model/645576-legion-go-controlle
 
 controller caryy case - https://www.thingiverse.com/thing:6499314
 
-travel cover 
+travel cover
 https://cults3d.com/en/3d-model/gadget/legion-go-front-cover
 
 # Misc

@@ -111,11 +111,8 @@ These functions are not working out of the box, but have workarounds
 
 ### Known bugs
 
-- user reports of broken suspend on latest bazzite image
-  - bazzite image `39-20240220` still seems fine, you can rollback via the following command in terminal:
-  - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:39-20240220`
-    - later on, once the bug is fixed, you can go back to regular updates by going back to `stable` via running the following in terminal:
-      - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:stable`
+- (2024-03-13) bazzite suspend bug is fixed, you can go back to regular updates by going back to `stable` via running the following in terminal:
+  - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:stable`
 - Occasionally steam game mode will flash white
   - seems to be related to autoVRAM, recommend disabling autoVRAM and set 6GB or 8GB VRAM in the bios
 - BazziteOS - after fresh install, sometimes you encounter a blank screen on reboot
@@ -135,11 +132,8 @@ These functions are not working out of the box, but have workarounds
 
 ### Bazzite bugs
 
-- new suspend bug, where suspend fails and fans stay on
-  - bazzite image `39-20240220` still seems fine, you can rollback via the following command in terminal:
-  - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:39-20240220`
-    - later on, once the bug is fixed, you can go back to regular updates by going back to `stable` via running the following in terminal:
-      - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:stable`
+- (2024-03-13) bazzite suspend bug is fixed, you can go back to regular updates by going back to `stable` via running the following in terminal:
+  - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:stable`
 
 ### Nobara bugs
 

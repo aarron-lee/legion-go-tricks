@@ -7,6 +7,9 @@ if [ "$EUID" -eq 0 ]; then
     exit 1
 fi
 
+# disable if already installed
+systemctl --user disable --now surround-effect-default
+
 mkdir -p $HOME/.local/bin
 
 SOUND_FIX_SCRIPT=$HOME/.local/bin/default_sound_sink
@@ -68,7 +71,9 @@ while (not is_game_mode()):
 
 # sleep(0.1)
 
-execute_command("pactl set-default-sink surround-effect.neutral")
+sleep(5)
+
+execute_command("pactl set-default-sink 'Legion GO'")
 
 # sleep(0.1)
 

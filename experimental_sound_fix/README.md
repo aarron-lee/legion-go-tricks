@@ -1,4 +1,4 @@
-# Experimental Sound Fix
+# Experimental Sound Fix v2
 
 > This sound fix applies a surround sound convolver profile, similar to Dolby Atmos for Built-In Speakers
 
@@ -6,22 +6,26 @@
 
 credit to @matte-schwartz for developing the initial fix, found [here](https://github.com/matte-schwartz/device-quirks/tree/main/usr/share/device-quirks/scripts/lenovo/legion-go)
 
+credit to @adolfotregosa on discord for developing an improved version of the audio fix!
+
 # Install instructions
+
+If you installed the v1 version, you can just rerun both scripts to reinstall.
 
 run the following in terminal:
 
 ```
-curl -L https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/main/experimental_sound_fix/install_sound_fix.sh | sh
+curl -L https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/sound_fix_v2/experimental_sound_fix/install_sound_fix_v2.sh | sh
 ```
 
-Afterwards, you will see an additional Playback device in your audio options `sound-effect.neutral`
+Afterwards, you will see an additional Playback device in your audio options `effect_input.fixed`
 
-Before you switch to the `sound-effect.neutral` option, make sure to max out the audio of your regular speakers sound option. The max volume of your audio speakers affects the volume of the `sound-effect.neutral` option.
+Before you switch to the `effect_input.fixed` option, make sure to max out the audio of your regular speakers sound option. The max volume of your audio speakers affects the volume of the `effect_input.fixed` option.
 
-Note that the `sound-effect.neutral` option often gets reset on reboot, you can run the following script for to fix this:
+Note that the `effect_input.fixed` option often gets reset on reboot, you can run the following script for to fix this:
 
 ```
-curl -L https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/main/experimental_sound_fix/fix-sound-default.sh | sh
+curl -L https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/sound_fix_v2/experimental_sound_fix/fix_sound_default_v2.sh | sh
 ```
 
 This script will also add a fixed `Return to Desktop` icon that sets the default sound option accordingly.
@@ -34,5 +38,6 @@ run the following in terminal:
 systemctl --user disable --now surround-effect-default.service
 rm $HOME/.config/pipewire/pipewire.conf.d/convolver.conf
 rm $HOME/.config/pipewire/neutral.wav
+rm $HOME/.config/pipewire/multiwayCor48.wav
 systemctl --user restart --now wireplumber pipewire pipewire-pulse
 ```

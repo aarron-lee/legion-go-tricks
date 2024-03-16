@@ -24,6 +24,7 @@ Note that while a lot of things are working, Linux support for this device is ve
 - [Quality of Life Fixes overview](#quality-of-life-fixes)
 - [Resolved/won't fix bugs](#resolved-or-wont-fix-bugs-changelog-for-documentation-purposes)
 - [3D prints](#3d-prints)
+- [Tip Jar](#tip-jar)
 
 # Current Status of Linux on the Lenovo Legion Go
 
@@ -886,3 +887,9 @@ add a kernel arg
 
 rpm-ostree kargs --append=mem_sleep_default=s2idle
  -->
+
+# Tip Jar
+
+Upon request from users, I'm leaving a tip jar link available for anybody that'd like to leave one.
+
+[Tip Jar](https://www.paypal.com/donate/?business=ESH88C6A6SF7G&no_recurring=0&currency_code=USD)

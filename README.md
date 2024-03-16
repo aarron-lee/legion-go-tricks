@@ -114,7 +114,7 @@ These functions are not working out of the box, but have workarounds
 - (2024-03-13) bazzite suspend bug is fixed, you can go back to regular updates by going back to `stable` via running the following in terminal:
   - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:stable`
 - (bazzite) hhd 2.0 bug - game controller stops working when detached/reattached.
-  - as a workaround, open hhd settings and change your `motions device` to the left or right controller, NOT the display gyro
+  - fixed, update to the latest bazzite
 - Occasionally steam game mode will flash white
   - seems to be related to autoVRAM, recommend disabling autoVRAM and set 6GB or 8GB VRAM in the bios
 - BazziteOS - after fresh install, sometimes you encounter a blank screen on reboot
@@ -135,7 +135,7 @@ These functions are not working out of the box, but have workarounds
 ### Bazzite bugs
 
 - hhd 2.0 bug - game controller stops working when detached/reattached.
-  - as a workaround, open hhd settings and change your `motions device` to the left or right controller, NOT the display gyro
+  - fixed, update to the latest bazzite
 - (2024-03-13) bazzite suspend bug is fixed, you can go back to regular updates by going back to `stable` via running the following in terminal:
   - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:stable`
 

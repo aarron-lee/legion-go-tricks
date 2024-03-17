@@ -31,7 +31,7 @@ This script will also add a fixed `Return to Desktop` icon that sets the default
 run the following in terminal:
 
 ```
-sudo systemctl disable --now surround-effect-default.service
+systemctl --user disable --now surround-effect-default.service
 rm $HOME/.config/pipewire/pipewire.conf.d/convolver.conf
 rm $HOME/.config/pipewire/neutral.wav
 systemctl --user restart --now wireplumber pipewire pipewire-pulse

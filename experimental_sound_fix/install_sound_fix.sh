@@ -15,7 +15,7 @@
 # qpwgraph app
 
 # Ensure not running as root
-if [ "$(id -u)" -e 0 ]; then
+if [ "$EUID" -eq 0 ]; then
     echo "This script must not be run as root." >&2
     exit 1
 fi

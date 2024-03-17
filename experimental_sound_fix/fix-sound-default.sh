@@ -2,7 +2,7 @@
 
 echo 'enable sound fix as default sound on system boot'
 
-if [ "$(id -u)" -e 0 ]; then
+if [ "$EUID" -eq 0 ]; then
     echo "This script must not be run as root, don't use sudo" >&2
     exit 1
 fi
@@ -34,7 +34,7 @@ def is_game_mode():
     with open(steampid_path) as f:
         pid = f.read().strip()
   except Exception as e:
-    print(f"steam-powerbuttond: failed to get steam PID: {e}")
+    print(f"sound fix: failed to get steam PID: {e}")
     return False
 
   steam_cmd_path = f"/proc/{pid}/cmdline"

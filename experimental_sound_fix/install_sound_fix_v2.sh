@@ -27,7 +27,7 @@ echo "installing pipewire EQ sound improvements"
 
 cd /tmp
 
-git clone --branch sound_fix_v2 --single-branch https://github.com/aarron-lee/legion-go-tricks.git
+git clone https://github.com/aarron-lee/legion-go-tricks.git
 
 cd /tmp/legion-go-tricks/experimental_sound_fix
 

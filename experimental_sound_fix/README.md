@@ -15,17 +15,17 @@ If you installed the v1 version, you can just rerun both scripts to reinstall.
 run the following in terminal:
 
 ```
-curl -L https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/sound_fix_v2/experimental_sound_fix/install_sound_fix_v2.sh | sh
+curl -L https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/main/experimental_sound_fix/install_sound_fix_v2.sh | sh
 ```
 
-Afterwards, you will see an additional Playback device in your audio options `effect_input.fixed`
+Afterwards, you will see an additional Playback device in your audio options `Legion GO`
 
-Before you switch to the `effect_input.fixed` option, make sure to max out the audio of your regular speakers sound option. The max volume of your audio speakers affects the volume of the `effect_input.fixed` option.
+Before you switch to the `Legion GO` option, make sure to max out the audio of your regular speakers sound option. The max volume of your audio speakers affects the volume of the `Legion GO` option.
 
-Note that the `effect_input.fixed` option often gets reset on reboot, you can run the following script for to fix this:
+Note that the `Legion GO` option often gets reset on reboot, you can run the following script for to fix this:
 
 ```
-curl -L https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/sound_fix_v2/experimental_sound_fix/fix_sound_default_v2.sh | sh
+curl -L https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/main/experimental_sound_fix/fix_sound_default_v2.sh | sh
 ```
 
 This script will also add a fixed `Return to Desktop` icon that sets the default sound option accordingly.

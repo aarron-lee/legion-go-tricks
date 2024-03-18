@@ -15,8 +15,8 @@ Note that while a lot of things are working, Linux support for this device is ve
 - [CSS Loader Themes](#css-loader-plugin---themes)
 - [Tutorial Videos](#tutorial-videos)
 - [Guides + Small Fixes](#guides--small-fixes)
-  - [NobaraOS](#nobaraos-guides)
   - [Bazzite Deck Edition](#bazzite-deck-edition-guides)
+  - [NobaraOS](#nobaraos-guides)
   - [Other Guides](#other-guides)
 - [Emulator Info](#emulator-info)
 - [TDP Control overview](#tdp-control)
@@ -33,9 +33,8 @@ ChimeraOS 45 stable, Nobara Deck Edition, and Bazzite Deck Edition, all have a b
 However, that being said, Linux is good enough to be a daily driver on the Legion Go.
 
 - Using a PS5 Dualsense Edge Controller Emulator, you get access to the entire LGO controller (including gyro) via steam input
-  - the entire controller works detached too
-    - however gyro hardware is in the main body with the screen, so it won't really work detached
-- TDP control can be done either via Decky Plugin or steam-patch
+  - the entire controller works detached too, gyros in the controller are also usable
+- TDP control can be done either via Decky Plugin or HHD (handheld daemon)
 - RGB control works via Decky Plugin or Steam Input + Dualsense emulation
 - suspend-resume works
 - all standard hardware (wifi, bluetooth, sound, etc) works
@@ -50,16 +49,17 @@ At the moment, the following functions work out of the box
 
 - Screen orientation (fixed in NobaraOS Deck Edition, ChimeraOS 45 stable, Bazzite OS)
 - suspend-resume functionality
-  - suspend quirk: sound often is fuzzy on resume, usually clears up after 30 seconds or so.
+  - suspend quirk: sound often can be fuzzy on resume, usually clears up after 30 seconds or so.
     - sometimes using the [Pause Games plugin](https://github.com/popsUlfr/SDH-PauseGames) with `Pause on Suspend` enabled can help with this issue
-- Wifi and Bluetooth
-- Sound
+    - other times, temporarily setting a high TDP value after resume could clear up audio issues
+- Wifi and Bluetooth works
+- Sound works
 - Controllers, both attached and detached
   - note, controllers work best in X-input mode. see [official Legion Go Userguide PDF](./legion_go_user_guide_en.pdf) to read more about controller modes
   - ChimeraOS, NobaraOS, BazziteOS all ship OOTB with basic controller support
-  - some non-gaming distros don't include the udev rule for the controller, you can manually add it with [this script](./add-lgo-xpad-rule.sh)
   - BazziteOS + NobaraOS ships with HHD, which enables full gyro + back button support in steam input
-- FPS/Mouse mode
+  - misc: some other non-gaming distros don't include the udev rule for the controller, you can manually add it with [this script](./add-lgo-xpad-rule.sh)
+- FPS/Mouse mode works
 - scroll wheel on controller works fine for scrolling websites, etc
   - scroll wheel press doesn't do anything in game mode, registers as a scroll wheel click in desktop mode
   - holding the scroll wheel for 5s will toggle the scroll wheel on/off
@@ -78,18 +78,17 @@ These functions are not working out of the box, but have workarounds
   - Gyro performance is best with hhd Dualsense Edge Emulator
 - Trackpad - this hardware previously already worked, but was not usable in steam input.
   - With the latest version of the PS5 Dualsense edge emulators, it is now usable in steam input. [Video Demo here](https://www.youtube.com/watch?v=RuSboPkZob4)
-- TDP - requires using either steam-patch or decky plugins
+- TDP - requires using either hhd or decky plugins
 - Controller RGB Lights - requires decky plugin or HHD (HHD enables steam input RGB support) See [Video Demo here](https://youtu.be/HHubJ8AnkUk?si=oWLVultDKBMVOxlo&t=35)
-- GPU Frequency control - via SimpleDeckyTDP plugin or steam-patch
-- Custom Fan Curves - via LegionGoRemapper plugin
-  - fan curves confirmed to work with bios v29
+- GPU Frequency control - via SimpleDeckyTDP plugin
+- Custom Fan Curves - via LegionGoRemapper plugin or HHD
+  - fan curves confirmed to work with bios v29, but bios v29.1 or higher is HIGHLY recommended due to some major bugs on v29
 - Games can sometimes default to 800p, you will need to manually change the resolution per game in the `Steam Settings > Properties > Game Resolution` to either `Native` or other higher resolutions.
 - v28 bios - STAMP mode is bugged on both Windows and Linux when setting high TDPs with 3rd party tools like ryzenadj and handheld companion
   - users reported that they were getting hard crashes at 30W TDP on both Windows and Linux
   - **Solution**: on STAMP mode, TDP must be set with a custom fan curve that will prevent thermal shutdown.
-    - You can set custom fan curves on bios v29 with the LegionGoRemapper plugin
+    - You can set custom fan curves on bios v29.1 with the LegionGoRemapper plugin
     - alternatively, if you don't want to use a custom fan curve, you can enable the `Lenovo Custom TDP` toggle in SimpleDeckyTDP
-    - steam-patch should similarly work on the LGO
 - Screen Refresh Rate and FPS control - unified refresh rate + FPS slider now works perfectly on latest bazzite stable, fixes should now also be on the latest Nobara Deck Edition too.
   - ChimeraOS might not have the fix yet.
 - adaptive/auto display brightness doesn't work yet
@@ -104,8 +103,6 @@ These functions are not working out of the box, but have workarounds
   - alternatively, completely disable custom fan curves in LegionGoRemapper and reboot
 - **v29 bios - IMPORTANT BIOS BUG:** You cannot set custom fan curves and use Lenovo's custom TDP mode for TDP control simultaneously,the LGO bios has a bug
   - this bug is fully resolved on bios v29.1
-- Warning: there's some user reports that there's screen flashing on bios v29 with Nobara.
-  - this bug has not been reported on Bazzite, unconfirmed on ChimeraOS
 - Adaptive Brightness sensor - hardware is detectedby the OS, but not used for auto-brightness yet
   - there's dev work in progress for auto-brightness
     - if you wish to test it out, see [here](https://github.com/corando98/LLG_Dev_scripts?tab=readme-ov-file#ltchipotles-adaptive-brightness-algorithm)
@@ -114,21 +111,17 @@ These functions are not working out of the box, but have workarounds
 
 - (2024-03-13) bazzite suspend bug is fixed, you can go back to regular updates by going back to `stable` via running the following in terminal:
   - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:stable`
-- (bazzite) hhd 2.0 bug - game controller stops working when detached/reattached.
-  - fixed, update to the latest bazzite
 - Occasionally steam game mode will flash white
   - seems to be related to autoVRAM, recommend disabling autoVRAM and set 6GB or 8GB VRAM in the bios
 - BazziteOS - after fresh install, sometimes you encounter a blank screen on reboot
   - fix found [here](#blank-screen-on-first-reboot)
 - suspend-resume quirk: sound often is fuzzy on resume, usually clears up after 30 seconds or so, but not all the time.
   - sometimes using the [Pause Games plugin](https://github.com/popsUlfr/SDH-PauseGames) with `Pause on Suspend` enabled can help with this issue
+  - sometimes temporarily increase TDP to a high value fixes the sound problem
 - HHD (Dualsense Emulator) - It should now hide the Xbox controller in steam input, and only show the Dualsense Edge.
   - If you see an extra Xbox controller in steam input, you can flip the fps-mode switch on and off for to make it disappear. You can leave the controllers attached when you do this.
   - This should also fix any issues where emulators don't recognize the controller, since the emulator was latching onto the Xbox controller
     - if you still have a controller issue, reorder the controller from player 2 to player 1 in the QAM. sometimes it registers as player 2 even when no other controller is attached
-- HHD PS5 Controller Emulator bug
-  - If you hold an LGO joystick input while booting or resuming from suspend, the input may get stuck in whatever direction you were pointing
-  - workaround: don't press anything for a few seconds, let the device register itself
 - user reports say wifi has lower download speeds on Linux vs Windows
 - alternative resolutions while in desktop mode are buggy/broken
   - instead of changing resolution, change scaling for to enlarge/shrink UI elements
@@ -137,15 +130,12 @@ These functions are not working out of the box, but have workarounds
 
 - hhd 2.0 bug - game controller stops working when detached/reattached.
   - fixed, update to the latest bazzite
-- (2024-03-13) bazzite suspend bug is fixed, you can go back to regular updates by going back to `stable` via running the following in terminal:
-  - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:stable`
 
 ### Nobara bugs
 
 - make sure to be on the latest nobara for all the bugfixes
 - controller is more buggy in desktop mode for desktop-related usage, steam input doesn't work. should still work fine for gaming
   - nested desktop is completely fine
-- Warning: there's some user reports that there's screen flashing on bios v29 with Nobara.
 
 ### User-reported bugs (needs verification)
 
@@ -205,6 +195,7 @@ As for which one you should install, here's a breakdown of the benefits and draw
 
 - Nobara tends to run cutting edge kernels, and makes other frequent changes to the OS
   - This often leads to updates introducing bugs or breaking features on the Legion Go
+  - while rollbacks after a borked update are possible, it's not easy for non-technical users
 - Due to no read-only root FS, easier to accidentally mess up your device and put it into a borked state
 - Nobara is basically run by one dev, GloriousEggroll (same guy behind GE-Proton), along with a few helpers
   - While GloriousEggroll does excellent work, Nobara is understaffed and it will sometimes be difficult to get help or support if you run into problems
@@ -241,6 +232,7 @@ HHD - PS5 Dualsense Edge Emulator - https://github.com/hhd-dev/hhd
 
 - has a Decky plugin available for changing hhd settings: https://github.com/hhd-dev/hhd-decky
 - also has a desktop app https://github.com/hhd-dev/hhd-ui
+- hhd also supports overlay mode in Steam Game mode, and offers a solution for TDP and fan curve control
 
 RGB Decky Plugin - https://github.com/aarron-lee/LegionGoRemapper/
 
@@ -250,15 +242,17 @@ LegionGoRefreshRates Decky Plugin - experimental plugin for changing default scr
 
 Script that monitors CPU temps and blasts fans when temps are too high - see guide [here](#setup-monitor-script-that-blasts-fans-when-cpu-temps-climb-too-high-tested-on-nobaraos-only)
 
-steam-patch (for TDP control, some steam glyphs, etc) - https://github.com/corando98/steam-patch
-
 reverse engineering docs - https://github.com/antheas/hwinfo/tree/master/devices
+
+steam-patch (for TDP control, some steam glyphs, etc) - https://github.com/corando98/steam-patch
 
 rogue-enemy (deprecated, no longer maintained) - PS5 Dualsense Edge Emulator - https://github.com/corando98/ROGueENEMY/
 
 powerbutton fix when using rogue-enemy - https://github.com/aarron-lee/steam-powerbuttond
 
 Pipewire sound EQ improvement files (not maintained) - https://github.com/matte-schwartz/device-quirks/tree/legion-go/rog-ally-audio-fixes/usr/share/device-quirks/scripts/lenovo/legion-go
+
+- updated version of sound improvements [here](./experimental_sound_fix/README.md)
 
 Bios archive - https://github.com/aarron-lee/legion-go-bios
 
@@ -298,6 +292,111 @@ Dual Boot Tutorial Video (Bazzite + Windows) : https://www.youtube.com/watch?v=3
 Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=anc7hyPU6Lk
 
 # Guides + small fixes
+
+## Bazzite Deck Edition Guides
+
+### FAQ on bazzite site for rollback, pinning OS version, etc
+
+See official site at: https://universal-blue.discourse.group/docs?topic=36
+
+### eGPU setup (AMD eGPU only)
+
+If you notice eGPU not running at full pcie speeds, you might need an additional kernel arg before it works at full speed.
+
+1. Open up your terminal (Ptyxis), run the following command
+
+```
+rpm-ostree kargs --append=amdgpu.pcie_gen_cap=0x40000
+```
+
+2. reboot
+
+### Blank Screen on First Reboot
+
+If you see a frozen or blank screen on first reboot after a fresh installation of Bazzite, you can permanently fix the issue via the following:
+
+1. press `Ctrl + Alt + F2` to open a terminal
+2. login via your username and password
+3. once logged in, type `steamos-session-select plasma`
+
+- if you are on deck-gnome, try swapping `plasma` with `gnome` if it doesn't work
+
+4. the terminal command should switch you to desktop mode
+5. from desktop mode, just press the `Return to Game Mode` shortcut on the Desktop
+
+- for deck-gnome, the `return to game mode` shortcut will be in the menu that you see after you click the top-left corner of the screen
+
+### Nested Desktop Screen is rotated incorrectly
+
+Open terminal in Nested Desktop (NOT Desktop mode), and run the following:
+
+```bash
+kscreen-doctor output.1.rotation.normal
+```
+
+then restart nested desktop
+
+### Nested Desktop fails to start, or freezes very frequently
+
+User reported issue where Nested Desktop frequently fails. As a fix, set a `per game profile` for Nested Desktop with 60hz as the screen resolution.
+
+If you still run into frequent freezes, please report the bug on the Bazzite Discord.
+
+### Change Nested Desktop Resolution
+
+run the [bazzite-nested-desktop-resolution.sh](./bazzite-nested-desktop-resolution.sh) script.
+
+You can edit the script with your preferred nested desktop resolution before running it.
+
+After running the script, restart Game mode. Then change steam's resolution to match the resolution you set.
+
+### Roll back to Bazzite image with specific Linux Kernel
+
+let's say you want to revert Bazzite to an image with kernel 6.6
+
+First, you can find the list of bazzite-deck images here: https://github.com/ublue-os/bazzite/pkgs/container/bazzite-deck/versions?filters%5Bversion_type%5D=tagged
+
+Look for the version for specific dates, it'll look like `39-YYYYMMDD`
+
+e.g. `39-20240205`
+
+This will let you find the kernel version on that given image
+
+`skopeo inspect docker://ghcr.io/ublue-os/bazzite:39-20240205 | grep ostree.linux`
+
+if the number matches with the kernel version that you want to deploy, you can then deploy the image:
+
+```
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:39-20240205
+```
+
+### How to figure out your current Bazzite Image
+
+run `rpm-ostree status` in terminal, you'll see info on your current image.
+
+### Change Desktop Steam UI scaling
+
+First, try changing the following (original tip found [here](https://www.reddit.com/r/LegionGo/comments/1as75lf/comment/kqpau3c/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)):
+
+`System Settings > Display and Monitor > Display Configuration > Legacy Applications: Scaled by the system`
+
+If this doesn't work, then proceed to the next steps.
+
+This is for Bazzite-Deck, not Bazzite-Deck-Gnome
+
+thanks @noobeta on discord for this tip!
+
+For technical users:
+
+run `sudoedit /etc/environment`, and add `STEAM_FORCE_DESKTOPUI_SCALING=2` to the end of the file. save changes, and reboot afterwards.
+
+for non-technical users:
+
+run `xdg-open /etc/environment` in terminal, it will open up the file in a text editor. Add `STEAM_FORCE_DESKTOPUI_SCALING=2` to the end of the file, and save. You will be prompted for your password, save and then reboot.
+
+Note that if you edit the `/etc/environment` file, it will change the scaling of the on screen keyboard in desktop mode.
+
+---
 
 ## NobaraOS Guides
 
@@ -504,109 +603,6 @@ scaling_max_freq = 3300000
 turbo = auto ```
 then ```auto-cpufreq --install``` or if you want to see what's it doing ```auto-cpufreq --live``` -->
 
-## Bazzite Deck Edition Guides
-
-### FAQ on bazzite site for rollback, pinning OS version, etc
-
-See official site at: https://universal-blue.discourse.group/docs?topic=36
-
-### eGPU setup (AMD eGPU only)
-
-If you notice eGPU not running at full pcie speeds, you might need an additional kernel arg before it works at full speed.
-
-1. Open up your terminal (Ptyxis), run the following command
-
-```
-rpm-ostree kargs --append=amdgpu.pcie_gen_cap=0x40000
-```
-
-2. reboot
-
-### Blank Screen on First Reboot
-
-If you see a frozen or blank screen on first reboot after a fresh installation of Bazzite, you can permanently fix the issue via the following:
-
-1. press `Ctrl + Alt + F2` to open a terminal
-2. login via your username and password
-3. once logged in, type `steamos-session-select plasma`
-
-- if you are on deck-gnome, try swapping `plasma` with `gnome` if it doesn't work
-
-4. the terminal command should switch you to desktop mode
-5. from desktop mode, just press the `Return to Game Mode` shortcut on the Desktop
-
-- for deck-gnome, the `return to game mode` shortcut will be in the menu that you see after you click the top-left corner of the screen
-
-### Nested Desktop Screen is rotated incorrectly
-
-Open terminal in Nested Desktop (NOT Desktop mode), and run the following:
-
-```bash
-kscreen-doctor output.1.rotation.normal
-```
-
-then restart nested desktop
-
-### Nested Desktop fails to start, or freezes very frequently
-
-User reported issue where Nested Desktop frequently fails. As a fix, set a `per game profile` for Nested Desktop with 60hz as the screen resolution.
-
-If you still run into frequent freezes, please report the bug on the Bazzite Discord.
-
-### Change Nested Desktop Resolution
-
-run the [bazzite-nested-desktop-resolution.sh](./bazzite-nested-desktop-resolution.sh) script.
-
-You can edit the script with your preferred nested desktop resolution before running it.
-
-After running the script, restart Game mode. Then change steam's resolution to match the resolution you set.
-
-### Roll back to Bazzite image with specific Linux Kernel
-
-let's say you want to revert Bazzite to an image with kernel 6.6
-
-First, you can find the list of bazzite-deck images here: https://github.com/ublue-os/bazzite/pkgs/container/bazzite-deck/versions?filters%5Bversion_type%5D=tagged
-
-Look for the version for specific dates, it'll look like `39-YYYYMMDD`
-
-e.g. `39-20240205`
-
-This will let you find the kernel version on that given image
-
-`skopeo inspect docker://ghcr.io/ublue-os/bazzite:39-20240205 | grep ostree.linux`
-
-if the number matches with the kernel version that you want to deploy, you can then deploy the image:
-
-```
-rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:39-20240205
-```
-
-### How to figure out your current Bazzite Image
-
-run `rpm-ostree status` in terminal, you'll see info on your current image.
-
-### Change Desktop Steam UI scaling
-
-First, try changing the following (original tip found [here](https://www.reddit.com/r/LegionGo/comments/1as75lf/comment/kqpau3c/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)):
-
-`System Settings > Display and Monitor > Display Configuration > Legacy Applications: Scaled by the system`
-
-If this doesn't work, then proceed to the next steps.
-
-This is for Bazzite-Deck, not Bazzite-Deck-Gnome
-
-thanks @noobeta on discord for this tip!
-
-For technical users:
-
-run `sudoedit /etc/environment`, and add `STEAM_FORCE_DESKTOPUI_SCALING=2` to the end of the file. save changes, and reboot afterwards.
-
-for non-technical users:
-
-run `xdg-open /etc/environment` in terminal, it will open up the file in a text editor. Add `STEAM_FORCE_DESKTOPUI_SCALING=2` to the end of the file, and save. You will be prompted for your password, save and then reboot.
-
-Note that if you edit the `/etc/environment` file, it will change the scaling of the on screen keyboard in desktop mode.
-
 ---
 
 ## Other guides
@@ -658,53 +654,6 @@ setup refind in linux, then run the following via Terminal:
 - you might also want to increase the icon size. "big_icon_size 256" (your preference)
 - No idea how to increase font size. (you might need to change the theme for refind)
 
-<!--
-
-# hhd localdev on bazzite
-
-hhd_dev.service
-
-```
-[Unit]
-Description=hhd service
-
-[Service]
-Type=simple
-Nice = -15
-Restart=always
-RestartSec=5
-WorkingDirectory=/var/home/deck/.local/bin/hhd/venv/bin
-ExecStart=/var/home/deck/.local/bin/hhd/hhd/venv/bin/hhd --user deck
-
-[Install]
-WantedBy=default.target
-```
-
-for SE Linux
-
-```
-chcon -u system_u -r object_r --type=bin_t /var/home/deck/.local/bin/hhd/hhd/venv/bin/hhd
-```
-
-reload.sh
-
-```
-#!/bin/bash
-
-git pull
-
-sudo systemctl disable --now hhd_dev.service
-sudo cp ./hhd_dev.service /etc/systemd/system/
-
-source ./venv/bin/activate
-
-./venv/bin/pip install -e .
-
-sudo systemctl daemon-reload
-sudo systemctl enable --now hhd_dev.service
-```
- -->
-
 # Emulator Info
 
 Emulator related documentation, including recommended settings, etc.
@@ -721,7 +670,9 @@ This is usually because the emulator may have temporarily latched onto the origi
 
 ## Emudeck
 
-For to install, go to https://www.emudeck.com, and scroll down to the section that shows installer options.
+On Bazzite, install via the ujust script in terminal.
+
+For to install on ChimeraOS or NobaraOS, go to https://www.emudeck.com, and scroll down to the section that shows installer options.
 
 If the `Linux` install option doesn't work for you, the `ChimeraOS` install instructions should also work fine on other Linux distros.
 
@@ -757,23 +708,27 @@ source: https://linuxgamingcentral.com/posts/chimeraos-on-legion-go/
 For `custom` on the new bios (bios v28) Custom by default is 30W TDP with everything maxed out
 And it resets every time you switch modes
 
+### HHD
+
+hhd now ships with an overlay that has TDP control support. Requires acpi_call installed on your Linux distro.
+
 ### SimpleDeckyTDP
 
 Decky Plugin that provides TDP and GPU controls. Also has an option to fix Steam's TDP + GPU Sliders. Note that there's a risk that Decky Plugins can stop working from any Steam updates from Valve
 
 https://github.com/aarron-lee/SimpleDeckyTDP
 
-### Steam Patch
-
-Steam Patch enables Steam's TDP slider + GPU sliders to work. Note that this works by patching the Steam client, which means that any Steam updates from Valve can potentially break this fix.
-
-https://github.com/corando98/steam-patch
-
 ### Simple Ryzen TDP
 
 Basic Desktop app for TDP control, but can also be added to game mode as a backup option
 
 https://github.com/aarron-lee/simple-ryzen-tdp/
+
+### Steam Patch (deprecated, no longer maintained)
+
+Steam Patch enables Steam's TDP slider + GPU sliders to work. Note that this works by patching the Steam client, which means that any Steam updates from Valve can potentially break this fix.
+
+https://github.com/corando98/steam-patch
 
 # Controller support
 
@@ -783,7 +738,7 @@ Link: https://github.com/antheas/hhd
 
 PS5 Dualsense Edge controller emulator, currently supports all buttons on the LGO controller except the back scrollwheel (scrollwheel already worked previously). Has improvements vs rogue, such as more consistently working rumble, config file for configuring different options, RGB LED control via steam input, etc. It also supports managing the power button, so no extra program is necessary.
 
-It is preinstalled on Bazzite for the Legion Go, ROG Ally, and several GPD Win devices.
+It is preinstalled on Bazzite for the Legion Go, ROG Ally, abd several other PC handheld devices.
 
 Install instructions are available on the github.
 
@@ -802,17 +757,6 @@ PS5 Dualsense Edge controller emulator, currently manages all hardware buttons e
 Note that rogue-enemy has conflicts with handygccs, so it must be disabled. Also, since handygccs handles for the power button, you'll need a separate solution for power button suspend. You can use this, which was extracted from handygccs: https://github.com/aarron-lee/steam-powerbuttond
 
 # Quality Of Life Fixes
-
-### LegionGoRemapper Decky Plugin - Fan Control + RGB control + backbutton remapping
-
-Link: https://github.com/aarron-lee/LegionGoRemapper/
-
-Allows for managing back button remaps, controller RGB lights, toggle touchpad on/off, etc
-
-You can also enable custom fan curves, confirmed functional on bios v29
-
-- note that this uses the exact same functionality as LegionSpace on Windows, so it has the same limitations
-- back button remapping should not be used w/ PS5 controller emulation
 
 ### CSS Loader Plugin - Themes
 
@@ -836,6 +780,19 @@ cd $HOME/homebrew/themes && git clone https://github.com/frazse/SBP-Legion-Go-Th
 # PS5 to Xbox Controller Glyph Theme
 cd $HOME/homebrew/themes && git clone https://github.com/frazse/PS5-to-Xbox-glyphs
 ```
+
+### LegionGoRemapper Decky Plugin - Fan Control + RGB control + backbutton remapping
+
+Link: https://github.com/aarron-lee/LegionGoRemapper/
+
+Allows for managing back button remaps, controller RGB lights, toggle touchpad on/off, etc
+
+You can also enable custom fan curves, confirmed functional on bios v29
+
+- note that this uses the exact same functionality as LegionSpace on Windows, so it has the same limitations
+- back button remapping should not be used w/ PS5 controller emulation
+
+Note, HHD is also now an alternative for fan control on the Legion Go
 
 # 3D prints
 

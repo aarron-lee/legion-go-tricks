@@ -130,6 +130,8 @@ These functions are not working out of the box, but have workarounds
 
 - hhd 2.0 bug - game controller stops working when detached/reattached.
   - fixed, update to the latest bazzite
+- autoVRAM can be buggy, disabling it in the bios is recommended
+  - fix is being tested
 
 ### Nobara bugs
 

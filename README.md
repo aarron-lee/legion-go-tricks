@@ -845,6 +845,18 @@ so you'll probably need a startup systemd service to enable it on boot
 add a kernel arg
 
 rpm-ostree kargs --append=mem_sleep_default=s2idle
+
+misc thing to investigate:
+
+# mkdir -p ~/.config/wireplumber/bluetooth.lua.d/
+# cat ~/.config/wireplumber/bluetooth.lua.d/61-bluez-monitor.lua
+bluez_monitor.properties = {
+  ["bluez5.enable-sbc-xq"] = true,
+  ["bluez5.enable-msbc"] = true,
+  ["bluez5.codecs"] = "[sbc sbc_xq aac ldac aptx aptx_hd aptx_ll aptx_ll_duplex faststream faststream_duplex]",
+}
+
+https://web.archive.org/web/20230710001521/https://steamdecki.org/Steam_Deck/Wireless/Bluetooth
  -->
 
 # Tip Jar

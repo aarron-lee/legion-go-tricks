@@ -240,6 +240,8 @@ RGB Decky Plugin - https://github.com/aarron-lee/LegionGoRemapper/
 
 Simple Decky TDP Plugin - https://github.com/aarron-lee/SimpleDeckyTDP
 
+Refind GUI - tool for setting up selection screen for dual-booted devices: https://github.com/jlobue10/rEFInd_GUI
+
 LegionGoRefreshRates Decky Plugin - experimental plugin for changing default screen resolution in game mode. https://github.com/aarron-lee/LegionGoRefreshRate
 
 Script that monitors CPU temps and blasts fans when temps are too high - see guide [here](#setup-monitor-script-that-blasts-fans-when-cpu-temps-climb-too-high-tested-on-nobaraos-only)

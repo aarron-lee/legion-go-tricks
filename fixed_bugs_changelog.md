@@ -1,6 +1,15 @@
 # Bugs changelog
 
+Bazzite - hhd 2.0 bug - game controller stops working when detached/reattached.
+
+- fixed, update to the latest bazzite
+
+(2024-03-13) bazzite suspend bug is fixed, you can go back to regular updates by going back to `stable` via running the following in terminal:
+
+- `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:stable`
+
 - (resolved 2/28/2024) Decky Loader has some bugs that are causing issues with menus like the power button menu, exiting games, etc. [bug report](https://github.com/SteamDeckHomebrew/decky-loader/issues/586)
+
   - bugs are being investigated by the Decky devs
   - temporary workaround: rollback to Decky v2.10.14
     - install script for v2.10.14 [here](./decky_v2_10_14_install.sh)
@@ -18,6 +27,7 @@
       - `sudo systemctl disable --now handycon.service`
     - then reboot
 - Bazzite
+
   - Nested Desktop orientation might be wonky
 
 - Dec 9th 2023 - Nobara desktop mode shortcut might break for users that update their Nobara installation. This should not apply to brand new, clean installations.
@@ -26,7 +36,6 @@
   - Manual fix at the bottom of the page [here](#nobara-desktop-mode-switch-temporary-fix)
 - (won't fix) Bugs for Pipewire EQ sound improvements - Pipewire EQ sound improvements are an optional sound fix for the LGO, currently is buggy and not recommended
   - This is most likely due to a Steam Deck OLED related update.
-
 
 # outdated guides
 
@@ -125,7 +134,6 @@ Quote from reddit:
 > This applies a surround sound convolver profile, similar to Dolby Atmos for Built-In Speakers
 
 > The built-in speakers with a volume slider that acts as master gain, and then the virtual sink sliders that apply surround sound profiles on top of the master gain sink. Basically, this lets you adjust the overall gain separate from the sinks themselves to give a wider level of control. It’s not the most seamless solution but it seems to do the job.
-
 
 ### fix 60hz 144hz nobara
 

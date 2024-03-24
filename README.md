@@ -317,6 +317,40 @@ rpm-ostree kargs --append=amdgpu.pcie_gen_cap=0x40000
 
 2. reboot
 
+You can also see the conf file [here](./resources/egpu-pcie3speed.conf) for more details, thanks @Ariobeth on Discord!
+
+### Buggy Sleep with an eGPU
+
+thanks @Ariobeth on Discord
+
+Here is a quick fix for the default bazzite sleep/suspend under a egpu condition connected to external monitor.
+
+Run this in terminal:
+
+`xdg-open /etc/systemd/sleep.conf`
+
+edit the file, remove the hash (`#`) so that the end result looks like this:
+
+```
+[Sleep]
+AllowSuspend=yes
+AllowHibernation=no
+AllowSuspendThenHibernate=no
+AllowHybridSleep=yes
+SuspendMode=suspend
+SuspendState=standby freeze mem disk
+#HibernateMode=platform shutdown
+#HibernateState=disk
+#HybridSleepMode=suspend platform shutdown
+#HybridSleepState=disk
+#HibernateDelaySec=
+#SuspendEstimationSec=60min
+```
+
+save changes, reboot.
+
+now when pc sleeps or when you press the power button of the legion go = sleep. at least it will not have a blank screen and cannot wake up. it is still energy saving though.
+
 ### Blank Screen on First Reboot
 
 If you see a frozen or blank screen on first reboot after a fresh installation of Bazzite, you can permanently fix the issue via the following:

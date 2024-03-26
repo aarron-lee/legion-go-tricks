@@ -28,9 +28,9 @@ Note that while a lot of things are working, Linux support for this device is ve
 
 # Current Status of Linux on the Lenovo Legion Go
 
-ChimeraOS 45 stable, Nobara Deck Edition, and Bazzite Deck Edition, all have a bunch of fixes for the LGO. It's mostly working, but still has bugs that need to be addressed.
+ChimeraOS, Nobara Deck Edition, and Bazzite Deck Edition, all have a bunch of fixes for the LGO. Depending on the distro, Linux is either [feature complete](https://www.gamingonlinux.com/2024/02/bazzite-linux-adds-support-for-the-lenovo-legion-go-handheld/), or mostly working on the Legion Go.
 
-However, that being said, Linux is good enough to be a daily driver on the Legion Go.
+Linux is good enough to be a daily driver on the Legion Go.
 
 - Using a PS5 Dualsense Edge Controller Emulator, you get access to the entire LGO controller (including gyro) via steam input
   - the entire controller works detached too, gyros in the controller are also usable
@@ -38,6 +38,7 @@ However, that being said, Linux is good enough to be a daily driver on the Legio
 - RGB control works via Decky Plugin or Steam Input + Dualsense emulation
 - suspend-resume works
 - all standard hardware (wifi, bluetooth, sound, etc) works
+- basically all hardware on the LGO is fully usable
 
 Some of the things you find in this document may be unofficial changes to original software
 
@@ -57,16 +58,16 @@ At the moment, the following functions work out of the box
 - Controllers, both attached and detached
   - note, controllers work best in X-input mode. see [official Legion Go Userguide PDF](./legion_go_user_guide_en.pdf) to read more about controller modes
   - ChimeraOS, NobaraOS, BazziteOS all ship OOTB with basic controller support
-  - BazziteOS + NobaraOS ships with HHD, which enables full gyro + back button support in steam input
+  - BazziteOS + NobaraOS ships with HHD, which enables full gyro + back button + controller support in steam input
   - misc: some other non-gaming distros don't include the udev rule for the controller, you can manually add it with [this script](./add-lgo-xpad-rule.sh)
 - FPS/Mouse mode works
 - scroll wheel on controller works fine for scrolling websites, etc
   - scroll wheel press doesn't do anything in game mode, registers as a scroll wheel click in desktop mode
-  - holding the scroll wheel for 5s will toggle the scroll wheel on/off
-- trackpad works, but cannot tap-to-click in game mode.
+  - holding the scroll wheel for 5s will toggle the scroll wheel on/off, this is built-in lenovo provided functionality
+- trackpad works, tap to click can be configured.
   - Can tap to click on desktop mode, but must be enabled in the touchpad settings.
-  - Can be used in steam input with a workaround.
-- Battery Indicator in Game Mode - requires bios v29
+  - Can be used in steam input with hhd
+- Battery Indicator in Game Mode - requires bios v29 or newer
 
 ## What Has Workarounds?
 
@@ -82,7 +83,7 @@ These functions are not working out of the box, but have workarounds
 - Controller RGB Lights - requires decky plugin or HHD (HHD enables steam input RGB support) See [Video Demo here](https://youtu.be/HHubJ8AnkUk?si=oWLVultDKBMVOxlo&t=35)
 - GPU Frequency control - via SimpleDeckyTDP plugin
 - Custom Fan Curves - via LegionGoRemapper plugin or HHD
-  - fan curves confirmed to work with bios v29, but bios v29.1 or higher is HIGHLY recommended due to some major bugs on v29
+  - fan curves confirmed to work with bios v29, but bios v29.1 or newer is HIGHLY recommended due to some major bugs on v29
 - Games can sometimes default to 800p, you will need to manually change the resolution per game in the `Steam Settings > Properties > Game Resolution` to either `Native` or other higher resolutions.
 - v28 bios - STAMP mode is bugged on both Windows and Linux when setting high TDPs with 3rd party tools like ryzenadj and handheld companion
   - users reported that they were getting hard crashes at 30W TDP on both Windows and Linux
@@ -128,10 +129,10 @@ These functions are not working out of the box, but have workarounds
 
 ### Bazzite bugs
 
-- (2024/03/21) BazziteOS - Mangohud performance overlay is reporting inaccurate power consumption
+- (2024-03-21) BazziteOS - Mangohud performance overlay is reporting inaccurate power consumption
   - device is not actually consuming the reported power amounts
 - autoVRAM can be buggy, disabling it in the bios is recommended
-  - fix is being tested
+  - fix is being investigated
 - (2024-03-13) bazzite suspend bug is fixed, you can go back to regular updates by going back to `stable` via running the following in terminal:
   - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:stable`
 
@@ -139,16 +140,16 @@ These functions are not working out of the box, but have workarounds
 
 - make sure to be on the latest nobara for all the bugfixes
 - controller is more buggy in desktop mode for desktop-related usage, steam input doesn't work. should still work fine for gaming
-  - nested desktop is completely fine
+  - nested desktop is also broken due to KDE 6
 
 ### User-reported bugs (needs verification)
 
 - microphone might not work on bazzite
   - requires verification
 - certain Decky plugins require `deck` as your username
-  - deck username fixes Animation changer plugin and mangopeel plugins
+  - deck username fixes animation changer plugin and mangopeel plugins
 - nobaraOS v39
-  - game mode global FSR is not working
+  - game mode global FSR is not working in Nobara
 
 # Which Linux Distro should I Install?
 
@@ -169,8 +170,8 @@ As for which one you should install, here's a breakdown of the benefits and draw
   - Tools such as Decky, Emudeck, HHD (for Controller Emulation), etc, are either pre-installed, or have an easy install process
   - Excellent support from the Bazzite Devs and community
     - Bazzite Discord is the place to go to for support and discussion, see [here](https://github.com/ublue-os/bazzite?tab=readme-ov-file#join-the-community)
-  - Very quick to fix issues and provide OS updates
-    - also extremely easy to rollback to previous OS versions, so if an OS update breaks something, you can easily rollback to the prior OS version
+  - Quick to provide OS updates
+    - also extremely easy to rollback to previous OS versions, so if an OS update breaks something, you can easily rollback to the prior OS version with a single command
 - Read-only root filesystem helps with providing better security, more stability, and overall a very good stable console-like experience
   - also has SE Linux configured out of the box
 - Can configure Secure Boot, which allows for disk encryption and other security benefits
@@ -224,7 +225,7 @@ As for which one you should install, here's a breakdown of the benefits and draw
 **Cons**
 
 - Installing some recommended tools, such as acpi_call for custom fan curves, requires unlocking the root filesystem
-  - ChimeraOS 45-1 will include `acpi_call`
+  - ChimeraOS 45-1 now includes `acpi_call`, which is currently required for custom fan curves and Lenovo Custom TDP control
 - hhd needs to be manually installed
   - handycon will also need to be manually disabled after every major OS update
 - ChimeraOS's emulation implementation interferes with Emudeck, you'll need to manually disable the ChimeraOS implementation
@@ -261,8 +262,6 @@ Pipewire sound EQ improvement files (not maintained) - https://github.com/matte-
 - updated version of sound improvements [here](./experimental_sound_fix/README.md)
 
 Bios archive - https://github.com/aarron-lee/legion-go-bios
-
-<!-- (ChimeraOS only) Legion Go installer tool - https://github.com/linuxgamingcentral/legion-go-tools-for-linux -->
 
 gyro increase sampling rate fix (advanced users only, not maintained) - https://github.com/antheas/llg_sfh
 

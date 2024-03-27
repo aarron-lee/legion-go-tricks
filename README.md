@@ -501,6 +501,18 @@ sudo rm /etc/systemd/system/legion_fan_helper.service
 sudo rm -rf $HOME/LLG_Dev_scripts
 ```
 
+### Install kernel on Nobara (untested)
+
+These instructions are untested, but should work
+
+```bash
+sudo dnf copr enable sentry/kernel-fsync
+sudo dnf update --refresh
+# sudo dnf install kernel_goes_here
+# e.g.
+sudo dnf install kernel-6.6.14-202.fsync.fc39
+```
+
 ### Change default boot kernel on Nobara v39
 
 This will let you change your default kernel.

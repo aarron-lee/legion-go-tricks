@@ -110,6 +110,9 @@ These functions are not working out of the box, but have workarounds
 
 ### Known bugs
 
+- (2024/03/28) BazziteOS - Ptyxis terminal app might be crashing
+  - if crashing, switch to the Konsole terminal until the bug gets fixed.
+    - instructions can be found [here](#enable-konsole-application)
 - (2024/03/21) BazziteOS - Mangohud performance overlay is reporting inaccurate power consumption
   - device is not actually consuming the reported power amounts
 - Occasionally steam game mode will flash white
@@ -129,6 +132,9 @@ These functions are not working out of the box, but have workarounds
 
 ### Bazzite bugs
 
+- (2024/03/28) BazziteOS - Ptyxis terminal app might be crashing
+  - if crashing, switch to the Konsole terminal until the bug gets fixed.
+    - instructions can be found [here](#enable-konsole-application)
 - (2024-03-21) BazziteOS - Mangohud performance overlay is reporting inaccurate power consumption
   - device is not actually consuming the reported power amounts
 - autoVRAM can be buggy, disabling it in the bios is recommended
@@ -303,6 +309,12 @@ Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=anc
 ### FAQ on bazzite site for rollback, pinning OS version, etc
 
 See official site at: https://universal-blue.discourse.group/docs?topic=36
+
+### Enable Konsole application
+
+search for `Konsole` in your application search, you should see a `run Konsole` option.
+
+Click the `run Konsole`, and in the new terminal window execute `ujust restore-original-terminal` for Konsole to become searchable as an app.
 
 ### eGPU setup (AMD eGPU only)
 

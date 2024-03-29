@@ -814,6 +814,7 @@ Note that rogue-enemy has conflicts with handygccs, so it must be disabled. Also
 - note, requires `CSS Loader` Decky Plugin
 - manually install by downloading the theme + placing in `$HOME/homebrew/themes/` folder
 - sometimes themes require a reboot before they start working.
+- the themes are intended to work with hhd's dualsense edge controller emulator
 
 Legion Go Theme - https://github.com/frazse/SBP-Legion-Go-Theme
 
@@ -821,6 +822,20 @@ PS5 to Xbox Controller Glyph Theme - https://github.com/frazse/PS5-to-Xbox-glyph
 
 - If you'd like to manually edit mappings, you can find glyphs at `$HOME/.local/share/Steam/controller_base/images/api/dark/`
   - manual mapping can be done by editing the css file with the svg/png paths you want
+
+#### Bazzite theme Install instructions
+
+```bash
+# if you didn't install decky, install it first
+ujust setup-decky
+# legion go theme install
+ujust install-legion-go-theme
+# ps5 to xbox glyph theme
+ujust install-hhd-xbox-glyph-theme
+# afterwards, install CSS loader from the Decky Store, and enable the legion go or hhd themes in CSS loader + reboot
+```
+
+### Other Linux Distro theme install instructions
 
 ```
 # quick install, CSS Loader Decky Plugin must already be installed and enabled

@@ -110,10 +110,7 @@ These functions are not working out of the box, but have workarounds
 
 ### Known bugs
 
-- (2024/03/28) BazziteOS - Ptyxis terminal app might be crashing
-  - if crashing, switch to the Konsole terminal until the bug gets fixed.
-    - instructions can be found [here](#enable-konsole-application)
-- (2024/03/21) BazziteOS - Mangohud performance overlay is reporting inaccurate power consumption
+- (2024/03/21) BazziteOS - Mangohud performance overlay might be reporting inaccurate power consumption
   - device is not actually consuming the reported power amounts
 - Occasionally steam game mode will flash white
   - seems to be related to autoVRAM, recommend disabling autoVRAM and set 6GB or 8GB VRAM in the bios
@@ -132,10 +129,7 @@ These functions are not working out of the box, but have workarounds
 
 ### Bazzite bugs
 
-- (2024/03/28) BazziteOS - Ptyxis terminal app might be crashing
-  - if crashing, switch to the Konsole terminal until the bug gets fixed.
-    - instructions can be found [here](#enable-konsole-application)
-- (2024-03-21) BazziteOS - Mangohud performance overlay is reporting inaccurate power consumption
+- (2024-03-21) BazziteOS - Mangohud performance overlay might be reporting inaccurate power consumption
   - device is not actually consuming the reported power amounts
 - autoVRAM can be buggy, disabling it in the bios is recommended
   - fix is being investigated

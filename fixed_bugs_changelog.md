@@ -1,5 +1,9 @@
 # Bugs changelog
 
+- (2024/03/28) BazziteOS - Ptyxis terminal app might be crashing
+  - if crashing, switch to the Konsole terminal until the bug gets fixed.
+    - instructions can be found [here](#enable-konsole-application)
+
 Bazzite - hhd 2.0 bug - game controller stops working when detached/reattached.
 
 - fixed, update to the latest bazzite

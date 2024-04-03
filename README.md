@@ -110,6 +110,12 @@ These functions are not working out of the box, but have workarounds
 
 ### Known bugs
 
+- (2024/04/03) - Steam Client update now causing a bug where after resume, the active game isn't focused properly
+  - controller after resume will instead interact with SteamUI
+  - temporary workarounds:
+    - tap the screen to bring the game back into focus
+    - press `Steam` or `B/Circle` button a few times to return focus back to the game
+    - set a Security Pin on Resume. After inputting your pin, it should bring focus back to the game properly.
 - (2024/03/21) BazziteOS - Mangohud performance overlay might be reporting inaccurate power consumption
   - device is not actually consuming the reported power amounts
 - Occasionally steam game mode will flash white

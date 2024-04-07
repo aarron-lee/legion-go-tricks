@@ -20,7 +20,9 @@ curl -L https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/main/exper
 
 Afterwards, you will see an additional Playback device in your audio options `Legion GO`
 
-Before you switch to the `Legion GO` option, make sure to max out the audio of your regular speakers sound option. The max volume of your audio speakers affects the volume of the `Legion GO` option.
+## WARNING!
+
+Before you switch to the `Legion GO` option, make sure to max out the audio of your regular speakers sound option! The max volume of your audio speakers affects the volume of the `Legion GO` option.
 
 Note that the `Legion GO` option often gets reset on reboot, you can run the following script for to fix this:
 

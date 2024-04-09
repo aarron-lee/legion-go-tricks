@@ -175,7 +175,7 @@ As for which one you should install, here's a breakdown of the benefits and draw
 - Has the best out-of-box experience on the Legion Go
   - Tools such as Decky, Emudeck, HHD (for Controller Emulation), etc, are either pre-installed, or have an easy install process
   - Excellent support from the Bazzite Devs and community
-    - Bazzite Discord is the place to go to for support and discussion, see [here](https://github.com/ublue-os/bazzite?tab=readme-ov-file#join-the-community)
+    - Bazzite Discord is the place to go to for support and discussion, see [here](https://discord.bazzite.gg)
   - Quick to provide OS updates
     - also extremely easy to rollback to previous OS versions, so if an OS update breaks something, you can easily rollback to the prior OS version with a single command
 - Read-only root filesystem helps with providing better security, more stability, and overall a very good stable console-like experience
@@ -236,6 +236,8 @@ As for which one you should install, here's a breakdown of the benefits and draw
   - handycon will also need to be manually disabled after every major OS update
 - ChimeraOS's emulation implementation interferes with Emudeck, you'll need to manually disable the ChimeraOS implementation
 - Only desktop option is Gnome, so anyone that prefers KDE will have to look elsewhere
+- ChimeraOS has a slower release cycle, a new version is released every 1-3 months.
+  - this means it takes longer to get OS improvements, driver updates, bug fixes, etc
 
 # Resources
 

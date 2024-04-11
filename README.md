@@ -403,6 +403,24 @@ You can edit the script with your preferred nested desktop resolution before run
 
 After running the script, restart Game mode. Then change steam's resolution to match the resolution you set.
 
+### Experimental Sound fix
+
+see install instructions [here](./experimental_sound_fix/README.md)
+
+Note that it should also work for NobaraOS, but will require a reboot
+
+### Install experimental Bazzite rollback helper
+
+run the following to install the helper:
+
+```bash
+curl -L https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/main/bazzite-install-rollback-helper.sh | sh
+```
+
+afterwards, run `bazzite-rollback-helper --help` in terminal for usage instructions
+
+If you want to uninstall the helper, delete the `bazzite-rollback-helper` file in `$HOME/.local/bin`
+
 ### Roll back to Bazzite image with specific Linux Kernel
 
 let's say you want to revert Bazzite to an image with kernel 6.6

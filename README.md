@@ -116,6 +116,7 @@ These functions are not working out of the box, but have workarounds
     - tap the screen to bring the game back into focus
     - press `Steam` or `B/Circle` button a few times to return focus back to the game
     - set a Security Pin on Resume. After inputting your pin, it should bring focus back to the game properly.
+    - disable wake movie in customization settings
 - (2024/03/21) BazziteOS - Mangohud performance overlay might be reporting inaccurate power consumption
   - device is not actually consuming the reported power amounts
 - Occasionally steam game mode will flash white

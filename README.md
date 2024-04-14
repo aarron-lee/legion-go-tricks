@@ -98,6 +98,8 @@ These functions are not working out of the box, but have workarounds
 
 ## What has issues
 
+- (24/4/14) Potential suspend bug with the latest controller firmware from Lenovo, it keeps the fans on for some time after suspend
+  - unconfirmed, still needs more verification and testing
 - potential bios bug - custom fan curves stop working for unknown reasons
   - issue on both linux and windows
   - as temporary workaroud, you can reset fan curves via using `Legion_L + Y` combo to reset the fan curves

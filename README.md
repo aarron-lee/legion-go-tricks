@@ -116,7 +116,9 @@ These functions are not working out of the box, but have workarounds
     - tap the screen to bring the game back into focus
     - press `Steam` or `B/Circle` button a few times to return focus back to the game
     - set a Security Pin on Resume. After inputting your pin, it should bring focus back to the game properly.
-    - disable wake movie in customization settings
+    - disable wake movie in customization settings, see here for github issue: https://github.com/ValveSoftware/SteamOS/issues/1222
+      - according to github bug report, this issue only happens when "Startup Steam Deck Default" is selected AND "Use as Wake Movie" is enabled, even when there are more custom videos downloaded.
+      - It does not happen when custom video from Points Shop is selected.
 - (2024/03/21) BazziteOS - Mangohud performance overlay might be reporting inaccurate power consumption
   - device is not actually consuming the reported power amounts
 - Occasionally steam game mode will flash white

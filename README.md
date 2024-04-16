@@ -303,6 +303,8 @@ Dual Boot Tutorial Video (Bazzite + Windows) : https://www.youtube.com/watch?v=3
 
 - Partition guide for Dual boot with Bazzite: [see here](/bazzite-dualboot-partition-guide.md)
 
+Bazzite Rollback tutorial video: https://www.youtube.com/watch?v=XvljabnzgVo
+
 Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=anc7hyPU6Lk
 
 # Guides + small fixes
@@ -421,6 +423,8 @@ curl -L https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/main/bazzi
 afterwards, run `bazzite-rollback-helper --help` in terminal for usage instructions
 
 If you want to uninstall the helper, delete the `bazzite-rollback-helper` file in `$HOME/.local/bin`
+
+See video for bazzite-rollback-helper usage demo: https://www.youtube.com/watch?v=XvljabnzgVo
 
 ### Roll back to Bazzite image with specific Linux Kernel
 

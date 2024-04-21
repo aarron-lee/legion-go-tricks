@@ -480,6 +480,9 @@ run `xdg-open /etc/environment` in terminal, it will open up the file in a text 
 
 Note that if you edit the `/etc/environment` file, it will change the scaling of the on screen keyboard in desktop mode.
 
+<!--
+secure boot tpm unlock - `systemd-cryptenroll` -->
+
 ---
 
 ## NobaraOS Guides

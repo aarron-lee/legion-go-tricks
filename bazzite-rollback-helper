@@ -3,7 +3,8 @@
 image="$(echo $2 | cut -d ':' -f1)"
 branch="$(echo $2 | cut -d ':' -f2)"
 
-DEFAULT_IMAGE=bazzite-deck
+IMAGE_INFO="/usr/share/ublue-os/image-info.json"
+DEFAULT_IMAGE=$(jq -r '."image-name"' < $IMAGE_INFO)
 DEFAULT_BRANCH=stable
 
 

@@ -418,7 +418,9 @@ Note that it should also work for NobaraOS, but will require a reboot
 
 ### Install experimental Bazzite rollback helper
 
-run the following to install the helper:
+**NOTE: THE ROLLBACK HELPER IS NOW INCLUDED IN BAZZITE OS AS OF RELEASE 3.0 (2024-04-24)**
+
+If you are on an older version of bazzite, run the following to install the helper:
 
 ```bash
 curl -L https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/main/bazzite-install-rollback-helper.sh | sh

@@ -110,9 +110,8 @@ These functions are not working out of the box, but have workarounds
 
 ### Known bugs
 
-- Bazzite bug - suspend and bluetooth might not work properly, currently being investigated
-  - for now, rollback to an image from 04/06 or earlier.
-  - bugfix has been potentially found, it's currently being tested
+- (2024-04-24) - Bazzite suspend bug now resolved, for anybody that rolled back to 04/06, you should rebase to stable.
+  - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:stable`
 - (2024/04/03) - Steam Client update now causing a bug where after resume, the active game isn't focused properly
   - controller after resume will instead interact with SteamUI
   - temporary workarounds:
@@ -141,15 +140,12 @@ These functions are not working out of the box, but have workarounds
 
 ### Bazzite bugs
 
-- Bazzite bug - suspend and bluetooth might not work properly, currentlyl being investigated
-  - for now, rollback to an image from 04/06 or earlier.
-  - bugfix has been potentially found, it's currently being tested
+- (2024-04-24) - Bazzite suspend bug now resolved, for anybody that rolled back to 04/06, you should rebase to stable.
+  - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:stable`
 - (2024-03-21) BazziteOS - Mangohud performance overlay might be reporting inaccurate power consumption
   - device is not actually consuming the reported power amounts
 - autoVRAM can be buggy, disabling it in the bios is recommended
   - fix is being investigated
-- (2024-03-13) bazzite suspend bug is fixed, you can go back to regular updates by going back to `stable` via running the following in terminal:
-  - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:stable`
 
 ### Nobara bugs
 

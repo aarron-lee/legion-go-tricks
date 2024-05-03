@@ -967,4 +967,7 @@ bluez_monitor.properties = {
 
 https://web.archive.org/web/20230710001521/https://steamdecki.org/Steam_Deck/Wireless/Bluetooth
  -->
-
+ 
+<!-- 
+distrobox dev env vscode setup
+https://github.com/89luca89/distrobox/blob/main/docs/posts/integrate_vscode_distrobox.md#from-flatpak -->

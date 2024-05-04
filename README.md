@@ -97,15 +97,12 @@ These functions are not working out of the box, but have workarounds
 
 ## What has issues
 
-- potential bios bug - custom fan curves stop working for unknown reasons
-  - issue on both linux and windows
-  - as temporary workaroud, you can reset fan curves via using `Legion_L + Y` combo to reset the fan curves
-  - alternatively, completely disable custom fan curves in LegionGoRemapper and reboot
 - **v29 bios - IMPORTANT BIOS BUG:** You cannot set custom fan curves and use Lenovo's custom TDP mode for TDP control simultaneously,the LGO bios has a bug
-  - this bug is fully resolved on bios v29.1
+  - this bug is fully resolved on bios v29.1 and newer
 - Adaptive Brightness sensor - hardware is detectedby the OS, but not used for auto-brightness yet
   - there's dev work in progress for auto-brightness
     - if you wish to test it out, see [here](https://github.com/corando98/LLG_Dev_scripts?tab=readme-ov-file#ltchipotles-adaptive-brightness-algorithm)
+- microphone does not work
 
 ### Known bugs
 
@@ -120,12 +117,8 @@ These functions are not working out of the box, but have workarounds
     - disable wake movie in customization settings, see here for github issue: https://github.com/ValveSoftware/SteamOS/issues/1222
       - according to github bug report, this issue only happens when "Startup Steam Deck Default" is selected AND "Use as Wake Movie" is enabled, even when there are more custom videos downloaded.
       - It does not happen when custom video from Points Shop is selected.
-- (2024/03/21) BazziteOS - Mangohud performance overlay might be reporting inaccurate power consumption
-  - device is not actually consuming the reported power amounts
 - Occasionally steam game mode will flash white
   - seems to be related to autoVRAM, recommend disabling autoVRAM and set 6GB or 8GB VRAM in the bios
-- BazziteOS - after fresh install, sometimes you encounter a blank screen on reboot
-  - fix found [here](#blank-screen-on-first-reboot)
 - suspend-resume quirk: sound often is fuzzy on resume, usually clears up after 30 seconds or so, but not all the time.
   - sometimes using the [Pause Games plugin](https://github.com/popsUlfr/SDH-PauseGames) with `Pause on Suspend` enabled can help with this issue
   - sometimes temporarily increase TDP to a high value fixes the sound problem
@@ -141,25 +134,13 @@ These functions are not working out of the box, but have workarounds
 
 - (2024-04-24) - Bazzite suspend bug now resolved, for anybody that rolled back to 04/06, you should rebase to stable.
   - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:stable`
-- (2024-03-21) BazziteOS - Mangohud performance overlay might be reporting inaccurate power consumption
-  - device is not actually consuming the reported power amounts
 - autoVRAM can be buggy, disabling it in the bios is recommended
   - fix is being investigated
 
-### Nobara bugs
-
-- make sure to be on the latest nobara for all the bugfixes
-- controller is more buggy in desktop mode for desktop-related usage, steam input doesn't work. should still work fine for gaming
-  - nested desktop is also broken due to KDE 6
-
 ### User-reported bugs (needs verification)
 
-- microphone might not work on bazzite
-  - requires verification
 - certain Decky plugins require `deck` as your username
   - deck username fixes animation changer plugin and mangopeel plugins
-- nobaraOS v39
-  - game mode global FSR is not working in Nobara
 
 # Which Linux Distro should I Install?
 
@@ -677,27 +658,6 @@ includes:
 - you’ll have to set scaling once in the KDE settings when the nested desktop session loads for the first time but it should save it for future nested desktop sessions
   or else the screen will be for ants at 1600p
 - also adds back the right-click “add to steam” shortcut you get with the steamdeck-KDE-presets package (which conflicts with the new theming)
-
-<!-- Here's a run down on how to get running
-```git clone https://github.com/AdnanHodzic/auto-cpufreq.git```
-```cd auto-cpufreq && sudo ./auto-cpufreq-installer```
-Create this in /etc/auto-cpufreq.conf
-```[charger]
-
-governor = shedutil
-energy_performance_preference = performance
-scaling_min_freq = 1600000
-scaling_max_freq = 5100000
-turbo = auto
-
-[battery]
-
-governor = powersave
-energy_performance_preference = performance
-scaling_min_freq = 1600000
-scaling_max_freq = 3300000
-turbo = auto ```
-then ```auto-cpufreq --install``` or if you want to see what's it doing ```auto-cpufreq --live``` -->
 
 ---
 

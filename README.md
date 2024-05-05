@@ -106,8 +106,10 @@ These functions are not working out of the box, but have workarounds
 
 ### Known bugs
 
-- (2024-04-24) - Bazzite suspend bug now resolved, for anybody that rolled back to 04/06, you should rebase to stable.
-  - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:stable`
+- (2024/5/5) Bazzite - the recent new gamescope update is causing a bunch of reported problems
+  - if you encounter problems, recommendation is to rollback to a stable image such as 04/27, 04/06, 03/15.
+  - if you encounter a failed gpg key error, please try [this](#failed-to-download-gpg-key-bug-when-trying-to-rebase)
+  - problems are being investigated
 - (2024/04/03) - Steam Client update now causing a bug where after resume, the active game isn't focused properly
   - controller after resume will instead interact with SteamUI
   - temporary workarounds:
@@ -132,8 +134,10 @@ These functions are not working out of the box, but have workarounds
 
 ### Bazzite bugs
 
-- (2024-04-24) - Bazzite suspend bug now resolved, for anybody that rolled back to 04/06, you should rebase to stable.
-  - `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:stable`
+- (2024/5/5) Bazzite - the recent new gamescope update is causing a bunch of reported problems
+  - if you encounter problems, recommendation is to rollback to a stable image such as 04/27, 04/06, 03/15.
+  - if you encounter a failed gpg key error, please try [this](#failed-to-download-gpg-key-bug-when-trying-to-rebase)
+  - problems are being investigated
 - autoVRAM can be buggy, disabling it in the bios is recommended
   - fix is being investigated
 
@@ -457,6 +461,16 @@ for non-technical users:
 run `xdg-open /etc/environment` in terminal, it will open up the file in a text editor. Add `STEAM_FORCE_DESKTOPUI_SCALING=2` to the end of the file, and save. You will be prompted for your password, save and then reboot.
 
 Note that if you edit the `/etc/environment` file, it will change the scaling of the on screen keyboard in desktop mode.
+
+### "failed to download gpg key" bug when trying to rebase
+
+try running the following, then rebase again:
+
+```
+# note, changing the "nonfree" to free in this command might also fix the rebase.
+cd /etc/pki/rpm-gpg
+sudo ln -s RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020 RPM-GPG-KEY-rpmfusion-nonfree-fedora-39
+```
 
 <!--
 secure boot tpm unlock - `systemd-cryptenroll` -->

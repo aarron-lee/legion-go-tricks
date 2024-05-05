@@ -106,9 +106,9 @@ These functions are not working out of the box, but have workarounds
 
 ### Known bugs
 
-- (2024/5/5) Bazzite - the recent new gamescope update is causing a bunch of reported problems
+- (2024/5/5) Bazzite - some users are reporting bugs related to recent gamescope changes
   - if you encounter problems, recommendation is to rollback to a stable image such as 04/27, 04/06, 03/15.
-  - if you encounter a failed gpg key error, please try [this](#failed-to-download-gpg-key-bug-when-trying-to-rebase)
+  - if you encounter a failed gpg key error during rebase, please try [this](#failed-to-download-gpg-key-bug-when-trying-to-rebase)
   - problems are being investigated
 - (2024/04/03) - Steam Client update now causing a bug where after resume, the active game isn't focused properly
   - controller after resume will instead interact with SteamUI
@@ -134,9 +134,9 @@ These functions are not working out of the box, but have workarounds
 
 ### Bazzite bugs
 
-- (2024/5/5) Bazzite - the recent new gamescope update is causing a bunch of reported problems
+- (2024/5/5) Bazzite - some users are reporting bugs related to recent gamescope changes
   - if you encounter problems, recommendation is to rollback to a stable image such as 04/27, 04/06, 03/15.
-  - if you encounter a failed gpg key error, please try [this](#failed-to-download-gpg-key-bug-when-trying-to-rebase)
+  - if you encounter a failed gpg key error during rebase, please try [this](#failed-to-download-gpg-key-bug-when-trying-to-rebase)
   - problems are being investigated
 - autoVRAM can be buggy, disabling it in the bios is recommended
   - fix is being investigated

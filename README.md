@@ -138,6 +138,8 @@ These functions are not working out of the box, but have workarounds
   - if you encounter problems, recommendation is to rollback to a stable image such as 04/27, 04/06, 03/15.
   - if you encounter a failed gpg key error during rebase, please try [this](#failed-to-download-gpg-key-bug-when-trying-to-rebase)
   - problems are being investigated
+- if you need swipe gestures in game mode for QAM/Home, you will need to pin the 04/27 image
+  - gamescope changes broke the feature, uncertain on if it will be fixed anytime soon
 - autoVRAM can be buggy, disabling it in the bios is recommended
   - fix is being investigated
 

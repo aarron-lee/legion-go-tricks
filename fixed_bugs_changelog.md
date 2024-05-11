@@ -186,3 +186,11 @@ After install is complete, reboot and go back to desktop mode
 Also run `sudo modprobe acpi_call` in terminal, you should see no errors
 
 7. Retest and see if you're seeing any issues on 144Hz
+
+# Deprecated Resources
+
+steam-patch (for TDP control, some steam glyphs, etc) - https://github.com/corando98/steam-patch
+
+rogue-enemy (deprecated, no longer maintained) - PS5 Dualsense Edge Emulator - https://github.com/corando98/ROGueENEMY/
+
+LegionGoRefreshRates Decky Plugin - experimental plugin for changing default screen resolution in game mode. https://github.com/aarron-lee/LegionGoRefreshRate

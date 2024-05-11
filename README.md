@@ -106,8 +106,8 @@ These functions are not working out of the box, but have workarounds
 
 ### Known bugs
 
-- (2024/5/5) Bazzite - some users are reporting bugs related to recent gamescope changes
-  - if you encounter problems, recommendation is to rollback to a stable image such as 04/27, 04/06, 03/15.
+- (2024/5/5) Bazzite - some users are reporting bugs related to recent new gamescope changes
+  - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15.
   - if you encounter a failed gpg key error during rebase, please try [this](#failed-to-download-gpg-key-bug-when-trying-to-rebase)
   - problems are being investigated
 - (2024/04/03) - Steam Client update now causing a bug where after resume, the active game isn't focused properly
@@ -134,8 +134,8 @@ These functions are not working out of the box, but have workarounds
 
 ### Bazzite bugs
 
-- (2024/5/5) Bazzite - some users are reporting bugs related to recent gamescope changes
-  - if you encounter problems, recommendation is to rollback to a stable image such as 04/27, 04/06, 03/15.
+- (2024/5/5) Bazzite - some users are reporting bugs related to recent new gamescope changes
+  - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15.
   - if you encounter a failed gpg key error during rebase, please try [this](#failed-to-download-gpg-key-bug-when-trying-to-rebase)
   - problems are being investigated
 - if you need swipe gestures in game mode for QAM/Home, you will need to pin the 04/27 image

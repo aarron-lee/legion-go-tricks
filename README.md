@@ -106,7 +106,9 @@ These functions are not working out of the box, but have workarounds
 
 ### Known bugs
 
-- (2024/5/5) Bazzite - some users are reporting bugs related to recent new gamescope changes
+- (2024/5/12) Bazzite - some users are reporting issues where they boot into a black screen
+  - cause is currently unknown and being investigated
+- (2024/5/5) Bazzite - some users are reporting bugs related to recent new gamescope changes, usually related to refresh rate and fps caps
   - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15.
   - if you encounter a failed gpg key error during rebase, please try [this](#failed-to-download-gpg-key-bug-when-trying-to-rebase)
   - problems are being investigated
@@ -134,8 +136,9 @@ These functions are not working out of the box, but have workarounds
 
 ### Bazzite bugs
 
-- (2024/5/5) Bazzite - some users are reporting bugs related to recent new gamescope changes
-  - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15.
+- (2024/5/12) Bazzite - some users are reporting issues where they boot into a black screen
+  - cause is currently unknown and being investigated
+- (2024/5/5) Bazzite - some users are reporting bugs related to recent new gamescope changes, usually related to refresh rate and fps caps  - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15.
   - if you encounter a failed gpg key error during rebase, please try [this](#failed-to-download-gpg-key-bug-when-trying-to-rebase)
   - problems are being investigated
 - if you need swipe gestures in game mode for QAM/Home, you will need to pin the 04/27 image

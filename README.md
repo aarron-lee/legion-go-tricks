@@ -107,7 +107,12 @@ These functions are not working out of the box, but have workarounds
 ### Known bugs
 
 - (2024/5/12) Bazzite - some users are reporting issues where they boot into a black screen
-  - cause is currently unknown and being investigated
+  - cause is currently unknown and being investigated, most likely related to new gamescope
+  - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15.
+    - rollback instructions: press esc during boot to get the grub menu, and boot your prior bazziteOS version
+    - once booted into the previous version, rebase to an older bazzite
+      - e.g. run `bazzite-rollback-helper rebase 40-20240427` to rebase to Bazzite with old gamescope
+    - if you want to return to regular updates later, run `bazzite-rollback-helper rebase stable`
 - (2024/5/5) Bazzite - some users are reporting bugs related to recent new gamescope changes, usually related to refresh rate and fps caps
   - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15.
   - if you encounter a failed gpg key error during rebase, please try [this](#failed-to-download-gpg-key-bug-when-trying-to-rebase)
@@ -137,7 +142,12 @@ These functions are not working out of the box, but have workarounds
 ### Bazzite bugs
 
 - (2024/5/12) Bazzite - some users are reporting issues where they boot into a black screen
-  - cause is currently unknown and being investigated
+  - cause is currently unknown and being investigated, most likely related to new gamescope
+  - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15.
+    - rollback instructions: press esc during boot to get the grub menu, and boot your prior bazziteOS version
+    - once booted into the previous version, rebase to an older bazzite
+      - e.g. run `bazzite-rollback-helper rebase 40-20240427` to rebase to Bazzite with old gamescope
+    - if you want to return to regular updates later, run `bazzite-rollback-helper rebase stable`
 - (2024/5/5) Bazzite - some users are reporting bugs related to recent new gamescope changes, usually related to refresh rate and fps caps - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15.
   - if you encounter a failed gpg key error during rebase, please try [this](#failed-to-download-gpg-key-bug-when-trying-to-rebase)
   - problems are being investigated

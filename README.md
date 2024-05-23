@@ -108,7 +108,7 @@ These functions are not working out of the box, but have workarounds
 
 - (2024/5/12) Bazzite - some users are reporting issues where they boot into a black screen
   - cause is currently unknown and being investigated, most likely related to new gamescope
-  - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15.
+  - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15. see tutorial video https://www.youtube.com/watch?v=gE1ff72g2Gk
     - rollback instructions: press esc during boot to get the grub menu, and boot your prior bazziteOS version
     - once booted into the previous version, rebase to an older bazzite
       - e.g. run `bazzite-rollback-helper rebase 40-20240427` to rebase to Bazzite with old gamescope
@@ -143,7 +143,7 @@ These functions are not working out of the box, but have workarounds
 
 - (2024/5/12) Bazzite - some users are reporting issues where they boot into a black screen
   - cause is currently unknown and being investigated, most likely related to new gamescope
-  - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15.
+  - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15. see tutorial video https://www.youtube.com/watch?v=gE1ff72g2Gk
     - rollback instructions: press esc during boot to get the grub menu, and boot your prior bazziteOS version
     - once booted into the previous version, rebase to an older bazzite
       - e.g. run `bazzite-rollback-helper rebase 40-20240427` to rebase to Bazzite with old gamescope

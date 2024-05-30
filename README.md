@@ -37,6 +37,7 @@ Linux is good enough to be a daily driver on the Legion Go.
 - RGB control works via Decky Plugin or Steam Input + Dualsense emulation
 - suspend-resume works
 - all standard hardware (wifi, bluetooth, sound, etc) works
+- Fan curves can be managed via hhd-ui or the LegionGoRemapper Decky plugin.
 - basically all hardware on the LGO is fully usable
 
 Some of the things you find in this document may be unofficial changes to original software
@@ -81,7 +82,7 @@ These functions are not working out of the box, but have workarounds
 - TDP - requires using either hhd or decky plugins
 - Controller RGB Lights - requires decky plugin or HHD (HHD enables steam input RGB support) See [Video Demo here](https://youtu.be/HHubJ8AnkUk?si=oWLVultDKBMVOxlo&t=35)
 - GPU Frequency control - via SimpleDeckyTDP plugin
-- Custom Fan Curves - via LegionGoRemapper plugin or HHD
+- Custom Fan Curves - via LegionGoRemapper plugin or HHD (you need to install hhd + hhd-ui)
   - fan curves confirmed to work with bios v29, but bios v29.1 or newer is HIGHLY recommended due to some major bugs on v29
 - Games can sometimes default to 800p, you will need to manually change the resolution per game in the `Steam Settings > Properties > Game Resolution` to either `Native` or other higher resolutions.
 - v28 bios - STAMP mode is bugged on both Windows and Linux when setting high TDPs with 3rd party tools like ryzenadj and handheld companion

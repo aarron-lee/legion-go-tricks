@@ -307,6 +307,25 @@ Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=anc
 
 # Guides + small fixes
 
+### Update Bios
+
+Source: https://github.com/ChimeraOS/chimeraos/wiki/Community-Guides#lenovo-legion-go
+
+The Lenovo Legion Go is compatible with the fwupd tool. To use it follow the following steps:
+
+    Note: Ensure your device is plugged into AC power before beginning.
+
+1.) Download the latest BIOS exe from https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/legion-series/legion-go-8apu1/downloads/driver-list
+
+2.) Extract the `isflash.bin` from the exe archive using file roller or some other archive tool.
+
+3.) Go to the folder where the `isflash.bin` file is located. Right click, and select `open terminal here`. Then run `sudo fwupdtool install-blob isflash.bin`
+
+4.) Select System Firmware from the options menu.
+
+5.) It will ask you to reboot, Select `y`. The system will reboot multiple times. Leave the AC plugged in and wait for it to return to the OS.
+
+
 ## Bazzite Deck Edition Guides
 
 ### FAQ on bazzite site for rollback, pinning OS version, etc

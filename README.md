@@ -115,9 +115,9 @@ These functions are not working out of the box, but have workarounds
       - e.g. run `bazzite-rollback-helper rebase 40-20240427` to rebase to Bazzite with old gamescope
     - if you want to return to regular updates later, run `bazzite-rollback-helper rebase stable`
 - (2024/5/5) Bazzite - some users are reporting bugs related to recent new gamescope changes, usually related to refresh rate and fps caps
-  - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15.
+  - try enabling developer mode, then enable Force Compositing in the Developer options
+  - if force compositing doesn't work, then the recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15.
   - if you encounter a failed gpg key error during rebase, please try [this](#failed-to-download-gpg-key-bug-when-trying-to-rebase)
-  - problems are being investigated
 - (2024/04/03) - Steam Client update now causing a bug where after resume, the active game isn't focused properly
   - controller after resume will instead interact with SteamUI
   - temporary workarounds:

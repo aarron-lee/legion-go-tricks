@@ -103,30 +103,11 @@ These functions are not working out of the box, but have workarounds
 - Adaptive Brightness sensor - hardware is detectedby the OS, but not used for auto-brightness yet
   - there's dev work in progress for auto-brightness
     - if you wish to test it out, see [here](https://github.com/corando98/LLG_Dev_scripts?tab=readme-ov-file#ltchipotles-adaptive-brightness-algorithm)
+    - the LegionGoRemapper Decky plugin also has experimental autobrightness controls
 - microphone does not work
 
 ### Known bugs
 
-- (2024/5/12) Bazzite - some users are reporting issues where they boot into a black screen
-  - cause is currently unknown and being investigated, most likely related to new gamescope
-  - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15. see tutorial video https://www.youtube.com/watch?v=gE1ff72g2Gk
-    - rollback instructions: press esc during boot to get the grub menu, and boot your prior bazziteOS version
-    - once booted into the previous version, rebase to an older bazzite
-      - e.g. run `bazzite-rollback-helper rebase 40-20240427` to rebase to Bazzite with old gamescope
-    - if you want to return to regular updates later, run `bazzite-rollback-helper rebase stable`
-- (2024/5/5) Bazzite - some users are reporting bugs related to recent new gamescope changes, usually related to refresh rate and fps caps
-  - try enabling developer mode, then enable Force Compositing in the Developer options
-  - if force compositing doesn't work, then the recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15.
-  - if you encounter a failed gpg key error during rebase, please try [this](#failed-to-download-gpg-key-bug-when-trying-to-rebase)
-- (2024/04/03) - Steam Client update now causing a bug where after resume, the active game isn't focused properly
-  - controller after resume will instead interact with SteamUI
-  - temporary workarounds:
-    - tap the screen to bring the game back into focus
-    - press `Steam` or `B/Circle` button a few times to return focus back to the game
-    - set a Security Pin on Resume. After inputting your pin, it should bring focus back to the game properly.
-    - disable wake movie in customization settings, see here for github issue: https://github.com/ValveSoftware/SteamOS/issues/1222
-      - according to github bug report, this issue only happens when "Startup Steam Deck Default" is selected AND "Use as Wake Movie" is enabled, even when there are more custom videos downloaded.
-      - It does not happen when custom video from Points Shop is selected.
 - Occasionally steam game mode will flash white
   - seems to be related to autoVRAM, recommend disabling autoVRAM and set 6GB or 8GB VRAM in the bios
 - suspend-resume quirk: sound often is fuzzy on resume, usually clears up after 30 seconds or so, but not all the time.
@@ -154,6 +135,7 @@ These functions are not working out of the box, but have workarounds
   - problems are being investigated
 - if you need swipe gestures in game mode for QAM/Home, you will need to pin the 04/27 image
   - gamescope changes broke the feature, uncertain on if it will be fixed anytime soon
+  - experimental rollback option: antheas has made an experimental 04/27 bazzite image available, which can be used via the following command: `rpm-ostree rebase ostree-unverified-registry:ghcr.io/antheas/bazzite-slim:40-20240427`
 - autoVRAM can be buggy, disabling it in the bios is recommended
   - fix is being investigated
 
@@ -324,7 +306,6 @@ The Lenovo Legion Go is compatible with the fwupd tool. To use it follow the fol
 4.) Select System Firmware from the options menu.
 
 5.) It will ask you to reboot, Select `y`. The system will reboot multiple times. Leave the AC plugged in and wait for it to return to the OS.
-
 
 ## Bazzite Deck Edition Guides
 

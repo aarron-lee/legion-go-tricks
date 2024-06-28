@@ -108,6 +108,8 @@ These functions are not working out of the box, but have workarounds
 
 ### Known bugs
 
+- Bazzite - FPS limiters, VRR, etc, aren't fully functional or working correctly
+  - this is likely due to new gamescope, as a workaround you can use the 04/27 bazzite image, which has the old version of gamescope
 - Occasionally steam game mode will flash white
   - seems to be related to autoVRAM, recommend disabling autoVRAM and set 6GB or 8GB VRAM in the bios
 - suspend-resume quirk: sound often is fuzzy on resume, usually clears up after 30 seconds or so, but not all the time.

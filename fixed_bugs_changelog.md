@@ -1,5 +1,22 @@
 # Bugs changelog
 
+<!-- - (06/30/24) Bazzite 3.5 bug - user reports of booting into a black screen.
+  - temporary workaround for now is to rollback to an older image.
+  - instructions:
+    - try booting unti you see a blank screen. then press `ctrl + alt + f2` for to get a terminal. login + run `steamos-session-select plasma`
+      which should log you into desktop mode
+    - then in terminal there, run `bazzite-rollback-helper list` to see available bazzite versions, then run `bazzite-rollback-helper rebase replace-this-with-older-bazzite-version`
+      - e.g. `bazzite-rollback-helper rebase 40-stable-20240627`
+    - once the bug is fixed, run `bazzite-rollback-helper rebase stable` to go back to regular updates
+- (2024/5/12) Bazzite - some users are reporting issues where they boot into a black screen
+
+  - cause is currently unknown and being investigated, most likely related to new gamescope
+  - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15. see tutorial video https://www.youtube.com/watch?v=gE1ff72g2Gk
+    - rollback instructions: press esc during boot to get the grub menu, and boot your prior bazziteOS version
+    - once booted into the previous version, rebase to an older bazzite
+      - e.g. run `bazzite-rollback-helper rebase 40-20240427` to rebase to Bazzite with old gamescope
+    - if you want to return to regular updates later, run `bazzite-rollback-helper rebase stable` -->
+
 - (2024/5/12) Bazzite - some users are reporting issues where they boot into a black screen
   - cause is currently unknown and being investigated, most likely related to new gamescope
   - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15. see tutorial video https://www.youtube.com/watch?v=gE1ff72g2Gk

@@ -109,7 +109,7 @@ These functions are not working out of the box, but have workarounds
 ### Known bugs
 
 - Bazzite - FPS limiters, VRR, etc, aren't fully functional or working correctly
-  - this is likely due to new gamescope, as a workaround you can use the 04/27 bazzite image, which has the old version of gamescope
+  - this is due to new gamescope, as a workaround you can use the 04/27 bazzite image, which has the old version of gamescope
 - Occasionally steam game mode will flash white
   - seems to be related to autoVRAM, recommend disabling autoVRAM and set 6GB or 8GB VRAM in the bios
 - suspend-resume quirk: sound often is fuzzy on resume, usually clears up after 30 seconds or so, but not all the time.
@@ -125,26 +125,8 @@ These functions are not working out of the box, but have workarounds
 
 ### Bazzite bugs
 
-- (06/30/24) Bazzite 3.5 bug - user reports of booting into a black screen.
-  - temporary workaround for now is to rollback to an older image.
-  - instructions:
-    - try booting unti you see a blank screen. then press `ctrl + alt + f2` for to get a terminal. login + run `steamos-session-select plasma`
-      which should log you into desktop mode
-    - then in terminal there, run `bazzite-rollback-helper list` to see available bazzite versions, then run `bazzite-rollback-helper rebase replace-this-with-older-bazzite-version`
-      - e.g. `bazzite-rollback-helper rebase 40-stable-20240627`
-    - once the bug is fixed, run `bazzite-rollback-helper rebase stable` to go back to regular updates
-- (2024/5/12) Bazzite - some users are reporting issues where they boot into a black screen
-  - cause is currently unknown and being investigated, most likely related to new gamescope
-  - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15. see tutorial video https://www.youtube.com/watch?v=gE1ff72g2Gk
-    - rollback instructions: press esc during boot to get the grub menu, and boot your prior bazziteOS version
-    - once booted into the previous version, rebase to an older bazzite
-      - e.g. run `bazzite-rollback-helper rebase 40-20240427` to rebase to Bazzite with old gamescope
-    - if you want to return to regular updates later, run `bazzite-rollback-helper rebase stable`
-- (2024/5/5) Bazzite - some users are reporting bugs related to recent new gamescope changes, usually related to refresh rate and fps caps - if you encounter problems, recommendation is to rollback to a stable image with old gamescope such as 04/27, 04/06, 03/15.
+- bugs related to new gamescope changes, usually related to refresh rate and fps limiters - if you encounter problems, recommendation is to rollback to 04/27
   - if you encounter a failed gpg key error during rebase, please try [this](#failed-to-download-gpg-key-bug-when-trying-to-rebase)
-  - problems are being investigated
-- if you need swipe gestures in game mode for QAM/Home, you will need to pin the 04/27 image
-  - gamescope changes broke the feature, uncertain on if it will be fixed anytime soon
   - experimental rollback option: antheas has made an experimental 04/27 bazzite image available, which can be used via the following command: `rpm-ostree rebase ostree-unverified-registry:ghcr.io/antheas/bazzite-slim:40-20240427`
 - autoVRAM can be buggy, disabling it in the bios is recommended
   - fix is being investigated

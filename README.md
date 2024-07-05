@@ -125,6 +125,13 @@ These functions are not working out of the box, but have workarounds
 
 ### Bazzite bugs
 
+- Bazzite 3.5 bug - after upgrading to bazzite 3.5, some LGO users have reported booting into a black screen
+  - potential workarounds:
+    - first, open a tty + login via pressing `Ctrl + alt + f2` on a physical keyboard
+    - then, delete old/stale env variables from `$HOME/.config/environment.d`
+    - also, run `sudo systemctl daemon-reload`
+    - reboot
+  - if potential workarounds don't work, you'll probably need to consider a bazzite rollback to an older version
 - bugs related to new gamescope changes, usually related to refresh rate and fps limiters - if you encounter problems, recommendation is to rollback to 04/27
   - if you encounter a failed gpg key error during rebase, please try [this](#failed-to-download-gpg-key-bug-when-trying-to-rebase)
   - experimental rollback option: antheas has made an experimental 04/27 bazzite image available, which can be used via the following command: `rpm-ostree rebase ostree-unverified-registry:ghcr.io/antheas/bazzite-slim:40-20240427`

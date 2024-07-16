@@ -81,7 +81,7 @@ These functions are not working out of the box, but have workarounds
   - With the latest version of the PS5 Dualsense edge emulators, it is now usable in steam input. [Video Demo here](https://www.youtube.com/watch?v=RuSboPkZob4)
 - TDP - requires using either hhd or decky plugins
 - Controller RGB Lights - requires decky plugin or HHD (HHD enables steam input RGB support) See [Video Demo here](https://youtu.be/HHubJ8AnkUk?si=oWLVultDKBMVOxlo&t=35)
-- GPU Frequency control - via SimpleDeckyTDP plugin
+- GPU Frequency control - via SimpleDeckyTDP plugin or hhd
 - Custom Fan Curves - via LegionGoRemapper plugin or HHD (you need to install hhd + hhd-ui)
   - fan curves confirmed to work with bios v29, but bios v29.1 or newer is HIGHLY recommended due to some major bugs on v29
 - Games can sometimes default to 800p, you will need to manually change the resolution per game in the `Steam Settings > Properties > Game Resolution` to either `Native` or other higher resolutions.
@@ -91,7 +91,7 @@ These functions are not working out of the box, but have workarounds
     - You can set custom fan curves on bios v29.1 with the LegionGoRemapper plugin
     - alternatively, if you don't want to use a custom fan curve, you can enable the `Lenovo Custom TDP` toggle in SimpleDeckyTDP
 - Screen Refresh Rate and FPS control - unified refresh rate + FPS slider now works perfectly on latest bazzite stable, fixes should now also be on the latest Nobara Deck Edition too.
-  - ChimeraOS might not have the fix yet.
+  - ChimeraOS might not have the fix yet, should be in v46
 - adaptive/auto display brightness doesn't work yet
   - manual brightness slider in steam UI works without issues
   - there's work in progress from devs for to get this fully working
@@ -108,17 +108,13 @@ These functions are not working out of the box, but have workarounds
 
 ### Known bugs
 
-- Bazzite - FPS limiters, VRR, etc, aren't fully functional or working correctly
-  - this is due to new gamescope, as a workaround you can use the 04/27 bazzite image, which has the old version of gamescope
 - Occasionally steam game mode will flash white
   - seems to be related to autoVRAM, recommend disabling autoVRAM and set 6GB or 8GB VRAM in the bios
 - suspend-resume quirk: sound often is fuzzy on resume, usually clears up after 30 seconds or so, but not all the time.
   - sometimes using the [Pause Games plugin](https://github.com/popsUlfr/SDH-PauseGames) with `Pause on Suspend` enabled can help with this issue
   - sometimes temporarily increase TDP to a high value fixes the sound problem
-- HHD (Dualsense Emulator) - It should now hide the Xbox controller in steam input, and only show the Dualsense Edge.
-  - If you see an extra Xbox controller in steam input, you can flip the fps-mode switch on and off for to make it disappear. You can leave the controllers attached when you do this.
-  - This should also fix any issues where emulators don't recognize the controller, since the emulator was latching onto the Xbox controller
-    - if you still have a controller issue, reorder the controller from player 2 to player 1 in the QAM. sometimes it registers as player 2 even when no other controller is attached
+- occasionally, steam will register the attached controller as player 2 even when no other controller is attached
+  - reorder the controller from player 2 to player 1 in the QAM.
 - user reports say wifi has lower download speeds on Linux vs Windows
 - alternative resolutions while in desktop mode are buggy/broken
   - instead of changing resolution, change scaling for to enlarge/shrink UI elements
@@ -129,12 +125,13 @@ These functions are not working out of the box, but have workarounds
   - potential workarounds:
     - first, open a tty + login via pressing `Ctrl + alt + f2` on a physical keyboard
     - then, delete old/stale env variables from `$HOME/.config/environment.d`
+      - command for removing all env variables: `rm $HOME/.config/environment.d/*`
     - also, run `sudo systemctl daemon-reload`
     - reboot
   - if potential workarounds don't work, you'll probably need to consider a bazzite rollback to an older version
 - bugs related to new gamescope changes, usually related to refresh rate and fps limiters - if you encounter problems, recommendation is to rollback to 04/27
-  - if you encounter a failed gpg key error during rebase, please try [this](#failed-to-download-gpg-key-bug-when-trying-to-rebase)
-  - experimental rollback option: antheas has made an experimental 04/27 bazzite image available, which can be used via the following command: `rpm-ostree rebase ostree-unverified-registry:ghcr.io/antheas/bazzite-slim:40-20240427`
+  - 04/27 also is the last image available for swipe gestures while in game mode
+  - experimental rollback option: antheas has made an experimental 04/27 bazzite image available, which can be used via the following command: `rpm-ostree rebase ostree-unverified-registry:ghcr.io/hhd-dev/bazzite-dc:40-20240427`
 - autoVRAM can be buggy, disabling it in the bios is recommended
   - fix is being investigated
 

@@ -10,7 +10,7 @@ credit to @adolfotregosa on discord for developing an improved version of the au
 
 # Install instructions
 
-## IF ON BAZZITE OS, THIS FIX HAS BEEN ADDED TO THE OS AND SHOULD BE AVAILABLE SOON
+## IF ON BAZZITE OS, THIS FIX HAS BEEN ADDED TO THE OS ALREADY.
 
 If you installed the v1 version, you can just rerun both scripts to reinstall.
 

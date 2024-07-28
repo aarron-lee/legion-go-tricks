@@ -713,7 +713,7 @@ Instructions:
 6. OPTIONAL : Download [custom rEFInd theme](https://drive.google.com/drive/folders/1QJBljL_8QPeaMhQ0-qXAc9U8f3AcgNBs?usp=sharing) (credits goes to Yannis Vierkötter and his rEFInd-Minimalist for the original theme) (download mirror link [here](./resources/rEFInd-Minimalist-LGO_Bazzite.zip))
 7. OPTIONAL : Unzip then run `sudo sh -c 'mkdir /boot/efi/EFI/refind/themes/ ; set -euo pipefail cp -r rEFInd-Minimalist-LGO_Bazzite/ /boot/efi/EFI/refind/themes/ && grep -qFx "include themes/rEFInd-Minimalist-LGO_Bazzite/theme.conf" "/boot/efi/EFI/refind/refind.conf" || echo "include themes/rEFInd-Minimalist-LGO_Bazzite/theme.conf" >> /boot/efi/EFI/refind/refind.conf ' ` (make sure rEFInd-Minimalist-LGO_Bazzite/ is present in the directory you are currently in, type in the command `ls` to see all available files)
 8. Reboot into BIOS and set rEFInd as the first option in the boot order
-9. Bonus step : Set the Bazzite bootsplash in portrait mode, Run `sudo rpm-ostree kargs --append-if-missing=video=eDP-1:panel_orientation=left_side_up`
+9. Bonus step for Legion Go only: Set the Bazzite bootsplash in portrait mode, Run `sudo rpm-ostree kargs --append-if-missing=video=eDP-1:panel_orientation=left_side_up`
 
 ### Trick to rotate Legion Go screen for REFIND
 

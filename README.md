@@ -108,8 +108,10 @@ These functions are not working out of the box, but have workarounds
 
 ### Known bugs
 
-- (08/2/2024) Bazzite - reports of an odd square-shaped rainbow colored artifact on the screen in game mode/gamescope-session
-  - temporary solution: rollback to 07/22 while devs investigate: `bazzite-rollback-helper rebase 40-stable-20240722`
+- (08/2/2024) Bazzite - reports of an odd square-shaped rainbow colored visual artifact on the screen in game mode/gamescope-session
+  - visual artifacts disappear after a suspend-resume cycle
+  - alternative temporary solution: rollback to 07/22 while devs investigate: `bazzite-rollback-helper rebase 40-stable-20240722`
+    - Note, after the bug is fixed, you'll want to resume stable updates via running `bazzite-rollback-helper rebase stable`
 - If using Decky loader, shutdown can take an unusually long time
   - this is because Decky sets an unusually long timeout time (45s)
   - workaround: shorten the timeout time:

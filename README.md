@@ -108,13 +108,17 @@ These functions are not working out of the box, but have workarounds
 
 ### Known bugs
 
+- (08/2/2024) Bazzite - reports of an odd square-shaped rainbow colored artifact on the screen in game mode/gamescope-session
+  - temporary solution: rollback to 07/22 while devs investigate: `bazzite-rollback-helper rebase 40-stable-20240722`
 - If using Decky loader, shutdown can take an unusually long time
   - this is because Decky sets an unusually long timeout time (45s)
   - workaround: shorten the timeout time:
+
 ```
 sudo sed -i 's~TimeoutStopSec=.*$~TimeoutStopSec=2~g' /etc/systemd/system/plugin_loader.service
 sudo systemctl daemon-reload
 ```
+
 - Occasionally steam game mode will flash white
   - seems to be related to autoVRAM, recommend disabling autoVRAM and set 6GB or 8GB VRAM in the bios
 - suspend-resume quirk: sound often is fuzzy on resume, usually clears up after 30 seconds or so, but not all the time.

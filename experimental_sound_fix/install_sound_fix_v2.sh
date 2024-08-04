@@ -27,7 +27,7 @@ echo "installing pipewire EQ sound improvements"
 
 cd /tmp
 
-git clone https://github.com/aarron-lee/legion-go-tricks.git
+git clone --depth=1 https://github.com/aarron-lee/legion-go-tricks.git
 
 cd /tmp/legion-go-tricks/experimental_sound_fix
 
@@ -75,6 +75,8 @@ context.modules = [
             capture.props = {
                 node.name      = "Legion GO"
                 media.class    = "Audio/Sink"
+                priority.driver = 1000
+                priority.session = 1000
                 audio.channels = 2
                 audio.position = [ FL FR ]
             }
@@ -88,7 +90,6 @@ context.modules = [
         }
     }
 ]
-
 EOF
 
 cp /tmp/legion-go-tricks/experimental_sound_fix/multiwayCor48.wav $PIPEWIRE_DIR/multiwayCor48.wav

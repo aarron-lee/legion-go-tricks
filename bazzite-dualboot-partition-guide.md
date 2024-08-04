@@ -1,4 +1,4 @@
-source: https://universal-blue.discourse.group/docs?topic=129
+source:  https://universal-blue.discourse.group/t/dual-boot-preliminary-setup-and-post-setup-guide/2743#p-6361-manual-partitioning-to-the-same-drive-for-dual-boot-setups-6
 
 # Bazzite Dualboot partition guide
 
@@ -34,10 +34,9 @@ Dual booting Bazzite with Windows on the same drive works better with Windows al
 ```
     Manual Partitioning Scheme:
 
-    mount point: /boot/efi  
+    mount point: /boot/efi
     format:      EFI system partition  (also known as vfat)
-    size:        300MB  
-    (optional: use existing system efi partition)
+    size:        300MB
 
     mount point: /boot
     format:      ext4

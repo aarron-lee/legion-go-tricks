@@ -112,6 +112,8 @@ These functions are not working out of the box, but have workarounds
   - visual artifacts disappear after a suspend-resume cycle
   - alternative temporary solution: rollback to 07/22 while devs investigate: `bazzite-rollback-helper rebase 40-stable-20240722`
     - Note, after the bug is fixed, you'll want to resume stable updates via running `bazzite-rollback-helper rebase stable`
+- focus issue after resume from suspend, where the controller seems to be stuck in Steam UI and not getting picked up by the game
+  - solution: disable custom wake movies, see github issues [here](https://github.com/ublue-os/bazzite/issues/1474) and [here](https://github.com/ValveSoftware/SteamOS/issues/1424) for more details
 - If using Decky loader, shutdown can take an unusually long time
   - this is because Decky sets an unusually long timeout time (45s)
   - workaround: shorten the timeout time:

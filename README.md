@@ -251,6 +251,8 @@ Simple Decky TDP Plugin - https://github.com/aarron-lee/SimpleDeckyTDP
 
 Controller-friendly Youtube app (with steam input community profile) - https://github.com/Haroon01/youtube-tv-client
 
+Controller-friendly Crunchyroll app (with steam input community profile) - https://github.com/aarron-lee/crunchyroll-linux
+
 <!-- Refind GUI - tool for setting up selection screen for dual-booted devices: https://github.com/jlobue10/rEFInd_GUI -->
 
 (nobaraOS) Script that monitors CPU temps and blasts fans when temps are too high - see guide [here](#setup-monitor-script-that-blasts-fans-when-cpu-temps-climb-too-high-tested-on-nobaraos-only)

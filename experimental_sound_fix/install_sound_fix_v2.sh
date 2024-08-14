@@ -22,6 +22,16 @@ if [ "$EUID" -eq 0 ]; then
     exit 1
 fi
 
+product_name=$(cat /sys/devices/virtual/dmi/id/product_name)
+product_name=$(echo "$product_name" | tr -d '[:space:]')
+
+if [ "$product_name" = "83E1" ]; then
+    echo "Legion Go detected. Continuing install"
+else
+    echo "Device $product_name is not a Legion Go"
+    exit 1
+fi
+
 echo "installing pipewire EQ sound improvements"
 # download + setup pipewire EQ sound improvements
 

@@ -18,6 +18,8 @@ Note that while a lot of things are working, Linux support for this device is ve
   - [Bazzite Deck Edition](#bazzite-deck-edition-guides)
   - [NobaraOS](#nobaraos-guides)
   - [Other Guides](#other-guides)
+    - [How to change display scaling on internal display](#how-to-change-display-scaling-on-internal-display)
+    - [How do gamescope scaling options work?](#how-to-use-steams-scaling-features-such-as-int-scaling-fsr-etc)
 - [Emulator Info](#emulator-info)
 - [TDP Control overview](#tdp-control)
 - [Controller Support overview](#controller-support)
@@ -701,6 +703,25 @@ includes:
 ---
 
 ## Other guides
+
+### How to change display scaling on internal display
+
+source: https://www.reddit.com/r/SteamDeck/comments/17qhmpg/comment/k8dgjnq/
+
+Follow the below steps to enable UI scaling for the internal display:
+
+1. Install Decky Plugin loader if you haven't already.
+2. Go into Decky Loaders settings and under General enable "Developer mode".
+3. A new section appears on the left hand side named "Developer", go in there and enable "Enable Valve Internal".
+4. Go into Steam Deck settings and under System enable "Enable Developer Mode".
+5. Scroll all the way down in the left hand list and a new section named "Valve Internal" have appeared, go in there. BE CAREFUL HERE, THESE SETTINGS ARE POTENTIALLY DANGEROUS!
+6. Scroll down a bit until you see "Show display scaling settings for Internal Display" and enable it. MAKE SURE TO NOT TOUCH ANYTHING ELSE UNLESS YOU KNOW WHAT YOU'RE DOING.
+7. The new display scaling options will now be available under Display.
+8. Disable developer mode under System.
+9. In Decky Loaders settings, disable "Enable Valve Internal" in the Developer section.
+10. Still in Decky Loader, disable developer mode under General.
+
+The display scaling options will still be available in the display settings after disabling developer mode. Enjoy!
 
 ### How to use steam's scaling features, such as int scaling, FSR, etc
 

@@ -737,6 +737,8 @@ PDF Mirror of guide [here](./steam-resolutions-guide.pdf)
 
 ### Calibrate Gyro and Joysticks
 
+Requires newer bios (v32 or later)
+
 1. hold LT+LS and RT+RS
 2. once the rgb swirls blue, rotate the sticks fully deflected (calibrates sticks)
 3. place the LGO on the floor and press LT and RT twice to signal you're done

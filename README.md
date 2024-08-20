@@ -20,6 +20,8 @@ Note that while a lot of things are working, Linux support for this device is ve
   - [Other Guides](#other-guides)
     - [How to change display scaling on internal display](#how-to-change-display-scaling-on-internal-display)
     - [How do gamescope scaling options work?](#how-to-use-steams-scaling-features-such-as-int-scaling-fsr-etc)
+    - [Calibrating gyro and joysticks](#calibrate-gyro-and-joysticks)
+    - [Refind bootloader for dual boot](#install-refind-bootloader-for-touchscreen-option-to-switch-between-windows-and-linux)
 - [Emulator Info](#emulator-info)
 - [TDP Control overview](#tdp-control)
 - [Controller Support overview](#controller-support)
@@ -732,6 +734,13 @@ Full guide here: https://medium.com/@mohammedwasib/a-guide-to-a-good-docked-gami
 Reddit discussion [here](https://www.reddit.com/r/SteamDeck/comments/z90ca0/a_guide_to_a_good_docked_gaming_experience_on_the/)
 
 PDF Mirror of guide [here](./steam-resolutions-guide.pdf)
+
+### Calibrate Gyro and Joysticks
+
+1. hold LT+LS and RT+RS
+2. once the rgb swirls blue, rotate the sticks fully deflected (calibrates sticks)
+3. place the LGO on the floor and press LT and RT twice to signal you're done
+4. the gyro will then begin calibration. once it stops blinking green and red and goes back to your normal rgb setting it will be done
 
 ### Install Refind bootloader for touchscreen option to switch between Windows and Linux
 

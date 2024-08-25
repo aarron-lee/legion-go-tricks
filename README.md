@@ -757,10 +757,10 @@ http://www.rodsbooks.com/refind/
 Instructions:
 
 1. Enter on Bazzite Desktop mode
-2. Download the RPM on SourceForge (**file that ends with a** `.rpm`) and open a terminal (ex : Console on Bazzite)
+2. Download the RPM on SourceForge (**file that ends with a** `x86_64.rpm`) and open a terminal (ex : Console on Bazzite). Note that you should **NOT** download the file that ends with`src.rpm`
 3. cd into your Download directory (ex : `cd ~/Downloads/`)
-4. Run `sudo rpm-ostree install refind-*.rpm` (This will install the rEFInd RPM using rpm-ostree)
-5. Run `sudo refind-install` (Read further into the resources if you want to enable Secure Boot)
+4. Run `sudo rpm-ostree install refind-*.rpm` (This will install the rEFInd RPM using rpm-ostree). After installing the rpm successfully, reboot the device.
+5. After reboot, run `sudo refind-install` (Read further into the resources if you want to enable Secure Boot)
 6. OPTIONAL : Download [custom rEFInd theme](https://drive.google.com/drive/folders/1QJBljL_8QPeaMhQ0-qXAc9U8f3AcgNBs?usp=sharing) (credits goes to Yannis Vierkötter and his rEFInd-Minimalist for the original theme) (download mirror link [here](./resources/rEFInd-Minimalist-LGO_Bazzite.zip))
 7. OPTIONAL : Unzip then run `sudo sh -c 'mkdir /boot/efi/EFI/refind/themes/ ; set -euo pipefail cp -r rEFInd-Minimalist-LGO_Bazzite/ /boot/efi/EFI/refind/themes/ && grep -qFx "include themes/rEFInd-Minimalist-LGO_Bazzite/theme.conf" "/boot/efi/EFI/refind/refind.conf" || echo "include themes/rEFInd-Minimalist-LGO_Bazzite/theme.conf" >> /boot/efi/EFI/refind/refind.conf ' ` (make sure rEFInd-Minimalist-LGO_Bazzite/ is present in the directory you are currently in, type in the command `ls` to see all available files)
 8. Reboot into BIOS and set rEFInd as the first option in the boot order

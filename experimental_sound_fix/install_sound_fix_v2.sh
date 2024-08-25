@@ -29,7 +29,15 @@ if [ "$product_name" = "83E1" ]; then
     echo "Legion Go detected. Continuing install"
 else
     echo "Device $product_name is not a Legion Go"
-    exit 1
+    echo "This fix is NOT intended for your device. If you decided to proceed with installing it,"
+    echo "note that it is NOT supported and can potentially cause issues on your device."
+    echo "no support or help will be provided by developers for this"
+
+    read -p "Would you like to proceed? (y/n)" yn
+    case $yn in
+        [Yy]) echo "Continuing install...";;
+        *) echo "Exiting." && exit 1;;
+    esac
 fi
 
 echo "installing pipewire EQ sound improvements"
@@ -117,4 +125,3 @@ READ THE FOLLOWING!
 echo "note that this fix itself is a bit odd.
 the volume of your regular speakers affects the max volume of the 'Legion GO' sound option.
 so basically install this fix, then max out/adjust audio volume on regular speakers, then swap to other audio source"
-

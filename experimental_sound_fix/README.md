@@ -19,7 +19,7 @@ credit to @KyleGospo for fixing default sound options and other configuration up
 run the following in terminal:
 
 ```
-curl -L https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/main/experimental_sound_fix/install_sound_fix_v2.sh | sh
+bash <(curl -fsSL https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/main/experimental_sound_fix/install_sound_fix_v2.sh)
 ```
 
 Afterwards, you will see an additional Playback device in your audio options `Legion GO`

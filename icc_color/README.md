@@ -4,7 +4,7 @@ thanks @adolfotregosa on discord!
 
 icc color profiles tuned for sRGB on the LGO display
 
-Works everywhere BUT KDE6 also corrects gamut.
+ICC works only under linux and only wayland. KDE6 and GNOME 46/47 should also correct gamut.
 
 # Apply lut to gamescope-session
 
@@ -29,3 +29,9 @@ ENABLE_VKBASALT=1
 ```
 
 Then in gamescope-session, the `home` button (on a keyboard) will toggle it on/off.
+
+If you do not want it enabled globally, you must add `ENABLE_VKBASALT=1 %command%` for each game.
+
+It currently only works for applications that use Vulkan. For OpenGL games, you can try using Zink with the following command:
+
+`ENABLE_VKBASALT=1 MESA_LOADER_DRIVER_OVERRIDE=zink %command%`

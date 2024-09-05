@@ -14,12 +14,12 @@ download vkBasalt.conf, and place it here:
 
 `~/.config/vkBasalt/vkBasalt.conf`
 
-also, download the `lut_32.png` file, and place it in the `~/.config/vkBasalt` folder.
+also, download the `lut_18.png` file, and place it in the `~/.config/vkBasalt` folder.
 
 Then, edit the `vkBasalt.conf` file and update the lutFile to the correct path
 
 ```
-lutFile = "/path/to/lut_file/lut_32.png"
+lutFile = "/path/to/lut_file/lut_18.png"
 ```
 
 to enable it globally, edit the `/etc/environment` file and add the following:

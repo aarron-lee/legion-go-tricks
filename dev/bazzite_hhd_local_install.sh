@@ -7,6 +7,9 @@ fi
 
 # disable built in bazzite service
 sudo systemctl disable --now hhd@$USER.service
+# disable built-in hhd on reboots
+sudo systemctl mask hhd@$USER.service
+
 
 cd $HOME/.local/bin
 

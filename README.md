@@ -62,7 +62,8 @@ At the moment, the following functions work out of the box
 - Controllers, both attached and detached
   - note, controllers work best in X-input mode. see [official Legion Go Userguide PDF](./legion_go_user_guide_en.pdf) to read more about controller modes
   - ChimeraOS, NobaraOS, BazziteOS all ship OOTB with basic controller support
-  - BazziteOS + NobaraOS ships with HHD, which enables full gyro + back button + controller support in steam input
+  - BazziteOS ships with HHD, which enables full gyro + back button + controller support in steam input
+  - NobaraOS ships with InputPlumber, which adds support for the controller in Steam Input
   - misc: some other non-gaming distros don't include the udev rule for the controller, you can manually add it with [this script](./add-lgo-xpad-rule.sh)
 - FPS/Mouse mode works
 - scroll wheel on controller works fine for scrolling websites, etc
@@ -78,9 +79,9 @@ At the moment, the following functions work out of the box
 These functions are not working out of the box, but have workarounds
 
 - Steam/QAM Buttons/Rear back buttons - all buttons can be used in Steam via Dualsense Edge Virtual/Emulated Controller [Video demo here](https://www.youtube.com/watch?v=uMiXNKES2LM).
-  - note that Bazzite and Nobara now ship with hhd, which enables all buttons + gyro to work ootb.
-- Gyro - uses the same fix as buttons fix
-  - Gyro performance is best with hhd Dualsense Edge Emulator
+  - note that Bazzite ships with hhd, which enables all buttons + gyro to work ootb.
+  - Nobara ships InputPlumber, which is an alternative to hhd
+- Gyro - uses the same fix as buttons fix (emulate Dualsense or Steam Controller via hhd or inputplumber)
 - Trackpad - this hardware previously already worked, but was not usable in steam input.
   - With the latest version of the PS5 Dualsense edge emulators, it is now usable in steam input. [Video Demo here](https://www.youtube.com/watch?v=RuSboPkZob4)
 - TDP - requires using either hhd or decky plugins
@@ -92,17 +93,17 @@ These functions are not working out of the box, but have workarounds
 - v28 bios - STAMP mode is bugged on both Windows and Linux when setting high TDPs with 3rd party tools like ryzenadj and handheld companion
   - users reported that they were getting hard crashes at 30W TDP on both Windows and Linux
   - **Solution**: on STAMP mode, TDP must be set with a custom fan curve that will prevent thermal shutdown.
-    - You can set custom fan curves on bios v29.1 with the LegionGoRemapper plugin
+    - You can set custom fan curves on bios v29.1 with the LegionGoRemapper plugin or via hhd-ui
     - alternatively, if you don't want to use a custom fan curve, you can enable the `Lenovo Custom TDP` toggle in SimpleDeckyTDP
+    - hhd-ui also supports Lenovo's wmi methods, so it's safe to use for fan control and TDP
 - Screen Refresh Rate and FPS control - unified refresh rate + FPS slider now works perfectly on latest bazzite stable, fixes should now also be on the latest Nobara Deck Edition too.
-  - ChimeraOS might not have the fix yet, should be in v46
+  - ChimeraOS should also have the fixes
 - adaptive/auto display brightness doesn't work yet
   - manual brightness slider in steam UI works without issues
-  - there's work in progress from devs for to get this fully working
 
 ## What has issues
 
-- **v29 bios - IMPORTANT BIOS BUG:** You cannot set custom fan curves and use Lenovo's custom TDP mode for TDP control simultaneously,the LGO bios has a bug
+- **v29 bios - IMPORTANT BIOS BUG:** You cannot set custom fan curves and use Lenovo's custom TDP mode for TDP control simultaneously, the LGO bios has a bug
   - this bug is fully resolved on bios v29.1 and newer
 - Adaptive Brightness sensor - hardware is detectedby the OS, but not used for auto-brightness yet
   - there's dev work in progress for auto-brightness
@@ -114,8 +115,6 @@ These functions are not working out of the box, but have workarounds
 
 - (08/2/2024) Bazzite - reports of an odd square-shaped rainbow colored visual artifact on the screen in game mode/gamescope-session
   - visual artifacts disappear after a suspend-resume cycle
-  - alternative temporary solution: rollback to 07/22 while devs investigate: `bazzite-rollback-helper rebase 40-stable-20240722`
-    - Note, after the bug is fixed, you'll want to resume stable updates via running `bazzite-rollback-helper rebase stable`
 - focus issue after resume from suspend, where the controller seems to be stuck in Steam UI and not getting picked up by the game
   - solution: disable custom wake movies, see github issues [here](https://github.com/ublue-os/bazzite/issues/1474) and [here](https://github.com/ValveSoftware/SteamOS/issues/1424) for more details
 - If using Decky loader, shutdown can take an unusually long time
@@ -136,23 +135,7 @@ sudo systemctl daemon-reload
   - reorder the controller from player 2 to player 1 in the QAM.
 - user reports say wifi has lower download speeds on Linux vs Windows
 - alternative resolutions while in desktop mode are buggy/broken
-  - instead of changing resolution, change scaling for to enlarge/shrink UI elements
-
-### Bazzite bugs
-
-- Bazzite 3.5 bug - after upgrading to bazzite 3.5, some LGO users have reported booting into a black screen
-  - potential workarounds:
-    - first, open a tty + login via pressing `Ctrl + alt + f2` on a physical keyboard
-    - then, delete old/stale env variables from `$HOME/.config/environment.d`
-      - command for removing all env variables: `rm $HOME/.config/environment.d/*`
-    - also, run `sudo systemctl daemon-reload`
-    - reboot
-  - if potential workarounds don't work, you'll probably need to consider a bazzite rollback to an older version
-- bugs related to new gamescope changes, usually related to refresh rate and fps limiters - if you encounter problems, recommendation is to rollback to 04/27
-  - 04/27 also is the last image available for swipe gestures while in game mode
-  - experimental rollback option: antheas has made an experimental 04/27 bazzite image available, which can be used via the following command: `rpm-ostree rebase ostree-unverified-registry:ghcr.io/hhd-dev/bazzite-dc:40-20240427`
-- autoVRAM can be buggy, disabling it in the bios is recommended
-  - fix is being investigated
+  - instead of changing resolution in Desktop mode, change scaling for to enlarge/shrink UI elements
 
 ### User-reported bugs (needs verification)
 
@@ -201,8 +184,7 @@ As for which one you should install, here's a breakdown of the benefits and draw
 - Nobara is the most similar to a standard Linux distro, and does not have a read-only root filesystem
 - This provides the most flexibility for running custom kernels, modifying system files, etc
 - Can setup most workarounds and tools for a great experience on the Legion Go
-- now ships with HHD and gamescope patches by default, so it should be a fairly bug-free experience now
-  - requires latest NobaraOS updates
+- now ships with InputPlumber for to add support for the controller's gyro + extra buttons
 
 **Cons**
 
@@ -228,14 +210,13 @@ As for which one you should install, here's a breakdown of the benefits and draw
 - Excellent support for a variety of handhelds besides the Legion Go
 - Good Dev and community support on their Discord
 - Has it's own implementation of Emulator support, etc
+- ships InputPlumber for controller support
 - supports distrobox for more flexibility in software install options
 
 **Cons**
 
 - Installing some recommended tools, such as acpi_call for custom fan curves, requires unlocking the root filesystem
   - ChimeraOS 45-1 now includes `acpi_call`, which is currently required for custom fan curves and Lenovo Custom TDP control
-- hhd needs to be manually installed
-  - handycon will also need to be manually disabled after every major OS update
 - ChimeraOS's emulation implementation interferes with Emudeck, you'll need to manually disable the ChimeraOS implementation
 - Only desktop option is Gnome, so anyone that prefers KDE will have to look elsewhere
 - ChimeraOS has a slower release cycle, a new version is released every 1-3 months.
@@ -243,11 +224,13 @@ As for which one you should install, here's a breakdown of the benefits and draw
 
 # Resources
 
-HHD - PS5 Dualsense Edge Emulator - https://github.com/hhd-dev/hhd
+HHD - Controller Emulator - https://github.com/hhd-dev/hhd
 
 - has a Decky plugin available for changing hhd settings: https://github.com/hhd-dev/hhd-decky
 - also has a desktop app https://github.com/hhd-dev/hhd-ui
 - hhd also supports overlay mode in Steam Game mode, and offers a solution for TDP and fan curve control
+
+InputPlumber - Controller Emulator - https://github.com/ShadowBlip/InputPlumber/
 
 RGB Decky Plugin - https://github.com/aarron-lee/LegionGoRemapper/
 
@@ -263,9 +246,9 @@ Controller-friendly Crunchyroll app (with steam input community profile) - https
 
 reverse engineering docs - https://github.com/antheas/hwinfo/tree/master/devices
 
-powerbutton fix when using rogue-enemy - https://github.com/aarron-lee/steam-powerbuttond
+powerbutton fix when using InputPlumber - https://github.com/ShadowBlip/steam-powerbuttond
 
-Pipewire sound EQ improvement files (not maintained) - https://github.com/matte-schwartz/device-quirks/tree/legion-go/rog-ally-audio-fixes/usr/share/device-quirks/scripts/lenovo/legion-go
+Original Pipewire sound EQ improvement files (not maintained) - https://github.com/matte-schwartz/device-quirks/tree/legion-go/rog-ally-audio-fixes/usr/share/device-quirks/scripts/lenovo/legion-go
 
 - updated version of sound improvements [here](./experimental_sound_fix/README.md)
 
@@ -326,17 +309,11 @@ The Lenovo Legion Go is compatible with the fwupd tool. To use it follow the fol
 
 5.) It will ask you to reboot, Select `y`. The system will reboot multiple times. Leave the AC plugged in and wait for it to return to the OS.
 
-## Bazzite Deck Edition Guides
+## Bazzite Deck Guides
 
 ### FAQ on bazzite site for rollback, pinning OS version, etc
 
 See official site at: https://universal-blue.discourse.group/docs?topic=36
-
-### Enable Konsole application
-
-search for `Konsole` in your application search, you should see a `run Konsole` option.
-
-Click the `run Konsole`, and in the new terminal window execute `ujust restore-original-terminal` for Konsole to become searchable as an app.
 
 ### eGPU setup (AMD eGPU only)
 
@@ -415,35 +392,11 @@ User reported issue where Nested Desktop frequently fails. As a fix, set a `per 
 
 If you still run into frequent freezes, please report the bug on the Bazzite Discord.
 
-### Change Nested Desktop Resolution
-
-run the [bazzite-nested-desktop-resolution.sh](./bazzite-nested-desktop-resolution.sh) script.
-
-You can edit the script with your preferred nested desktop resolution before running it.
-
-After running the script, restart Game mode. Then change steam's resolution to match the resolution you set.
-
 ### Experimental Sound fix
 
 see install instructions [here](./experimental_sound_fix/README.md)
 
 Note that it should also work for NobaraOS, but will require a reboot
-
-### Install experimental Bazzite rollback helper
-
-**NOTE: THE ROLLBACK HELPER IS NOW INCLUDED IN BAZZITE OS AS OF RELEASE 3.0 (2024-04-24)**
-
-If you are on an older version of bazzite, run the following to install the helper:
-
-```bash
-curl -L https://raw.githubusercontent.com/aarron-lee/legion-go-tricks/main/bazzite-install-rollback-helper.sh | sh
-```
-
-afterwards, run `bazzite-rollback-helper --help` in terminal for usage instructions
-
-If you want to uninstall the helper, delete the `bazzite-rollback-helper` file in `$HOME/.local/bin`
-
-See video for bazzite-rollback-helper usage demo: https://www.youtube.com/watch?v=XvljabnzgVo
 
 ### Roll back to Bazzite image with specific Linux Kernel
 
@@ -507,10 +460,6 @@ secure boot tpm unlock - `systemd-cryptenroll` -->
 ---
 
 ## NobaraOS Guides
-
-### Fix 60Hz and 144Hz
-
-should now be fixed with the latest NobaraOS updates.
 
 ### Setup lock screen for desktop mode only (KDE only)
 
@@ -660,8 +609,6 @@ frame_timing=0
 
 If you're seeeing a fuzzy screen, it means that the you're somehow using an invalid refresh rate. The only valid refresh rates for a game are 60 and 144Hz.
 
-Update: There's a refresh rate permanent fix available on BazziteOS, the fix should also be on the latest NobaraOS
-
 ### Disable nobaraOS grub boot menu during boot
 
 [Source](https://www.reddit.com/r/linux4noobs/comments/wzoiu4/comment/im5cfx7/?context=3)
@@ -688,19 +635,6 @@ Tip: even if your boot menu is hidden, you can access it when your pc is startin
 If you have BIOS: press and hold SHIFT key right after you see you Motherboard/PC splash screen
 
 If you have UEFI: start pressing ESC the moment you see your motherboard/pc splash screen.
-
-### Updated Nested Desktop with Nobara 39 (thanks matt_schwartz for the update):
-
-`sudo dnf install plasma-lookandfeel-nobara-steamdeck-additions`
-
-includes:
-
-- should support Legion Go at native resolution
-  - It should work for both Steam Deck and ROG Ally.
-  - Make sure to set the game entry to “Native” in the Steam game settings menu first.
-- you’ll have to set scaling once in the KDE settings when the nested desktop session loads for the first time but it should save it for future nested desktop sessions
-  or else the screen will be for ants at 1600p
-- also adds back the right-click “add to steam” shortcut you get with the steamdeck-KDE-presets package (which conflicts with the new theming)
 
 ---
 
@@ -793,16 +727,6 @@ Configure gyro according to [this guide](https://emudeck.github.io/emulators/ste
 
 Thanks to @Paper on Discord for this tip
 
-## HHD (Dualsense Controller emulation)
-
-Game emulators sometimes don't recognize the emulated dualsense controller via HHD.
-
-This is usually because the emulator may have temporarily latched onto the original xbox controller instead of the emulated dualsense
-
-- you can usually resolve this by flipping the fps-mode switch on and off.
-- if you still have a controller issue afterwards, reorder the controller from player 2 to player 1 in the QAM.
-  - sometimes steam registers the emulated controller as player 2 even when no other controller is attached
-
 ## Emudeck
 
 On Bazzite, install via the ujust script in terminal.
@@ -821,13 +745,7 @@ For to improve stability, you can disable V-sync in the Dolphin settings
 
 # TDP Control:
 
-Note that the Legion Go (LGO) has an issue in STT mode (vs STAMP mode in the bios), where custom TDP values will eventually get changed by the bios while in STT mode. STAMP mode fixes this, but there are users reporting crashing while in STAMP mode. STT does not have this stability issue.
-
-If you use the SimpleDeckyTDP plugin with the [LGO custom TDP method](https://github.com/aarron-lee/SimpleDeckyTDP/blob/main/py_modules/devices/README.md#experimental-custom-tdp-method-for-the-legion-go), fixes stability issues on STAMP. Note that this requires bios v28 or newer
-
-Alternatively, you can set a custom fan curve, which should also help fix the issue.
-
-There's a few options for TDP Control on the Legion Go.
+TDP on the Legion Go must be set via Lenovo's wmi methods, which currently aren't accessible without acpi_call on Linux. There is a work in progress driver for the LGO, but it is not ready yet.
 
 ### `Legion_L + Y` combo
 
@@ -859,37 +777,24 @@ Basic Desktop app for TDP control, but can also be added to game mode as a backu
 
 https://github.com/aarron-lee/simple-ryzen-tdp/
 
-### Steam Patch (deprecated, no longer maintained)
-
-Steam Patch enables Steam's TDP slider + GPU sliders to work. Note that this works by patching the Steam client, which means that any Steam updates from Valve can potentially break this fix.
-
-https://github.com/corando98/steam-patch
-
 # Controller support
 
 ### hhd
 
 Link: https://github.com/antheas/hhd
 
-PS5 Dualsense Edge controller emulator, currently supports all buttons on the LGO controller except the back scrollwheel (scrollwheel already worked previously). Has improvements vs rogue, such as more consistently working rumble, config file for configuring different options, RGB LED control via steam input, etc. It also supports managing the power button, so no extra program is necessary.
+Controller emulator, currently supports all buttons on the LGO controller except the back scrollwheel (scrollwheel already worked previously). consistently working rumble, config file for configuring different options, RGB LED control via steam input, etc. It also supports managing the power button, so no extra program is necessary.
 
 It is preinstalled on Bazzite for the Legion Go, ROG Ally, abd several other PC handheld devices.
 
 Install instructions are available on the github.
 
-### HandyGCCS (aka handycon)
+### InputPlumber
 
-Default installed OOTB on ChimeraOS, Nobara Deck Edition. It supports all the standard Xbox controls, `Legion_L + X` for Steam/Home, `Legion_L + A` for QAM. Back buttons are not supported.
+Link - https://github.com/ShadowBlip/InputPlumber/
 
-Note that you can get back buttons to work with the LegionGoRemapper plugin, but it has the same limitations as the LegionSpace app on Windows; you can only remap back buttons to other controller buttons, and they cannot be managed individually in Steam Input.
+Controller emulator, used to provide controller support on Nobara and ChimeraOS
 
-### rogue-enemy (deprecated/no longer maintained)
-
-Link: https://github.com/corando98/ROGueENEMY
-
-PS5 Dualsense Edge controller emulator, currently manages all hardware buttons except the back scrollwheel (scrollwheel already works). Back buttons are usable in Steam Input, same for the trackpad.
-
-Note that rogue-enemy has conflicts with handygccs, so it must be disabled. Also, since handygccs handles for the power button, you'll need a separate solution for power button suspend. You can use this, which was extracted from handygccs: https://github.com/aarron-lee/steam-powerbuttond
 
 # Quality Of Life Fixes
 
@@ -907,18 +812,6 @@ PS5 to Xbox Controller Glyph Theme - https://github.com/frazse/PS5-to-Xbox-glyph
 - If you'd like to manually edit mappings, you can find glyphs at `$HOME/.local/share/Steam/controller_base/images/api/dark/`
   - manual mapping can be done by editing the css file with the svg/png paths you want
 
-#### Bazzite theme Install instructions
-
-```bash
-# if you didn't install decky, install it first
-ujust setup-decky
-# legion go theme install
-ujust install-legion-go-theme
-# ps5 to xbox glyph theme
-ujust install-hhd-xbox-glyph-theme
-# afterwards, install CSS loader from the Decky Store, and enable the legion go or hhd themes in CSS loader + reboot
-```
-
 ### Other Linux Distro theme install instructions
 
 ```
@@ -931,18 +824,6 @@ cd $HOME/homebrew/themes && git clone https://github.com/frazse/SBP-Legion-Go-Th
 cd $HOME/homebrew/themes && git clone https://github.com/frazse/PS5-to-Xbox-glyphs
 ```
 
-### LegionGoRemapper Decky Plugin - Fan Control + RGB control + backbutton remapping
-
-Link: https://github.com/aarron-lee/LegionGoRemapper/
-
-Allows for managing back button remaps, controller RGB lights, toggle touchpad on/off, etc
-
-You can also enable custom fan curves, confirmed functional on bios v29
-
-- note that this uses the exact same functionality as LegionSpace on Windows, so it has the same limitations
-- back button remapping should not be used w/ PS5 controller emulation
-
-Note, HHD is also now an alternative for fan control on the Legion Go
 
 # 3D prints
 
@@ -969,13 +850,6 @@ controller caryy case - https://www.thingiverse.com/thing:6499314
 travel cover
 https://cults3d.com/en/3d-model/gadget/legion-go-front-cover
 
-# Misc
-
-install AppImage manager
-
-```
-flatpak install flathub it.mijorus.gearlever -y --user
-```
 
 <!--
 https://steamcommunity.com/groups/SteamClientBeta/discussions/3/3775742015037677494/

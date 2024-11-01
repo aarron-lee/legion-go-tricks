@@ -2,7 +2,7 @@
 
 ## IF ON BAZZITE OS, THIS FIX HAS BEEN ADDED TO THE OS ALREADY.
 
-## IF ON CHIMERA OS, THIS FIX WILL BE ADDED SOON
+## IF ON CHIMERA OS, THIS FIX HAS BEEN ADDED
 
 > This sound fix applies a surround sound convolver profile, similar to Dolby Atmos for Built-In Speakers
 

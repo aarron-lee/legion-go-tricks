@@ -40,6 +40,7 @@ WorkingDirectory=/var/home/$USER/.local/bin/hhd/venv/bin
 ExecStart=/var/home/$USER/.local/bin/hhd/venv/bin/hhd --user $USER
 Environment="HHD_HORI_STEAM=1"
 Environment="HHD_PPD_MASK=0"
+Environment="HHD_GS_STANDBY=0"
 
 [Install]
 WantedBy=default.target

@@ -319,10 +319,12 @@ See official site at: https://universal-blue.discourse.group/docs?topic=36
 
 If you notice eGPU not running at full pcie speeds, you might need an additional kernel arg before it works at full speed.
 
+thanks to @krys on discord for the updated karg for the eGPU, read section 1.2.1 [here](https://wiki.archlinux.org/title/External_GPU) for more info
+
 1. Open up your terminal (Ptyxis), run the following command
 
 ```
-rpm-ostree kargs --append=amdgpu.pcie_gen_cap=0x40000
+rpm-ostree kargs --append=amdgpu.pcie_gen_cap=0x80000
 ```
 
 2. reboot

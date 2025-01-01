@@ -582,31 +582,6 @@ Sometimes monitor settings in the file are set to erroneous values that the disp
 
 To fix this, removing the display from the file allows it to be reconfigured. thanks @braymur on discord
 
-### NobaraOS Desktop Mode - automatically set desktop resolution scale
-
-1. Save [this script](./desktopmode-autoscale.sh) somewhere and mark it as executable
-
-- `chmod +x ./desktopmode-autoscale.sh`
-
-2. (optional) edit script's `SCALE=1.5` value to whatever scale you want
-
-3. Add it to your KDE Autostart config (Menu > search for Autostart > Add)
-
-### Use MangoHud for battery indicator
-
-Battery indicator is inconsistent on the Legion go. As a workaround, you can change mangohud to show just the battery on one of the presets.
-
-example preset, file should be in the `$HOME/.config/MangoHud/presets.conf`
-
-```
-[preset 1]
-battery=1
-fps=0
-cpu_stats=0
-gpu_stats=0
-frame_timing=0
-```
-
 ### Fuzzy screen issue
 
 If you're seeeing a fuzzy screen, it means that the you're somehow using an invalid refresh rate. The only valid refresh rates for a game are 60 and 144Hz.
@@ -643,6 +618,8 @@ If you have UEFI: start pressing ESC the moment you see your motherboard/pc spla
 ## Other guides
 
 ### How to change display scaling on internal display
+
+### Update, internal display scaling should now be available under regular developer settings
 
 source: https://www.reddit.com/r/SteamDeck/comments/17qhmpg/comment/k8dgjnq/
 
@@ -697,10 +674,11 @@ Instructions:
 3. cd into your Download directory (ex : `cd ~/Downloads/`)
 4. Run `sudo rpm-ostree install refind-*.rpm` (This will install the rEFInd RPM using rpm-ostree). After installing the rpm successfully, reboot the device.
 5. After reboot, run `sudo refind-install` (Read further into the resources if you want to enable Secure Boot)
-6. OPTIONAL : Download [custom rEFInd theme](https://drive.google.com/drive/folders/1QJBljL_8QPeaMhQ0-qXAc9U8f3AcgNBs?usp=sharing) (credits goes to Yannis Vierkötter and his rEFInd-Minimalist for the original theme) (download mirror link [here](./resources/rEFInd-Minimalist-LGO_Bazzite.zip))
-7. OPTIONAL : Unzip then run `sudo sh -c 'mkdir /boot/efi/EFI/refind/themes/ ; set -euo pipefail cp -r rEFInd-Minimalist-LGO_Bazzite/ /boot/efi/EFI/refind/themes/ && grep -qFx "include themes/rEFInd-Minimalist-LGO_Bazzite/theme.conf" "/boot/efi/EFI/refind/refind.conf" || echo "include themes/rEFInd-Minimalist-LGO_Bazzite/theme.conf" >> /boot/efi/EFI/refind/refind.conf ' ` (make sure rEFInd-Minimalist-LGO_Bazzite/ is present in the directory you are currently in, type in the command `ls` to see all available files)
-8. Reboot into BIOS and set rEFInd as the first option in the boot order
-9. Bonus step for Legion Go only: Set the Bazzite bootsplash in portrait mode, Run `sudo rpm-ostree kargs --append-if-missing=video=eDP-1:panel_orientation=left_side_up`
+6. Reboot into BIOS and set rEFInd as the first option in the boot order
+
+Optional for Legion Go only:
+1. Download [custom rEFInd theme](https://drive.google.com/drive/folders/1QJBljL_8QPeaMhQ0-qXAc9U8f3AcgNBs?usp=sharing) (credits goes to Yannis Vierkötter and his rEFInd-Minimalist for the original theme) (download mirror link [here](./resources/rEFInd-Minimalist-LGO_Bazzite.zip))
+2. Unzip then run `sudo sh -c 'mkdir /boot/efi/EFI/refind/themes/ ; set -euo pipefail cp -r rEFInd-Minimalist-LGO_Bazzite/ /boot/efi/EFI/refind/themes/ && grep -qFx "include themes/rEFInd-Minimalist-LGO_Bazzite/theme.conf" "/boot/efi/EFI/refind/refind.conf" || echo "include themes/rEFInd-Minimalist-LGO_Bazzite/theme.conf" >> /boot/efi/EFI/refind/refind.conf ' ` (make sure rEFInd-Minimalist-LGO_Bazzite/ is present in the directory you are currently in, type in the command `ls` to see all available files)
 
 ### Trick to rotate Legion Go screen for REFIND
 

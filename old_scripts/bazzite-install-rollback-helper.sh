@@ -13,7 +13,7 @@ cd /tmp
 
 git clone https://github.com/aarron-lee/legion-go-tricks.git
 
-cd /tmp/legion-go-tricks/
+cd /tmp/legion-go-tricks/old_scripts
 
 mkdir -p $HOME/.local/bin
 

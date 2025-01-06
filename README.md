@@ -622,7 +622,8 @@ If you have UEFI: start pressing ESC the moment you see your motherboard/pc spla
 
 ### How to change display scaling on internal display
 
-### Update, internal display scaling should now be available under regular developer settings
+> [!NOTE]
+>  Update: internal display scaling should soon be available under regular developer settings, you won't need to use the internal Valve settings once it's available
 
 source: https://www.reddit.com/r/SteamDeck/comments/17qhmpg/comment/k8dgjnq/
 

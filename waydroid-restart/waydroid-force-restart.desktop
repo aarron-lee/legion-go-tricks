@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Waydroid Force Restart
+Exec=sudo /usr/local/bin/waydroid-force-restart
+Categories=X-WayDroid-App;
+X-Purism-FormFactor=Workstation;Mobile;
+Icon=waydroid
+NoDisplay=false

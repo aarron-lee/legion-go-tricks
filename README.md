@@ -9,7 +9,6 @@ Note that while a lot of things are working, Linux support for this device is ve
 - [What has Workarounds?](#what-has-workarounds)
 - [What has issues?](#what-has-issues)
 - [Known Bugs](#known-bugs)
-- [User Reported Bugs (needs verification)](#user-reported-bugs-needs-verification)
 - [Which Linux Distro Should I install?](#which-linux-distro-should-i-install)
 - [Resources](#resources)
 - [CSS Loader Themes](#css-loader-plugin---themes)
@@ -35,7 +34,7 @@ ChimeraOS, Nobara Deck Edition, and Bazzite Deck Edition, all have a bunch of fi
 
 Linux is good enough to be a daily driver on the Legion Go.
 
-- Using a PS5 Dualsense Edge Controller Emulator, you get access to the entire LGO controller (including gyro) via steam input
+- Using a Steam Controller Emulator, or PS5 Dualsense Edge Controller Emulator, you get access to the entire LGO controller (including gyro) via steam input
   - the entire controller works detached too, gyros in the controller are also usable
 - TDP control can be done either via Decky Plugin or HHD (handheld daemon)
 - RGB control works via Decky Plugin or Steam Input + Dualsense emulation
@@ -64,21 +63,21 @@ At the moment, the following functions work out of the box
   - ChimeraOS, NobaraOS, BazziteOS all ship OOTB with basic controller support
   - BazziteOS ships with HHD, which enables full gyro + back button + controller support in steam input
   - NobaraOS ships with InputPlumber, which adds support for the controller in Steam Input
-  - misc: some other non-gaming distros don't include the udev rule for the controller, you can manually add it with [this script](./add-lgo-xpad-rule.sh)
+  - ~~misc: some other non-gaming distros don't include the udev rule for the controller, you can manually add it with [this script](../old_scripts/add-lgo-xpad-rule.sh)~~ controller xpad rule should now be upstream.
 - FPS/Mouse mode works
 - scroll wheel on controller works fine for scrolling websites, etc
   - scroll wheel press doesn't do anything in game mode, registers as a scroll wheel click in desktop mode
   - holding the scroll wheel for 5s will toggle the scroll wheel on/off, this is built-in lenovo provided functionality
 - trackpad works, tap to click can be configured.
   - Can tap to click on desktop mode, but must be enabled in the touchpad settings.
-  - Can be used in steam input with hhd
+  - Can be used in steam input with hhd and InputPlumber
 - Battery Indicator in Game Mode - requires bios v29 or newer
 
 ## What Has Workarounds?
 
 These functions are not working out of the box, but have workarounds
 
-- Steam/QAM Buttons/Rear back buttons - all buttons can be used in Steam via Dualsense Edge Virtual/Emulated Controller [Video demo here](https://www.youtube.com/watch?v=uMiXNKES2LM).
+- Steam/QAM Buttons/Rear back buttons - all buttons can be used in Steam via Emulated Steam controller or Dualsense Edge Emulated Controller [Video demo here](https://www.youtube.com/watch?v=uMiXNKES2LM).
   - note that Bazzite ships with hhd, which enables all buttons + gyro to work ootb.
   - Nobara ships InputPlumber, which is an alternative to hhd
 - Gyro - uses the same fix as buttons fix (emulate Dualsense or Steam Controller via hhd or inputplumber)
@@ -106,7 +105,7 @@ These functions are not working out of the box, but have workarounds
 - **v29 bios - IMPORTANT BIOS BUG:** You cannot set custom fan curves and use Lenovo's custom TDP mode for TDP control simultaneously, the LGO bios has a bug
   - this bug is fully resolved on bios v29.1 and newer
 - Adaptive Brightness sensor - hardware is detectedby the OS, but not used for auto-brightness yet
-  - there's dev work in progress for auto-brightness
+  - there's on-hold dev work for auto-brightness
     - if you wish to test it out, see [here](https://github.com/corando98/LLG_Dev_scripts?tab=readme-ov-file#ltchipotles-adaptive-brightness-algorithm)
     - the LegionGoRemapper Decky plugin also has experimental autobrightness controls
 - microphone does not work
@@ -136,11 +135,6 @@ sudo systemctl daemon-reload
 - user reports say wifi has lower download speeds on Linux vs Windows
 - alternative resolutions while in desktop mode are buggy/broken
   - instead of changing resolution in Desktop mode, change scaling for to enlarge/shrink UI elements
-
-### User-reported bugs (needs verification)
-
-- certain Decky plugins require `deck` as your username
-  - deck username fixes animation changer plugin and mangopeel plugins
 
 # Which Linux Distro should I Install?
 
@@ -226,9 +220,9 @@ As for which one you should install, here's a breakdown of the benefits and draw
 
 HHD - Controller Emulator - https://github.com/hhd-dev/hhd
 
-- has a Decky plugin available for changing hhd settings: https://github.com/hhd-dev/hhd-decky
-- also has a desktop app https://github.com/hhd-dev/hhd-ui
+- has a desktop app https://github.com/hhd-dev/hhd-ui
 - hhd also supports overlay mode in Steam Game mode, and offers a solution for TDP and fan curve control
+- (deprecated) has a Decky plugin available for changing hhd settings: https://github.com/hhd-dev/hhd-decky
 
 InputPlumber - Controller Emulator - https://github.com/ShadowBlip/InputPlumber/
 
@@ -240,7 +234,7 @@ Controller-friendly Youtube app (with steam input community profile) - https://g
 
 Controller-friendly Crunchyroll app (with steam input community profile) - https://github.com/aarron-lee/crunchyroll-linux
 
-<!-- Refind GUI - tool for setting up selection screen for dual-booted devices: https://github.com/jlobue10/rEFInd_GUI -->
+Refind GUI - tool for setting up selection screen for dual-booted devices: https://github.com/jlobue10/rEFInd_GUI
 
 (nobaraOS) Script that monitors CPU temps and blasts fans when temps are too high - see guide [here](#setup-monitor-script-that-blasts-fans-when-cpu-temps-climb-too-high-tested-on-nobaraos-only)
 

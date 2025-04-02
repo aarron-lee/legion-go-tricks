@@ -616,25 +616,14 @@ If you have UEFI: start pressing ESC the moment you see your motherboard/pc spla
 
 ### How to change display scaling on internal display
 
-> [!NOTE]
->  Update: internal display scaling should soon be available under regular developer settings, you won't need to use the internal Valve settings once it's available
-
-source: https://www.reddit.com/r/SteamDeck/comments/17qhmpg/comment/k8dgjnq/
-
 Follow the below steps to enable UI scaling for the internal display:
 
-1. Install Decky loader if you haven't already.
-2. Go into Decky settings and under General enable "Developer mode".
-3. A new section appears on the left hand side named "Developer", go in there and enable "Enable Valve Internal".
-4. Go into Steam settings and under System enable "Enable Developer Mode".
-5. Scroll all the way down in the left hand list and a new section named "Valve Internal" have appeared, go in there. **BE CAREFUL HERE, THESE SETTINGS ARE POTENTIALLY DANGEROUS!**
-6. Scroll down a bit until you see "Show display scaling settings for Internal Display" and enable it. **MAKE SURE TO NOT TOUCH ANYTHING ELSE UNLESS YOU KNOW WHAT YOU'RE DOING.**
-7. The new display scaling options will now be available under Display.
-8. Disable developer mode under Steam's System settings.
-9. In Decky Loader's settings, disable "Enable Valve Internal" in the Developer section.
-10. Still in Decky Loader, disable developer mode under General.
+1. In Steam Game mode, under system settings enable Developer mode
+2. A new section appears on the left hand side named "Developer", go in there and enable "Show display scaling settings for Internal Display".
+3. The new display scaling options will now be available under Display.
+4. Disable developer mode under Steam's System settings, the display scaling options will still be available after disabling developer mode. Enjoy!
 
-The display scaling options will still be available in the display settings after disabling developer mode. Enjoy!
+source: https://www.reddit.com/r/SteamDeck/comments/17qhmpg/comment/k8dgjnq/
 
 ### How to use steam's scaling features, such as int scaling, FSR, etc
 

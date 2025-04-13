@@ -46,8 +46,8 @@ cat << EOF > "$PIPEWIRE_CONF_DIR/convolver.conf"
 context.modules = [
     { name = libpipewire-module-filter-chain
         args = {
-            node.description = "ROG Ally"
-            media.name       = "ROG Ally"
+            node.description = "ROG Ally X"
+            media.name       = "ROG Ally X"
             filter.graph = {
                 nodes = [
                     {
@@ -55,6 +55,7 @@ context.modules = [
                         label = convolver
                         name  = convFL
                         config = {
+                            gain = 1.5
                             filename = "$HOME/.config/pipewire/ally_x.wav"
                             channel  = 0
                         }
@@ -64,6 +65,7 @@ context.modules = [
                         label = convolver
                         name  = convFR
                         config = {
+                            gain = 1.5
                             filename = "$HOME/.config/pipewire/ally_x.wav"
                             channel  = 1
                         }
@@ -73,7 +75,7 @@ context.modules = [
                 outputs = [ "convFL:Out" "convFR:Out" ]
             }
             capture.props = {
-                node.name      = "ROG Ally"
+                node.name      = "ROG Ally X"
                 media.class    = "Audio/Sink"
                 priority.driver = 1000
                 priority.session = 1000
@@ -81,7 +83,7 @@ context.modules = [
                 audio.position = [ FL FR ]
             }
             playback.props = {
-                node.name      = "ROG Ally corrected"
+                node.name      = "ROG Ally X corrected"
                 node.passive   = true
                 audio.channels = 2
                 audio.position = [ FL FR ]
@@ -98,7 +100,7 @@ systemctl --user restart --now wireplumber pipewire pipewire-pulse
 
 rm -rf /tmp/legion-go-tricks
 
-echo "Installation complete. Change your audio source to 'ROG Ally'"
+echo "Installation complete. Change your audio source to 'ROG Ally X'"
 
 echo "-------------
 READ THE FOLLOWING!

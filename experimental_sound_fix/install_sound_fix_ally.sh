@@ -25,6 +25,12 @@ fi
 echo "installing pipewire EQ sound improvements"
 # download + setup pipewire EQ sound improvements
 
+cd /tmp
+
+git clone -b rog_ally_sound_fix --single-branch https://github.com/aarron-lee/legion-go-tricks.git
+
+cd /tmp/legion-go-tricks/experimental_sound_fix
+
 PIPEWIRE_DIR=$HOME/.config/pipewire
 PIPEWIRE_CONF_DIR=$PIPEWIRE_DIR/pipewire.conf.d
 
@@ -40,8 +46,8 @@ cat << EOF > "$PIPEWIRE_CONF_DIR/convolver.conf"
 context.modules = [
     { name = libpipewire-module-filter-chain
         args = {
-            node.description = "GPD WM2"
-            media.name       = "GPD WM2"
+            node.description = "ROG Ally"
+            media.name       = "ROG Ally"
             filter.graph = {
                 nodes = [
                     {
@@ -49,7 +55,6 @@ context.modules = [
                         label = convolver
                         name  = convFL
                         config = {
-                            gain = 1.5
                             filename = "$HOME/.config/pipewire/ally.wav"
                             channel  = 0
                         }
@@ -59,7 +64,6 @@ context.modules = [
                         label = convolver
                         name  = convFR
                         config = {
-                            gain = 1.5
                             filename = "$HOME/.config/pipewire/ally.wav"
                             channel  = 1
                         }
@@ -69,7 +73,7 @@ context.modules = [
                 outputs = [ "convFL:Out" "convFR:Out" ]
             }
             capture.props = {
-                node.name      = "GPD WM2"
+                node.name      = "ROG Ally"
                 media.class    = "Audio/Sink"
                 priority.driver = 1000
                 priority.session = 1000
@@ -77,22 +81,24 @@ context.modules = [
                 audio.position = [ FL FR ]
             }
             playback.props = {
-                node.name      = "GPD WM2 corrected"
+                node.name      = "ROG Ally corrected"
                 node.passive   = true
                 audio.channels = 2
                 audio.position = [ FL FR ]
-                node.target = "alsa_output.pci-0000_74_00.6.analog-stereo"
+                node.target = "alsa_output.pci-0000_09_00.6.analog-stereo"
             }
         }
     }
 ]
 EOF
 
-cp ./experimental_sound_fix/ally.wav $PIPEWIRE_DIR/ally.wav
+cp /tmp/legion-go-tricks/experimental_sound_fix/ally.wav $PIPEWIRE_DIR/ally.wav
 
 systemctl --user restart --now wireplumber pipewire pipewire-pulse
 
-echo "Installation complete. Change your audio source to 'GPD WM2'"
+rm -rf /tmp/legion-go-tricks
+
+echo "Installation complete. Change your audio source to 'ROG Ally'"
 
 echo "-------------
 READ THE FOLLOWING!

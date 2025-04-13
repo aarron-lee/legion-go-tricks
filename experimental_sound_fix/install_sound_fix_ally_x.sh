@@ -77,8 +77,8 @@ context.modules = [
             capture.props = {
                 node.name      = "ROG Ally X"
                 media.class    = "Audio/Sink"
-                priority.driver = 1000
-                priority.session = 1000
+                priority.driver = 1500
+                priority.session = 1500
                 audio.channels = 2
                 audio.position = [ FL FR ]
             }

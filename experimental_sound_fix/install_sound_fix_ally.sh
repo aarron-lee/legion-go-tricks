@@ -55,6 +55,7 @@ context.modules = [
                         label = convolver
                         name  = convFL
                         config = {
+                            gain = 1.5
                             filename = "$HOME/.config/pipewire/ally.wav"
                             channel  = 0
                         }
@@ -64,6 +65,7 @@ context.modules = [
                         label = convolver
                         name  = convFR
                         config = {
+                            gain = 1.5
                             filename = "$HOME/.config/pipewire/ally.wav"
                             channel  = 1
                         }

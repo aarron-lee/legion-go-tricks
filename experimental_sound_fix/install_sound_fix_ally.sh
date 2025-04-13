@@ -22,30 +22,12 @@ if [ "$EUID" -eq 0 ]; then
     exit 1
 fi
 
-product_name=$(cat /sys/devices/virtual/dmi/id/product_name)
-product_name=$(echo "$product_name" | tr -d '[:space:]')
-
-if [ "$product_name" = "83E1" ]; then
-    echo "Legion Go detected. Continuing install"
-else
-    echo "Device $product_name is not a Legion Go"
-    echo "This fix is NOT intended for your device. If you decided to proceed with installing it,"
-    echo "note that it is NOT supported and can potentially cause issues on your device."
-    echo "no support or help will be provided by developers for this"
-
-    read -p "Would you like to proceed? (y/n)" yn
-    case $yn in
-        [Yy]) echo "Continuing install...";;
-        *) echo "Exiting." && exit 1;;
-    esac
-fi
-
 echo "installing pipewire EQ sound improvements"
 # download + setup pipewire EQ sound improvements
 
 cd /tmp
 
-git clone --depth=1 https://github.com/aarron-lee/legion-go-tricks.git
+git clone -b rog_ally_sound_fix --single-branch https://github.com/aarron-lee/legion-go-tricks.git
 
 cd /tmp/legion-go-tricks/experimental_sound_fix
 
@@ -64,8 +46,8 @@ cat << EOF > "$PIPEWIRE_CONF_DIR/convolver.conf"
 context.modules = [
     { name = libpipewire-module-filter-chain
         args = {
-            node.description = "Legion GO"
-            media.name       = "Legion GO"
+            node.description = "ROG Ally"
+            media.name       = "ROG Ally"
             filter.graph = {
                 nodes = [
                     {
@@ -73,7 +55,7 @@ context.modules = [
                         label = convolver
                         name  = convFL
                         config = {
-                            filename = "$HOME/.config/pipewire/multiwayCor48.wav"
+                            filename = "$HOME/.config/pipewire/ally.wav"
                             channel  = 0
                         }
                     }
@@ -82,7 +64,7 @@ context.modules = [
                         label = convolver
                         name  = convFR
                         config = {
-                            filename = "$HOME/.config/pipewire/multiwayCor48.wav"
+                            filename = "$HOME/.config/pipewire/ally.wav"
                             channel  = 1
                         }
                     }
@@ -91,7 +73,7 @@ context.modules = [
                 outputs = [ "convFL:Out" "convFR:Out" ]
             }
             capture.props = {
-                node.name      = "Legion GO"
+                node.name      = "ROG Ally"
                 media.class    = "Audio/Sink"
                 priority.driver = 1000
                 priority.session = 1000
@@ -99,29 +81,29 @@ context.modules = [
                 audio.position = [ FL FR ]
             }
             playback.props = {
-                node.name      = "Legion GO corrected"
+                node.name      = "ROG Ally corrected"
                 node.passive   = true
                 audio.channels = 2
                 audio.position = [ FL FR ]
-                node.target = "alsa_output.pci-0000_c2_00.6.analog-stereo"
+                node.target = "alsa_output.pci-0000_09_00.6.analog-stereo"
             }
         }
     }
 ]
 EOF
 
-cp /tmp/legion-go-tricks/experimental_sound_fix/multiwayCor48.wav $PIPEWIRE_DIR/multiwayCor48.wav
+cp /tmp/legion-go-tricks/experimental_sound_fix/ally.wav $PIPEWIRE_DIR/ally.wav
 
 systemctl --user restart --now wireplumber pipewire pipewire-pulse
 
 rm -rf /tmp/legion-go-tricks
 
-echo "Installation complete. Change your audio source to 'Legion GO'"
+echo "Installation complete. Change your audio source to 'ROG Ally'"
 
 echo "-------------
 READ THE FOLLOWING!
 -------------"
 
 echo "note that this fix itself is a bit odd.
-the volume of your regular speakers affects the max volume of the 'Legion GO' sound option.
+the volume of your regular speakers affects the max volume of the 'ROG Ally' sound option.
 so basically install this fix, then max out/adjust audio volume on regular speakers, then swap to other audio source"

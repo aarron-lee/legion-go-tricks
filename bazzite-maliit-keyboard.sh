@@ -18,15 +18,15 @@ EOF
 
 # bugfix kb source: https://www.youtube.com/watch?v=Dp0QhmtIP6k
 
-mkdir -p ~/.config/plasma-workspace/env/
+# mkdir -p ~/.config/plasma-workspace/env/
 
-cat << EOF > "$HOME/.config/plasma-workspace/env/immodule_temp_fix.sh"
-#!/bin/bash
-unset GTK_IM_MODULE
-unset QT_IM_MODULE
-EOF
+# cat << EOF > "$HOME/.config/plasma-workspace/env/immodule_temp_fix.sh"
+# #!/bin/bash
+# unset GTK_IM_MODULE
+# unset QT_IM_MODULE
+# EOF
 
-sudo chcon -u system_u -r object_r --type=bin_t "$HOME/.config/plasma-workspace/env/immodule_temp_fix.sh"
+# sudo chcon -u system_u -r object_r --type=bin_t "$HOME/.config/plasma-workspace/env/immodule_temp_fix.sh"
 
 echo "Install complete!"
 echo "READ THIS!!!"

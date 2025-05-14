@@ -1,9 +1,12 @@
 # Legion Go Tricks
 
+Note that this document is solely for the Original Legion Go Z1E, NOT the Legion Go S.
+
 This document serves to provide information, workarounds, and tricks to improving day-to-day use of Linux on the Legion Go.
 
 Note that while a lot of things are working, Linux support for this device is very much a work in progress, developers are working on improving the experience.
 
+- [Current Status of official SteamOS on the Legion Go](#status-of-official-steamos)
 - [Current Status of Linux on the LGO](#current-status-of-linux-on-the-lenovo-legion-go)
 - [What Works?](#what-works)
 - [What has Workarounds?](#what-has-workarounds)
@@ -27,6 +30,16 @@ Note that while a lot of things are working, Linux support for this device is ve
 - [Quality of Life Fixes overview](#quality-of-life-fixes)
 - [Resolved/won't fix bugs](#resolved-or-wont-fix-bugs-changelog-for-documentation-purposes)
 - [3D prints](#3d-prints)
+
+# Status of official SteamOS
+
+The original Legion Go Z1E is mostly working with Official SteamOS's 3.8 bleeding edge main branch, and those changes should eventually land in SteamOS stable.
+
+However, there is one major critical issue that makes official SteamOS not good on the original Legion Go.
+
+The original Legion Go has an issue where if you don't manually adjust fan curves for higher TDP values, the device can outright hard crash when running intensive AAA games at high TDPs.
+
+While TDP controls are possible on SteamOS + the Legion Go, fan controls currently are not possible. The acpi_call kernel module is required to manage fan curves, which SteamOS does not ship with. And due to SteamOS's immutable structure, enabling acpi_call is not practical.
 
 # Current Status of Linux on the Lenovo Legion Go
 
@@ -282,7 +295,6 @@ Updated Dual Boot Tutorial video for Bazzite: https://www.youtube.com/watch?v=Oj
 Bazzite Rollback tutorial video: https://www.youtube.com/watch?v=XvljabnzgVo
 
 ~~Dual Boot Tutorial Video (Bazzite + Windows) : https://www.youtube.com/watch?v=3jFnkcVBI_A~~
-
 
 ~~Dual Boot Tutorial Video (Nobara + Windows): https://www.youtube.com/watch?v=anc7hyPU6Lk~~
 
@@ -664,6 +676,7 @@ Instructions:
 6. Reboot into BIOS and set rEFInd as the first option in the boot order
 
 Optional for Legion Go only:
+
 1. Download [custom rEFInd theme](https://drive.google.com/drive/folders/1QJBljL_8QPeaMhQ0-qXAc9U8f3AcgNBs?usp=sharing) (credits goes to Yannis Vierkötter and his rEFInd-Minimalist for the original theme) (download mirror link [here](./resources/rEFInd-Minimalist-LGO_Bazzite.zip))
 2. Unzip then run `sudo sh -c 'mkdir /boot/efi/EFI/refind/themes/ ; set -euo pipefail cp -r rEFInd-Minimalist-LGO_Bazzite/ /boot/efi/EFI/refind/themes/ && grep -qFx "include themes/rEFInd-Minimalist-LGO_Bazzite/theme.conf" "/boot/efi/EFI/refind/refind.conf" || echo "include themes/rEFInd-Minimalist-LGO_Bazzite/theme.conf" >> /boot/efi/EFI/refind/refind.conf ' ` (make sure rEFInd-Minimalist-LGO_Bazzite/ is present in the directory you are currently in, type in the command `ls` to see all available files)
 
@@ -762,7 +775,6 @@ Link - https://github.com/ShadowBlip/InputPlumber/
 
 Controller emulator, used to provide controller support on Nobara and ChimeraOS
 
-
 # Quality Of Life Fixes
 
 ### CSS Loader Plugin - Themes
@@ -791,7 +803,6 @@ cd $HOME/homebrew/themes && git clone https://github.com/frazse/SBP-Legion-Go-Th
 cd $HOME/homebrew/themes && git clone https://github.com/frazse/PS5-to-Xbox-glyphs
 ```
 
-
 # 3D prints
 
 https://makerworld.com/en/models/88724#profileId-94984
@@ -816,7 +827,6 @@ controller caryy case - https://www.thingiverse.com/thing:6499314
 
 travel cover
 https://cults3d.com/en/3d-model/gadget/legion-go-front-cover
-
 
 <!--
 https://steamcommunity.com/groups/SteamClientBeta/discussions/3/3775742015037677494/

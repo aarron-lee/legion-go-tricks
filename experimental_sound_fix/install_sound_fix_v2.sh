@@ -108,6 +108,11 @@ context.modules = [
         }
     }
 ]
+
+# wav file is 48000 khz, so you must set allowed-rates accordingly
+context.properties = {
+    default.clock.allowed-rates = [ 48000 ]
+}
 EOF
 
 cp /tmp/legion-go-tricks/experimental_sound_fix/multiwayCor48.wav $PIPEWIRE_DIR/multiwayCor48.wav

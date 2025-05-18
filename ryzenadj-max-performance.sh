@@ -21,7 +21,7 @@ echo "ryzenadj exists at $RYZENADJ_PATH"
 touch /etc/udev/rules.d/99-power-source-change.rules
 
 cat <<EOF > "/etc/udev/rules.d/99-power-source-change.rules"
-SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="$RYZENADJ_PATH --max-performance"
+ACTION=="add|change", SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="/bin/sh -c '/usr/bin/ryzenadj --max-performance'"
 EOF
 
 udevadm control --reload-rules

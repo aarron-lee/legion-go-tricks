@@ -235,7 +235,7 @@ HHD - Controller Emulator - https://github.com/hhd-dev/hhd
 
 - has a desktop app https://github.com/hhd-dev/hhd-ui
 - hhd also supports overlay mode in Steam Game mode, and offers a solution for TDP and fan curve control
-- (deprecated) has a Decky plugin available for changing hhd settings: https://github.com/hhd-dev/hhd-decky
+- (deprecated) has a Decky plugin available for changing hhd settings: https://github.com/aarron-lee/hhd-decky
 
 InputPlumber - Controller Emulator - https://github.com/ShadowBlip/InputPlumber/
 

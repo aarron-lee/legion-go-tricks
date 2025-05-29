@@ -47,11 +47,13 @@ Linux is good enough to be a daily driver on the Legion Go.
 
 - Using a Steam Controller Emulator, or PS5 Dualsense Edge Controller Emulator, you get access to the entire LGO controller (including gyro) via steam input
   - the entire controller works detached too, gyros in the controller are also usable
-- TDP control can be done either via Decky Plugin or HHD (handheld daemon)
-- RGB control works via Decky Plugin or Steam Input + Dualsense emulation
+- TDP control can be done either via steamos-manager, Decky Plugin, or handheld daemon (hhd)
+  - relevant [lenovo kernel driver for TDP](https://lore.kernel.org/platform-driver-x86/20250428012029.970017-1-derekjohn.clark@gmail.com/T/#t) is required for steamos-manager
+- RGB control works via Decky Plugin or Steam Input + Dualsense emulation or hhd
 - suspend-resume works
 - all standard hardware (wifi, bluetooth, sound, etc) works
 - Fan curves can be managed via hhd-ui or the LegionGoRemapper Decky plugin.
+  - acpi_call kernel module required for fan control, kernel driver is a WIP with no ETA
 - basically all hardware on the LGO is fully usable
 
 Some of the things you find in this document may be unofficial changes to original software
@@ -62,7 +64,7 @@ Read further below for more details
 
 At the moment, the following functions work out of the box
 
-- Screen orientation (fixed in NobaraOS Deck Edition, ChimeraOS 45 stable, Bazzite OS)
+- Screen orientation (fixed in SteamOS, NobaraOS Deck Edition, ChimeraOS 45 stable, Bazzite OS)
 - suspend-resume functionality
   - suspend quirk: sound often can be fuzzy on resume, usually clears up after 30 seconds or so.
     - sometimes using the [Pause Games plugin](https://github.com/popsUlfr/SDH-PauseGames) with `Pause on Suspend` enabled can help with this issue
@@ -71,10 +73,11 @@ At the moment, the following functions work out of the box
 - Sound works
 - Controllers, both attached and detached
   - note, controllers work best in X-input mode. see [official Legion Go Userguide PDF](./legion_go_user_guide_en.pdf) to read more about controller modes
-  - ChimeraOS, NobaraOS, BazziteOS all ship OOTB with basic controller support
+  - SteamOS, ChimeraOS, NobaraOS, BazziteOS, CachyOS handheld edition, all ship with basic controller support ootb
+  - SteamOS ships InputPlumber for to handle the controller
   - BazziteOS ships with HHD, which enables full gyro + back button + controller support in steam input
-  - NobaraOS ships with InputPlumber, which adds support for the controller in Steam Input
-  - ~~misc: some other non-gaming distros don't include the udev rule for the controller, you can manually add it with [this script](../old_scripts/add-lgo-xpad-rule.sh)~~ controller xpad rule should now be upstream.
+  - NobaraOS ships with InputPlumber
+  - ~~misc: some other non-gaming distros may not include the udev rule for the controller, you can manually add it with [this script](../old_scripts/add-lgo-xpad-rule.sh)~~ controller xpad rule should now be upstream.
 - FPS/Mouse mode works
 - scroll wheel on controller works fine for scrolling websites, etc
   - scroll wheel press doesn't do anything in game mode, registers as a scroll wheel click in desktop mode
@@ -89,25 +92,19 @@ At the moment, the following functions work out of the box
 These functions are not working out of the box, but have workarounds
 
 - Steam/QAM Buttons/Rear back buttons - all buttons can be used in Steam via Emulated Steam controller or Dualsense Edge Emulated Controller [Video demo here](https://www.youtube.com/watch?v=uMiXNKES2LM).
-  - note that Bazzite ships with hhd, which enables all buttons + gyro to work ootb.
+  - SteamOS ships InputPlumber
+  - Bazzite ships hhd, which enables all buttons + gyro to work ootb.
   - Nobara ships InputPlumber, which is an alternative to hhd
-- Gyro - uses the same fix as buttons fix (emulate Dualsense or Steam Controller via hhd or inputplumber)
+- Gyro - uses the same fix as buttons fix (emulate Dualsense or Steam Controller via hhd or InputPlumber)
 - Trackpad - this hardware previously already worked, but was not usable in steam input.
   - With the latest version of the PS5 Dualsense edge emulators, it is now usable in steam input. [Video Demo here](https://www.youtube.com/watch?v=RuSboPkZob4)
-- TDP - requires using either hhd or decky plugins
+- TDP - requires using either steamos-manager, hhd, or decky plugins
 - Controller RGB Lights - requires decky plugin or HHD (HHD enables steam input RGB support) See [Video Demo here](https://youtu.be/HHubJ8AnkUk?si=oWLVultDKBMVOxlo&t=35)
-- GPU Frequency control - via SimpleDeckyTDP plugin or hhd
+- GPU Frequency control - via steamos-manager or SimpleDeckyTDP plugin or hhd
 - Custom Fan Curves - via LegionGoRemapper plugin or HHD (you need to install hhd + hhd-ui)
+  - Fan curves control currently requires the acpi_call kernel module, there's a WIP kernel driver but no ETA.
   - fan curves confirmed to work with bios v29, but bios v29.1 or newer is HIGHLY recommended due to some major bugs on v29
 - Games can sometimes default to 800p, you will need to manually change the resolution per game in the `Steam Settings > Properties > Game Resolution` to either `Native` or other higher resolutions.
-- v28 bios - STAMP mode is bugged on both Windows and Linux when setting high TDPs with 3rd party tools like ryzenadj and handheld companion
-  - users reported that they were getting hard crashes at 30W TDP on both Windows and Linux
-  - **Solution**: on STAMP mode, TDP must be set with a custom fan curve that will prevent thermal shutdown.
-    - You can set custom fan curves on bios v29.1 with the LegionGoRemapper plugin or via hhd-ui
-    - alternatively, if you don't want to use a custom fan curve, you can enable the `Lenovo Custom TDP` toggle in SimpleDeckyTDP
-    - hhd-ui also supports Lenovo's wmi methods, so it's safe to use for fan control and TDP
-- Screen Refresh Rate and FPS control - unified refresh rate + FPS slider now works perfectly on latest bazzite stable, fixes should now also be on the latest Nobara Deck Edition too.
-  - ChimeraOS should also have the fixes
 - adaptive/auto display brightness doesn't work yet
   - manual brightness slider in steam UI works without issues
 
@@ -149,11 +146,12 @@ sudo systemctl daemon-reload
 
 # Which Linux Distro should I Install?
 
-If you want a SteamOS-like experience, there are 3 distros I would recommend
+If you want a SteamOS experience, there are 3 distros I would recommend
 
-1. BazziteOS Deck Edition
-2. Nobara Deck Edition
-3. ChimeraOS
+1. Bazzite Deck Edition
+2. Official SteamOS
+3. Nobara Deck Edition
+4. ChimeraOS
 
 As for which one you should install, here's a breakdown of the benefits and drawbacks of each.
 
@@ -180,6 +178,25 @@ As for which one you should install, here's a breakdown of the benefits and draw
 - Due to it's read-only root OS, it's harder to do more comprehensive tinkering
   - e.g. running a custom Linux kernel, etc
 - slow OS install + OS updates, they take a long time
+
+# Official SteamOS
+
+**Pros**
+
+- support from Valve
+- Is a very streamlined console-like experience, doesn't include lots of extra software, etc
+- ships InputPlumber for controller support
+- supports distrobox for more flexibility in software install options
+- supports installing nix as a package manager, see [here](https://rasmuskirk.com/articles/2024-12-23_why-nix-is-the-perfect-package-manager-for-your-steam-deck/)
+- Valve is pretty on pushing updates. The positive to this is that SteamOS versions are very stable and last a fairly long time
+  - downside is that you get updates at a slower cadence
+
+**Cons**
+
+- support is still a work in progress, you will encounter bugs and issues
+- X11 KDE Desktop, whereas most other distros have already transitioned to Wayland
+- certain functionality like TDP controls, custom fan curves, RGB lights, etc, currently require tinkering or 3rd party decky plugins
+- older kernel + drivers
 
 ## Nobara Deck Edition
 
@@ -229,13 +246,13 @@ As for which one you should install, here's a breakdown of the benefits and draw
 
 # Resources
 
+InputPlumber - Controller Emulator - https://github.com/ShadowBlip/InputPlumber/
+
 HHD - Controller Emulator - https://github.com/hhd-dev/hhd
 
 - has a desktop app https://github.com/hhd-dev/hhd-ui
 - hhd also supports overlay mode in Steam Game mode, and offers a solution for TDP and fan curve control
 - (deprecated) has a Decky plugin available for changing hhd settings: https://github.com/aarron-lee/hhd-decky
-
-InputPlumber - Controller Emulator - https://github.com/ShadowBlip/InputPlumber/
 
 RGB Decky Plugin - https://github.com/aarron-lee/LegionGoRemapper/
 

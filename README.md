@@ -33,13 +33,11 @@ Note that while a lot of things are working, Linux support for this device is ve
 
 # Status of official SteamOS
 
-The original Legion Go Z1E is mostly working with Official SteamOS's 3.8 bleeding edge main branch, and those changes should eventually land in SteamOS stable.
+The original Legion Go Z1E is mostly working with Official SteamOS's 3.7.8 stable release.
 
-However, there is one major critical issue that makes official SteamOS not good on the original Legion Go.
+However, TDP Controls are missing at the moment. You can try enabling steamos-manager + reboot (`sudo systemctl enable --now steamos-manager`).
 
-The original Legion Go has an issue where if you don't manually adjust fan curves for higher TDP values, the device can outright hard crash when running intensive AAA games at high TDPs.
-
-While TDP controls are possible on SteamOS + the Legion Go, fan controls currently are not possible. The acpi_call kernel module is required to manage fan curves, which SteamOS does not ship with. And due to SteamOS's immutable structure, enabling acpi_call is not practical.
+If that doesn't work, SimpleDeckyTDP and PowerControl Decky plugins should both be able to handle TDP controls.
 
 # Current Status of Linux on the Lenovo Legion Go
 

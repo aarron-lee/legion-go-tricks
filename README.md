@@ -138,6 +138,7 @@ sudo systemctl daemon-reload
 - suspend-resume quirk: sound often is fuzzy on resume, usually clears up after 30 seconds or so, but not all the time.
   - sometimes using the [Pause Games plugin](https://github.com/popsUlfr/SDH-PauseGames) with `Pause on Suspend` enabled can help with this issue
   - sometimes temporarily increase TDP to a high value fixes the sound problem
+  - [this fix](https://github.com/aarron-lee/legion-go-tricks/tree/main/fuzzy-sound-suspend-fix) supposedly works on the Steam Deck, it may also work on the Legion Go
 - occasionally, steam will register the attached controller as player 2 even when no other controller is attached
   - reorder the controller from player 2 to player 1 in the QAM.
 - user reports say wifi has lower download speeds on Linux vs Windows

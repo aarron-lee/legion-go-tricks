@@ -6,6 +6,8 @@ This fix reportedly fixes distorted audio after waking up the steam deck.
 
 It might help on other devices too
 
+You should also consider using the "Pause Games" Decky Plugin, which helps with sound suspend issues.
+
 # For SteamOS users
 
 Make sure to set up your user password (skip this step if you already have it):

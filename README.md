@@ -1,6 +1,6 @@
 # Legion Go Tricks
 
-Note that this document is solely for the Original Legion Go Z1E, NOT the Legion Go S.
+Note that this document is solely for the Original Legion Go Z1E, NOT the Legion Go S or Legion Go 2.
 
 This document serves to provide information, workarounds, and tricks to improving day-to-day use of Linux on the Legion Go.
 
@@ -33,15 +33,13 @@ Note that while a lot of things are working, Linux support for this device is ve
 
 # Status of official SteamOS
 
-The original Legion Go Z1E is mostly working with Official SteamOS's 3.7.8 stable release.
+The original Legion Go Z1E should be fully working with Official SteamOS's 3.7.8 stable release.
 
-However, TDP Controls are missing at the moment. You can try enabling steamos-manager + reboot (`sudo systemctl enable --now steamos-manager`).
-
-If that doesn't work, SimpleDeckyTDP and PowerControl Decky plugins should both be able to handle TDP controls.
+Certain optional extra features, such as Custom Fan Curves, do not work on official SteamOS without making modifications to SteamOS.
 
 # Current Status of Linux on the Lenovo Legion Go
 
-ChimeraOS, Nobara Deck Edition, and Bazzite Deck Edition, all have a bunch of fixes for the LGO. Depending on the distro, Linux is either [feature complete](https://www.gamingonlinux.com/2024/02/bazzite-linux-adds-support-for-the-lenovo-legion-go-handheld/), or mostly working on the Legion Go.
+SteamOS, ChimeraOS, Nobara Deck Edition, and Bazzite Deck Edition, all have a bunch of fixes for the LGO. Depending on the distro, Linux is either [feature complete](https://www.gamingonlinux.com/2024/02/bazzite-linux-adds-support-for-the-lenovo-legion-go-handheld/), or mostly working on the Legion Go.
 
 Linux is good enough to be a daily driver on the Legion Go.
 
@@ -76,6 +74,7 @@ At the moment, the following functions work out of the box
   - SteamOS, ChimeraOS, NobaraOS, BazziteOS, CachyOS handheld edition, all ship with basic controller support ootb
   - SteamOS ships InputPlumber for to handle the controller
   - BazziteOS ships with HHD, which enables full gyro + back button + controller support in steam input
+    - Bazzite will eventually switch to InputPlumber
   - NobaraOS ships with InputPlumber
   - ~~misc: some other non-gaming distros may not include the udev rule for the controller, you can manually add it with [this script](../old_scripts/add-lgo-xpad-rule.sh)~~ controller xpad rule should now be upstream.
 - FPS/Mouse mode works
@@ -147,7 +146,7 @@ sudo systemctl daemon-reload
 
 # Which Linux Distro should I Install?
 
-If you want a SteamOS experience, there are 3 distros I would recommend
+If you want a SteamOS experience, there are a few distros I would recommend
 
 1. Bazzite Deck Edition
 2. Official SteamOS
@@ -189,14 +188,15 @@ As for which one you should install, here's a breakdown of the benefits and draw
 - ships InputPlumber for controller support
 - supports distrobox for more flexibility in software install options
 - supports installing nix as a package manager, see [here](https://rasmuskirk.com/articles/2024-12-23_why-nix-is-the-perfect-package-manager-for-your-steam-deck/)
-- Valve is pretty on pushing updates. The positive to this is that SteamOS versions are very stable and last a fairly long time
+- support for the hardware should be mostly complete now, excluding a few niche features
+- Valve is pretty slow on pushing updates. The positive to this is that SteamOS versions are very stable and last a fairly long time
   - downside is that you get updates at a slower cadence
 
 **Cons**
 
-- support is still a work in progress, you will encounter bugs and issues
 - X11 KDE Desktop, whereas most other distros have already transitioned to Wayland
-- certain functionality like TDP controls, custom fan curves, RGB lights, etc, currently require tinkering or 3rd party decky plugins
+  - Valve will likely be swapping to Wayland within the next few OS updates.
+- certain functionality like custom fan curves currently require tinkering or 3rd party decky plugins + acpi_call
 - older kernel + drivers
 
 ## Nobara Deck Edition
@@ -248,6 +248,7 @@ As for which one you should install, here's a breakdown of the benefits and draw
 # Resources
 
 InputPlumber - Controller Emulator - https://github.com/ShadowBlip/InputPlumber/
+- has a Decky Plugin for basic configuration, see [DeckyPlumber](https://github.com/aarron-lee/DeckyPlumber)
 
 HHD - Controller Emulator - https://github.com/hhd-dev/hhd
 
@@ -259,7 +260,7 @@ RGB Decky Plugin - https://github.com/aarron-lee/LegionGoRemapper/
 
 Simple Decky TDP Plugin - https://github.com/aarron-lee/SimpleDeckyTDP
 
-Controller-friendly Youtube app (with steam input community profile) - https://github.com/Haroon01/youtube-tv-client
+Controller-friendly Youtube app (with steam input community profile) - https://flathub.org/en/apps/rocks.shy.VacuumTube
 
 Controller-friendly Crunchyroll app (with steam input community profile) - https://github.com/aarron-lee/crunchyroll-linux
 
@@ -269,15 +270,15 @@ Refind GUI - tool for setting up selection screen for dual-booted devices: https
 
 reverse engineering docs - https://github.com/antheas/hwinfo/tree/master/devices
 
-powerbutton fix when using InputPlumber - https://github.com/ShadowBlip/steam-powerbuttond
-
 Original Pipewire sound EQ improvement files (not maintained) - https://github.com/matte-schwartz/device-quirks/tree/legion-go/rog-ally-audio-fixes/usr/share/device-quirks/scripts/lenovo/legion-go
 
 - updated version of sound improvements [here](./experimental_sound_fix/README.md)
 
 Bios archive - https://github.com/aarron-lee/legion-go-bios
 
-gyro increase sampling rate fix (advanced users only, not maintained) - https://github.com/antheas/llg_sfh
+(outdated) gyro increase sampling rate fix (advanced users only, not maintained) - https://github.com/antheas/llg_sfh
+
+(deprecated) powerbutton fix when using InputPlumber - https://github.com/ShadowBlip/steam-powerbuttond
 
 ## CSS Loader Plugin - Themes
 
